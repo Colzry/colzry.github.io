@@ -66,6 +66,9 @@ curl https://get.acme.sh | sh
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+
+# 2023-8 之后安装方法，可切换xray1.8
+bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/956bf85bbac978d56c0e319c5fac2d6db7df9564/install.sh) 0.3.4.4
 ```
 
 ## 2.0 节点配置及功能讲解
@@ -336,3 +339,34 @@ nginx -s quit
 **成功之后可对节点进行测速，对比之前的0.4M/s快了很多**
 
 ![image_ACPWbOtWlN.png](https://cdn.nlark.com/yuque/0/2022/png/22223333/1663739987055-46e5e4da-ebb4-4b94-b8ee-3442ae6ad3ca.png#clientId=u9a0ac102-2889-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=211&id=u9baae69e&name=image_ACPWbOtWlN.png&originHeight=317&originWidth=1037&originalType=binary&ratio=1&rotation=0&showTitle=false&size=31762&status=done&style=none&taskId=u8b4a3210-e3d1-4a28-8e6d-a53e76dd27d&title=&width=691.3333333333334)
+
+
+## 3.0 快速生成WS协议反代脚本
+```bash
+#!/bin/bash
+
+read -p "请输入WS路径（/xxx）: " ws_path
+read -p "请输入要反代的端口: " inverse_port
+
+file_path=/etc/x-ui/location
+if [ ! -d ${file_path} ];then
+	mkdir -p ${file_path}
+fi
+
+cat > ${file_path}${ws_path}.conf << EOF
+location ${ws_path} {
+	proxy_redirect off;
+	proxy_pass http://127.0.0.1:${inverse_port};
+	proxy_http_version 1.1;
+	proxy_set_header Upgrade \$http_upgrade;
+	proxy_set_header Connection "upgrade";
+	proxy_set_header Host \$http_host;
+	proxy_read_timeout 300s;
+	proxy_set_header X-Real-IP \$remote_addr;
+	proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+}
+EOF
+
+# 重启Nginx
+nginx -s reload
+```
