@@ -419,7 +419,7 @@ params:
     # Beian ICP and gongan information for Chinese users. 
     # See: https://beian.miit.gov.cn, http://www.beian.gov.cn
     beian:
-      enable: true
+      enable: false
       # ICP 备案的具体信息
       icp: 粤ICP备 18047355-1 号
       # 公安网备的省份简称
@@ -508,8 +508,8 @@ params:
     # Donate type
     # Usage: `name:image url`
     reward:
-      wechatpay: /imgs/wechat-pay.png
-      alipay: /imgs/ali-pay.png
+      wechatpay: /imgs/zs.jpg
+      alipay: /imgs/zs.jpg
       #paypal: /images/paypal.png
       #bitcoin: /images/bitcoin.png
 
@@ -562,7 +562,7 @@ params:
   codeblock:    
     # 支持样式类型： default | flat | mac
     # Available values: default | flat | mac
-    style: mac
+    style: default
     # 在代码块上添加拷贝按钮
     # Add copy button on codeblock
     copyBtn: true

@@ -1,3 +1,6 @@
 [submodule "themes/hugo-theme-next"]
 	path = themes/hugo-theme-next
+	url = https://gitee.com/hugo-next/hugo-theme-next.git
+[submodule "themes/hugo-theme-next/hugo-theme-next"]
+	path = themes/hugo-theme-next/hugo-theme-next
 	url = https://github.com/hugo-next/hugo-theme-next.git
