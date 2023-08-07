@@ -24,7 +24,7 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=1-编译安装>1. 编译安装
-<a class=header-anchor href=#1-%e7%bc%96%e8%af%91%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>wget https://codeload.github.com/redis/redis/tar.gz/refs/tags/7.0.4 -O redis-7.0.4.tar.gz
+<a class=header-anchor href=#1-%e7%bc%96%e8%af%91%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>wget https://codeload.github.com/redis/redis/tar.gz/refs/tags/7.0.4 -O redis-7.0.4.tar.gz
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>tar zxf redis-7.0.4.tar.gz
 </span></span><span style=display:flex><span>
@@ -36,43 +36,43 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>cd ../
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>sed -i <span style=color:#e6db74>&#39;s|daemonize no|daemonize yes|&#39;</span> redis.conf
-</span></span><span style=display:flex><span>sed -i <span style=color:#e6db74>&#39;s|# supervised auto|supervised no|&#39;</span> redis.conf
-</span></span><span style=display:flex><span>sed -i <span style=color:#e6db74>&#39;s|bind 127.0.0.1 ::1|bind 0.0.0.0|&#39;</span> redis.conf
-</span></span><span style=display:flex><span>sed -i <span style=color:#e6db74>&#39;s|protected-mode yes|protected-mode no|&#39;</span> redis.conf
-</span></span><span style=display:flex><span>sed -i <span style=color:#e6db74>&#39;s|# requirepass foobared|requirepass czyadmin|&#39;</span> redis.conf
+</span></span><span style=display:flex><span>sed -i <span style=color:#a5d6ff>&#39;s|daemonize no|daemonize yes|&#39;</span> redis.conf
+</span></span><span style=display:flex><span>sed -i <span style=color:#a5d6ff>&#39;s|# supervised auto|supervised no|&#39;</span> redis.conf
+</span></span><span style=display:flex><span>sed -i <span style=color:#a5d6ff>&#39;s|bind 127.0.0.1 ::1|bind 0.0.0.0|&#39;</span> redis.conf
+</span></span><span style=display:flex><span>sed -i <span style=color:#a5d6ff>&#39;s|protected-mode yes|protected-mode no|&#39;</span> redis.conf
+</span></span><span style=display:flex><span>sed -i <span style=color:#a5d6ff>&#39;s|# requirepass foobared|requirepass czyadmin|&#39;</span> redis.conf
 </span></span><span style=display:flex><span>mkdir /etc/redis
 </span></span><span style=display:flex><span>cp redis.conf /etc/redis/
 </span></span><span style=display:flex><span>/usr/local/bin/redis-server /etc/redis/redis.conf
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /lib/systemd/system/redis.service
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>Unit<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Description<span style=color:#f92672>=</span>Redis data structure server
-</span></span><span style=display:flex><span>Documentation<span style=color:#f92672>=</span>https://redis.io/documentation
-</span></span><span style=display:flex><span>Wants<span style=color:#f92672>=</span>network-online.target
-</span></span><span style=display:flex><span>After<span style=color:#f92672>=</span>network-online.target
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /lib/systemd/system/redis.service
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Unit<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Description</span><span style=color:#ff7b72;font-weight:700>=</span>Redis data structure server
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Documentation</span><span style=color:#ff7b72;font-weight:700>=</span>https://redis.io/documentation
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Wants</span><span style=color:#ff7b72;font-weight:700>=</span>network-online.target
+</span></span><span style=display:flex><span><span style=color:#79c0ff>After</span><span style=color:#ff7b72;font-weight:700>=</span>network-online.target
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Service<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>forking
-</span></span><span style=display:flex><span>ExecStart<span style=color:#f92672>=</span>/usr/local/bin/redis-server /etc/redis/redis.conf
-</span></span><span style=display:flex><span>ExecStop<span style=color:#f92672>=</span>/bin/kill -s TERM $MAINPID
-</span></span><span style=display:flex><span>PIDFile<span style=color:#f92672>=</span>/run/redis/redis-server.pid
-</span></span><span style=display:flex><span>TimeoutStopSec<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>Restart<span style=color:#f92672>=</span>always
-</span></span><span style=display:flex><span>RuntimeDirectory<span style=color:#f92672>=</span>redis
-</span></span><span style=display:flex><span>RuntimeDirectoryMode<span style=color:#f92672>=</span><span style=color:#ae81ff>2755</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Service<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Type</span><span style=color:#ff7b72;font-weight:700>=</span>forking
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecStart</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/local/bin/redis-server /etc/redis/redis.conf
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecStop</span><span style=color:#ff7b72;font-weight:700>=</span>/bin/kill -s TERM <span style=color:#79c0ff>$MAINPID</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>PIDFile</span><span style=color:#ff7b72;font-weight:700>=</span>/run/redis/redis-server.pid
+</span></span><span style=display:flex><span><span style=color:#79c0ff>TimeoutStopSec</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Restart</span><span style=color:#ff7b72;font-weight:700>=</span>always
+</span></span><span style=display:flex><span><span style=color:#79c0ff>RuntimeDirectory</span><span style=color:#ff7b72;font-weight:700>=</span>redis
+</span></span><span style=display:flex><span><span style=color:#79c0ff>RuntimeDirectoryMode</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>2755</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>UMask<span style=color:#f92672>=</span><span style=color:#ae81ff>007</span>
-</span></span><span style=display:flex><span>PrivateTmp<span style=color:#f92672>=</span>yes
-</span></span><span style=display:flex><span>LimitNOFILE<span style=color:#f92672>=</span><span style=color:#ae81ff>65535</span>
-</span></span><span style=display:flex><span>PrivateDevices<span style=color:#f92672>=</span>yes
-</span></span><span style=display:flex><span>ProtectHome<span style=color:#f92672>=</span>yes
+</span></span><span style=display:flex><span><span style=color:#79c0ff>UMask</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>007</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>PrivateTmp</span><span style=color:#ff7b72;font-weight:700>=</span>yes
+</span></span><span style=display:flex><span><span style=color:#79c0ff>LimitNOFILE</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>65535</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>PrivateDevices</span><span style=color:#ff7b72;font-weight:700>=</span>yes
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ProtectHome</span><span style=color:#ff7b72;font-weight:700>=</span>yes
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Install<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>WantedBy<span style=color:#f92672>=</span>multi-user.target
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl daemon-reload
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Install<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>WantedBy</span><span style=color:#ff7b72;font-weight:700>=</span>multi-user.target
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl daemon-reload
 </span></span><span style=display:flex><span>systemctl start redis.service
 </span></span></code></pre></div><h2 id=2-命令行安装>2. 命令行安装
-<a class=header-anchor href=#2-%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>apt install redis-server -y
+<a class=header-anchor href=#2-%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>apt install redis-server -y
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/redis>Redis</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">
 <span>支付宝</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 微信">

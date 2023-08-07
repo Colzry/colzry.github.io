@@ -37,59 +37,59 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 CARGO_HOME C:\Users\Colzry.cargo
 RUSTUP_HOME C:\Users\Colzry.rustup
 编辑PATH %CARGO_HOME%\bin
-<code>WSL安装</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>curl --proto <span style=color:#e6db74>&#39;=https&#39;</span> --tlsv1.2 -sSf https://sh.rustup.rs | sh
+<code>WSL安装</code></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>curl --proto <span style=color:#a5d6ff>&#39;=https&#39;</span> --tlsv1.2 -sSf https://sh.rustup.rs | sh
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 使用代理进行安装</span>
-</span></span><span style=display:flex><span>curl --proto <span style=color:#e6db74>&#39;=https&#39;</span> --tlsv1.2 -sSf https://rsproxy.cn/rustup-init.sh | sh
-</span></span></code></pre></div><blockquote><p>Linux 安装</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>curl https://sh.rustup.rs -sSf | sh
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用代理进行安装</span>
+</span></span><span style=display:flex><span>curl --proto <span style=color:#a5d6ff>&#39;=https&#39;</span> --tlsv1.2 -sSf https://rsproxy.cn/rustup-init.sh | sh
+</span></span></code></pre></div><blockquote><p>Linux 安装</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>curl https://sh.rustup.rs -sSf | sh
 </span></span></code></pre></div><h3 id=rust-代理>Rust 代理
 <a class=header-anchor href=#rust-%e4%bb%a3%e7%90%86></a></h3><p><a href=https://rsproxy.cn/ title=代理网站 rel="noopener external nofollow noreferrer" target=_blank class=exturl>代理网站
 <i class="fa fa-external-link-alt"></i></a></p><h4 id=rustup-mirror>Rustup Mirror
-<a class=header-anchor href=#rustup-mirror></a></h4><p>vim $HOME/.cargo/env</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e>########################### 字节镜像 ###################################</span>
-</span></span><span style=display:flex><span>export RUSTUP_DIST_SERVER<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://rsproxy.cn&#34;</span>
-</span></span><span style=display:flex><span>export RUSTUP_UPDATE_ROOT<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://rsproxy.cn/rustup&#34;</span>
+<a class=header-anchor href=#rustup-mirror></a></h4><p>vim $HOME/.cargo/env</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#8b949e;font-style:italic>########################### 字节镜像 ###################################</span>
+</span></span><span style=display:flex><span>export <span style=color:#79c0ff>RUSTUP_DIST_SERVER</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;https://rsproxy.cn&#34;</span>
+</span></span><span style=display:flex><span>export <span style=color:#79c0ff>RUSTUP_UPDATE_ROOT</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;https://rsproxy.cn/rustup&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>########################### 科大镜像 ###################################</span>
-</span></span><span style=display:flex><span>export RUSTUP_DIST_SERVER<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://mirrors.ustc.edu.cn/rust-static&#34;</span>
-</span></span><span style=display:flex><span>export RUSTUP_UPDATE_ROOT<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://mirrors.ustc.edu.cn/rust-static/rustup&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>########################### 科大镜像 ###################################</span>
+</span></span><span style=display:flex><span>export <span style=color:#79c0ff>RUSTUP_DIST_SERVER</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;https://mirrors.ustc.edu.cn/rust-static&#34;</span>
+</span></span><span style=display:flex><span>export <span style=color:#79c0ff>RUSTUP_UPDATE_ROOT</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;https://mirrors.ustc.edu.cn/rust-static/rustup&#34;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>########## Windows 下对应的设置环境变量的 PowerShell 命令为 ###########</span>
-</span></span><span style=display:flex><span>$env:RUSTUP_DIST_SERVER<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://mirrors.ustc.edu.cn/rust-static&#34;</span>
-</span></span><span style=display:flex><span>$env:RUSTUP_UPDATE_ROOT<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://mirrors.ustc.edu.cn/rust-static/rustup&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>########## Windows 下对应的设置环境变量的 PowerShell 命令为 ###########</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>$env</span>:RUSTUP_DIST_SERVER<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;https://mirrors.ustc.edu.cn/rust-static&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>$env</span>:RUSTUP_UPDATE_ROOT<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;https://mirrors.ustc.edu.cn/rust-static/rustup&#34;</span>
 </span></span></code></pre></div><h4 id=cratesio-mirror>crates.io Mirror
-<a class=header-anchor href=#cratesio-mirror></a></h4><p>vim $HOME/.cargo/config</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e>########################### 字节镜像 ###################################</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>source.crates-io<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>replace-with <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;rsproxy&#39;</span>
+<a class=header-anchor href=#cratesio-mirror></a></h4><p>vim $HOME/.cargo/config</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#8b949e;font-style:italic>########################### 字节镜像 ###################################</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>source.crates-io<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span>replace-with <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;rsproxy&#39;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>source.rsproxy<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>registry <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://rsproxy.cn/crates.io-index&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>source.rsproxy<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>registry</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;https://rsproxy.cn/crates.io-index&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>registries.rsproxy<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>index <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://rsproxy.cn/crates.io-index&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>registries.rsproxy<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>index</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;https://rsproxy.cn/crates.io-index&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>net<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>git-fetch-with-cli <span style=color:#f92672>=</span> true
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>net<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span>git-fetch-with-cli <span style=color:#ff7b72;font-weight:700>=</span> true
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>########################### 科大镜像 ###################################</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>source.crates-io<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>replace-with <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;ustc&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>########################### 科大镜像 ###################################</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>source.crates-io<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span>replace-with <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;ustc&#39;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>source.ustc<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>registry <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://mirrors.ustc.edu.cn/crates.io-index&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>source.ustc<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>registry</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;https://mirrors.ustc.edu.cn/crates.io-index&#34;</span>
 </span></span></code></pre></div><h3 id=crm-cargo镜像管理>crm Cargo镜像管理
-<a class=header-anchor href=#crm-cargo%e9%95%9c%e5%83%8f%e7%ae%a1%e7%90%86></a></h3><blockquote><p>不需要手动更改配置文件，使用命令行进行配置</p></blockquote><p>官网：https://github.com/wtklbm/crm</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装</span>
+<a class=header-anchor href=#crm-cargo%e9%95%9c%e5%83%8f%e7%ae%a1%e7%90%86></a></h3><blockquote><p>不需要手动更改配置文件，使用命令行进行配置</p></blockquote><p>官网：https://github.com/wtklbm/crm</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安装</span>
 </span></span><span style=display:flex><span>cargo install crm
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 测试国内镜像速度</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 测试国内镜像速度</span>
 </span></span><span style=display:flex><span>crm test
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 切换最佳的镜像</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 切换最佳的镜像</span>
 </span></span><span style=display:flex><span>crm best
 </span></span></code></pre></div><h3 id=rust圣经下载到本地阅读>Rust圣经下载到本地阅读
-<a class=header-anchor href=#rust%e5%9c%a3%e7%bb%8f%e4%b8%8b%e8%bd%bd%e5%88%b0%e6%9c%ac%e5%9c%b0%e9%98%85%e8%af%bb></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>git clone https://github.com/sunface/rust-course.git
+<a class=header-anchor href=#rust%e5%9c%a3%e7%bb%8f%e4%b8%8b%e8%bd%bd%e5%88%b0%e6%9c%ac%e5%9c%b0%e9%98%85%e8%af%bb></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>git clone https://github.com/sunface/rust-course.git
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>cd ./rust-course
 </span></span><span style=display:flex><span>

@@ -26,44 +26,44 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span>2分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><p>官方文档：
 <a href=https://v2raya.org/docs/prologue/quick-start/ title=https://v2raya.org/docs/prologue/quick-start/ rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://v2raya.org/docs/prologue/quick-start/
 <i class="fa fa-external-link-alt"></i></a>
-安装v2ray内核，使用镜像脚本（不通过添加软件源安装）</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># v2rayA 提供的镜像脚本</span>
+安装v2ray内核，使用镜像脚本（不通过添加软件源安装）</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># v2rayA 提供的镜像脚本</span>
 </span></span><span style=display:flex><span>curl -Ls https://mirrors.v2raya.org/go.sh | sudo bash
-</span></span><span style=display:flex><span><span style=color:#75715e># 安装后可以关掉服务，因为 v2rayA 不依赖于该 systemd 服务</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安装后可以关掉服务，因为 v2rayA 不依赖于该 systemd 服务</span>
 </span></span><span style=display:flex><span>sudo systemctl disable v2ray --now
 </span></span></code></pre></div><h2 id=1-安装>1. 安装
 <a class=header-anchor href=#1-%e5%ae%89%e8%a3%85></a></h2><h3 id=11-fedora>1.1 Fedora
-<a class=header-anchor href=#11-fedora></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 添加 copr 源</span>
+<a class=header-anchor href=#11-fedora></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 添加 copr 源</span>
 </span></span><span style=display:flex><span>sudo dnf copr enable zhullyb/v2rayA
-</span></span><span style=display:flex><span><span style=color:#75715e># 安装 V2Ray 内核</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安装 V2Ray 内核</span>
 </span></span><span style=display:flex><span>sudo dnf install v2ray-core
-</span></span><span style=display:flex><span><span style=color:#75715e># 安装 v2rayA</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安装 v2rayA</span>
 </span></span><span style=display:flex><span>sudo dnf install v2raya
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 启动</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 启动</span>
 </span></span><span style=display:flex><span>sudo systemctl start v2raya.service
-</span></span><span style=display:flex><span><span style=color:#75715e># 设置开机自启</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 设置开机自启</span>
 </span></span><span style=display:flex><span>sudo systemctl enable v2raya.service
 </span></span></code></pre></div><h3 id=12-debian>1.2 Debian
-<a class=header-anchor href=#12-debian></a></h3><p>请先通过顶上的方法安装v2ray内核</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 添加公钥</span>
+<a class=header-anchor href=#12-debian></a></h3><p>请先通过顶上的方法安装v2ray内核</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 添加公钥</span>
 </span></span><span style=display:flex><span>wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/trusted.gpg.d/v2raya.asc
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 添加 V2RayA 软件源</span>
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;deb https://apt.v2raya.org/ v2raya main&#34;</span> | sudo tee /etc/apt/sources.list.d/v2raya.list
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 添加 V2RayA 软件源</span>
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>&#34;deb https://apt.v2raya.org/ v2raya main&#34;</span> | sudo tee /etc/apt/sources.list.d/v2raya.list
 </span></span><span style=display:flex><span>sudo apt update
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 安装 V2RayA</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安装 V2RayA</span>
 </span></span><span style=display:flex><span>sudo apt install v2raya
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 启动</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 启动</span>
 </span></span><span style=display:flex><span>sudo systemctl start v2raya.service
-</span></span><span style=display:flex><span><span style=color:#75715e># 设置开机自启 </span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 设置开机自启 </span>
 </span></span><span style=display:flex><span>sudo systemctl enable v2raya.service
 </span></span></code></pre></div><p>切换 iptables 为 iptables-nft
-对于 Debian11 用户来说，iptables 已被弃用。使用 nftables 作为 iptables 的后端以进行适配</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>update-alternatives --set iptables /usr/sbin/iptables-nft
+对于 Debian11 用户来说，iptables 已被弃用。使用 nftables 作为 iptables 的后端以进行适配</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>update-alternatives --set iptables /usr/sbin/iptables-nft
 </span></span><span style=display:flex><span>update-alternatives --set ip6tables /usr/sbin/ip6tables-nft
 </span></span><span style=display:flex><span>update-alternatives --set arptables /usr/sbin/arptables-nft
 </span></span><span style=display:flex><span>update-alternatives --set ebtables /usr/sbin/ebtables-nft
-</span></span></code></pre></div><p>如果你想切换回 legacy 版本</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>update-alternatives --set iptables /usr/sbin/iptables-legacy
+</span></span></code></pre></div><p>如果你想切换回 legacy 版本</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>update-alternatives --set iptables /usr/sbin/iptables-legacy
 </span></span><span style=display:flex><span>update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 </span></span><span style=display:flex><span>update-alternatives --set arptables /usr/sbin/arptables-legacy
 </span></span><span style=display:flex><span>update-alternatives --set ebtables /usr/sbin/ebtables-legacy
@@ -74,29 +74,29 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 </a>访问 UI 界面
 记得调整防火墙</p><h3 id=21-创建管理员账号>2.1 创建管理员账号
 <a class=header-anchor href=#21-%e5%88%9b%e5%bb%ba%e7%ae%a1%e7%90%86%e5%91%98%e8%b4%a6%e5%8f%b7></a></h3><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663728117310-565fd5e4-4392-42c5-8da7-cdc6bec6164f.png#clientId=u967c4c27-84fc-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=645&amp;id=u31e9f06c&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=968&amp;originWidth=743&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=71775&amp;status=done&amp;style=none&amp;taskId=u424eb700-c75a-486b-9a7f-df29209e28b&amp;title=&amp;width=495.3333333333333" alt=image.png></p><h3 id=22-导入节点>2.2 导入节点
-<a class=header-anchor href=#22-%e5%af%bc%e5%85%a5%e8%8a%82%e7%82%b9></a></h3><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663728187878-f6bda573-ab16-4648-9a82-e5a0e7d5e2a9.png#clientId=u967c4c27-84fc-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=264&amp;id=ude31bcdb&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=396&amp;originWidth=789&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=42877&amp;status=done&amp;style=none&amp;taskId=u63a5ce6b-30c1-47aa-b464-e5ad147d83c&amp;title=&amp;width=526" alt=image.png></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIlZtZXNzIiwNCiAgImFkZCI6ICJwYW4uZ29zc2lwLnRrIiwNCiAgInBvcnQiOiAiNDQzIiwNCiAgImlkIjogIjcyNTQ0Nzk0LTRhYWUtNGVmNy1jMmRhLTUxOTRjN2RkOGI4NSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAicGFuLmdvc3NpcC50ayIsDQogICJwYXRoIjogIi9nb2ZpYyIsDQogICJ0bHMiOiAidGxzIiwNCiAgInNuaSI6ICIiLA0KICAiYWxwbiI6ICIiDQp9
+<a class=header-anchor href=#22-%e5%af%bc%e5%85%a5%e8%8a%82%e7%82%b9></a></h3><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663728187878-f6bda573-ab16-4648-9a82-e5a0e7d5e2a9.png#clientId=u967c4c27-84fc-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=264&amp;id=ude31bcdb&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=396&amp;originWidth=789&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=42877&amp;status=done&amp;style=none&amp;taskId=u63a5ce6b-30c1-47aa-b464-e5ad147d83c&amp;title=&amp;width=526" alt=image.png></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIlZtZXNzIiwNCiAgImFkZCI6ICJwYW4uZ29zc2lwLnRrIiwNCiAgInBvcnQiOiAiNDQzIiwNCiAgImlkIjogIjcyNTQ0Nzk0LTRhYWUtNGVmNy1jMmRhLTUxOTRjN2RkOGI4NSIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAid3MiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAicGFuLmdvc3NpcC50ayIsDQogICJwYXRoIjogIi9nb2ZpYyIsDQogICJ0bHMiOiAidGxzIiwNCiAgInNuaSI6ICIiLA0KICAiYWxwbiI6ICIiDQp9
 </span></span></code></pre></div><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663728252858-a7bb1827-c378-4581-bec2-f5da1de95d49.png#clientId=u967c4c27-84fc-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=339&amp;id=ucd72734d&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=508&amp;originWidth=2007&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=40236&amp;status=done&amp;style=none&amp;taskId=u97077a7e-d277-44a4-a7a5-f1b1c41f288&amp;title=&amp;width=1338" alt=image.png></p><h3 id=23-启动>2.3 启动
 <a class=header-anchor href=#23-%e5%90%af%e5%8a%a8></a></h3><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663728372471-eaba2a03-1979-452d-b426-1a3d284bdec9.png#clientId=u967c4c27-84fc-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=393&amp;id=u9f845931&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=589&amp;originWidth=2197&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=68559&amp;status=done&amp;style=none&amp;taskId=u13cc2f5a-26b0-4c72-9a82-df12b4d412f&amp;title=&amp;width=1464.6666666666667" alt=image.png></p><h3 id=24-设置>2.4 设置
 <a class=header-anchor href=#24-%e8%ae%be%e7%bd%ae></a></h3><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663728571325-298d2d49-ac7f-45a4-842a-ccc5dfd5da85.png#clientId=u967c4c27-84fc-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=583&amp;id=u8ce433ee&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=875&amp;originWidth=987&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=86450&amp;status=done&amp;style=none&amp;taskId=uf6382972-7651-4ca8-9926-5ab03df51b0&amp;title=&amp;width=658" alt=image.png></p><h3 id=25-开放代理端口>2.5 开放代理端口
 <a class=header-anchor href=#25-%e5%bc%80%e6%94%be%e4%bb%a3%e7%90%86%e7%ab%af%e5%8f%a3></a></h3><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663728728774-05f1ae70-ff7a-4770-b256-8aeec9af9606.png#clientId=u967c4c27-84fc-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=550&amp;id=u7f58547c&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=825&amp;originWidth=1260&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=81840&amp;status=done&amp;style=none&amp;taskId=u1763b769-c369-4818-bc06-d2cb78e465f&amp;title=&amp;width=840" alt=image.png></p><h3 id=26-设置linux代理>2.6 设置Linux代理
-<a class=header-anchor href=#26-%e8%ae%be%e7%bd%aelinux%e4%bb%a3%e7%90%86></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>export ALL_PROXY<span style=color:#f92672>=</span>socks5://127.0.0.1:20170
+<a class=header-anchor href=#26-%e8%ae%be%e7%bd%aelinux%e4%bb%a3%e7%90%86></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>export <span style=color:#79c0ff>ALL_PROXY</span><span style=color:#ff7b72;font-weight:700>=</span>socks5://127.0.0.1:20170
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 取消代理</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 取消代理</span>
 </span></span><span style=display:flex><span>unset ALL_PROXY
 </span></span></code></pre></div><h3 id=27-使用proxychains设置代理推荐>2.7 使用proxychains设置代理（推荐）
-<a class=header-anchor href=#27-%e4%bd%bf%e7%94%a8proxychains%e8%ae%be%e7%bd%ae%e4%bb%a3%e7%90%86%e6%8e%a8%e8%8d%90></a></h3><p>安装</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Fedora</span>
+<a class=header-anchor href=#27-%e4%bd%bf%e7%94%a8proxychains%e8%ae%be%e7%bd%ae%e4%bb%a3%e7%90%86%e6%8e%a8%e8%8d%90></a></h3><p>安装</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Fedora</span>
 </span></span><span style=display:flex><span>sudo dnf install proxychains-ng
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Debian</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Debian</span>
 </span></span><span style=display:flex><span>sudo apt install proxychains-ng
-</span></span></code></pre></div><p>配置</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /etc/proxychains.conf
+</span></span></code></pre></div><p>配置</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /etc/proxychains.conf
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>socks5 127.0.0.1 <span style=color:#ae81ff>20170</span>
-</span></span></code></pre></div><p>测试一下</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>root@fedora ~<span style=color:#f92672>]</span><span style=color:#75715e># proxychains curl cip.cc</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>proxychains<span style=color:#f92672>]</span> config file found: /etc/proxychains.conf
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>proxychains<span style=color:#f92672>]</span> preloading /usr/lib64/proxychains-ng/libproxychains4.so
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>proxychains<span style=color:#f92672>]</span> DLL init: proxychains-ng 4.16
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>proxychains<span style=color:#f92672>]</span> Strict chain  ...  127.0.0.1:20170  ...  cip.cc:80  ...  OK
+</span></span><span style=display:flex><span>socks5 127.0.0.1 <span style=color:#a5d6ff>20170</span>
+</span></span></code></pre></div><p>测试一下</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>root@fedora ~<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#8b949e;font-style:italic># proxychains curl cip.cc</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>proxychains<span style=color:#ff7b72;font-weight:700>]</span> config file found: /etc/proxychains.conf
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>proxychains<span style=color:#ff7b72;font-weight:700>]</span> preloading /usr/lib64/proxychains-ng/libproxychains4.so
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>proxychains<span style=color:#ff7b72;font-weight:700>]</span> DLL init: proxychains-ng 4.16
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>proxychains<span style=color:#ff7b72;font-weight:700>]</span> Strict chain  ...  127.0.0.1:20170  ...  cip.cc:80  ...  OK
 </span></span><span style=display:flex><span>IP      : 198.23.149.5
 </span></span><span style=display:flex><span>地址    : 美国  华盛顿州  西雅图
 </span></span><span style=display:flex><span>运营商  : colocrossing.com
@@ -106,14 +106,14 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 </span></span><span style=display:flex><span>数据三  : 美国华盛顿西雅图
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>URL     : http://www.cip.cc/198.23.149.5
-</span></span></code></pre></div><p>简化使用命令</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>echo <span style=color:#e6db74>&#34;alias pc=&#39;proxychains&#39;&#34;</span> &gt;&gt; ~/.bashrc
+</span></span></code></pre></div><p>简化使用命令</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>echo <span style=color:#a5d6ff>&#34;alias pc=&#39;proxychains&#39;&#34;</span> &gt;&gt; ~/.bashrc
 </span></span><span style=display:flex><span>source ~/.bashrc
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@fedora ~<span style=color:#f92672>]</span><span style=color:#75715e># pc curl cip.cc</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>proxychains<span style=color:#f92672>]</span> config file found: /etc/proxychains.conf
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>proxychains<span style=color:#f92672>]</span> preloading /usr/lib64/proxychains-ng/libproxychains4.so
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>proxychains<span style=color:#f92672>]</span> DLL init: proxychains-ng 4.16
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>proxychains<span style=color:#f92672>]</span> Strict chain  ...  192.168.211.99:20170  ...  122.51.162.249:80  ...  OK
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>root@fedora ~<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#8b949e;font-style:italic># pc curl cip.cc</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>proxychains<span style=color:#ff7b72;font-weight:700>]</span> config file found: /etc/proxychains.conf
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>proxychains<span style=color:#ff7b72;font-weight:700>]</span> preloading /usr/lib64/proxychains-ng/libproxychains4.so
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>proxychains<span style=color:#ff7b72;font-weight:700>]</span> DLL init: proxychains-ng 4.16
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>proxychains<span style=color:#ff7b72;font-weight:700>]</span> Strict chain  ...  192.168.211.99:20170  ...  122.51.162.249:80  ...  OK
 </span></span><span style=display:flex><span>IP      : 198.23.149.5
 </span></span><span style=display:flex><span>地址    : 美国  华盛顿州  西雅图
 </span></span><span style=display:flex><span>运营商  : colocrossing.com

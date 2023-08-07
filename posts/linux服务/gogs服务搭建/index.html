@@ -25,44 +25,44 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h1 id=gogs服务搭建>Gogs服务搭建
 <a class=header-anchor href=#gogs%e6%9c%8d%e5%8a%a1%e6%90%ad%e5%bb%ba></a></h1><h2 id=1-安装>1. 安装
-<a class=header-anchor href=#1-%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>wget https://github.com/gogs/gogs/releases/download/v0.13.0/gogs_0.13.0_linux_amd64.tar.gz
-</span></span><span style=display:flex><span><span style=color:#75715e># 网络不好可以使用下面的</span>
+<a class=header-anchor href=#1-%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>wget https://github.com/gogs/gogs/releases/download/v0.13.0/gogs_0.13.0_linux_amd64.tar.gz
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 网络不好可以使用下面的</span>
 </span></span><span style=display:flex><span>wget https://picture-czy.oss-cn-beijing.aliyuncs.com/shareFile/gogs_0.13.0_linux_amd64.tar.gz
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>tar -zxvf gogs_0.13.0_linux_amd64.tar.gz -C /usr/local
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 修改目录拥有者，如无用户先添加 U:G</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 修改目录拥有者，如无用户先添加 U:G</span>
 </span></span><span style=display:flex><span>chown -R gogs:gogs gogs/
-</span></span></code></pre></div><blockquote><p>无用户的先添加用户，并为用户赋予gogs目录的权限</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#创建用户组</span>
+</span></span></code></pre></div><blockquote><p>无用户的先添加用户，并为用户赋予gogs目录的权限</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#创建用户组</span>
 </span></span><span style=display:flex><span>groupadd gogs
-</span></span><span style=display:flex><span><span style=color:#75715e>#创建用户家目录</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#创建用户家目录</span>
 </span></span><span style=display:flex><span>mkdir -p /home/gogs
-</span></span><span style=display:flex><span><span style=color:#75715e>#创建用户 </span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#创建用户 </span>
 </span></span><span style=display:flex><span>useradd -g gogs -d /home/gogs -s /bin/bash gogs
-</span></span><span style=display:flex><span><span style=color:#75715e>#用户家目录赋权755 4-&gt;r 2-&gt;w 1-&gt;x</span>
-</span></span><span style=display:flex><span>chmod -R <span style=color:#ae81ff>755</span> /home/gogs
-</span></span><span style=display:flex><span><span style=color:#75715e>#修改gogs目录拥有者</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#用户家目录赋权755 4-&gt;r 2-&gt;w 1-&gt;x</span>
+</span></span><span style=display:flex><span>chmod -R <span style=color:#a5d6ff>755</span> /home/gogs
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#修改gogs目录拥有者</span>
 </span></span><span style=display:flex><span>chown -R gogs:gogs /usr/local/gogs/
 </span></span></code></pre></div><h2 id=2-添加守护进程>2. 添加守护进程
 <a class=header-anchor href=#2-%e6%b7%bb%e5%8a%a0%e5%ae%88%e6%8a%a4%e8%bf%9b%e7%a8%8b></a></h2><p>在安装目录的<code>scripts/systemd</code>下有官方的脚本可以参考
-以下的内容经过修改，若启动不成功可以尝试更改<code>custom/conf/</code>目录下的配置文件</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /lib/systemd/system/gogs.service
+以下的内容经过修改，若启动不成功可以尝试更改<code>custom/conf/</code>目录下的配置文件</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /lib/systemd/system/gogs.service
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Unit<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Description<span style=color:#f92672>=</span>Gogs
-</span></span><span style=display:flex><span>After<span style=color:#f92672>=</span>syslog.target
-</span></span><span style=display:flex><span>After<span style=color:#f92672>=</span>network.target
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Unit<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Description</span><span style=color:#ff7b72;font-weight:700>=</span>Gogs
+</span></span><span style=display:flex><span><span style=color:#79c0ff>After</span><span style=color:#ff7b72;font-weight:700>=</span>syslog.target
+</span></span><span style=display:flex><span><span style=color:#79c0ff>After</span><span style=color:#ff7b72;font-weight:700>=</span>network.target
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Service<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>simple
-</span></span><span style=display:flex><span>User<span style=color:#f92672>=</span>gogs
-</span></span><span style=display:flex><span>Group<span style=color:#f92672>=</span>gogs
-</span></span><span style=display:flex><span>WorkingDirectory<span style=color:#f92672>=</span>/usr/local/gogs
-</span></span><span style=display:flex><span>ExecStart<span style=color:#f92672>=</span>/usr/local/gogs/gogs web
-</span></span><span style=display:flex><span>Restart<span style=color:#f92672>=</span>always
-</span></span><span style=display:flex><span>Environment<span style=color:#f92672>=</span>USER<span style=color:#f92672>=</span>gogs HOME<span style=color:#f92672>=</span>/home/gogs
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Service<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Type</span><span style=color:#ff7b72;font-weight:700>=</span>simple
+</span></span><span style=display:flex><span><span style=color:#79c0ff>User</span><span style=color:#ff7b72;font-weight:700>=</span>gogs
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Group</span><span style=color:#ff7b72;font-weight:700>=</span>gogs
+</span></span><span style=display:flex><span><span style=color:#79c0ff>WorkingDirectory</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/local/gogs
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecStart</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/local/gogs/gogs web
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Restart</span><span style=color:#ff7b72;font-weight:700>=</span>always
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Environment</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#79c0ff>USER</span><span style=color:#ff7b72;font-weight:700>=</span>gogs <span style=color:#79c0ff>HOME</span><span style=color:#ff7b72;font-weight:700>=</span>/home/gogs
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Install<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>WantedBy<span style=color:#f92672>=</span>multi-user.target
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Install<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>WantedBy</span><span style=color:#ff7b72;font-weight:700>=</span>multi-user.target
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>systemctl daemon-reload

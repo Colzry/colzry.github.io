@@ -25,90 +25,90 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>2分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=1-备份>1. 备份
 <a class=header-anchor href=#1-%e5%a4%87%e4%bb%bd></a></h2><h3 id=11创建备份脚本>1.1创建备份脚本
-<a class=header-anchor href=#11%e5%88%9b%e5%bb%ba%e5%a4%87%e4%bb%bd%e8%84%9a%e6%9c%ac></a></h3><p>在<code>/usr/local/sbin/</code>下新建<code>mysql_backup.sh</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span>sudo vim /usr/local/sbin/mysql_backup.sh
-</span></span></code></pre></div><p>填入下面的内容</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#75715e>#!/bin/bash </span>
-</span></span><span style=display:flex><span>bakdir=/data/back <span style=color:#75715e># 定义备份文件存放目录</span>
-</span></span><span style=display:flex><span>d=`date +<span style=color:#66d9ef>%</span>F` <span style=color:#75715e># 以日期(Y-M-D)为命名格式</span>
-</span></span><span style=display:flex><span>user=colzry <span style=color:#75715e># 数据库用户名 (!自行更改)</span>
-</span></span><span style=display:flex><span>passwd=passwd <span style=color:#75715e># 密码 (!自行更改)</span>
+<a class=header-anchor href=#11%e5%88%9b%e5%bb%ba%e5%a4%87%e4%bb%bd%e8%84%9a%e6%9c%ac></a></h3><p>在<code>/usr/local/sbin/</code>下新建<code>mysql_backup.sh</code></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span>sudo vim /usr/local/sbin/mysql_backup.<span style=color:#79c0ff>sh</span>
+</span></span></code></pre></div><p>填入下面的内容</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#!/bin/bash </span>
+</span></span><span style=display:flex><span>bakdir=/data/back <span style=color:#8b949e;font-style:italic># 定义备份文件存放目录</span>
+</span></span><span style=display:flex><span>d=`date +<span style=color:#ff7b72>%</span>F` <span style=color:#8b949e;font-style:italic># 以日期(Y-M-D)为命名格式</span>
+</span></span><span style=display:flex><span>user=colzry <span style=color:#8b949e;font-style:italic># 数据库用户名 (!自行更改)</span>
+</span></span><span style=display:flex><span>passwd=passwd <span style=color:#8b949e;font-style:italic># 密码 (!自行更改)</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 备份两个数据库 typecho lsky (!自行更改)</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 若要备份所以的数据库,则下面的整条for语句改为下面注释的内容</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># mysqldump -u$user -p$passwd -A &gt; $bakdir/$db\_$d.sql</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> db <span style=color:#66d9ef>in</span> typecho lsky
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>do</span>
-</span></span><span style=display:flex><span>        mysqldump -u$user -p$passwd $db &gt; $bakdir/$db\_$d.sql
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 备份两个数据库 typecho lsky (!自行更改)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 若要备份所以的数据库,则下面的整条for语句改为下面注释的内容</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># mysqldump -u$user -p$passwd -A &gt; $bakdir/$db\_$d.sql</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> db <span style=color:#ff7b72>in</span> typecho lsky
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>do</span>
+</span></span><span style=display:flex><span>        mysqldump -u<span style=color:#79c0ff>$user</span> -p<span style=color:#79c0ff>$passwd</span> <span style=color:#79c0ff>$db</span> &gt; <span style=color:#79c0ff>$bakdir</span>/<span style=color:#79c0ff>$db</span>\_<span style=color:#79c0ff>$d</span>.<span style=color:#79c0ff>sql</span>
 </span></span><span style=display:flex><span>    done
 </span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>cd $bakdir
-</span></span><span style=display:flex><span><span style=color:#75715e># 对备份文件进行压缩</span>
-</span></span><span style=display:flex><span>gzip *_$d.sql
-</span></span><span style=display:flex><span><span style=color:#75715e># 对备份时间超过一个月的文件进行删除</span>
-</span></span><span style=display:flex><span>find ./ -name <span style=color:#e6db74>&#34;*.gz&#34;</span> -mtime <span style=color:#ae81ff>+30</span> | xargs rm <span style=color:#f92672>-f</span>
+</span></span><span style=display:flex><span>cd <span style=color:#79c0ff>$bakdir</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 对备份文件进行压缩</span>
+</span></span><span style=display:flex><span>gzip *_<span style=color:#79c0ff>$d</span>.<span style=color:#79c0ff>sql</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 对备份时间超过一个月的文件进行删除</span>
+</span></span><span style=display:flex><span>find ./ -name <span style=color:#a5d6ff>&#34;*.gz&#34;</span> -mtime <span style=color:#a5d6ff>+30</span> | xargs rm <span style=color:#ff7b72;font-weight:700>-f</span>
 </span></span></code></pre></div><h3 id=12-创建定时任务>1.2 创建定时任务
 <a class=header-anchor href=#12-%e5%88%9b%e5%bb%ba%e5%ae%9a%e6%97%b6%e4%bb%bb%e5%8a%a1></a></h3><p><strong>用法</strong>
-格式为 :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span> * * * * *
+格式为 :</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span> * * * * *
 </span></span><span style=display:flex><span>分 时 天 月 周
-</span></span></code></pre></div><p>示例:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span>*/<span style=color:#ae81ff>1</span> * * * * Command 每f分钟执行
-</span></span><span style=display:flex><span><span style=color:#ae81ff>0</span> */<span style=color:#ae81ff>1</span> * * * Command 每小时执行
-</span></span><span style=display:flex><span><span style=color:#ae81ff>5</span> * * * * Command 每小时的第5分钟执行一次命令
-</span></span><span style=display:flex><span><span style=color:#ae81ff>30</span> <span style=color:#ae81ff>18</span> * * * Command 指定每天下午的 <span style=color:#ae81ff>6</span><span style=color:#960050;background-color:#1e0010>:</span><span style=color:#ae81ff>30</span> 执行一次命令
-</span></span><span style=display:flex><span><span style=color:#ae81ff>30</span> <span style=color:#ae81ff>7</span> <span style=color:#ae81ff>8</span> * * Command 指定每月8号的7<span style=color:#960050;background-color:#1e0010>：</span>30分执行一次命令
-</span></span><span style=display:flex><span><span style=color:#ae81ff>30</span> <span style=color:#ae81ff>5</span> <span style=color:#ae81ff>8</span> <span style=color:#ae81ff>6</span> * Command 指定每年的6月8日5<span style=color:#960050;background-color:#1e0010>：</span>30执行一次命令
-</span></span><span style=display:flex><span><span style=color:#ae81ff>30</span> <span style=color:#ae81ff>6</span> * * <span style=color:#ae81ff>0</span> Command 指定每星期日的6<span style=color:#960050;background-color:#1e0010>:</span>30执行一次命令
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span>crontab -e  编辑某个用户的cron服务
+</span></span></code></pre></div><p>示例:</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span>*/<span style=color:#a5d6ff>1</span> * * * * Command 每f分钟执行
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>0</span> */<span style=color:#a5d6ff>1</span> * * * Command 每小时执行
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>5</span> * * * * Command 每小时的第5分钟执行一次命令
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>30</span> <span style=color:#a5d6ff>18</span> * * * Command 指定每天下午的 <span style=color:#a5d6ff>6</span><span style=color:#f85149>:</span><span style=color:#a5d6ff>30</span> 执行一次命令
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>30</span> <span style=color:#a5d6ff>7</span> <span style=color:#a5d6ff>8</span> * * Command 指定每月8号的7<span style=color:#f85149>：</span>30分执行一次命令
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>30</span> <span style=color:#a5d6ff>5</span> <span style=color:#a5d6ff>8</span> <span style=color:#a5d6ff>6</span> * Command 指定每年的6月8日5<span style=color:#f85149>：</span>30执行一次命令
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>30</span> <span style=color:#a5d6ff>6</span> * * <span style=color:#a5d6ff>0</span> Command 指定每星期日的6<span style=color:#f85149>:</span>30执行一次命令
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span>crontab -e  编辑某个用户的cron服务
 </span></span><span style=display:flex><span>crontab -l 列出某个用户cron服务的详细内容
 </span></span></code></pre></div><h3 id=13-开始创建定时任务>1.3 开始创建定时任务
-<a class=header-anchor href=#13-%e5%bc%80%e5%a7%8b%e5%88%9b%e5%bb%ba%e5%ae%9a%e6%97%b6%e4%bb%bb%e5%8a%a1></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span>sudo crontab -e
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#75715e># 每天凌晨3:30执行数据库的备份</span>
-</span></span><span style=display:flex><span><span style=color:#ae81ff>30</span> <span style=color:#ae81ff>3</span> * * * /bin/bash /usr/local/sbin/mysql_back.sh
+<a class=header-anchor href=#13-%e5%bc%80%e5%a7%8b%e5%88%9b%e5%bb%ba%e5%ae%9a%e6%97%b6%e4%bb%bb%e5%8a%a1></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span>sudo crontab -e
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 每天凌晨3:30执行数据库的备份</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>30</span> <span style=color:#a5d6ff>3</span> * * * /bin/bash /usr/local/sbin/mysql_back.<span style=color:#79c0ff>sh</span>
 </span></span></code></pre></div><h2 id=2-恢复>2. 恢复
-<a class=header-anchor href=#2-%e6%81%a2%e5%a4%8d></a></h2><p>来到备份的目录</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span>cd /data/back
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#75715e># lsky 为要恢复的数据库，回车后输入该用户的数据库密码即可</span>
-</span></span><span style=display:flex><span>gunzip &lt; lsky_2021-<span style=color:#ae81ff>08</span>-<span style=color:#ae81ff>19</span>.sql.gz | mysql -u colzry -p lsky
+<a class=header-anchor href=#2-%e6%81%a2%e5%a4%8d></a></h2><p>来到备份的目录</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span>cd /data/back
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#8b949e;font-style:italic># lsky 为要恢复的数据库，回车后输入该用户的数据库密码即可</span>
+</span></span><span style=display:flex><span>gunzip &lt; lsky_2021-<span style=color:#a5d6ff>08</span>-<span style=color:#a5d6ff>19</span>.<span style=color:#79c0ff>sql</span>.<span style=color:#79c0ff>gz</span> | mysql -u colzry -p lsky
 </span></span></code></pre></div><h2 id=3-对docker里的数据库备份>3. 对Docker里的数据库备份
 <a class=header-anchor href=#3-%e5%af%b9docker%e9%87%8c%e7%9a%84%e6%95%b0%e6%8d%ae%e5%ba%93%e5%a4%87%e4%bb%bd></a></h2><h3 id=31-本地版>3.1 本地版
-<a class=header-anchor href=#31-%e6%9c%ac%e5%9c%b0%e7%89%88></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash 
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>backdir<span style=color:#f92672>=</span>/data/back <span style=color:#75715e># 定义备份文件存放目录</span>
-</span></span><span style=display:flex><span>d<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>date +%F<span style=color:#e6db74>`</span> <span style=color:#75715e># 以日期(Y-M-D)为命名格式</span>
-</span></span><span style=display:flex><span>user<span style=color:#f92672>=</span>colzry <span style=color:#75715e># 数据库用户名 (!自行更改)</span>
-</span></span><span style=display:flex><span>passwd<span style=color:#f92672>=</span>colzry_admin <span style=color:#75715e># 密码 (!自行更改)</span>
+<a class=header-anchor href=#31-%e6%9c%ac%e5%9c%b0%e7%89%88></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#!/bin/bash 
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic></span><span style=color:#79c0ff>backdir</span><span style=color:#ff7b72;font-weight:700>=</span>/data/back <span style=color:#8b949e;font-style:italic># 定义备份文件存放目录</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>d</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>`</span>date +%F<span style=color:#a5d6ff>`</span> <span style=color:#8b949e;font-style:italic># 以日期(Y-M-D)为命名格式</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>user</span><span style=color:#ff7b72;font-weight:700>=</span>colzry <span style=color:#8b949e;font-style:italic># 数据库用户名 (!自行更改)</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>passwd</span><span style=color:#ff7b72;font-weight:700>=</span>colzry_admin <span style=color:#8b949e;font-style:italic># 密码 (!自行更改)</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 检查本地文件夹是否存在</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> ! -d $backdir <span style=color:#f92672>]</span>;<span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>mkdir -p $backdir
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 检查本地文件夹是否存在</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[</span> ! -d <span style=color:#79c0ff>$backdir</span> <span style=color:#ff7b72;font-weight:700>]</span>;<span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>mkdir -p <span style=color:#79c0ff>$backdir</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>docker exec mysql sh -c <span style=color:#e6db74>&#39;exec mysqldump -u&#39;</span><span style=color:#e6db74>${</span>user<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39; -p&#39;</span><span style=color:#e6db74>${</span>passwd<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39; -A&#39;</span> &gt; $backdir/$d.sql
+</span></span><span style=display:flex><span>docker exec mysql sh -c <span style=color:#a5d6ff>&#39;exec mysqldump -u&#39;</span><span style=color:#a5d6ff>${</span><span style=color:#79c0ff>user</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#39; -p&#39;</span><span style=color:#a5d6ff>${</span><span style=color:#79c0ff>passwd</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#39; -A&#39;</span> &gt; <span style=color:#79c0ff>$backdir</span>/<span style=color:#79c0ff>$d</span>.sql
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>cd $backdir
-</span></span><span style=display:flex><span><span style=color:#75715e># 对备份文件进行压缩</span>
-</span></span><span style=display:flex><span>gzip $d.sql
-</span></span><span style=display:flex><span><span style=color:#75715e># 对备份时间超过10天的文件进行删除</span>
-</span></span><span style=display:flex><span>find ./ -name <span style=color:#e6db74>&#34;*.gz&#34;</span> -mtime +10 | xargs rm -f
+</span></span><span style=display:flex><span>cd <span style=color:#79c0ff>$backdir</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 对备份文件进行压缩</span>
+</span></span><span style=display:flex><span>gzip <span style=color:#79c0ff>$d</span>.sql
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 对备份时间超过10天的文件进行删除</span>
+</span></span><span style=display:flex><span>find ./ -name <span style=color:#a5d6ff>&#34;*.gz&#34;</span> -mtime +10 | xargs rm -f
 </span></span></code></pre></div><h3 id=32-远程版>3.2 远程版
-<a class=header-anchor href=#32-%e8%bf%9c%e7%a8%8b%e7%89%88></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash 
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>backdir<span style=color:#f92672>=</span>/data/back <span style=color:#75715e># 定义备份文件存放目录</span>
-</span></span><span style=display:flex><span>d<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>date +%F<span style=color:#e6db74>`</span> <span style=color:#75715e># 以日期(Y-M-D)为命名格式</span>
-</span></span><span style=display:flex><span>user<span style=color:#f92672>=</span>colzry <span style=color:#75715e># 数据库用户名 (!自行更改)</span>
-</span></span><span style=display:flex><span>passwd<span style=color:#f92672>=</span>colzry_admin <span style=color:#75715e># 密码 (!自行更改)</span>
-</span></span><span style=display:flex><span>host<span style=color:#f92672>=</span>root@47.120.35.102 <span style=color:#75715e># 服务器用户名和地址，使用前先上传ssh公钥</span>
+<a class=header-anchor href=#32-%e8%bf%9c%e7%a8%8b%e7%89%88></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#!/bin/bash 
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic></span><span style=color:#79c0ff>backdir</span><span style=color:#ff7b72;font-weight:700>=</span>/data/back <span style=color:#8b949e;font-style:italic># 定义备份文件存放目录</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>d</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>`</span>date +%F<span style=color:#a5d6ff>`</span> <span style=color:#8b949e;font-style:italic># 以日期(Y-M-D)为命名格式</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>user</span><span style=color:#ff7b72;font-weight:700>=</span>colzry <span style=color:#8b949e;font-style:italic># 数据库用户名 (!自行更改)</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>passwd</span><span style=color:#ff7b72;font-weight:700>=</span>colzry_admin <span style=color:#8b949e;font-style:italic># 密码 (!自行更改)</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>host</span><span style=color:#ff7b72;font-weight:700>=</span>root@47.120.35.102 <span style=color:#8b949e;font-style:italic># 服务器用户名和地址，使用前先上传ssh公钥</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 检查本地文件夹是否存在</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> ! -d $backdir <span style=color:#f92672>]</span>;<span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>mkdir -p $backdir
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 检查本地文件夹是否存在</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[</span> ! -d <span style=color:#79c0ff>$backdir</span> <span style=color:#ff7b72;font-weight:700>]</span>;<span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>mkdir -p <span style=color:#79c0ff>$backdir</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>docker exec mysql sh -c <span style=color:#e6db74>&#39;exec mysqldump -u&#39;</span><span style=color:#e6db74>${</span>user<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39; -p&#39;</span><span style=color:#e6db74>${</span>passwd<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39; -A&#39;</span> &gt; $backdir/$d.sql
+</span></span><span style=display:flex><span>docker exec mysql sh -c <span style=color:#a5d6ff>&#39;exec mysqldump -u&#39;</span><span style=color:#a5d6ff>${</span><span style=color:#79c0ff>user</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#39; -p&#39;</span><span style=color:#a5d6ff>${</span><span style=color:#79c0ff>passwd</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#39; -A&#39;</span> &gt; <span style=color:#79c0ff>$backdir</span>/<span style=color:#79c0ff>$d</span>.sql
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>cd $backdir
-</span></span><span style=display:flex><span><span style=color:#75715e># 对备份文件进行压缩</span>
-</span></span><span style=display:flex><span>gzip $d.sql
-</span></span><span style=display:flex><span><span style=color:#75715e># 对备份时间超过10天的文件进行删除</span>
-</span></span><span style=display:flex><span>find ./ -name <span style=color:#e6db74>&#34;*.gz&#34;</span> -mtime +10 | xargs rm -f
+</span></span><span style=display:flex><span>cd <span style=color:#79c0ff>$backdir</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 对备份文件进行压缩</span>
+</span></span><span style=display:flex><span>gzip <span style=color:#79c0ff>$d</span>.sql
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 对备份时间超过10天的文件进行删除</span>
+</span></span><span style=display:flex><span>find ./ -name <span style=color:#a5d6ff>&#34;*.gz&#34;</span> -mtime +10 | xargs rm -f
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 上传文件到服务器</span>
-</span></span><span style=display:flex><span>rsync -av $d.sql.gz $host:$backdir
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 上传文件到服务器</span>
+</span></span><span style=display:flex><span>rsync -av <span style=color:#79c0ff>$d</span>.sql.gz <span style=color:#79c0ff>$host</span>:<span style=color:#79c0ff>$backdir</span>
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/mysql>MySQL</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">
 <span>支付宝</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 微信">

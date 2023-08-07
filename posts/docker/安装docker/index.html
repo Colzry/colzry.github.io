@@ -25,39 +25,39 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=1-命令行安装>1. 命令行安装
 <a class=header-anchor href=#1-%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%ae%89%e8%a3%85></a></h2><h3 id=11-卸载旧版本>1.1 卸载旧版本
-<a class=header-anchor href=#11-%e5%8d%b8%e8%bd%bd%e6%97%a7%e7%89%88%e6%9c%ac></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum remove docker <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	docker-client <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	docker-client-latest <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	docker-common <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	docker-latest <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	docker-latest-logrotate <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	docker-logrotate <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	docker-selinux <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	docker-engine-selinux <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>	docker-engine
+<a class=header-anchor href=#11-%e5%8d%b8%e8%bd%bd%e6%97%a7%e7%89%88%e6%9c%ac></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum remove docker <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>	docker-client <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>	docker-client-latest <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>	docker-common <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>	docker-latest <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>	docker-latest-logrotate <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>	docker-logrotate <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>	docker-selinux <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>	docker-engine-selinux <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>	docker-engine
 </span></span></code></pre></div><h3 id=12-安装>1.2 安装
-<a class=header-anchor href=#12-%e5%ae%89%e8%a3%85></a></h3><p>执行以下命令安装依赖包：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum install -y yum-utils
+<a class=header-anchor href=#12-%e5%ae%89%e8%a3%85></a></h3><p>执行以下命令安装依赖包：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum install -y yum-utils
 </span></span></code></pre></div><p>鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。
-执行下面的命令添加 <code>yum</code> 软件源：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum-config-manager <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>--add-repo <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+执行下面的命令添加 <code>yum</code> 软件源：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum-config-manager <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>--add-repo <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 官方源</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># yum-config-manager \</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># --add-repo \</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># https://download.docker.com/linux/centos/docker-ce.repo</span>
-</span></span></code></pre></div><p>更新 <code>yum</code> 软件源缓存，并安装 <code>docker-ce</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum makecache
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 官方源</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># yum-config-manager \</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># --add-repo \</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># https://download.docker.com/linux/centos/docker-ce.repo</span>
+</span></span></code></pre></div><p>更新 <code>yum</code> 软件源缓存，并安装 <code>docker-ce</code></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum makecache
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>yum install docker-ce docker-ce-cli containerd.io docker-scan-plugin docker-compose-plugin docker-ce-rootless-extras
 </span></span></code></pre></div><h3 id=13-防火墙额外设置>1.3 防火墙额外设置
-<a class=header-anchor href=#13-%e9%98%b2%e7%81%ab%e5%a2%99%e9%a2%9d%e5%a4%96%e8%ae%be%e7%bd%ae></a></h3><p>由于 CentOS8 防火墙使用了 <code>nftables</code>，但 Docker 尚未支持 <code>nftables</code>， 我们可以使用如下设置使用 <code>iptables</code>：</p><p>更改 <code>vim /etc/firewalld/firewalld.conf</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># FirewallBackend=nftables</span>
-</span></span><span style=display:flex><span>FirewallBackend<span style=color:#f92672>=</span>iptables
-</span></span></code></pre></div><p>或者执行如下命令：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>firewall-cmd --permanent --zone<span style=color:#f92672>=</span>trusted --add-interface<span style=color:#f92672>=</span>docker0
+<a class=header-anchor href=#13-%e9%98%b2%e7%81%ab%e5%a2%99%e9%a2%9d%e5%a4%96%e8%ae%be%e7%bd%ae></a></h3><p>由于 CentOS8 防火墙使用了 <code>nftables</code>，但 Docker 尚未支持 <code>nftables</code>， 我们可以使用如下设置使用 <code>iptables</code>：</p><p>更改 <code>vim /etc/firewalld/firewalld.conf</code></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># FirewallBackend=nftables</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>FirewallBackend</span><span style=color:#ff7b72;font-weight:700>=</span>iptables
+</span></span></code></pre></div><p>或者执行如下命令：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>firewall-cmd --permanent --zone<span style=color:#ff7b72;font-weight:700>=</span>trusted --add-interface<span style=color:#ff7b72;font-weight:700>=</span>docker0
 </span></span><span style=display:flex><span>firewall-cmd --reload
 </span></span></code></pre></div><h2 id=2-使用脚本自动安装>2. 使用脚本自动安装
-<a class=header-anchor href=#2-%e4%bd%bf%e7%94%a8%e8%84%9a%e6%9c%ac%e8%87%aa%e5%8a%a8%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+<a class=header-anchor href=#2-%e4%bd%bf%e7%94%a8%e8%84%9a%e6%9c%ac%e8%87%aa%e5%8a%a8%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 </span></span></code></pre></div><h2 id=3-启动docker>3. 启动Docker
-<a class=header-anchor href=#3-%e5%90%af%e5%8a%a8docker></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl enable docker
+<a class=header-anchor href=#3-%e5%90%af%e5%8a%a8docker></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl enable docker
 </span></span><span style=display:flex><span>systemctl start docker
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/docker>Docker</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">

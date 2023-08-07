@@ -24,34 +24,34 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=使用宝塔面板>使用宝塔面板
-<a class=header-anchor href=#%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%a1%94%e9%9d%a2%e6%9d%bf></a></h2><p><strong>在宝塔面板找到Nginx，点击设置，打开配置修改</strong></p><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/img/image-20211003154737017.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=xj1p5&amp;originHeight=915&amp;originWidth=1876&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><p><strong>在http的花括号中添加以下内容</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>server <span style=color:#f92672>{</span>
-</span></span><span style=display:flex><span>  listen 80; <span style=color:#75715e># 监听80端口</span>
-</span></span><span style=display:flex><span>  server_name localhost; <span style=color:#75715e># 自己PC的ip或者服务器的域名</span>
-</span></span><span style=display:flex><span>  charset utf-8; <span style=color:#75715e># 避免中文乱码</span>
-</span></span><span style=display:flex><span>  root /opt/data; <span style=color:#75715e># 存放文件的目录      </span>
-</span></span><span style=display:flex><span>  location / <span style=color:#f92672>{</span> 
-</span></span><span style=display:flex><span>    autoindex on; <span style=color:#75715e># 索引 </span>
-</span></span><span style=display:flex><span>    autoindex_exact_size on; <span style=color:#75715e># 显示文件大小</span>
-</span></span><span style=display:flex><span>    autoindex_localtime on; <span style=color:#75715e># 显示文件时间 </span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>}</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+<a class=header-anchor href=#%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%a1%94%e9%9d%a2%e6%9d%bf></a></h2><p><strong>在宝塔面板找到Nginx，点击设置，打开配置修改</strong></p><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/img/image-20211003154737017.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=xj1p5&amp;originHeight=915&amp;originWidth=1876&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><p><strong>在http的花括号中添加以下内容</strong></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>server <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex><span>  listen 80; <span style=color:#8b949e;font-style:italic># 监听80端口</span>
+</span></span><span style=display:flex><span>  server_name localhost; <span style=color:#8b949e;font-style:italic># 自己PC的ip或者服务器的域名</span>
+</span></span><span style=display:flex><span>  charset utf-8; <span style=color:#8b949e;font-style:italic># 避免中文乱码</span>
+</span></span><span style=display:flex><span>  root /opt/data; <span style=color:#8b949e;font-style:italic># 存放文件的目录      </span>
+</span></span><span style=display:flex><span>  location / <span style=color:#ff7b72;font-weight:700>{</span> 
+</span></span><span style=display:flex><span>    autoindex on; <span style=color:#8b949e;font-style:italic># 索引 </span>
+</span></span><span style=display:flex><span>    autoindex_exact_size on; <span style=color:#8b949e;font-style:italic># 显示文件大小</span>
+</span></span><span style=display:flex><span>    autoindex_localtime on; <span style=color:#8b949e;font-style:italic># 显示文件时间 </span>
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
 </span></span></code></pre></div><p><strong>修改完成后，点击最上面的服务，选择重载配置</strong></p><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/img/image-20211003155126989.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=W27wI&amp;originHeight=755&amp;originWidth=811&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><p><strong>打开主机ip的80端口就能看到文件索引了</strong></p><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/img/image-20211003155242987.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=RU1zi&amp;originHeight=243&amp;originWidth=998&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><h2 id=不使用宝塔面板>不使用宝塔面板
-<a class=header-anchor href=#%e4%b8%8d%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%a1%94%e9%9d%a2%e6%9d%bf></a></h2><p><strong>1.安装nginx</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo apt-get install nginx
-</span></span></code></pre></div><p><strong>2.创建conf文件</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo vim /etc/nginx/conf.d/file_server.conf
-</span></span></code></pre></div><p><strong>3.修改conf文件如下：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>server <span style=color:#f92672>{</span>
-</span></span><span style=display:flex><span>  listen 80; <span style=color:#75715e># 监听80端口</span>
-</span></span><span style=display:flex><span>  server_name localhost; <span style=color:#75715e># 自己PC的ip或者服务器的域名</span>
-</span></span><span style=display:flex><span>  charset utf-8; <span style=color:#75715e># 避免中文乱码</span>
-</span></span><span style=display:flex><span>  root /opt/data; <span style=color:#75715e># 存放文件的目录      </span>
-</span></span><span style=display:flex><span>  location / <span style=color:#f92672>{</span> 
-</span></span><span style=display:flex><span>    autoindex on; <span style=color:#75715e># 索引 </span>
-</span></span><span style=display:flex><span>    autoindex_exact_size on; <span style=color:#75715e># 显示文件大小</span>
-</span></span><span style=display:flex><span>    autoindex_localtime on; <span style=color:#75715e># 显示文件时间 </span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>}</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
-</span></span></code></pre></div><p><strong>3.使配置生效</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo rm /etc/nginx/sites-enabled/default 
+<a class=header-anchor href=#%e4%b8%8d%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%a1%94%e9%9d%a2%e6%9d%bf></a></h2><p><strong>1.安装nginx</strong></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo apt-get install nginx
+</span></span></code></pre></div><p><strong>2.创建conf文件</strong></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo vim /etc/nginx/conf.d/file_server.conf
+</span></span></code></pre></div><p><strong>3.修改conf文件如下：</strong></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>server <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex><span>  listen 80; <span style=color:#8b949e;font-style:italic># 监听80端口</span>
+</span></span><span style=display:flex><span>  server_name localhost; <span style=color:#8b949e;font-style:italic># 自己PC的ip或者服务器的域名</span>
+</span></span><span style=display:flex><span>  charset utf-8; <span style=color:#8b949e;font-style:italic># 避免中文乱码</span>
+</span></span><span style=display:flex><span>  root /opt/data; <span style=color:#8b949e;font-style:italic># 存放文件的目录      </span>
+</span></span><span style=display:flex><span>  location / <span style=color:#ff7b72;font-weight:700>{</span> 
+</span></span><span style=display:flex><span>    autoindex on; <span style=color:#8b949e;font-style:italic># 索引 </span>
+</span></span><span style=display:flex><span>    autoindex_exact_size on; <span style=color:#8b949e;font-style:italic># 显示文件大小</span>
+</span></span><span style=display:flex><span>    autoindex_localtime on; <span style=color:#8b949e;font-style:italic># 显示文件时间 </span>
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
+</span></span></code></pre></div><p><strong>3.使配置生效</strong></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo rm /etc/nginx/sites-enabled/default 
 </span></span><span style=display:flex><span>sudo service nginx reload
-</span></span></code></pre></div><p><strong>4.重启命令</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span> sudo /etc/init.d/nginx start|stop|reload|
+</span></span></code></pre></div><p><strong>4.重启命令</strong></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span> sudo /etc/init.d/nginx start|stop|reload|
 </span></span><span style=display:flex><span> sudo service nginx start|stop|reload|
 </span></span></code></pre></div><p><strong>5.访问</strong>
 浏览器里直接输入 主机IP:80</p></div><footer class=post-footer><div class=post-tags><a href=/tags/nginx>Nginx</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>

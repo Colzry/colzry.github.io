@@ -23,23 +23,23 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span>174</span></span>
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
-<span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><p>在 <strong>/etc/systemd/system/</strong> 下新建并编辑 xxx.service 文件</p><p>这里以 <strong>code-server.service</strong> 为例</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo vim /etc/systemd/system/code-server.service
-</span></span></code></pre></div><p>写入下面的内容并根据自己创建的服务进行更改(<strong><em>带注释的为选填，看服务的需求开启</em></strong>)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#f92672>[</span>Unit<span style=color:#f92672>]</span> 
-</span></span><span style=display:flex><span>Description<span style=color:#f92672>=</span>code-server <span style=color:#75715e>#描述要启动的进程</span>
-</span></span><span style=display:flex><span>After<span style=color:#f92672>=</span>network.target
+<span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><p>在 <strong>/etc/systemd/system/</strong> 下新建并编辑 xxx.service 文件</p><p>这里以 <strong>code-server.service</strong> 为例</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo vim /etc/systemd/system/code-server.service
+</span></span></code></pre></div><p>写入下面的内容并根据自己创建的服务进行更改(<strong><em>带注释的为选填，看服务的需求开启</em></strong>)</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Unit<span style=color:#ff7b72;font-weight:700>]</span> 
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Description</span><span style=color:#ff7b72;font-weight:700>=</span>code-server <span style=color:#8b949e;font-style:italic>#描述要启动的进程</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>After</span><span style=color:#ff7b72;font-weight:700>=</span>network.target
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Service<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>simple
-</span></span><span style=display:flex><span><span style=color:#75715e>#WorkingDirectory=/root/workDir #启动进程的文件夹</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#User=root #你想用什么用户启动该进程</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#Group=root #你希望用什么用户组启动该进程</span>
-</span></span><span style=display:flex><span>Restart<span style=color:#f92672>=</span>on-failure <span style=color:#75715e>#进程错误时重启</span>
-</span></span><span style=display:flex><span>RestartSec<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>
-</span></span><span style=display:flex><span>ExecStart<span style=color:#f92672>=</span>/usr/bin/code-server#启动命，要用绝对路径，否则会报错
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Service<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Type</span><span style=color:#ff7b72;font-weight:700>=</span>simple
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#WorkingDirectory=/root/workDir #启动进程的文件夹</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#User=root #你想用什么用户启动该进程</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#Group=root #你希望用什么用户组启动该进程</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Restart</span><span style=color:#ff7b72;font-weight:700>=</span>on-failure <span style=color:#8b949e;font-style:italic>#进程错误时重启</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>RestartSec</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>10</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecStart</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/bin/code-server#启动命，要用绝对路径，否则会报错
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Install<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>WantedBy<span style=color:#f92672>=</span>multi-user.target
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl daemon-reload
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Install<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>WantedBy</span><span style=color:#ff7b72;font-weight:700>=</span>multi-user.target
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl daemon-reload
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/linux>Linux</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">
 <span>支付宝</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 微信">

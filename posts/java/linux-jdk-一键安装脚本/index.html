@@ -23,245 +23,245 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span>944</span></span>
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
-<span>2分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>bash &lt;<span style=color:#f92672>(</span>curl -Ssl https://picture-czy.oss-cn-beijing.aliyuncs.com/shareFile/jdk-install.sh<span style=color:#f92672>)</span>
-</span></span></code></pre></div><p>下载不了的话，运行下面脚本</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>set -e
+<span>2分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>bash &lt;<span style=color:#ff7b72;font-weight:700>(</span>curl -Ssl https://picture-czy.oss-cn-beijing.aliyuncs.com/shareFile/jdk-install.sh<span style=color:#ff7b72;font-weight:700>)</span>
+</span></span></code></pre></div><p>下载不了的话，运行下面脚本</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic></span>set -e
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>java_dist<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/root/jdk-8u202-linux-x64.tar.gz&#34;</span>
-</span></span><span style=display:flex><span>default_java_dir<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/usr/local&#34;</span>
-</span></span><span style=display:flex><span>java_dir<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span>$default_java_dir<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>SUDO_USER<span style=color:#f92672>=</span>root
+</span></span><span style=display:flex><span><span style=color:#79c0ff>java_dist</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;/root/jdk-8u202-linux-x64.tar.gz&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>default_java_dir</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;/usr/local&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>java_dir</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>$default_java_dir</span><span style=color:#a5d6ff>&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>SUDO_USER</span><span style=color:#ff7b72;font-weight:700>=</span>root
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> usage<span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;&#34;</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;这个脚本会自动下载jdk 1.8. &#34;</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Usage: &#34;</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;install-java.sh -f &lt;java_dist&gt; [-p &lt;java_dir&gt;]&#34;</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;&#34;</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;-f: The jdk tar.gz file. 默认安装的是/root/jdk-8u202-linux-x64.tar.gz&#34;</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;-p: java默认安装在/usr/local目录中，你可以通过-p命令切换目录&#34;</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;-h: 显示帮助.&#34;</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>function</span> usage<span style=color:#ff7b72;font-weight:700>()</span> <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;这个脚本会自动下载jdk 1.8. &#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;Usage: &#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;install-java.sh -f &lt;java_dist&gt; [-p &lt;java_dir&gt;]&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;-f: The jdk tar.gz file. 默认安装的是/root/jdk-8u202-linux-x64.tar.gz&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;-p: java默认安装在/usr/local目录中，你可以通过-p命令切换目录&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;-h: 显示帮助.&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> confirm<span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e># call with a prompt string or use a default</span>
-</span></span><span style=display:flex><span>    read -r -p <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>1<span style=color:#66d9ef>:-</span>Are you sure?<span style=color:#e6db74>}</span><span style=color:#e6db74> [y/N] &#34;</span> response
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>case</span> $response in
-</span></span><span style=display:flex><span>    <span style=color:#f92672>[</span>yY<span style=color:#f92672>][</span>eE<span style=color:#f92672>][</span>sS<span style=color:#f92672>]</span> | <span style=color:#f92672>[</span>yY<span style=color:#f92672>])</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>function</span> confirm<span style=color:#ff7b72;font-weight:700>()</span> <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># call with a prompt string or use a default</span>
+</span></span><span style=display:flex><span>    read -r -p <span style=color:#a5d6ff>&#34;</span><span style=color:#a5d6ff>${</span><span style=color:#79c0ff>1</span><span style=color:#ff7b72>:-</span><span style=color:#79c0ff>Are</span> you sure?<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff> [y/N] &#34;</span> response
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>case</span> <span style=color:#79c0ff>$response</span> in
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72;font-weight:700>[</span>yY<span style=color:#ff7b72;font-weight:700>][</span>eE<span style=color:#ff7b72;font-weight:700>][</span>sS<span style=color:#ff7b72;font-weight:700>]</span> | <span style=color:#ff7b72;font-weight:700>[</span>yY<span style=color:#ff7b72;font-weight:700>])</span>
 </span></span><span style=display:flex><span>        true
 </span></span><span style=display:flex><span>        ;;
-</span></span><span style=display:flex><span>    *<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    *<span style=color:#ff7b72;font-weight:700>)</span>
 </span></span><span style=display:flex><span>        false
 </span></span><span style=display:flex><span>        ;;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>esac</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>esac</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Make sure the script is running as root.</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;</span>$UID<span style=color:#e6db74>&#34;</span> -ne <span style=color:#e6db74>&#34;0&#34;</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;You must be root to run </span>$0<span style=color:#e6db74>. Try following&#34;</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;sudo </span>$0<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>    exit <span style=color:#ae81ff>9</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Make sure the script is running as root.</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[</span> <span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>$UID</span><span style=color:#a5d6ff>&#34;</span> -ne <span style=color:#a5d6ff>&#34;0&#34;</span> <span style=color:#ff7b72;font-weight:700>]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;You must be root to run </span><span style=color:#79c0ff>$0</span><span style=color:#a5d6ff>. Try following&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;sudo </span><span style=color:#79c0ff>$0</span><span style=color:#a5d6ff>&#34;</span>
+</span></span><span style=display:flex><span>    exit <span style=color:#a5d6ff>9</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span> getopts <span style=color:#e6db74>&#34;f:p:h&#34;</span> opts; <span style=color:#66d9ef>do</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>case</span> $opts in
-</span></span><span style=display:flex><span>    f<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>        java_dist<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>OPTARG<span style=color:#e6db74>}</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>while</span> getopts <span style=color:#a5d6ff>&#34;f:p:h&#34;</span> opts; <span style=color:#ff7b72>do</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>case</span> <span style=color:#79c0ff>$opts</span> in
+</span></span><span style=display:flex><span>    f<span style=color:#ff7b72;font-weight:700>)</span>
+</span></span><span style=display:flex><span>        <span style=color:#79c0ff>java_dist</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>${</span><span style=color:#79c0ff>OPTARG</span><span style=color:#a5d6ff>}</span>
 </span></span><span style=display:flex><span>        ;;
-</span></span><span style=display:flex><span>    p<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>        java_dir<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>OPTARG<span style=color:#e6db74>}</span>
+</span></span><span style=display:flex><span>    p<span style=color:#ff7b72;font-weight:700>)</span>
+</span></span><span style=display:flex><span>        <span style=color:#79c0ff>java_dir</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>${</span><span style=color:#79c0ff>OPTARG</span><span style=color:#a5d6ff>}</span>
 </span></span><span style=display:flex><span>        ;;
-</span></span><span style=display:flex><span>    h<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    h<span style=color:#ff7b72;font-weight:700>)</span>
 </span></span><span style=display:flex><span>        usage
-</span></span><span style=display:flex><span>        exit <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        exit <span style=color:#a5d6ff>0</span>
 </span></span><span style=display:flex><span>        ;;
-</span></span><span style=display:flex><span>    <span style=color:#ae81ff>\?</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>\?</span><span style=color:#ff7b72;font-weight:700>)</span>
 </span></span><span style=display:flex><span>        usage
-</span></span><span style=display:flex><span>        exit <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        exit <span style=color:#a5d6ff>1</span>
 </span></span><span style=display:flex><span>        ;;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>esac</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>done</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>esac</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>done</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> ! <span style=color:#f92672>[</span> -x <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>command -v axel<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> ! <span style=color:#ff7b72;font-weight:700>[</span> -x <span style=color:#a5d6ff>&#34;</span><span style=color:#ff7b72>$(</span>command -v axel<span style=color:#ff7b72>)</span><span style=color:#a5d6ff>&#34;</span> <span style=color:#ff7b72;font-weight:700>]</span>; <span style=color:#ff7b72>then</span>
 </span></span><span style=display:flex><span>  wget https://mirrors.huaweicloud.com/java/jdk/8u202-b08/jdk-8u202-linux-x64.tar.gz -O /root/jdk-8u202-linux-x64.tar.gz
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
-</span></span><span style=display:flex><span>  axel -n <span style=color:#ae81ff>10</span> -a https://mirrors.huaweicloud.com/java/jdk/8u202-b08/jdk-8u202-linux-x64.tar.gz -o /root/jdk-8u202-linux-x64.tar.gz
+</span></span><span style=display:flex><span><span style=color:#ff7b72>else</span>
+</span></span><span style=display:flex><span>  axel -n <span style=color:#a5d6ff>10</span> -a https://mirrors.huaweicloud.com/java/jdk/8u202-b08/jdk-8u202-linux-x64.tar.gz -o /root/jdk-8u202-linux-x64.tar.gz
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> ! -f $java_dist <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Please specify the Java distribution file.&#34;</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Use -h for help.&#34;</span>
-</span></span><span style=display:flex><span>    exit <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> ! -f <span style=color:#79c0ff>$java_dist</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;Please specify the Java distribution file.&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;Use -h for help.&#34;</span>
+</span></span><span style=display:flex><span>    exit <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Validate Java Distribution</span>
-</span></span><span style=display:flex><span>java_dist_filename<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>basename $java_dist<span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Validate Java Distribution</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>java_dist_filename</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#ff7b72>$(</span>basename <span style=color:#79c0ff>$java_dist</span><span style=color:#ff7b72>)</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> <span style=color:#e6db74>${</span>java_dist_filename: -7<span style=color:#e6db74>}</span> !<span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;.tar.gz&#34;</span> <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Java distribution must be a valid tar.gz file.&#34;</span>
-</span></span><span style=display:flex><span>    exit <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>java_dist_filename</span>: -7<span style=color:#a5d6ff>}</span> !<span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;.tar.gz&#34;</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;Java distribution must be a valid tar.gz file.&#34;</span>
+</span></span><span style=display:flex><span>    exit <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Create the default directory if user has not specified any other path</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> $java_dir <span style=color:#f92672>==</span> $default_java_dir <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    mkdir -p $java_dir
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Create the default directory if user has not specified any other path</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> <span style=color:#79c0ff>$java_dir</span> <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#79c0ff>$default_java_dir</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    mkdir -p <span style=color:#79c0ff>$java_dir</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#Validate java directory</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> ! -d $java_dir <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Please specify a valid Java installation directory.&#34;</span>
-</span></span><span style=display:flex><span>    exit <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#Validate java directory</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> ! -d <span style=color:#79c0ff>$java_dir</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;Please specify a valid Java installation directory.&#34;</span>
+</span></span><span style=display:flex><span>    exit <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;Installing: </span>$java_dist_filename<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>&#34;Installing: </span><span style=color:#79c0ff>$java_dist_filename</span><span style=color:#a5d6ff>&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Check Java executable</span>
-</span></span><span style=display:flex><span>java_exec<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>tar -tzf $java_dist | grep ^<span style=color:#f92672>[</span>^/<span style=color:#f92672>]</span>*/bin/java$ <span style=color:#f92672>||</span> echo <span style=color:#e6db74>&#34;&#34;</span><span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Check Java executable</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>java_exec</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;</span><span style=color:#ff7b72>$(</span>tar -tzf <span style=color:#79c0ff>$java_dist</span> | grep ^<span style=color:#ff7b72;font-weight:700>[</span>^/<span style=color:#ff7b72;font-weight:700>]</span>*/bin/java$ <span style=color:#ff7b72;font-weight:700>||</span> echo <span style=color:#a5d6ff>&#34;&#34;</span><span style=color:#ff7b72>)</span><span style=color:#a5d6ff>&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> -z $java_exec <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Could not find \&#34;java\&#34; executable in the distribution. Please specify a valid Java distribution.&#34;</span>
-</span></span><span style=display:flex><span>    exit <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> -z <span style=color:#79c0ff>$java_exec</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;Could not find \&#34;java\&#34; executable in the distribution. Please specify a valid Java distribution.&#34;</span>
+</span></span><span style=display:flex><span>    exit <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># JDK Directory with version</span>
-</span></span><span style=display:flex><span>jdk_dir<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>echo $java_exec | cut -f1 -d<span style=color:#e6db74>&#34;/&#34;</span><span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>extracted_dirname<span style=color:#f92672>=</span>$java_dir<span style=color:#e6db74>&#34;/&#34;</span>$jdk_dir
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># JDK Directory with version</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>jdk_dir</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;</span><span style=color:#ff7b72>$(</span>echo <span style=color:#79c0ff>$java_exec</span> | cut -f1 -d<span style=color:#a5d6ff>&#34;/&#34;</span><span style=color:#ff7b72>)</span><span style=color:#a5d6ff>&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>extracted_dirname</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#79c0ff>$java_dir</span><span style=color:#a5d6ff>&#34;/&#34;</span><span style=color:#79c0ff>$jdk_dir</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Extract Java Distribution</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> ! -d $extracted_dirname <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Extracting </span>$java_dist<span style=color:#e6db74> to </span>$java_dir<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>    tar -xof $java_dist -C $java_dir
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;JDK is extracted to </span>$extracted_dirname<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;WARN: JDK was not extracted to </span>$java_dir<span style=color:#e6db74>. There is an existing directory with the name \&#34;</span>$jdk_dir<span style=color:#e6db74>\&#34;.&#34;</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ! <span style=color:#f92672>(</span>confirm <span style=color:#e6db74>&#34;Do you want to continue?&#34;</span><span style=color:#f92672>)</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>        exit <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fi</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Extract Java Distribution</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> ! -d <span style=color:#79c0ff>$extracted_dirname</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;Extracting </span><span style=color:#79c0ff>$java_dist</span><span style=color:#a5d6ff> to </span><span style=color:#79c0ff>$java_dir</span><span style=color:#a5d6ff>&#34;</span>
+</span></span><span style=display:flex><span>    tar -xof <span style=color:#79c0ff>$java_dist</span> -C <span style=color:#79c0ff>$java_dir</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;JDK is extracted to </span><span style=color:#79c0ff>$extracted_dirname</span><span style=color:#a5d6ff>&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>else</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;WARN: JDK was not extracted to </span><span style=color:#79c0ff>$java_dir</span><span style=color:#a5d6ff>. There is an existing directory with the name \&#34;</span><span style=color:#79c0ff>$jdk_dir</span><span style=color:#a5d6ff>\&#34;.&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> ! <span style=color:#ff7b72;font-weight:700>(</span>confirm <span style=color:#a5d6ff>&#34;Do you want to continue?&#34;</span><span style=color:#ff7b72;font-weight:700>)</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>        exit <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> ! -f <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>extracted_dirname<span style=color:#e6db74>}</span><span style=color:#e6db74>/bin/java&#34;</span> <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;ERROR: The path </span>$extracted_dirname<span style=color:#e6db74> is not a valid Java installation.&#34;</span>
-</span></span><span style=display:flex><span>    exit <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> ! -f <span style=color:#a5d6ff>&#34;</span><span style=color:#a5d6ff>${</span><span style=color:#79c0ff>extracted_dirname</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>/bin/java&#34;</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;ERROR: The path </span><span style=color:#79c0ff>$extracted_dirname</span><span style=color:#a5d6ff> is not a valid Java installation.&#34;</span>
+</span></span><span style=display:flex><span>    exit <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Oracle JDK: 7 to 8</span>
-</span></span><span style=display:flex><span>java_78_dir_regex<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;^jdk1\.([0-9]*).*</span>$<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Oracle JDK / OpenJDK / AdoptOpenJDK: 9 and upwards</span>
-</span></span><span style=display:flex><span>java_9up_dir_regex<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;^jdk-([0-9]*).*</span>$<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Oracle JDK: 7 to 8</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>java_78_dir_regex</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;^jdk1\.([0-9]*).*</span>$<span style=color:#a5d6ff>&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Oracle JDK / OpenJDK / AdoptOpenJDK: 9 and upwards</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>java_9up_dir_regex</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;^jdk-([0-9]*).*</span>$<span style=color:#a5d6ff>&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># JDK Major Version</span>
-</span></span><span style=display:flex><span>jdk_major_version<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># JDK Major Version</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>jdk_major_version</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> $jdk_dir <span style=color:#f92672>=</span>~ $java_78_dir_regex <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    jdk_major_version<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>echo $jdk_dir | sed -nE <span style=color:#e6db74>&#34;s/</span>$java_78_dir_regex<span style=color:#e6db74>/\1/p&#34;</span><span style=color:#66d9ef>)</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
-</span></span><span style=display:flex><span>    jdk_major_version<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>echo $jdk_dir | sed -nE <span style=color:#e6db74>&#34;s/</span>$java_9up_dir_regex<span style=color:#e6db74>/\1/p&#34;</span><span style=color:#66d9ef>)</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> <span style=color:#79c0ff>$jdk_dir</span> <span style=color:#ff7b72;font-weight:700>=</span>~ <span style=color:#79c0ff>$java_78_dir_regex</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>jdk_major_version</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#ff7b72>$(</span>echo <span style=color:#79c0ff>$jdk_dir</span> | sed -nE <span style=color:#a5d6ff>&#34;s/</span><span style=color:#79c0ff>$java_78_dir_regex</span><span style=color:#a5d6ff>/\1/p&#34;</span><span style=color:#ff7b72>)</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>else</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>jdk_major_version</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#ff7b72>$(</span>echo <span style=color:#79c0ff>$jdk_dir</span> | sed -nE <span style=color:#a5d6ff>&#34;s/</span><span style=color:#79c0ff>$java_9up_dir_regex</span><span style=color:#a5d6ff>/\1/p&#34;</span><span style=color:#ff7b72>)</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Install Demos</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Install Demos</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> $jdk_dir <span style=color:#f92672>=</span>~ $java_78_dir_regex <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e># Demos are only available for Java 7 and 8</span>
-</span></span><span style=display:flex><span>    demos_dist<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>dirname $java_dist<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;/&#34;</span><span style=color:#66d9ef>$(</span>echo $java_dist_filename | sed <span style=color:#e6db74>&#39;s/\.tar\.gz/-demos\0/&#39;</span><span style=color:#66d9ef>)</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> <span style=color:#79c0ff>$jdk_dir</span> <span style=color:#ff7b72;font-weight:700>=</span>~ <span style=color:#79c0ff>$java_78_dir_regex</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Demos are only available for Java 7 and 8</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>demos_dist</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#ff7b72>$(</span>dirname <span style=color:#79c0ff>$java_dist</span><span style=color:#ff7b72>)</span><span style=color:#a5d6ff>&#34;/&#34;</span><span style=color:#ff7b72>$(</span>echo <span style=color:#79c0ff>$java_dist_filename</span> | sed <span style=color:#a5d6ff>&#39;s/\.tar\.gz/-demos\0/&#39;</span><span style=color:#ff7b72>)</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> -f $demos_dist <span style=color:#f92672>&amp;&amp;</span> ! -d $extracted_dirname/demo <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e># No demo directory</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>confirm <span style=color:#e6db74>&#34;Extract demos?&#34;</span><span style=color:#f92672>)</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>        echo <span style=color:#e6db74>&#34;Extracting </span>$demos_dist<span style=color:#e6db74> to </span>$java_dir<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>        tar -xf $demos_dist -C $java_dir
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fi</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> -f <span style=color:#79c0ff>$demos_dist</span> <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> ! -d <span style=color:#79c0ff>$extracted_dirname</span>/demo <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># No demo directory</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>(</span>confirm <span style=color:#a5d6ff>&#34;Extract demos?&#34;</span><span style=color:#ff7b72;font-weight:700>)</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>        echo <span style=color:#a5d6ff>&#34;Extracting </span><span style=color:#79c0ff>$demos_dist</span><span style=color:#a5d6ff> to </span><span style=color:#79c0ff>$java_dir</span><span style=color:#a5d6ff>&#34;</span>
+</span></span><span style=display:flex><span>        tar -xf <span style=color:#79c0ff>$demos_dist</span> -C <span style=color:#79c0ff>$java_dir</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Install Unlimited JCE Policy (only for Oracle JDK 7 &amp; 8)</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Java 9 and above: default JCE policy files already allow for \&#34;unlimited\&#34; cryptographic strengths.</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Install Unlimited JCE Policy (only for Oracle JDK 7 &amp; 8)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Java 9 and above: default JCE policy files already allow for \&#34;unlimited\&#34; cryptographic strengths.</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>unlimited_jce_policy_dist<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>unlimited_jce_policy_dist</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> $jdk_dir <span style=color:#f92672>=</span>~ ^jdk1<span style=color:#ae81ff>\.</span>7.* <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    unlimited_jce_policy_dist<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>dirname $java_dist<span style=color:#66d9ef>)</span><span style=color:#e6db74>/UnlimitedJCEPolicyJDK7.zip&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>elif</span> <span style=color:#f92672>[[</span> $jdk_dir <span style=color:#f92672>=</span>~ ^jdk1<span style=color:#ae81ff>\.</span>8.* <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    unlimited_jce_policy_dist<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>dirname $java_dist<span style=color:#66d9ef>)</span><span style=color:#e6db74>/jce_policy-8.zip&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> <span style=color:#79c0ff>$jdk_dir</span> <span style=color:#ff7b72;font-weight:700>=</span>~ ^jdk1<span style=color:#79c0ff>\.</span>7.* <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>unlimited_jce_policy_dist</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;</span><span style=color:#ff7b72>$(</span>dirname <span style=color:#79c0ff>$java_dist</span><span style=color:#ff7b72>)</span><span style=color:#a5d6ff>/UnlimitedJCEPolicyJDK7.zip&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>elif</span> <span style=color:#ff7b72;font-weight:700>[[</span> <span style=color:#79c0ff>$jdk_dir</span> <span style=color:#ff7b72;font-weight:700>=</span>~ ^jdk1<span style=color:#79c0ff>\.</span>8.* <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>unlimited_jce_policy_dist</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;</span><span style=color:#ff7b72>$(</span>dirname <span style=color:#79c0ff>$java_dist</span><span style=color:#ff7b72>)</span><span style=color:#a5d6ff>/jce_policy-8.zip&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> -f $unlimited_jce_policy_dist <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>#Check whether unzip command exsits</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ! command -v unzip &gt;/dev/null 2&gt;&amp;1; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>        echo <span style=color:#e6db74>&#34;Please install unzip (apt -y install unzip).&#34;</span>
-</span></span><span style=display:flex><span>        exit <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fi</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>confirm <span style=color:#e6db74>&#34;Install Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files?&#34;</span><span style=color:#f92672>)</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>        echo <span style=color:#e6db74>&#34;Extracting policy jars in </span>$unlimited_jce_policy_dist<span style=color:#e6db74> to </span>$extracted_dirname<span style=color:#e6db74>/jre/lib/security&#34;</span>
-</span></span><span style=display:flex><span>        unzip -j -o $unlimited_jce_policy_dist *.jar -d $extracted_dirname/jre/lib/security
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fi</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> -f <span style=color:#79c0ff>$unlimited_jce_policy_dist</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>#Check whether unzip command exsits</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> ! command -v unzip &gt;/dev/null 2&gt;&amp;1; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>        echo <span style=color:#a5d6ff>&#34;Please install unzip (apt -y install unzip).&#34;</span>
+</span></span><span style=display:flex><span>        exit <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>fi</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>(</span>confirm <span style=color:#a5d6ff>&#34;Install Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files?&#34;</span><span style=color:#ff7b72;font-weight:700>)</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>        echo <span style=color:#a5d6ff>&#34;Extracting policy jars in </span><span style=color:#79c0ff>$unlimited_jce_policy_dist</span><span style=color:#a5d6ff> to </span><span style=color:#79c0ff>$extracted_dirname</span><span style=color:#a5d6ff>/jre/lib/security&#34;</span>
+</span></span><span style=display:flex><span>        unzip -j -o <span style=color:#79c0ff>$unlimited_jce_policy_dist</span> *.jar -d <span style=color:#79c0ff>$extracted_dirname</span>/jre/lib/security
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Run update-alternatives commands</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>confirm <span style=color:#e6db74>&#34;Run update-alternatives commands?&#34;</span><span style=color:#f92672>)</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Running update-alternatives...&#34;</span>
-</span></span><span style=display:flex><span>    cmd<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;update-alternatives --install /usr/bin/java java </span>$extracted_dirname<span style=color:#e6db74>/bin/java 10000&#34;</span>
-</span></span><span style=display:flex><span>    declare -a commands<span style=color:#f92672>=(</span><span style=color:#66d9ef>$(</span>ls -1 <span style=color:#e6db74>${</span>extracted_dirname<span style=color:#e6db74>}</span>/bin | grep -v ^java$<span style=color:#66d9ef>)</span><span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> command in <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>commands[@]<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>; <span style=color:#66d9ef>do</span>
-</span></span><span style=display:flex><span>        command_path<span style=color:#f92672>=</span>$extracted_dirname/bin/$command
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> -x $command_path <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>            cmd<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span>$cmd<span style=color:#e6db74> --slave /usr/bin/</span>$command<span style=color:#e6db74> </span>$command<span style=color:#e6db74> </span>$command_path<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>fi</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>done</span>
-</span></span><span style=display:flex><span>    lib_path<span style=color:#f92672>=</span>$extracted_dirname/jre/lib/amd64/libnpjp2.so
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> -d <span style=color:#e6db74>&#34;/usr/lib/mozilla/plugins/&#34;</span> <span style=color:#f92672>]]</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>[[</span> -f $lib_path <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>        cmd<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span>$cmd<span style=color:#e6db74> --slave /usr/lib/mozilla/plugins/libjavaplugin.so mozilla-javaplugin.so </span>$lib_path<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fi</span>
-</span></span><span style=display:flex><span>    echo $cmd
-</span></span><span style=display:flex><span>    <span style=color:#75715e># Execute command</span>
-</span></span><span style=display:flex><span>    $cmd
-</span></span><span style=display:flex><span>    update-alternatives --set java $extracted_dirname/bin/java
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Run update-alternatives commands</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>(</span>confirm <span style=color:#a5d6ff>&#34;Run update-alternatives commands?&#34;</span><span style=color:#ff7b72;font-weight:700>)</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#a5d6ff>&#34;Running update-alternatives...&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>cmd</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;update-alternatives --install /usr/bin/java java </span><span style=color:#79c0ff>$extracted_dirname</span><span style=color:#a5d6ff>/bin/java 10000&#34;</span>
+</span></span><span style=display:flex><span>    declare -a <span style=color:#79c0ff>commands</span><span style=color:#ff7b72;font-weight:700>=(</span><span style=color:#ff7b72>$(</span>ls -1 <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>extracted_dirname</span><span style=color:#a5d6ff>}</span>/bin | grep -v ^java$<span style=color:#ff7b72>)</span><span style=color:#ff7b72;font-weight:700>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> command in <span style=color:#a5d6ff>&#34;</span><span style=color:#a5d6ff>${</span><span style=color:#79c0ff>commands</span>[@]<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>; <span style=color:#ff7b72>do</span>
+</span></span><span style=display:flex><span>        <span style=color:#79c0ff>command_path</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#79c0ff>$extracted_dirname</span>/bin/<span style=color:#79c0ff>$command</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> -x <span style=color:#79c0ff>$command_path</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>            <span style=color:#79c0ff>cmd</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>$cmd</span><span style=color:#a5d6ff> --slave /usr/bin/</span><span style=color:#79c0ff>$command</span><span style=color:#a5d6ff> </span><span style=color:#79c0ff>$command</span><span style=color:#a5d6ff> </span><span style=color:#79c0ff>$command_path</span><span style=color:#a5d6ff>&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>fi</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>done</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>lib_path</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#79c0ff>$extracted_dirname</span>/jre/lib/amd64/libnpjp2.so
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> -d <span style=color:#a5d6ff>&#34;/usr/lib/mozilla/plugins/&#34;</span> <span style=color:#ff7b72;font-weight:700>]]</span> <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> <span style=color:#ff7b72;font-weight:700>[[</span> -f <span style=color:#79c0ff>$lib_path</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>        <span style=color:#79c0ff>cmd</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>$cmd</span><span style=color:#a5d6ff> --slave /usr/lib/mozilla/plugins/libjavaplugin.so mozilla-javaplugin.so </span><span style=color:#79c0ff>$lib_path</span><span style=color:#a5d6ff>&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>fi</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#79c0ff>$cmd</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Execute command</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>$cmd</span>
+</span></span><span style=display:flex><span>    update-alternatives --set java <span style=color:#79c0ff>$extracted_dirname</span>/bin/java
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Create system preferences directory</span>
-</span></span><span style=display:flex><span>java_system_prefs_dir<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/etc/.java/.systemPrefs&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> ! -d $java_system_prefs_dir <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>confirm <span style=color:#e6db74>&#34;Create Java System Prefs Directory (</span>$java_system_prefs_dir<span style=color:#e6db74>) and change ownership to </span>$SUDO_USER<span style=color:#e6db74>:</span>$SUDO_USER<span style=color:#e6db74>?&#34;</span><span style=color:#f92672>)</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>        echo <span style=color:#e6db74>&#34;Creating </span>$java_system_prefs_dir<span style=color:#e6db74>&#34;</span>
-</span></span><span style=display:flex><span>        mkdir -p $java_system_prefs_dir
-</span></span><span style=display:flex><span>        chown -R $SUDO_USER:$SUDO_USER $java_system_prefs_dir
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fi</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Create system preferences directory</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>java_system_prefs_dir</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;/etc/.java/.systemPrefs&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> ! -d <span style=color:#79c0ff>$java_system_prefs_dir</span> <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>(</span>confirm <span style=color:#a5d6ff>&#34;Create Java System Prefs Directory (</span><span style=color:#79c0ff>$java_system_prefs_dir</span><span style=color:#a5d6ff>) and change ownership to </span><span style=color:#79c0ff>$SUDO_USER</span><span style=color:#a5d6ff>:</span><span style=color:#79c0ff>$SUDO_USER</span><span style=color:#a5d6ff>?&#34;</span><span style=color:#ff7b72;font-weight:700>)</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>        echo <span style=color:#a5d6ff>&#34;Creating </span><span style=color:#79c0ff>$java_system_prefs_dir</span><span style=color:#a5d6ff>&#34;</span>
+</span></span><span style=display:flex><span>        mkdir -p <span style=color:#79c0ff>$java_system_prefs_dir</span>
+</span></span><span style=display:flex><span>        chown -R <span style=color:#79c0ff>$SUDO_USER</span>:<span style=color:#79c0ff>$SUDO_USER</span> <span style=color:#79c0ff>$java_system_prefs_dir</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>USER_HOME<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>getent passwd $SUDO_USER | cut -d: -f6<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>USER_HOME</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;</span><span style=color:#ff7b72>$(</span>getent passwd <span style=color:#79c0ff>$SUDO_USER</span> | cut -d: -f6<span style=color:#ff7b72>)</span><span style=color:#a5d6ff>&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> -d <span style=color:#e6db74>&#34;</span>$USER_HOME<span style=color:#e6db74>&#34;</span> <span style=color:#f92672>]]</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>(</span>confirm <span style=color:#e6db74>&#34;Do you want to set JAVA_HOME environment variable in </span>$USER_HOME<span style=color:#e6db74>/.bashrc?&#34;</span><span style=color:#f92672>)</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> grep -q <span style=color:#e6db74>&#34;export JAVA_HOME=.*&#34;</span> $USER_HOME/.bashrc; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>        sed -i <span style=color:#e6db74>&#34;s|export JAVA_HOME=.*|export JAVA_HOME=</span>$extracted_dirname<span style=color:#e6db74>|&#34;</span> $USER_HOME/.bashrc
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>
-</span></span><span style=display:flex><span>        echo <span style=color:#e6db74>&#34;export JAVA_HOME=</span>$extracted_dirname<span style=color:#e6db74>&#34;</span> &gt;&gt;$USER_HOME/.bashrc
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fi</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> -d <span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>$USER_HOME</span><span style=color:#a5d6ff>&#34;</span> <span style=color:#ff7b72;font-weight:700>]]</span> <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> <span style=color:#ff7b72;font-weight:700>(</span>confirm <span style=color:#a5d6ff>&#34;Do you want to set JAVA_HOME environment variable in </span><span style=color:#79c0ff>$USER_HOME</span><span style=color:#a5d6ff>/.bashrc?&#34;</span><span style=color:#ff7b72;font-weight:700>)</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> grep -q <span style=color:#a5d6ff>&#34;export JAVA_HOME=.*&#34;</span> <span style=color:#79c0ff>$USER_HOME</span>/.bashrc; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>        sed -i <span style=color:#a5d6ff>&#34;s|export JAVA_HOME=.*|export JAVA_HOME=</span><span style=color:#79c0ff>$extracted_dirname</span><span style=color:#a5d6ff>|&#34;</span> <span style=color:#79c0ff>$USER_HOME</span>/.bashrc
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>else</span>
+</span></span><span style=display:flex><span>        echo <span style=color:#a5d6ff>&#34;export JAVA_HOME=</span><span style=color:#79c0ff>$extracted_dirname</span><span style=color:#a5d6ff>&#34;</span> &gt;&gt;<span style=color:#79c0ff>$USER_HOME</span>/.bashrc
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>applications_dir<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span>$USER_HOME<span style=color:#e6db74>/.local/share/applications&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>applications_dir</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>$USER_HOME</span><span style=color:#a5d6ff>/.local/share/applications&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>create_jmc_shortcut<span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-</span></span><span style=display:flex><span>    shortcut_file<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span>$applications_dir<span style=color:#e6db74>/jmc_</span>$jdk_major_version<span style=color:#e6db74>.desktop&#34;</span>
-</span></span><span style=display:flex><span>    cat <span style=color:#e6db74>&lt;&lt;_EOF_ &gt;$shortcut_file
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>[Desktop Entry]
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Name=Java $jdk_major_version: JMC
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Comment=Oracle Java Mission Control for Java $jdk_major_version
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Type=Application
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Exec=$extracted_dirname/bin/jmc
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Icon=$extracted_dirname/lib/missioncontrol/icon.xpm
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Terminal=false
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>_EOF_</span>
-</span></span><span style=display:flex><span>    chmod +x $shortcut_file
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>create_jmc_shortcut<span style=color:#ff7b72;font-weight:700>()</span> <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>shortcut_file</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>$applications_dir</span><span style=color:#a5d6ff>/jmc_</span><span style=color:#79c0ff>$jdk_major_version</span><span style=color:#a5d6ff>.desktop&#34;</span>
+</span></span><span style=display:flex><span>    cat <span style=color:#a5d6ff>&lt;&lt;_EOF_ &gt;$shortcut_file
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>[Desktop Entry]
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Name=Java $jdk_major_version: JMC
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Comment=Oracle Java Mission Control for Java $jdk_major_version
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Type=Application
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Exec=$extracted_dirname/bin/jmc
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Icon=$extracted_dirname/lib/missioncontrol/icon.xpm
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Terminal=false
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>_EOF_</span>
+</span></span><span style=display:flex><span>    chmod +x <span style=color:#79c0ff>$shortcut_file</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[[</span> -d $applications_dir <span style=color:#f92672>]]</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>[[</span> -f $extracted_dirname/bin/jmc <span style=color:#f92672>]]</span>; <span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>confirm <span style=color:#e6db74>&#34;Do you want to create a desktop shortcut to JMC?&#34;</span><span style=color:#f92672>)</span>; <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[[</span> -d <span style=color:#79c0ff>$applications_dir</span> <span style=color:#ff7b72;font-weight:700>]]</span> <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> <span style=color:#ff7b72;font-weight:700>[[</span> -f <span style=color:#79c0ff>$extracted_dirname</span>/bin/jmc <span style=color:#ff7b72;font-weight:700>]]</span>; <span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>(</span>confirm <span style=color:#a5d6ff>&#34;Do you want to create a desktop shortcut to JMC?&#34;</span><span style=color:#ff7b72;font-weight:700>)</span>; <span style=color:#ff7b72>then</span>
 </span></span><span style=display:flex><span>        create_jmc_shortcut
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fi</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
-</span></span></code></pre></div><p>添加执行权限并运行</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>chmod +x install-java.sh <span style=color:#f92672>&amp;&amp;</span> ./install-java.sh
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>fi</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
+</span></span></code></pre></div><p>添加执行权限并运行</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>chmod +x install-java.sh <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> ./install-java.sh
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/java>Java</a>
 <a href=/tags/jdk>JDK</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">

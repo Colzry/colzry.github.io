@@ -23,182 +23,182 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span>994</span></span>
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
-<span>2分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> requests
-</span></span><span style=display:flex><span><span style=color:#f92672>from</span> lxml <span style=color:#f92672>import</span> etree
-</span></span><span style=display:flex><span><span style=color:#f92672>import</span> re
-</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
-</span></span><span style=display:flex><span><span style=color:#f92672>import</span> aiohttp
-</span></span><span style=display:flex><span><span style=color:#f92672>import</span> aiofiles
-</span></span><span style=display:flex><span><span style=color:#f92672>import</span> asyncio
-</span></span><span style=display:flex><span><span style=color:#f92672>import</span> shutil
-</span></span><span style=display:flex><span><span style=color:#f92672>from</span> Crypto.Cipher <span style=color:#f92672>import</span> AES
+<span>2分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>requests</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>lxml</span> <span style=color:#ff7b72>import</span> etree
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>re</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>os</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>aiohttp</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>aiofiles</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>asyncio</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>shutil</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>Crypto.Cipher</span> <span style=color:#ff7b72>import</span> AES
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>headers <span style=color:#f92672>=</span> {
-</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;user-agent&#39;</span>: <span style=color:#e6db74>&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) &#39;</span>
-</span></span><span style=display:flex><span>                  <span style=color:#e6db74>&#39;AppleWebKit/537.36 (KHTML, like Gecko) &#39;</span>
-</span></span><span style=display:flex><span>                  <span style=color:#e6db74>&#39;Chrome/91.0.4472.106 Safari/537.36&#39;</span>
+</span></span><span style=display:flex><span>headers <span style=color:#ff7b72;font-weight:700>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a5d6ff>&#39;user-agent&#39;</span>: <span style=color:#a5d6ff>&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) &#39;</span>
+</span></span><span style=display:flex><span>                  <span style=color:#a5d6ff>&#39;AppleWebKit/537.36 (KHTML, like Gecko) &#39;</span>
+</span></span><span style=display:flex><span>                  <span style=color:#a5d6ff>&#39;Chrome/91.0.4472.106 Safari/537.36&#39;</span>
 </span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#75715e># 下载地址</span>
-</span></span><span style=display:flex><span>path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;D:/COLI/&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 下载地址</span>
+</span></span><span style=display:flex><span>path <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;D:/COLI/&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>login</span>(url):
-</span></span><span style=display:flex><span>    session <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>session()
-</span></span><span style=display:flex><span>    url <span style=color:#f92672>=</span> url <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;login.php?&#39;</span>
-</span></span><span style=display:flex><span>    data <span style=color:#f92672>=</span> {
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;pwuser&#39;</span>: <span style=color:#e6db74>&#39;小车车压槽&#39;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;pwpwd&#39;</span>: <span style=color:#e6db74>&#39;qazwsxedc&#39;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;hideid&#39;</span>: <span style=color:#ae81ff>0</span>,
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;cktime&#39;</span>: <span style=color:#e6db74>&#39;31536000&#39;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;forward&#39;</span>: <span style=color:#e6db74>&#39;https://www.d5034af6f919.xyz/&#39;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;jumpurl&#39;</span>: <span style=color:#e6db74>&#39;https://www.d5034af6f919.xyz/&#39;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;step&#39;</span>: <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>login</span>(url):
+</span></span><span style=display:flex><span>    session <span style=color:#ff7b72;font-weight:700>=</span> requests<span style=color:#ff7b72;font-weight:700>.</span>session()
+</span></span><span style=display:flex><span>    url <span style=color:#ff7b72;font-weight:700>=</span> url <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;login.php?&#39;</span>
+</span></span><span style=display:flex><span>    data <span style=color:#ff7b72;font-weight:700>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;pwuser&#39;</span>: <span style=color:#a5d6ff>&#39;小车车压槽&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;pwpwd&#39;</span>: <span style=color:#a5d6ff>&#39;qazwsxedc&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;hideid&#39;</span>: <span style=color:#a5d6ff>0</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;cktime&#39;</span>: <span style=color:#a5d6ff>&#39;31536000&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;forward&#39;</span>: <span style=color:#a5d6ff>&#39;https://www.d5034af6f919.xyz/&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;jumpurl&#39;</span>: <span style=color:#a5d6ff>&#39;https://www.d5034af6f919.xyz/&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;step&#39;</span>: <span style=color:#a5d6ff>2</span>
 </span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    session<span style=color:#f92672>.</span>post(url<span style=color:#f92672>=</span>url, data<span style=color:#f92672>=</span>data, headers<span style=color:#f92672>=</span>headers)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> session
+</span></span><span style=display:flex><span>    session<span style=color:#ff7b72;font-weight:700>.</span>post(url<span style=color:#ff7b72;font-weight:700>=</span>url, data<span style=color:#ff7b72;font-weight:700>=</span>data, headers<span style=color:#ff7b72;font-weight:700>=</span>headers)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> session
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 封装网络请求</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>requ</span>(session, url):
-</span></span><span style=display:flex><span>    resp <span style=color:#f92672>=</span> session<span style=color:#f92672>.</span>get(url<span style=color:#f92672>=</span>url, headers<span style=color:#f92672>=</span>headers)
-</span></span><span style=display:flex><span>    resp<span style=color:#f92672>.</span>encoding <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;utf-8&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> resp
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 封装网络请求</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>requ</span>(session, url):
+</span></span><span style=display:flex><span>    resp <span style=color:#ff7b72;font-weight:700>=</span> session<span style=color:#ff7b72;font-weight:700>.</span>get(url<span style=color:#ff7b72;font-weight:700>=</span>url, headers<span style=color:#ff7b72;font-weight:700>=</span>headers)
+</span></span><span style=display:flex><span>    resp<span style=color:#ff7b72;font-weight:700>.</span>encoding <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;utf-8&#39;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> resp
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 使用模块区的链接获取</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>serach_tody</span>(session, url):
-</span></span><span style=display:flex><span>    today_url <span style=color:#f92672>=</span> url <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;&amp;search=today&#39;</span>
-</span></span><span style=display:flex><span>    resp <span style=color:#f92672>=</span> requ(session, today_url)
-</span></span><span style=display:flex><span>    tree <span style=color:#f92672>=</span> etree<span style=color:#f92672>.</span>HTML(resp<span style=color:#f92672>.</span>text)
-</span></span><span style=display:flex><span>    tag_list <span style=color:#f92672>=</span> tree<span style=color:#f92672>.</span>xpath(<span style=color:#e6db74>&#39;//tr[@class=&#34;tr3 t_one tac&#34;]&#39;</span>)
-</span></span><span style=display:flex><span>    link_list <span style=color:#f92672>=</span> []
-</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;------------------------今日内容--------------------------&#39;</span>)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> index, tag <span style=color:#f92672>in</span> enumerate(tag_list):
-</span></span><span style=display:flex><span>        title <span style=color:#f92672>=</span> tag<span style=color:#f92672>.</span>xpath(<span style=color:#e6db74>&#39;./td[2]/h3/a/text()&#39;</span>)[<span style=color:#ae81ff>0</span>]
-</span></span><span style=display:flex><span>        time <span style=color:#f92672>=</span> tag<span style=color:#f92672>.</span>xpath(<span style=color:#e6db74>&#39;./td[3]/div/text()&#39;</span>)[<span style=color:#ae81ff>0</span>]
-</span></span><span style=display:flex><span>        link <span style=color:#f92672>=</span> tag<span style=color:#f92672>.</span>xpath(<span style=color:#e6db74>&#39;./td[2]/h3/a/@href&#39;</span>)[<span style=color:#ae81ff>0</span>]
-</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>index<span style=color:#e6db74>}</span><span style=color:#e6db74>.----------------------------------------------</span><span style=color:#e6db74>{</span>title<span style=color:#e6db74>}</span><span style=color:#e6db74> </span><span style=color:#e6db74>{</span>time<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>)
-</span></span><span style=display:flex><span>        link_list<span style=color:#f92672>.</span>append(link)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> link_list
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用模块区的链接获取</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>serach_tody</span>(session, url):
+</span></span><span style=display:flex><span>    today_url <span style=color:#ff7b72;font-weight:700>=</span> url <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;&amp;search=today&#39;</span>
+</span></span><span style=display:flex><span>    resp <span style=color:#ff7b72;font-weight:700>=</span> requ(session, today_url)
+</span></span><span style=display:flex><span>    tree <span style=color:#ff7b72;font-weight:700>=</span> etree<span style=color:#ff7b72;font-weight:700>.</span>HTML(resp<span style=color:#ff7b72;font-weight:700>.</span>text)
+</span></span><span style=display:flex><span>    tag_list <span style=color:#ff7b72;font-weight:700>=</span> tree<span style=color:#ff7b72;font-weight:700>.</span>xpath(<span style=color:#a5d6ff>&#39;//tr[@class=&#34;tr3 t_one tac&#34;]&#39;</span>)
+</span></span><span style=display:flex><span>    link_list <span style=color:#ff7b72;font-weight:700>=</span> []
+</span></span><span style=display:flex><span>    print(<span style=color:#a5d6ff>&#39;------------------------今日内容--------------------------&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> index, tag <span style=color:#ff7b72;font-weight:700>in</span> enumerate(tag_list):
+</span></span><span style=display:flex><span>        title <span style=color:#ff7b72;font-weight:700>=</span> tag<span style=color:#ff7b72;font-weight:700>.</span>xpath(<span style=color:#a5d6ff>&#39;./td[2]/h3/a/text()&#39;</span>)[<span style=color:#a5d6ff>0</span>]
+</span></span><span style=display:flex><span>        time <span style=color:#ff7b72;font-weight:700>=</span> tag<span style=color:#ff7b72;font-weight:700>.</span>xpath(<span style=color:#a5d6ff>&#39;./td[3]/div/text()&#39;</span>)[<span style=color:#a5d6ff>0</span>]
+</span></span><span style=display:flex><span>        link <span style=color:#ff7b72;font-weight:700>=</span> tag<span style=color:#ff7b72;font-weight:700>.</span>xpath(<span style=color:#a5d6ff>&#39;./td[2]/h3/a/@href&#39;</span>)[<span style=color:#a5d6ff>0</span>]
+</span></span><span style=display:flex><span>        print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#39;</span><span style=color:#a5d6ff>{</span>index<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>.----------------------------------------------</span><span style=color:#a5d6ff>{</span>title<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff> </span><span style=color:#a5d6ff>{</span>time<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#39;</span>)
+</span></span><span style=display:flex><span>        link_list<span style=color:#ff7b72;font-weight:700>.</span>append(link)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> link_list
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 使用页面page的链接获取</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_video_url</span>(session, url):
-</span></span><span style=display:flex><span>    resp <span style=color:#f92672>=</span> requ(session, url)
-</span></span><span style=display:flex><span>    tree <span style=color:#f92672>=</span> etree<span style=color:#f92672>.</span>HTML(resp<span style=color:#f92672>.</span>text)
-</span></span><span style=display:flex><span>    video_url <span style=color:#f92672>=</span> tree<span style=color:#f92672>.</span>xpath(<span style=color:#e6db74>&#39;//*[@id=&#34;iframe1&#34;]/@src&#39;</span>)[<span style=color:#ae81ff>0</span>]
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> video_url
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用页面page的链接获取</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>get_video_url</span>(session, url):
+</span></span><span style=display:flex><span>    resp <span style=color:#ff7b72;font-weight:700>=</span> requ(session, url)
+</span></span><span style=display:flex><span>    tree <span style=color:#ff7b72;font-weight:700>=</span> etree<span style=color:#ff7b72;font-weight:700>.</span>HTML(resp<span style=color:#ff7b72;font-weight:700>.</span>text)
+</span></span><span style=display:flex><span>    video_url <span style=color:#ff7b72;font-weight:700>=</span> tree<span style=color:#ff7b72;font-weight:700>.</span>xpath(<span style=color:#a5d6ff>&#39;//*[@id=&#34;iframe1&#34;]/@src&#39;</span>)[<span style=color:#a5d6ff>0</span>]
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> video_url
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 使用video的链接获取m3u8文件</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_m3u8_url</span>(session, url):
-</span></span><span style=display:flex><span>    resp <span style=color:#f92672>=</span> requ(session, url)
-</span></span><span style=display:flex><span>    rexp <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;url: &#39;(?P&lt;url&gt;.*?)\?t=3&#39;,&#34;</span>, re<span style=color:#f92672>.</span>S)
-</span></span><span style=display:flex><span>    page_source <span style=color:#f92672>=</span> resp<span style=color:#f92672>.</span>text
-</span></span><span style=display:flex><span>    m3u8_url <span style=color:#f92672>=</span> rexp<span style=color:#f92672>.</span>search(page_source)<span style=color:#f92672>.</span>group(<span style=color:#e6db74>&#34;url&#34;</span>)
-</span></span><span style=display:flex><span>    rexp <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;&lt;title&gt;(?P&lt;title&gt;.*?)&lt;/title&gt;&#34;</span>, re<span style=color:#f92672>.</span>S)
-</span></span><span style=display:flex><span>    title <span style=color:#f92672>=</span> rexp<span style=color:#f92672>.</span>search(page_source)<span style=color:#f92672>.</span>group(<span style=color:#e6db74>&#34;title&#34;</span>)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> title, m3u8_url
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用video的链接获取m3u8文件</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>get_m3u8_url</span>(session, url):
+</span></span><span style=display:flex><span>    resp <span style=color:#ff7b72;font-weight:700>=</span> requ(session, url)
+</span></span><span style=display:flex><span>    rexp <span style=color:#ff7b72;font-weight:700>=</span> re<span style=color:#ff7b72;font-weight:700>.</span>compile(<span style=color:#79c0ff>r</span><span style=color:#a5d6ff>&#34;url: &#39;(?P&lt;url&gt;.*?)\?t=3&#39;,&#34;</span>, re<span style=color:#ff7b72;font-weight:700>.</span>S)
+</span></span><span style=display:flex><span>    page_source <span style=color:#ff7b72;font-weight:700>=</span> resp<span style=color:#ff7b72;font-weight:700>.</span>text
+</span></span><span style=display:flex><span>    m3u8_url <span style=color:#ff7b72;font-weight:700>=</span> rexp<span style=color:#ff7b72;font-weight:700>.</span>search(page_source)<span style=color:#ff7b72;font-weight:700>.</span>group(<span style=color:#a5d6ff>&#34;url&#34;</span>)
+</span></span><span style=display:flex><span>    rexp <span style=color:#ff7b72;font-weight:700>=</span> re<span style=color:#ff7b72;font-weight:700>.</span>compile(<span style=color:#79c0ff>r</span><span style=color:#a5d6ff>&#34;&lt;title&gt;(?P&lt;title&gt;.*?)&lt;/title&gt;&#34;</span>, re<span style=color:#ff7b72;font-weight:700>.</span>S)
+</span></span><span style=display:flex><span>    title <span style=color:#ff7b72;font-weight:700>=</span> rexp<span style=color:#ff7b72;font-weight:700>.</span>search(page_source)<span style=color:#ff7b72;font-weight:700>.</span>group(<span style=color:#a5d6ff>&#34;title&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> title, m3u8_url
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 使用m3u8的链接下载</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>down_m3u8</span>(name, url):
-</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;开始下载&#39;</span>, name)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>exists(path <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;M3U8/&#39;</span>):
-</span></span><span style=display:flex><span>        os<span style=color:#f92672>.</span>makedirs(path <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;M3U8/&#39;</span>)
-</span></span><span style=display:flex><span>    file_path <span style=color:#f92672>=</span> path <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;M3U8/&#39;</span> <span style=color:#f92672>+</span> name <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;.m3u8&#39;</span>
-</span></span><span style=display:flex><span>    data <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(url<span style=color:#f92672>=</span>url, headers<span style=color:#f92672>=</span>headers)<span style=color:#f92672>.</span>content
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>with</span> open(file_path, <span style=color:#e6db74>&#39;wb&#39;</span>) <span style=color:#66d9ef>as</span> f:
-</span></span><span style=display:flex><span>        f<span style=color:#f92672>.</span>write(data)
-</span></span><span style=display:flex><span>    print(name <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;.m3u8下载成功&#39;</span>)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>down_ts</span>(url, name, ts_key, session, title):
-</span></span><span style=display:flex><span>    file_path <span style=color:#f92672>=</span> path <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;Ts/&#39;</span> <span style=color:#f92672>+</span> title<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#34; &#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>) <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;/&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>exists(file_path):
-</span></span><span style=display:flex><span>        os<span style=color:#f92672>.</span>mkdir(file_path)
-</span></span><span style=display:flex><span>    aes <span style=color:#f92672>=</span> AES<span style=color:#f92672>.</span>new(key<span style=color:#f92672>=</span>ts_key, mode<span style=color:#f92672>=</span>AES<span style=color:#f92672>.</span>MODE_CBC)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>with</span> session<span style=color:#f92672>.</span>get(url) <span style=color:#66d9ef>as</span> resp:
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>with</span> aiofiles<span style=color:#f92672>.</span>open(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>file_path<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>{</span>name<span style=color:#e6db74>}</span><span style=color:#e6db74>&#39;</span>, mode<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;wb&#39;</span>) <span style=color:#66d9ef>as</span> f:
-</span></span><span style=display:flex><span>            data <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> resp<span style=color:#f92672>.</span>content<span style=color:#f92672>.</span>read()
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> f<span style=color:#f92672>.</span>write(aes<span style=color:#f92672>.</span>decrypt(data))
-</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>name<span style=color:#e6db74>}</span><span style=color:#e6db74>下载完成&#39;</span>)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_ts_key</span>(url):
-</span></span><span style=display:flex><span>    ts_key <span style=color:#f92672>=</span> requests<span style=color:#f92672>.</span>get(url<span style=color:#f92672>=</span>url, headers<span style=color:#f92672>=</span>headers)<span style=color:#f92672>.</span>content
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> ts_key
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>down_video</span>(name, ts_domain):
-</span></span><span style=display:flex><span>    tasks <span style=color:#f92672>=</span> []
-</span></span><span style=display:flex><span>    file_path <span style=color:#f92672>=</span> path <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;M3U8/&#39;</span> <span style=color:#f92672>+</span> name <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;.m3u8&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>with</span> aiohttp<span style=color:#f92672>.</span>ClientSession() <span style=color:#66d9ef>as</span> session:
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>with</span> aiofiles<span style=color:#f92672>.</span>open(file_path, mode<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;r&#39;</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;utf-8&#39;</span>) <span style=color:#66d9ef>as</span> f:
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>async</span> <span style=color:#66d9ef>for</span> line <span style=color:#f92672>in</span> f:
-</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#39;.key&#39;</span> <span style=color:#f92672>in</span> line:
-</span></span><span style=display:flex><span>                    rexp <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>compile(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;URI=&#34;(?P&lt;key_url&gt;.*?)&#34;,&#39;</span>, re<span style=color:#f92672>.</span>S)
-</span></span><span style=display:flex><span>                    key_url <span style=color:#f92672>=</span> rexp<span style=color:#f92672>.</span>search(line)<span style=color:#f92672>.</span>group(<span style=color:#e6db74>&#34;key_url&#34;</span>)
-</span></span><span style=display:flex><span>                    ts_key <span style=color:#f92672>=</span> get_ts_key(ts_domain <span style=color:#f92672>+</span> key_url)
-</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> line<span style=color:#f92672>.</span>startswith(<span style=color:#e6db74>&#34;#&#34;</span>):
-</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>continue</span>
-</span></span><span style=display:flex><span>                <span style=color:#75715e># 去掉多余的空格和换行</span>
-</span></span><span style=display:flex><span>                line <span style=color:#f92672>=</span> line<span style=color:#f92672>.</span>strip()
-</span></span><span style=display:flex><span>                <span style=color:#75715e># 拿到正真的ts地址</span>
-</span></span><span style=display:flex><span>                ts_url <span style=color:#f92672>=</span> ts_domain <span style=color:#f92672>+</span> line
-</span></span><span style=display:flex><span>                <span style=color:#75715e># 创建异步任务</span>
-</span></span><span style=display:flex><span>                task <span style=color:#f92672>=</span> asyncio<span style=color:#f92672>.</span>create_task(down_ts(ts_url, line, ts_key, session, title))
-</span></span><span style=display:flex><span>                <span style=color:#75715e># 加入任务列表</span>
-</span></span><span style=display:flex><span>                tasks<span style=color:#f92672>.</span>append(task)
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>await</span> asyncio<span style=color:#f92672>.</span>wait(tasks)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>merge_ts</span>(name):
-</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;正在合并</span><span style=color:#e6db74>{</span>name<span style=color:#e6db74>}</span><span style=color:#e6db74>.mp4 请稍后...........&#39;</span>)
-</span></span><span style=display:flex><span>    name <span style=color:#f92672>=</span> name<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#34; &#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>)
-</span></span><span style=display:flex><span>    video_path <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>path<span style=color:#e6db74>}</span><span style=color:#e6db74>Video/&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>exists(video_path):
-</span></span><span style=display:flex><span>        os<span style=color:#f92672>.</span>mkdir(video_path)
-</span></span><span style=display:flex><span>    os<span style=color:#f92672>.</span>chdir(path <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;/Ts/&#39;</span> <span style=color:#f92672>+</span> name)
-</span></span><span style=display:flex><span>    os<span style=color:#f92672>.</span>system(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;copy /b *.ts ..</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>..</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>Video</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>{</span>name<span style=color:#e6db74>}</span><span style=color:#e6db74>.mp4&#39;</span>)
-</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>name<span style=color:#e6db74>}</span><span style=color:#e6db74>.mp4 合并成功&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用m3u8的链接下载</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>down_m3u8</span>(name, url):
+</span></span><span style=display:flex><span>    print(<span style=color:#a5d6ff>&#39;开始下载&#39;</span>, name)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>not</span> os<span style=color:#ff7b72;font-weight:700>.</span>path<span style=color:#ff7b72;font-weight:700>.</span>exists(path <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;M3U8/&#39;</span>):
+</span></span><span style=display:flex><span>        os<span style=color:#ff7b72;font-weight:700>.</span>makedirs(path <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;M3U8/&#39;</span>)
+</span></span><span style=display:flex><span>    file_path <span style=color:#ff7b72;font-weight:700>=</span> path <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;M3U8/&#39;</span> <span style=color:#ff7b72;font-weight:700>+</span> name <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;.m3u8&#39;</span>
+</span></span><span style=display:flex><span>    data <span style=color:#ff7b72;font-weight:700>=</span> requests<span style=color:#ff7b72;font-weight:700>.</span>get(url<span style=color:#ff7b72;font-weight:700>=</span>url, headers<span style=color:#ff7b72;font-weight:700>=</span>headers)<span style=color:#ff7b72;font-weight:700>.</span>content
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>with</span> open(file_path, <span style=color:#a5d6ff>&#39;wb&#39;</span>) <span style=color:#ff7b72>as</span> f:
+</span></span><span style=display:flex><span>        f<span style=color:#ff7b72;font-weight:700>.</span>write(data)
+</span></span><span style=display:flex><span>    print(name <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;.m3u8下载成功&#39;</span>)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 进入地址</span>
-</span></span><span style=display:flex><span>    domain <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;https://www.d5034af6f919.xyz/&#39;</span>
-</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;正在登录，请稍后..........&#39;</span>)
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 拿到登录的会话</span>
-</span></span><span style=display:flex><span>    session <span style=color:#f92672>=</span> login(domain)
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 进入主页</span>
-</span></span><span style=display:flex><span>    index_url <span style=color:#f92672>=</span> domain <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;index.php&#39;</span>
-</span></span><span style=display:flex><span>    resp <span style=color:#f92672>=</span> requ(session, index_url)
-</span></span><span style=display:flex><span>    tree <span style=color:#f92672>=</span> etree<span style=color:#f92672>.</span>HTML(resp<span style=color:#f92672>.</span>text)
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 拿到用户名</span>
-</span></span><span style=display:flex><span>    user <span style=color:#f92672>=</span> tree<span style=color:#f92672>.</span>xpath(<span style=color:#e6db74>&#39;//*[@id=&#34;header&#34;]/div[2]/span/text()&#39;</span>)[<span style=color:#ae81ff>0</span>]
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 拿到vip区的地址</span>
-</span></span><span style=display:flex><span>    vip_link <span style=color:#f92672>=</span> domain <span style=color:#f92672>+</span> tree<span style=color:#f92672>.</span>xpath(<span style=color:#e6db74>&#39;//*[@id=&#34;cate_1&#34;]/tr[2]/th[1]/h2/a/@href&#39;</span>)[<span style=color:#ae81ff>0</span>]
-</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;登录成功&#39;</span>)
-</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;用户名：&#39;</span>, user)
-</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#39;正在进入vip影视区.........&#39;</span>)
-</span></span><span style=display:flex><span>    links <span style=color:#f92672>=</span> serach_tody(session, vip_link)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>exists(path <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;Ts/&#39;</span>):
-</span></span><span style=display:flex><span>        os<span style=color:#f92672>.</span>mkdir(path <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;Ts/&#39;</span>)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>:
-</span></span><span style=display:flex><span>        shutil<span style=color:#f92672>.</span>rmtree(path <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;Ts/&#39;</span>)
-</span></span><span style=display:flex><span>        os<span style=color:#f92672>.</span>mkdir(path <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;Ts/&#39;</span>)
+</span></span><span style=display:flex><span><span style=color:#ff7b72>async</span> <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>down_ts</span>(url, name, ts_key, session, title):
+</span></span><span style=display:flex><span>    file_path <span style=color:#ff7b72;font-weight:700>=</span> path <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;Ts/&#39;</span> <span style=color:#ff7b72;font-weight:700>+</span> title<span style=color:#ff7b72;font-weight:700>.</span>replace(<span style=color:#a5d6ff>&#34; &#34;</span>, <span style=color:#a5d6ff>&#34;&#34;</span>) <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;/&#39;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>not</span> os<span style=color:#ff7b72;font-weight:700>.</span>path<span style=color:#ff7b72;font-weight:700>.</span>exists(file_path):
+</span></span><span style=display:flex><span>        os<span style=color:#ff7b72;font-weight:700>.</span>mkdir(file_path)
+</span></span><span style=display:flex><span>    aes <span style=color:#ff7b72;font-weight:700>=</span> AES<span style=color:#ff7b72;font-weight:700>.</span>new(key<span style=color:#ff7b72;font-weight:700>=</span>ts_key, mode<span style=color:#ff7b72;font-weight:700>=</span>AES<span style=color:#ff7b72;font-weight:700>.</span>MODE_CBC)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>async</span> <span style=color:#ff7b72>with</span> session<span style=color:#ff7b72;font-weight:700>.</span>get(url) <span style=color:#ff7b72>as</span> resp:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>async</span> <span style=color:#ff7b72>with</span> aiofiles<span style=color:#ff7b72;font-weight:700>.</span>open(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#39;</span><span style=color:#a5d6ff>{</span>file_path<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>/</span><span style=color:#a5d6ff>{</span>name<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#39;</span>, mode<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;wb&#39;</span>) <span style=color:#ff7b72>as</span> f:
+</span></span><span style=display:flex><span>            data <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>await</span> resp<span style=color:#ff7b72;font-weight:700>.</span>content<span style=color:#ff7b72;font-weight:700>.</span>read()
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>await</span> f<span style=color:#ff7b72;font-weight:700>.</span>write(aes<span style=color:#ff7b72;font-weight:700>.</span>decrypt(data))
+</span></span><span style=display:flex><span>    print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#39;</span><span style=color:#a5d6ff>{</span>name<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>下载完成&#39;</span>)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    loop <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> loop:
-</span></span><span style=display:flex><span>        index <span style=color:#f92672>=</span> int(input(<span style=color:#e6db74>&#39;请选择你要下载的索引[-1退出]：&#39;</span>))
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> index <span style=color:#f92672>==</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>:
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>break</span>
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>elif</span> index <span style=color:#f92672>&lt;</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>and</span> index <span style=color:#f92672>&gt;</span> len(links):
-</span></span><span style=display:flex><span>            index <span style=color:#f92672>=</span> int(input(<span style=color:#e6db74>&#39;你的输入有误，请重新输入[-1退出]：&#39;</span>))
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
-</span></span><span style=display:flex><span>            page_url <span style=color:#f92672>=</span> domain <span style=color:#f92672>+</span> links[index]
-</span></span><span style=display:flex><span>            video_url <span style=color:#f92672>=</span> domain <span style=color:#f92672>+</span> get_video_url(session, page_url)
-</span></span><span style=display:flex><span>            title, m3u8_url <span style=color:#f92672>=</span> get_m3u8_url(session, video_url)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>get_ts_key</span>(url):
+</span></span><span style=display:flex><span>    ts_key <span style=color:#ff7b72;font-weight:700>=</span> requests<span style=color:#ff7b72;font-weight:700>.</span>get(url<span style=color:#ff7b72;font-weight:700>=</span>url, headers<span style=color:#ff7b72;font-weight:700>=</span>headers)<span style=color:#ff7b72;font-weight:700>.</span>content
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> ts_key
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>async</span> <span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>down_video</span>(name, ts_domain):
+</span></span><span style=display:flex><span>    tasks <span style=color:#ff7b72;font-weight:700>=</span> []
+</span></span><span style=display:flex><span>    file_path <span style=color:#ff7b72;font-weight:700>=</span> path <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;M3U8/&#39;</span> <span style=color:#ff7b72;font-weight:700>+</span> name <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;.m3u8&#39;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>async</span> <span style=color:#ff7b72>with</span> aiohttp<span style=color:#ff7b72;font-weight:700>.</span>ClientSession() <span style=color:#ff7b72>as</span> session:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>async</span> <span style=color:#ff7b72>with</span> aiofiles<span style=color:#ff7b72;font-weight:700>.</span>open(file_path, mode<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;r&#39;</span>, encoding<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;utf-8&#39;</span>) <span style=color:#ff7b72>as</span> f:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>async</span> <span style=color:#ff7b72>for</span> line <span style=color:#ff7b72;font-weight:700>in</span> f:
+</span></span><span style=display:flex><span>                <span style=color:#ff7b72>if</span> <span style=color:#a5d6ff>&#39;.key&#39;</span> <span style=color:#ff7b72;font-weight:700>in</span> line:
+</span></span><span style=display:flex><span>                    rexp <span style=color:#ff7b72;font-weight:700>=</span> re<span style=color:#ff7b72;font-weight:700>.</span>compile(<span style=color:#79c0ff>r</span><span style=color:#a5d6ff>&#39;URI=&#34;(?P&lt;key_url&gt;.*?)&#34;,&#39;</span>, re<span style=color:#ff7b72;font-weight:700>.</span>S)
+</span></span><span style=display:flex><span>                    key_url <span style=color:#ff7b72;font-weight:700>=</span> rexp<span style=color:#ff7b72;font-weight:700>.</span>search(line)<span style=color:#ff7b72;font-weight:700>.</span>group(<span style=color:#a5d6ff>&#34;key_url&#34;</span>)
+</span></span><span style=display:flex><span>                    ts_key <span style=color:#ff7b72;font-weight:700>=</span> get_ts_key(ts_domain <span style=color:#ff7b72;font-weight:700>+</span> key_url)
+</span></span><span style=display:flex><span>                <span style=color:#ff7b72>if</span> line<span style=color:#ff7b72;font-weight:700>.</span>startswith(<span style=color:#a5d6ff>&#34;#&#34;</span>):
+</span></span><span style=display:flex><span>                    <span style=color:#ff7b72>continue</span>
+</span></span><span style=display:flex><span>                <span style=color:#8b949e;font-style:italic># 去掉多余的空格和换行</span>
+</span></span><span style=display:flex><span>                line <span style=color:#ff7b72;font-weight:700>=</span> line<span style=color:#ff7b72;font-weight:700>.</span>strip()
+</span></span><span style=display:flex><span>                <span style=color:#8b949e;font-style:italic># 拿到正真的ts地址</span>
+</span></span><span style=display:flex><span>                ts_url <span style=color:#ff7b72;font-weight:700>=</span> ts_domain <span style=color:#ff7b72;font-weight:700>+</span> line
+</span></span><span style=display:flex><span>                <span style=color:#8b949e;font-style:italic># 创建异步任务</span>
+</span></span><span style=display:flex><span>                task <span style=color:#ff7b72;font-weight:700>=</span> asyncio<span style=color:#ff7b72;font-weight:700>.</span>create_task(down_ts(ts_url, line, ts_key, session, title))
+</span></span><span style=display:flex><span>                <span style=color:#8b949e;font-style:italic># 加入任务列表</span>
+</span></span><span style=display:flex><span>                tasks<span style=color:#ff7b72;font-weight:700>.</span>append(task)
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>await</span> asyncio<span style=color:#ff7b72;font-weight:700>.</span>wait(tasks)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>merge_ts</span>(name):
+</span></span><span style=display:flex><span>    print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#39;正在合并</span><span style=color:#a5d6ff>{</span>name<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>.mp4 请稍后...........&#39;</span>)
+</span></span><span style=display:flex><span>    name <span style=color:#ff7b72;font-weight:700>=</span> name<span style=color:#ff7b72;font-weight:700>.</span>replace(<span style=color:#a5d6ff>&#34; &#34;</span>, <span style=color:#a5d6ff>&#34;&#34;</span>)
+</span></span><span style=display:flex><span>    video_path <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#39;</span><span style=color:#a5d6ff>{</span>path<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>Video/&#39;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>not</span> os<span style=color:#ff7b72;font-weight:700>.</span>path<span style=color:#ff7b72;font-weight:700>.</span>exists(video_path):
+</span></span><span style=display:flex><span>        os<span style=color:#ff7b72;font-weight:700>.</span>mkdir(video_path)
+</span></span><span style=display:flex><span>    os<span style=color:#ff7b72;font-weight:700>.</span>chdir(path <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;/Ts/&#39;</span> <span style=color:#ff7b72;font-weight:700>+</span> name)
+</span></span><span style=display:flex><span>    os<span style=color:#ff7b72;font-weight:700>.</span>system(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#39;copy /b *.ts ..</span><span style=color:#79c0ff>\\</span><span style=color:#a5d6ff>..</span><span style=color:#79c0ff>\\</span><span style=color:#a5d6ff>Video</span><span style=color:#79c0ff>\\</span><span style=color:#a5d6ff>{</span>name<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>.mp4&#39;</span>)
+</span></span><span style=display:flex><span>    print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#39;</span><span style=color:#a5d6ff>{</span>name<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>.mp4 合并成功&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> __name__ <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>&#39;__main__&#39;</span>:
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 进入地址</span>
+</span></span><span style=display:flex><span>    domain <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;https://www.d5034af6f919.xyz/&#39;</span>
+</span></span><span style=display:flex><span>    print(<span style=color:#a5d6ff>&#39;正在登录，请稍后..........&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 拿到登录的会话</span>
+</span></span><span style=display:flex><span>    session <span style=color:#ff7b72;font-weight:700>=</span> login(domain)
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 进入主页</span>
+</span></span><span style=display:flex><span>    index_url <span style=color:#ff7b72;font-weight:700>=</span> domain <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;index.php&#39;</span>
+</span></span><span style=display:flex><span>    resp <span style=color:#ff7b72;font-weight:700>=</span> requ(session, index_url)
+</span></span><span style=display:flex><span>    tree <span style=color:#ff7b72;font-weight:700>=</span> etree<span style=color:#ff7b72;font-weight:700>.</span>HTML(resp<span style=color:#ff7b72;font-weight:700>.</span>text)
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 拿到用户名</span>
+</span></span><span style=display:flex><span>    user <span style=color:#ff7b72;font-weight:700>=</span> tree<span style=color:#ff7b72;font-weight:700>.</span>xpath(<span style=color:#a5d6ff>&#39;//*[@id=&#34;header&#34;]/div[2]/span/text()&#39;</span>)[<span style=color:#a5d6ff>0</span>]
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 拿到vip区的地址</span>
+</span></span><span style=display:flex><span>    vip_link <span style=color:#ff7b72;font-weight:700>=</span> domain <span style=color:#ff7b72;font-weight:700>+</span> tree<span style=color:#ff7b72;font-weight:700>.</span>xpath(<span style=color:#a5d6ff>&#39;//*[@id=&#34;cate_1&#34;]/tr[2]/th[1]/h2/a/@href&#39;</span>)[<span style=color:#a5d6ff>0</span>]
+</span></span><span style=display:flex><span>    print(<span style=color:#a5d6ff>&#39;登录成功&#39;</span>)
+</span></span><span style=display:flex><span>    print(<span style=color:#a5d6ff>&#39;用户名：&#39;</span>, user)
+</span></span><span style=display:flex><span>    print(<span style=color:#a5d6ff>&#39;正在进入vip影视区.........&#39;</span>)
+</span></span><span style=display:flex><span>    links <span style=color:#ff7b72;font-weight:700>=</span> serach_tody(session, vip_link)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>not</span> os<span style=color:#ff7b72;font-weight:700>.</span>path<span style=color:#ff7b72;font-weight:700>.</span>exists(path <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;Ts/&#39;</span>):
+</span></span><span style=display:flex><span>        os<span style=color:#ff7b72;font-weight:700>.</span>mkdir(path <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;Ts/&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>        shutil<span style=color:#ff7b72;font-weight:700>.</span>rmtree(path <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;Ts/&#39;</span>)
+</span></span><span style=display:flex><span>        os<span style=color:#ff7b72;font-weight:700>.</span>mkdir(path <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;Ts/&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    loop <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>while</span> loop:
+</span></span><span style=display:flex><span>        index <span style=color:#ff7b72;font-weight:700>=</span> int(input(<span style=color:#a5d6ff>&#39;请选择你要下载的索引[-1退出]：&#39;</span>))
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> index <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>:
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>break</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>elif</span> index <span style=color:#ff7b72;font-weight:700>&lt;</span> <span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span> <span style=color:#ff7b72;font-weight:700>and</span> index <span style=color:#ff7b72;font-weight:700>&gt;</span> len(links):
+</span></span><span style=display:flex><span>            index <span style=color:#ff7b72;font-weight:700>=</span> int(input(<span style=color:#a5d6ff>&#39;你的输入有误，请重新输入[-1退出]：&#39;</span>))
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>            page_url <span style=color:#ff7b72;font-weight:700>=</span> domain <span style=color:#ff7b72;font-weight:700>+</span> links[index]
+</span></span><span style=display:flex><span>            video_url <span style=color:#ff7b72;font-weight:700>=</span> domain <span style=color:#ff7b72;font-weight:700>+</span> get_video_url(session, page_url)
+</span></span><span style=display:flex><span>            title, m3u8_url <span style=color:#ff7b72;font-weight:700>=</span> get_m3u8_url(session, video_url)
 </span></span><span style=display:flex><span>            print(m3u8_url)
-</span></span><span style=display:flex><span>            m3u8_domain <span style=color:#f92672>=</span> m3u8_url<span style=color:#f92672>.</span>rsplit(<span style=color:#e6db74>&#39;/&#39;</span>, <span style=color:#ae81ff>1</span>)[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;/&#39;</span>
+</span></span><span style=display:flex><span>            m3u8_domain <span style=color:#ff7b72;font-weight:700>=</span> m3u8_url<span style=color:#ff7b72;font-weight:700>.</span>rsplit(<span style=color:#a5d6ff>&#39;/&#39;</span>, <span style=color:#a5d6ff>1</span>)[<span style=color:#a5d6ff>0</span>] <span style=color:#ff7b72;font-weight:700>+</span> <span style=color:#a5d6ff>&#39;/&#39;</span>
 </span></span><span style=display:flex><span>            down_m3u8(title, m3u8_url)
-</span></span><span style=display:flex><span>            asyncio<span style=color:#f92672>.</span>run(down_video(title, m3u8_domain))
+</span></span><span style=display:flex><span>            asyncio<span style=color:#ff7b72;font-weight:700>.</span>run(down_video(title, m3u8_domain))
 </span></span><span style=display:flex><span>            merge_ts(title)
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/python>Python</a>
 <a href=/tags/%e7%88%ac%e8%99%ab>爬虫</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>

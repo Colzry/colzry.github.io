@@ -36,43 +36,43 @@ location [=|~|~<em>|^~] /url/ { &mldr; }
 ~* 表示执行一个正则匹配，不区分大小写
 /xxx/ 常规字符串路径匹配
 / 通用匹配，任何请求都会匹配到</p><h2 id=1-匹配的先后顺序>1. 匹配的先后顺序
-<a class=header-anchor href=#1-%e5%8c%b9%e9%85%8d%e7%9a%84%e5%85%88%e5%90%8e%e9%a1%ba%e5%ba%8f></a></h2><ol><li>= 前缀的指令严格匹配这个查询，优先级最高，一旦匹配成功，则停止搜索其他localtion的匹配项；</li><li>所有剩下的常规字符串（^~和普通匹配），‘最长命中’规则，优先使用匹配最长的结果。</li><li>正则表达式，在配置文件中定义的顺序</li></ol><blockquote><p>注： ^~ 和普通匹配。使用前缀匹配，不支持正则表达式，如果有多个location匹配成功的话，不会终止匹配过程，会记忆表达式最长的那个，如果得到的最长的location为 ^~ 类型，则表示阻断正则表达式，不再匹配正则表达式。如果得到的最长的location不是 ^~ 类型，继续匹配正则表达式，只要有一个正则成功，则使用这个正则的location，立即返回结果，并结束解析过程。</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-nginx data-lang=nginx><span style=display:flex><span><span style=color:#66d9ef>location</span> = <span style=color:#e6db74>/</span> {
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 精确匹配/，主机名后面不能带任何字符串 /
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>[</span> <span style=color:#e6db74>configuration</span> <span style=color:#e6db74>A</span> <span style=color:#e6db74>]</span>
-</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>}</span>
-</span></span><span style=display:flex><span><span style=color:#e6db74>location</span> <span style=color:#e6db74>/</span> {
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 匹配所有以 / 开头的请求。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e># 但是如果有更长的同类型的表达式，则选择更长的表达式。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e># 如果有正则表达式可以匹配，则优先匹配正则表达式。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>[</span> <span style=color:#e6db74>configuration</span> <span style=color:#e6db74>B</span> <span style=color:#e6db74>]</span>
-</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>}</span>
-</span></span><span style=display:flex><span><span style=color:#e6db74>location</span> <span style=color:#e6db74>/documents/</span> {
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 匹配所有以 /documents/ 开头的请求，匹配符合以后，还要继续往下搜索。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e># 但是如果有更长的同类型的表达式，则选择更长的表达式。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e># 如果有正则表达式可以匹配，则优先匹配正则表达式。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>[</span> <span style=color:#e6db74>configuration</span> <span style=color:#e6db74>C</span> <span style=color:#e6db74>]</span>
-</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>}</span>
-</span></span><span style=display:flex><span><span style=color:#e6db74>location</span> <span style=color:#e6db74>^~</span> <span style=color:#e6db74>/images/</span> {
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 匹配所有以 /images/ 开头的表达式，如果匹配成功，则停止匹配查找，停止搜索。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e># 所以，即便有符合的正则表达式location，也不会被使用
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>[</span> <span style=color:#e6db74>configuration</span> <span style=color:#e6db74>D</span> <span style=color:#e6db74>]</span>
-</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>}</span>
+<a class=header-anchor href=#1-%e5%8c%b9%e9%85%8d%e7%9a%84%e5%85%88%e5%90%8e%e9%a1%ba%e5%ba%8f></a></h2><ol><li>= 前缀的指令严格匹配这个查询，优先级最高，一旦匹配成功，则停止搜索其他localtion的匹配项；</li><li>所有剩下的常规字符串（^~和普通匹配），‘最长命中’规则，优先使用匹配最长的结果。</li><li>正则表达式，在配置文件中定义的顺序</li></ol><blockquote><p>注： ^~ 和普通匹配。使用前缀匹配，不支持正则表达式，如果有多个location匹配成功的话，不会终止匹配过程，会记忆表达式最长的那个，如果得到的最长的location为 ^~ 类型，则表示阻断正则表达式，不再匹配正则表达式。如果得到的最长的location不是 ^~ 类型，继续匹配正则表达式，只要有一个正则成功，则使用这个正则的location，立即返回结果，并结束解析过程。</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-nginx data-lang=nginx><span style=display:flex><span><span style=color:#ff7b72>location</span> = <span style=color:#a5d6ff>/</span> {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 精确匹配/，主机名后面不能带任何字符串 /
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#ff7b72>[</span> <span style=color:#a5d6ff>configuration</span> <span style=color:#a5d6ff>A</span> <span style=color:#a5d6ff>]</span>
+</span></span><span style=display:flex><span><span style=color:#f85149>}</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>location</span> <span style=color:#a5d6ff>/</span> {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 匹配所有以 / 开头的请求。
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#8b949e;font-style:italic># 但是如果有更长的同类型的表达式，则选择更长的表达式。
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#8b949e;font-style:italic># 如果有正则表达式可以匹配，则优先匹配正则表达式。
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#ff7b72>[</span> <span style=color:#a5d6ff>configuration</span> <span style=color:#a5d6ff>B</span> <span style=color:#a5d6ff>]</span>
+</span></span><span style=display:flex><span><span style=color:#f85149>}</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>location</span> <span style=color:#a5d6ff>/documents/</span> {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 匹配所有以 /documents/ 开头的请求，匹配符合以后，还要继续往下搜索。
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#8b949e;font-style:italic># 但是如果有更长的同类型的表达式，则选择更长的表达式。
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#8b949e;font-style:italic># 如果有正则表达式可以匹配，则优先匹配正则表达式。
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#ff7b72>[</span> <span style=color:#a5d6ff>configuration</span> <span style=color:#a5d6ff>C</span> <span style=color:#a5d6ff>]</span>
+</span></span><span style=display:flex><span><span style=color:#f85149>}</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>location</span> <span style=color:#a5d6ff>^~</span> <span style=color:#a5d6ff>/images/</span> {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 匹配所有以 /images/ 开头的表达式，如果匹配成功，则停止匹配查找，停止搜索。
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#8b949e;font-style:italic># 所以，即便有符合的正则表达式location，也不会被使用
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#ff7b72>[</span> <span style=color:#a5d6ff>configuration</span> <span style=color:#a5d6ff>D</span> <span style=color:#a5d6ff>]</span>
+</span></span><span style=display:flex><span><span style=color:#f85149>}</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#e6db74>location</span> ~<span style=color:#e6db74>*</span> <span style=color:#e6db74>\.(gif|jpg|jpeg)</span>$ {
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 匹配所有以 gif jpg jpeg结尾的请求。
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e># 但是 以 /images/开头的请求，将使用 Configuration D，D具有更高的优先级
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>[</span> <span style=color:#e6db74>configuration</span> <span style=color:#e6db74>E</span> <span style=color:#e6db74>]</span>
-</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>}</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>location</span> ~<span style=color:#79c0ff>*</span> <span style=color:#a5d6ff>\.(gif|jpg|jpeg)</span>$ {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 匹配所有以 gif jpg jpeg结尾的请求。
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#8b949e;font-style:italic># 但是 以 /images/开头的请求，将使用 Configuration D，D具有更高的优先级
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#ff7b72>[</span> <span style=color:#a5d6ff>configuration</span> <span style=color:#a5d6ff>E</span> <span style=color:#a5d6ff>]</span>
+</span></span><span style=display:flex><span><span style=color:#f85149>}</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#e6db74>location</span> <span style=color:#e6db74>/images/</span> {
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 字符匹配到 /images/，还会继续往下搜索
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>[</span> <span style=color:#e6db74>configuration</span> <span style=color:#e6db74>F</span> <span style=color:#e6db74>]</span>
-</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>}</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>location</span> <span style=color:#a5d6ff>/images/</span> {
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 字符匹配到 /images/，还会继续往下搜索
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#ff7b72>[</span> <span style=color:#a5d6ff>configuration</span> <span style=color:#a5d6ff>F</span> <span style=color:#a5d6ff>]</span>
+</span></span><span style=display:flex><span><span style=color:#f85149>}</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#e6db74>location</span> = <span style=color:#e6db74>/test.htm</span> {
-</span></span><span style=display:flex><span>    <span style=color:#f92672>root</span>   <span style=color:#e6db74>/usr/local/var/www/htm</span>;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>index</span>  <span style=color:#e6db74>index.htm</span>;
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>location</span> = <span style=color:#a5d6ff>/test.htm</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>root</span>   <span style=color:#a5d6ff>/usr/local/var/www/htm</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>index</span>  <span style=color:#a5d6ff>index.htm</span>;
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p><a href=https://blog.csdn.net/beichengliulixue/article/details/121971227 title=https://blog.csdn.net/beichengliulixue/article/details/121971227 rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://blog.csdn.net/beichengliulixue/article/details/121971227
 <i class="fa fa-external-link-alt"></i></a>

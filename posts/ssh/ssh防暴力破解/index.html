@@ -24,38 +24,38 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=1-添加登录试错次数>1. 添加登录试错次数
-<a class=header-anchor href=#1-%e6%b7%bb%e5%8a%a0%e7%99%bb%e5%bd%95%e8%af%95%e9%94%99%e6%ac%a1%e6%95%b0></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /etc/pam.d/sshd
+<a class=header-anchor href=#1-%e6%b7%bb%e5%8a%a0%e7%99%bb%e5%bd%95%e8%af%95%e9%94%99%e6%ac%a1%e6%95%b0></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /etc/pam.d/sshd
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 在末尾添加以下内容</span>
-</span></span><span style=display:flex><span>auth required pam_tally2.so deny<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span> unlock_time<span style=color:#f92672>=</span><span style=color:#ae81ff>60</span> even_deny_root root_unlock_time<span style=color:#f92672>=</span><span style=color:#ae81ff>60</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 在末尾添加以下内容</span>
+</span></span><span style=display:flex><span>auth required pam_tally2.so <span style=color:#79c0ff>deny</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>3</span> <span style=color:#79c0ff>unlock_time</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>60</span> even_deny_root <span style=color:#79c0ff>root_unlock_time</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>60</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 解释</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 解释</span>
 </span></span><span style=display:flex><span>even_deny_root 也限制root用户；  
 </span></span><span style=display:flex><span>deny 设置普通用户和root用户连续错误登陆的最大次数，超过最大次数，则锁定该用户  
 </span></span><span style=display:flex><span>unlock_time 设定普通用户锁定后，多少时间后解锁，单位是秒；  
 </span></span><span style=display:flex><span>root_unlock_time 设定root用户锁定后，多少时间后解锁，单位是秒；
-</span></span></code></pre></div><blockquote><p>解除锁定方法</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 在服务器端以root用户执行命令, 清空指定用户的错误登录次数</span>
+</span></span></code></pre></div><blockquote><p>解除锁定方法</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 在服务器端以root用户执行命令, 清空指定用户的错误登录次数</span>
 </span></span><span style=display:flex><span>pam_tally2 -u root -r  
-</span></span><span style=display:flex><span><span style=color:#75715e># 或者  </span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 或者  </span>
 </span></span><span style=display:flex><span>pam_tally2 --user 用户名 --reset  
 </span></span></code></pre></div><h2 id=2-防火墙拉黑攻击ip>2. 防火墙拉黑攻击IP
-<a class=header-anchor href=#2-%e9%98%b2%e7%81%ab%e5%a2%99%e6%8b%89%e9%bb%91%e6%94%bb%e5%87%bbip></a></h2><blockquote><p>查看登录的IP</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 查看登入成功的用户日志</span>
+<a class=header-anchor href=#2-%e9%98%b2%e7%81%ab%e5%a2%99%e6%8b%89%e9%bb%91%e6%94%bb%e5%87%bbip></a></h2><blockquote><p>查看登录的IP</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看登入成功的用户日志</span>
 </span></span><span style=display:flex><span>last -f /var/run/utmp
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看登入失败的用户日志</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看登入失败的用户日志</span>
 </span></span><span style=display:flex><span>last -f /var/log/btmp
-</span></span></code></pre></div><blockquote><p>使用防火墙封禁IP</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 单个IP</span>
-</span></span><span style=display:flex><span>firewall-cmd --permanent --add-rich-rule<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;rule family=&#39;ipv4&#39; source address=&#39;46.216.73.28&#39; reject&#34;</span>
+</span></span></code></pre></div><blockquote><p>使用防火墙封禁IP</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 单个IP</span>
+</span></span><span style=display:flex><span>firewall-cmd --permanent --add-rich-rule<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;rule family=&#39;ipv4&#39; source address=&#39;46.216.73.28&#39; reject&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># IP段</span>
-</span></span><span style=display:flex><span>firewall-cmd --permanent --add-rich-rule<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;rule family=&#39;ipv4&#39; source address=&#39;46.216.73.0/24&#39; reject&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># IP段</span>
+</span></span><span style=display:flex><span>firewall-cmd --permanent --add-rich-rule<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;rule family=&#39;ipv4&#39; source address=&#39;46.216.73.0/24&#39; reject&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 单个IP的某个端口</span>
-</span></span><span style=display:flex><span>firewall-cmd --permanent --add-rich-rule<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;rule family=ipv4 source address=46.216.73.28 port port=80  protocol=tcp  reject&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 单个IP的某个端口</span>
+</span></span><span style=display:flex><span>firewall-cmd --permanent --add-rich-rule<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;rule family=ipv4 source address=46.216.73.28 port port=80  protocol=tcp  reject&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#  reject 拒绝   accept 允许</span>
-</span></span></code></pre></div><blockquote><p>重新载入以生效</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>firewall-cmd --reload
-</span></span></code></pre></div><blockquote><p>查看封禁IP</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>firewall-cmd --list-rich-rules
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#  reject 拒绝   accept 允许</span>
+</span></span></code></pre></div><blockquote><p>重新载入以生效</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>firewall-cmd --reload
+</span></span></code></pre></div><blockquote><p>查看封禁IP</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>firewall-cmd --list-rich-rules
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/ssh>SSH</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">
 <span>支付宝</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 微信">

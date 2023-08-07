@@ -24,51 +24,51 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=viteconfigjs>vite.config.js
-<a class=header-anchor href=#viteconfigjs></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>defineConfig</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;vite&#34;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>resolve</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;path&#34;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>vue</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;@vitejs/plugin-vue&#39;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>pathResolve</span>(<span style=color:#a6e22e>dir</span>) {
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>resolve</span>(<span style=color:#a6e22e>__dirname</span>, <span style=color:#e6db74>&#34;.&#34;</span>, <span style=color:#a6e22e>dir</span>);
+<a class=header-anchor href=#viteconfigjs></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#ff7b72>import</span> { defineConfig } from <span style=color:#a5d6ff>&#34;vite&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> { resolve } from <span style=color:#a5d6ff>&#34;path&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> vue from <span style=color:#a5d6ff>&#39;@vitejs/plugin-vue&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>function</span> pathResolve(dir) {
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>return</span> resolve(__dirname, <span style=color:#a5d6ff>&#34;.&#34;</span>, dir);
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>defineConfig</span>({
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>base</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>plugins</span><span style=color:#f92672>:</span>[<span style=color:#a6e22e>vue</span>()],
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>resolve</span><span style=color:#f92672>:</span> {
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>alias</span><span style=color:#f92672>:</span> {
-</span></span><span style=display:flex><span>          <span style=color:#e6db74>&#34;@&#34;</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>pathResolve</span>(<span style=color:#e6db74>&#34;src&#34;</span>),
+</span></span><span style=display:flex><span><span style=color:#ff7b72>export</span> <span style=color:#ff7b72>default</span> defineConfig({
+</span></span><span style=display:flex><span>    base<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#34;&#34;</span>,
+</span></span><span style=display:flex><span>    plugins<span style=color:#ff7b72;font-weight:700>:</span>[vue()],
+</span></span><span style=display:flex><span>    resolve<span style=color:#ff7b72;font-weight:700>:</span> {
+</span></span><span style=display:flex><span>        alias<span style=color:#ff7b72;font-weight:700>:</span> {
+</span></span><span style=display:flex><span>          <span style=color:#a5d6ff>&#34;@&#34;</span><span style=color:#ff7b72;font-weight:700>:</span> pathResolve(<span style=color:#a5d6ff>&#34;src&#34;</span>),
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    },
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>optimizeDeps</span><span style=color:#f92672>:</span> {
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>include</span><span style=color:#f92672>:</span> [<span style=color:#e6db74>&#39;axios&#39;</span>],
+</span></span><span style=display:flex><span>    optimizeDeps<span style=color:#ff7b72;font-weight:700>:</span> {
+</span></span><span style=display:flex><span>        include<span style=color:#ff7b72;font-weight:700>:</span> [<span style=color:#a5d6ff>&#39;axios&#39;</span>],
 </span></span><span style=display:flex><span>    },
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>build</span><span style=color:#f92672>:</span> {
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>target</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;modules&#39;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>outDir</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;dist&#39;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>assetsDir</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;assets&#39;</span>,
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>minify</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;terser&#39;</span> <span style=color:#75715e>// 混淆器
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    },
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>server</span><span style=color:#f92672>:</span> {
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>cors</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>,
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>open</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>,
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>proxy</span><span style=color:#f92672>:</span> {
-</span></span><span style=display:flex><span>          <span style=color:#e6db74>&#39;/api&#39;</span><span style=color:#f92672>:</span> {
-</span></span><span style=display:flex><span>              <span style=color:#a6e22e>target</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;http://192.168.99.223:3000&#39;</span>,   <span style=color:#75715e>//代理接口
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>              <span style=color:#a6e22e>changeOrigin</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>,
-</span></span><span style=display:flex><span>              <span style=color:#a6e22e>rewrite</span><span style=color:#f92672>:</span> (<span style=color:#a6e22e>path</span>) =&gt; <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>replace</span>(<span style=color:#e6db74>/^\/api/</span>, <span style=color:#e6db74>&#39;&#39;</span>)
+</span></span><span style=display:flex><span>    build<span style=color:#ff7b72;font-weight:700>:</span> {
+</span></span><span style=display:flex><span>      target<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#39;modules&#39;</span>,
+</span></span><span style=display:flex><span>      outDir<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#39;dist&#39;</span>,
+</span></span><span style=display:flex><span>      assetsDir<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#39;assets&#39;</span>,
+</span></span><span style=display:flex><span>      minify<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#39;terser&#39;</span> <span style=color:#8b949e;font-style:italic>// 混淆器
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    },
+</span></span><span style=display:flex><span>    server<span style=color:#ff7b72;font-weight:700>:</span> {
+</span></span><span style=display:flex><span>        cors<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#79c0ff>true</span>,
+</span></span><span style=display:flex><span>        open<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#79c0ff>true</span>,
+</span></span><span style=display:flex><span>        proxy<span style=color:#ff7b72;font-weight:700>:</span> {
+</span></span><span style=display:flex><span>          <span style=color:#a5d6ff>&#39;/api&#39;</span><span style=color:#ff7b72;font-weight:700>:</span> {
+</span></span><span style=display:flex><span>              target<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#39;http://192.168.99.223:3000&#39;</span>,   <span style=color:#8b949e;font-style:italic>//代理接口
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>              changeOrigin<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#79c0ff>true</span>,
+</span></span><span style=display:flex><span>              rewrite<span style=color:#ff7b72;font-weight:700>:</span> (path) =&gt; path.replace(<span style=color:#79c0ff>/^\/api/</span>, <span style=color:#a5d6ff>&#39;&#39;</span>)
 </span></span><span style=display:flex><span>          }
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>});
 </span></span></code></pre></div><h2 id=jsconfigjson>jsconfig.json
-<a class=header-anchor href=#jsconfigjson></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;compilerOptions&#34;</span>: {
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;baseUrl&#34;</span>: <span style=color:#e6db74>&#34;./&#34;</span>,
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;paths&#34;</span>: {
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&#34;@/*&#34;</span>: [<span style=color:#e6db74>&#34;src/*&#34;</span>]
+<a class=header-anchor href=#jsconfigjson></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&#34;compilerOptions&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#7ee787>&#34;baseUrl&#34;</span>: <span style=color:#a5d6ff>&#34;./&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#7ee787>&#34;paths&#34;</span>: {
+</span></span><span style=display:flex><span>      <span style=color:#7ee787>&#34;@/*&#34;</span>: [<span style=color:#a5d6ff>&#34;src/*&#34;</span>]
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>  },
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;exclude&#34;</span>: [<span style=color:#e6db74>&#34;node_modules&#34;</span>, <span style=color:#e6db74>&#34;dist&#34;</span>]
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&#34;exclude&#34;</span>: [<span style=color:#a5d6ff>&#34;node_modules&#34;</span>, <span style=color:#a5d6ff>&#34;dist&#34;</span>]
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/vite>Vite</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">

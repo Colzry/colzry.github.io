@@ -32,184 +32,184 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 先登录或注册
 <img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1666409502370-3063276f-15dc-4ab2-b9e6-aedccbe0192b.png#clientId=ub339564c-2536-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=425&amp;id=u371deac8&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=638&amp;originWidth=1547&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=79869&amp;status=done&amp;style=none&amp;taskId=u9f274855-c6de-4d6e-8cc2-62ec954b4ed&amp;title=&amp;width=1031.3333333333333" alt=image.png>
 <img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1666409546711-a63a2108-6f75-4654-81cb-4b88a27afcf7.png#clientId=ub339564c-2536-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=611&amp;id=uc862ad96&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=917&amp;originWidth=1288&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=99288&amp;status=done&amp;style=none&amp;taskId=u4c1a0b8b-39fc-410f-87b7-e5486591c12&amp;title=&amp;width=858.6666666666666" alt=image.png>
-将下面的放入左侧的方框中(不需要任何的改动)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#e6db74>&#39;use strict&#39;</span>
+将下面的放入左侧的方框中(不需要任何的改动)</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#a5d6ff>&#39;use strict&#39;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>/**
-</span></span></span><span style=display:flex><span><span style=color:#75715e> * static files (404.html, sw.js, conf.js)
-</span></span></span><span style=display:flex><span><span style=color:#75715e> */</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>ASSET_URL</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;https://hunshcn.github.io/gh-proxy/&#39;</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 前缀，如果自定义路由为example.com/gh/*，将PREFIX改为 &#39;/gh/&#39;，注意，少一个杠都会错！
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>PREFIX</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;/&#39;</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 分支文件使用jsDelivr镜像的开关，0为关闭，默认关闭
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Config</span> <span style=color:#f92672>=</span> {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>jsdelivr</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>/**
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> * static files (404.html, sw.js, conf.js)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> */</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> ASSET_URL <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;https://hunshcn.github.io/gh-proxy/&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 前缀，如果自定义路由为example.com/gh/*，将PREFIX改为 &#39;/gh/&#39;，注意，少一个杠都会错！
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#ff7b72>const</span> PREFIX <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;/&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>// 分支文件使用jsDelivr镜像的开关，0为关闭，默认关闭
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#ff7b72>const</span> Config <span style=color:#ff7b72;font-weight:700>=</span> {
+</span></span><span style=display:flex><span>    jsdelivr<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>0</span>
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>whiteList</span> <span style=color:#f92672>=</span> [] <span style=color:#75715e>// 白名单，路径里面有包含字符的才会通过，e.g. [&#39;/username/&#39;]
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#75715e>/** @type {RequestInit} */</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>PREFLIGHT_INIT</span> <span style=color:#f92672>=</span> {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>204</span>,
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>headers</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Headers</span>({
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;access-control-allow-origin&#39;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;*&#39;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;access-control-allow-methods&#39;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;GET,POST,PUT,PATCH,TRACE,DELETE,HEAD,OPTIONS&#39;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;access-control-max-age&#39;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;1728000&#39;</span>,
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> whiteList <span style=color:#ff7b72;font-weight:700>=</span> [] <span style=color:#8b949e;font-style:italic>// 白名单，路径里面有包含字符的才会通过，e.g. [&#39;/username/&#39;]
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>/** @type {RequestInit} */</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> PREFLIGHT_INIT <span style=color:#ff7b72;font-weight:700>=</span> {
+</span></span><span style=display:flex><span>    status<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>204</span>,
+</span></span><span style=display:flex><span>    headers<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#ff7b72>new</span> Headers({
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;access-control-allow-origin&#39;</span><span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#39;*&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;access-control-allow-methods&#39;</span><span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#39;GET,POST,PUT,PATCH,TRACE,DELETE,HEAD,OPTIONS&#39;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a5d6ff>&#39;access-control-max-age&#39;</span><span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#39;1728000&#39;</span>,
 </span></span><span style=display:flex><span>    }),
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>exp1</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/(?:releases|archive)\/.*$/i</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>exp2</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/(?:blob|raw)\/.*$/i</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>exp3</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/(?:info|git-).*$/i</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>exp4</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com\/.+?\/.+?\/.+?\/.+$/i</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>exp5</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>/^(?:https?:\/\/)?gist\.(?:githubusercontent|github)\.com\/.+?\/.+?\/.+$/i</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>exp6</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/tags.*$/i</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> exp1 <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/(?:releases|archive)\/.*$/i</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> exp2 <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/(?:blob|raw)\/.*$/i</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> exp3 <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/(?:info|git-).*$/i</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> exp4 <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com\/.+?\/.+?\/.+?\/.+$/i</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> exp5 <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>/^(?:https?:\/\/)?gist\.(?:githubusercontent|github)\.com\/.+?\/.+?\/.+$/i</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> exp6 <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/tags.*$/i</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>/**
-</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {any} body
-</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {number} status
-</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {Object&lt;string, string&gt;} headers
-</span></span></span><span style=display:flex><span><span style=color:#75715e> */</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>makeRes</span>(<span style=color:#a6e22e>body</span>, <span style=color:#a6e22e>status</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>200</span>, <span style=color:#a6e22e>headers</span> <span style=color:#f92672>=</span> {}) {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>headers</span>[<span style=color:#e6db74>&#39;access-control-allow-origin&#39;</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;*&#39;</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Response</span>(<span style=color:#a6e22e>body</span>, {<span style=color:#a6e22e>status</span>, <span style=color:#a6e22e>headers</span>})
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>/**
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> * @param {any} body
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> * @param {number} status
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> * @param {Object&lt;string, string&gt;} headers
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> */</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>function</span> makeRes(body, status <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>200</span>, headers <span style=color:#ff7b72;font-weight:700>=</span> {}) {
+</span></span><span style=display:flex><span>    headers[<span style=color:#a5d6ff>&#39;access-control-allow-origin&#39;</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;*&#39;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#ff7b72>new</span> Response(body, {status, headers})
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>/**
-</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {string} urlStr
-</span></span></span><span style=display:flex><span><span style=color:#75715e> */</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>newUrl</span>(<span style=color:#a6e22e>urlStr</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>URL</span>(<span style=color:#a6e22e>urlStr</span>)
-</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>err</span>) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>null</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>/**
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> * @param {string} urlStr
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> */</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>function</span> newUrl(urlStr) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>try</span> {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#ff7b72>new</span> URL(urlStr)
+</span></span><span style=display:flex><span>    } <span style=color:#ff7b72>catch</span> (err) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#79c0ff>null</span>
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#39;fetch&#39;</span>, <span style=color:#a6e22e>e</span> =&gt; {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>ret</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fetchHandler</span>(<span style=color:#a6e22e>e</span>)
-</span></span><span style=display:flex><span>        .<span style=color:#66d9ef>catch</span>(<span style=color:#a6e22e>err</span> =&gt; <span style=color:#a6e22e>makeRes</span>(<span style=color:#e6db74>&#39;cfworker error:\n&#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>err</span>.<span style=color:#a6e22e>stack</span>, <span style=color:#ae81ff>502</span>))
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>respondWith</span>(<span style=color:#a6e22e>ret</span>)
+</span></span><span style=display:flex><span>addEventListener(<span style=color:#a5d6ff>&#39;fetch&#39;</span>, e =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> ret <span style=color:#ff7b72;font-weight:700>=</span> fetchHandler(e)
+</span></span><span style=display:flex><span>        .<span style=color:#ff7b72>catch</span>(err =&gt; makeRes(<span style=color:#a5d6ff>&#39;cfworker error:\n&#39;</span> <span style=color:#ff7b72;font-weight:700>+</span> err.stack, <span style=color:#a5d6ff>502</span>))
+</span></span><span style=display:flex><span>    e.respondWith(ret)
 </span></span><span style=display:flex><span>})
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>checkUrl</span>(<span style=color:#a6e22e>u</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#66d9ef>of</span> [<span style=color:#a6e22e>exp1</span>, <span style=color:#a6e22e>exp2</span>, <span style=color:#a6e22e>exp3</span>, <span style=color:#a6e22e>exp4</span>, <span style=color:#a6e22e>exp5</span>, <span style=color:#a6e22e>exp6</span>]) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>u</span>.<span style=color:#a6e22e>search</span>(<span style=color:#a6e22e>i</span>) <span style=color:#f92672>===</span> <span style=color:#ae81ff>0</span>) {
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>function</span> checkUrl(u) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>let</span> i <span style=color:#ff7b72>of</span> [exp1, exp2, exp3, exp4, exp5, exp6]) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> (u.search(i) <span style=color:#ff7b72;font-weight:700>===</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> <span style=color:#79c0ff>true</span>
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#79c0ff>false</span>
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>/**
-</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {FetchEvent} e
-</span></span></span><span style=display:flex><span><span style=color:#75715e> */</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>fetchHandler</span>(<span style=color:#a6e22e>e</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>req</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>request</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>urlStr</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>url</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>urlObj</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>URL</span>(<span style=color:#a6e22e>urlStr</span>)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>path</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>urlObj</span>.<span style=color:#a6e22e>searchParams</span>.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#39;q&#39;</span>)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>path</span>) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>Response</span>.<span style=color:#a6e22e>redirect</span>(<span style=color:#e6db74>&#39;https://&#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>urlObj</span>.<span style=color:#a6e22e>host</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>PREFIX</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>path</span>, <span style=color:#ae81ff>301</span>)
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>/**
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> * @param {FetchEvent} e
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> */</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>async</span> <span style=color:#ff7b72>function</span> fetchHandler(e) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> req <span style=color:#ff7b72;font-weight:700>=</span> e.request
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> urlStr <span style=color:#ff7b72;font-weight:700>=</span> req.url
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> urlObj <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>new</span> URL(urlStr)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>let</span> path <span style=color:#ff7b72;font-weight:700>=</span> urlObj.searchParams.get(<span style=color:#a5d6ff>&#39;q&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (path) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> Response.redirect(<span style=color:#a5d6ff>&#39;https://&#39;</span> <span style=color:#ff7b72;font-weight:700>+</span> urlObj.host <span style=color:#ff7b72;font-weight:700>+</span> PREFIX <span style=color:#ff7b72;font-weight:700>+</span> path, <span style=color:#a5d6ff>301</span>)
 </span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// cfworker 会把路径中的 `//` 合并成 `/`
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>path</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>urlObj</span>.<span style=color:#a6e22e>href</span>.<span style=color:#a6e22e>substr</span>(<span style=color:#a6e22e>urlObj</span>.<span style=color:#a6e22e>origin</span>.<span style=color:#a6e22e>length</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>PREFIX</span>.<span style=color:#a6e22e>length</span>).<span style=color:#a6e22e>replace</span>(<span style=color:#e6db74>/^https?:\/+/</span>, <span style=color:#e6db74>&#39;https://&#39;</span>)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>search</span>(<span style=color:#a6e22e>exp1</span>) <span style=color:#f92672>===</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>search</span>(<span style=color:#a6e22e>exp5</span>) <span style=color:#f92672>===</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>search</span>(<span style=color:#a6e22e>exp6</span>) <span style=color:#f92672>===</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>search</span>(<span style=color:#a6e22e>exp3</span>) <span style=color:#f92672>===</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>search</span>(<span style=color:#a6e22e>exp4</span>) <span style=color:#f92672>===</span> <span style=color:#ae81ff>0</span>) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>httpHandler</span>(<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>path</span>)
-</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>search</span>(<span style=color:#a6e22e>exp2</span>) <span style=color:#f92672>===</span> <span style=color:#ae81ff>0</span>) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>Config</span>.<span style=color:#a6e22e>jsdelivr</span>) {
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>newUrl</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>replace</span>(<span style=color:#e6db74>&#39;/blob/&#39;</span>, <span style=color:#e6db74>&#39;@&#39;</span>).<span style=color:#a6e22e>replace</span>(<span style=color:#e6db74>/^(?:https?:\/\/)?github\.com/</span>, <span style=color:#e6db74>&#39;https://cdn.jsdelivr.net/gh&#39;</span>)
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>Response</span>.<span style=color:#a6e22e>redirect</span>(<span style=color:#a6e22e>newUrl</span>, <span style=color:#ae81ff>302</span>)
-</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>path</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>replace</span>(<span style=color:#e6db74>&#39;/blob/&#39;</span>, <span style=color:#e6db74>&#39;/raw/&#39;</span>)
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>httpHandler</span>(<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>path</span>)
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// cfworker 会把路径中的 `//` 合并成 `/`
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    path <span style=color:#ff7b72;font-weight:700>=</span> urlObj.href.substr(urlObj.origin.length <span style=color:#ff7b72;font-weight:700>+</span> PREFIX.length).replace(<span style=color:#79c0ff>/^https?:\/+/</span>, <span style=color:#a5d6ff>&#39;https://&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (path.search(exp1) <span style=color:#ff7b72;font-weight:700>===</span> <span style=color:#a5d6ff>0</span> <span style=color:#ff7b72;font-weight:700>||</span> path.search(exp5) <span style=color:#ff7b72;font-weight:700>===</span> <span style=color:#a5d6ff>0</span> <span style=color:#ff7b72;font-weight:700>||</span> path.search(exp6) <span style=color:#ff7b72;font-weight:700>===</span> <span style=color:#a5d6ff>0</span> <span style=color:#ff7b72;font-weight:700>||</span> path.search(exp3) <span style=color:#ff7b72;font-weight:700>===</span> <span style=color:#a5d6ff>0</span> <span style=color:#ff7b72;font-weight:700>||</span> path.search(exp4) <span style=color:#ff7b72;font-weight:700>===</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> httpHandler(req, path)
+</span></span><span style=display:flex><span>    } <span style=color:#ff7b72>else</span> <span style=color:#ff7b72>if</span> (path.search(exp2) <span style=color:#ff7b72;font-weight:700>===</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> (Config.jsdelivr) {
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>const</span> newUrl <span style=color:#ff7b72;font-weight:700>=</span> path.replace(<span style=color:#a5d6ff>&#39;/blob/&#39;</span>, <span style=color:#a5d6ff>&#39;@&#39;</span>).replace(<span style=color:#79c0ff>/^(?:https?:\/\/)?github\.com/</span>, <span style=color:#a5d6ff>&#39;https://cdn.jsdelivr.net/gh&#39;</span>)
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> Response.redirect(newUrl, <span style=color:#a5d6ff>302</span>)
+</span></span><span style=display:flex><span>        } <span style=color:#ff7b72>else</span> {
+</span></span><span style=display:flex><span>            path <span style=color:#ff7b72;font-weight:700>=</span> path.replace(<span style=color:#a5d6ff>&#39;/blob/&#39;</span>, <span style=color:#a5d6ff>&#39;/raw/&#39;</span>)
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> httpHandler(req, path)
 </span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>search</span>(<span style=color:#a6e22e>exp4</span>) <span style=color:#f92672>===</span> <span style=color:#ae81ff>0</span>) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>newUrl</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>path</span>.<span style=color:#a6e22e>replace</span>(<span style=color:#e6db74>/(?&lt;=com\/.+?\/.+?)\/(.+?\/)/</span>, <span style=color:#e6db74>&#39;@$1&#39;</span>).<span style=color:#a6e22e>replace</span>(<span style=color:#e6db74>/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com/</span>, <span style=color:#e6db74>&#39;https://cdn.jsdelivr.net/gh&#39;</span>)
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>Response</span>.<span style=color:#a6e22e>redirect</span>(<span style=color:#a6e22e>newUrl</span>, <span style=color:#ae81ff>302</span>)
-</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#a6e22e>ASSET_URL</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>path</span>)
+</span></span><span style=display:flex><span>    } <span style=color:#ff7b72>else</span> <span style=color:#ff7b72>if</span> (path.search(exp4) <span style=color:#ff7b72;font-weight:700>===</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>const</span> newUrl <span style=color:#ff7b72;font-weight:700>=</span> path.replace(<span style=color:#79c0ff>/(?&lt;=com\/.+?\/.+?)\/(.+?\/)/</span>, <span style=color:#a5d6ff>&#39;@$1&#39;</span>).replace(<span style=color:#79c0ff>/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com/</span>, <span style=color:#a5d6ff>&#39;https://cdn.jsdelivr.net/gh&#39;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> Response.redirect(newUrl, <span style=color:#a5d6ff>302</span>)
+</span></span><span style=display:flex><span>    } <span style=color:#ff7b72>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> fetch(ASSET_URL <span style=color:#ff7b72;font-weight:700>+</span> path)
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>/**
-</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {Request} req
-</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {string} pathname
-</span></span></span><span style=display:flex><span><span style=color:#75715e> */</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>httpHandler</span>(<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>pathname</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>reqHdrRaw</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>headers</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>/**
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> * @param {Request} req
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> * @param {string} pathname
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> */</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>function</span> httpHandler(req, pathname) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> reqHdrRaw <span style=color:#ff7b72;font-weight:700>=</span> req.headers
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// preflight
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>method</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;OPTIONS&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>reqHdrRaw</span>.<span style=color:#a6e22e>has</span>(<span style=color:#e6db74>&#39;access-control-request-headers&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// preflight
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#ff7b72>if</span> (req.method <span style=color:#ff7b72;font-weight:700>===</span> <span style=color:#a5d6ff>&#39;OPTIONS&#39;</span> <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span>
+</span></span><span style=display:flex><span>        reqHdrRaw.has(<span style=color:#a5d6ff>&#39;access-control-request-headers&#39;</span>)
 </span></span><span style=display:flex><span>    ) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Response</span>(<span style=color:#66d9ef>null</span>, <span style=color:#a6e22e>PREFLIGHT_INIT</span>)
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#ff7b72>new</span> Response(<span style=color:#79c0ff>null</span>, PREFLIGHT_INIT)
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>reqHdrNew</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Headers</span>(<span style=color:#a6e22e>reqHdrRaw</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> reqHdrNew <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>new</span> Headers(reqHdrRaw)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>urlStr</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pathname</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>flag</span> <span style=color:#f92672>=</span> <span style=color:#f92672>!</span>Boolean(<span style=color:#a6e22e>whiteList</span>.<span style=color:#a6e22e>length</span>)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>whiteList</span>) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>urlStr</span>.<span style=color:#a6e22e>includes</span>(<span style=color:#a6e22e>i</span>)) {
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>flag</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>let</span> urlStr <span style=color:#ff7b72;font-weight:700>=</span> pathname
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>let</span> flag <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72;font-weight:700>!</span>Boolean(whiteList.length)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>for</span> (<span style=color:#ff7b72>let</span> i <span style=color:#ff7b72>of</span> whiteList) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> (urlStr.includes(i)) {
+</span></span><span style=display:flex><span>            flag <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>true</span>
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>break</span>
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>flag</span>) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Response</span>(<span style=color:#e6db74>&#34;blocked&#34;</span>, {<span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>403</span>})
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (<span style=color:#ff7b72;font-weight:700>!</span>flag) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>return</span> <span style=color:#ff7b72>new</span> Response(<span style=color:#a5d6ff>&#34;blocked&#34;</span>, {status<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>403</span>})
 </span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>urlStr</span>.<span style=color:#a6e22e>startsWith</span>(<span style=color:#e6db74>&#39;github&#39;</span>)) {
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>urlStr</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;https://&#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>urlStr</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (urlStr.startsWith(<span style=color:#a5d6ff>&#39;github&#39;</span>)) {
+</span></span><span style=display:flex><span>        urlStr <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;https://&#39;</span> <span style=color:#ff7b72;font-weight:700>+</span> urlStr
 </span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>urlObj</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>newUrl</span>(<span style=color:#a6e22e>urlStr</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> urlObj <span style=color:#ff7b72;font-weight:700>=</span> newUrl(urlStr)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>/** @type {RequestInit} */</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>reqInit</span> <span style=color:#f92672>=</span> {
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>method</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>method</span>,
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>headers</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>reqHdrNew</span>,
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>redirect</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;manual&#39;</span>,
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>body</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>body</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>/** @type {RequestInit} */</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> reqInit <span style=color:#ff7b72;font-weight:700>=</span> {
+</span></span><span style=display:flex><span>        method<span style=color:#ff7b72;font-weight:700>:</span> req.method,
+</span></span><span style=display:flex><span>        headers<span style=color:#ff7b72;font-weight:700>:</span> reqHdrNew,
+</span></span><span style=display:flex><span>        redirect<span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#39;manual&#39;</span>,
+</span></span><span style=display:flex><span>        body<span style=color:#ff7b72;font-weight:700>:</span> req.body
 </span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>proxy</span>(<span style=color:#a6e22e>urlObj</span>, <span style=color:#a6e22e>reqInit</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> proxy(urlObj, reqInit)
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>/**
-</span></span></span><span style=display:flex><span><span style=color:#75715e> *
-</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {URL} urlObj
-</span></span></span><span style=display:flex><span><span style=color:#75715e> * @param {RequestInit} reqInit
-</span></span></span><span style=display:flex><span><span style=color:#75715e> */</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>proxy</span>(<span style=color:#a6e22e>urlObj</span>, <span style=color:#a6e22e>reqInit</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>res</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#a6e22e>urlObj</span>.<span style=color:#a6e22e>href</span>, <span style=color:#a6e22e>reqInit</span>)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>resHdrOld</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>headers</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>resHdrNew</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Headers</span>(<span style=color:#a6e22e>resHdrOld</span>)
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>/**
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> *
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> * @param {URL} urlObj
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> * @param {RequestInit} reqInit
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic> */</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>async</span> <span style=color:#ff7b72>function</span> proxy(urlObj, reqInit) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> res <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>await</span> fetch(urlObj.href, reqInit)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> resHdrOld <span style=color:#ff7b72;font-weight:700>=</span> res.headers
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> resHdrNew <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>new</span> Headers(resHdrOld)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>status</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>status</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>const</span> status <span style=color:#ff7b72;font-weight:700>=</span> res.status
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>resHdrNew</span>.<span style=color:#a6e22e>has</span>(<span style=color:#e6db74>&#39;location&#39;</span>)) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>_location</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>resHdrNew</span>.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#39;location&#39;</span>)
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>checkUrl</span>(<span style=color:#a6e22e>_location</span>))
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>resHdrNew</span>.<span style=color:#a6e22e>set</span>(<span style=color:#e6db74>&#39;location&#39;</span>, <span style=color:#a6e22e>PREFIX</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>_location</span>)
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span> {
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>reqInit</span>.<span style=color:#a6e22e>redirect</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;follow&#39;</span>
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>proxy</span>(<span style=color:#a6e22e>newUrl</span>(<span style=color:#a6e22e>_location</span>), <span style=color:#a6e22e>reqInit</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (resHdrNew.has(<span style=color:#a5d6ff>&#39;location&#39;</span>)) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>let</span> _location <span style=color:#ff7b72;font-weight:700>=</span> resHdrNew.get(<span style=color:#a5d6ff>&#39;location&#39;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> (checkUrl(_location))
+</span></span><span style=display:flex><span>            resHdrNew.set(<span style=color:#a5d6ff>&#39;location&#39;</span>, PREFIX <span style=color:#ff7b72;font-weight:700>+</span> _location)
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>else</span> {
+</span></span><span style=display:flex><span>            reqInit.redirect <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#39;follow&#39;</span>
+</span></span><span style=display:flex><span>            <span style=color:#ff7b72>return</span> proxy(newUrl(_location), reqInit)
 </span></span><span style=display:flex><span>        }
 </span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>resHdrNew</span>.<span style=color:#a6e22e>set</span>(<span style=color:#e6db74>&#39;access-control-expose-headers&#39;</span>, <span style=color:#e6db74>&#39;*&#39;</span>)
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>resHdrNew</span>.<span style=color:#a6e22e>set</span>(<span style=color:#e6db74>&#39;access-control-allow-origin&#39;</span>, <span style=color:#e6db74>&#39;*&#39;</span>)
+</span></span><span style=display:flex><span>    resHdrNew.set(<span style=color:#a5d6ff>&#39;access-control-expose-headers&#39;</span>, <span style=color:#a5d6ff>&#39;*&#39;</span>)
+</span></span><span style=display:flex><span>    resHdrNew.set(<span style=color:#a5d6ff>&#39;access-control-allow-origin&#39;</span>, <span style=color:#a5d6ff>&#39;*&#39;</span>)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>resHdrNew</span>.<span style=color:#66d9ef>delete</span>(<span style=color:#e6db74>&#39;content-security-policy&#39;</span>)
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>resHdrNew</span>.<span style=color:#66d9ef>delete</span>(<span style=color:#e6db74>&#39;content-security-policy-report-only&#39;</span>)
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>resHdrNew</span>.<span style=color:#66d9ef>delete</span>(<span style=color:#e6db74>&#39;clear-site-data&#39;</span>)
+</span></span><span style=display:flex><span>    resHdrNew.<span style=color:#ff7b72>delete</span>(<span style=color:#a5d6ff>&#39;content-security-policy&#39;</span>)
+</span></span><span style=display:flex><span>    resHdrNew.<span style=color:#ff7b72>delete</span>(<span style=color:#a5d6ff>&#39;content-security-policy-report-only&#39;</span>)
+</span></span><span style=display:flex><span>    resHdrNew.<span style=color:#ff7b72>delete</span>(<span style=color:#a5d6ff>&#39;clear-site-data&#39;</span>)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Response</span>(<span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>body</span>, {
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>status</span>,
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>headers</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>resHdrNew</span>,
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> <span style=color:#ff7b72>new</span> Response(res.body, {
+</span></span><span style=display:flex><span>        status,
+</span></span><span style=display:flex><span>        headers<span style=color:#ff7b72;font-weight:700>:</span> resHdrNew,
 </span></span><span style=display:flex><span>    })
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1666409680492-0ff4eb33-d199-466a-bd6a-b05a58d0e9b7.png#clientId=ub339564c-2536-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=329&amp;id=u7a771a7c&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=494&amp;originWidth=2221&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=97131&amp;status=done&amp;style=none&amp;taskId=u5eeb4080-f2cf-4a6b-b823-f85519d250c&amp;title=&amp;width=1480.6666666666667" alt=image.png>
@@ -222,10 +222,10 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 按照下图的形式编写进行保存即可
 <img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1666410088397-854f841a-8743-42d4-9a81-5997990bf750.png#clientId=ub339564c-2536-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=451&amp;id=u9b20526e&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=677&amp;originWidth=666&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=36733&amp;status=done&amp;style=none&amp;taskId=ubba7dd11-2daa-4ab8-990b-45291d956be&amp;title=&amp;width=444" alt=image.png>
 之后就能通过自定义的域名进行访问</p><h2 id=终端使用方法>终端使用方法
-<a class=header-anchor href=#%e7%bb%88%e7%ab%af%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95></a></h2><p>例如下载 <code>Releases</code> 文件</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 原来的使用方法</span>
+<a class=header-anchor href=#%e7%bb%88%e7%ab%af%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95></a></h2><p>例如下载 <code>Releases</code> 文件</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 原来的使用方法</span>
 </span></span><span style=display:flex><span>wget https://github.com/fatedier/frp/releases/download/v0.44.0/frp_0.44.0_linux_amd64.tar.gz
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 代理使用方法</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 代理使用方法</span>
 </span></span><span style=display:flex><span>wget https://gitpy.colzry.tk/https://github.com/fatedier/frp/releases/download/v0.44.0/frp_0.44.0_linux_amd64.tar.gz
 </span></span></code></pre></div><p>clone也是如此</p></div><footer class=post-footer><div class=post-tags><a href=/tags/git>Git</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">

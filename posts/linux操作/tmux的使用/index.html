@@ -26,75 +26,75 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span>2分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h1 id=tmux的使用>Tmux的使用
 <a class=header-anchor href=#tmux%e7%9a%84%e4%bd%bf%e7%94%a8></a></h1><blockquote><p><strong>说明：Ctrl+b 为快捷方式的前缀键，即先按下Ctrl+b，快捷键才会生效。</strong></p></blockquote><h2 id=1-会话管理>1. 会话管理
 <a class=header-anchor href=#1-%e4%bc%9a%e8%af%9d%e7%ae%a1%e7%90%86></a></h2><h3 id=11-新建会话>1.1 新建会话
-<a class=header-anchor href=#11-%e6%96%b0%e5%bb%ba%e4%bc%9a%e8%af%9d></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux new -s &lt;session-name&gt;
+<a class=header-anchor href=#11-%e6%96%b0%e5%bb%ba%e4%bc%9a%e8%af%9d></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux new -s &lt;session-name&gt;
 </span></span></code></pre></div><h3 id=12-分离会话>1.2 分离会话
-<a class=header-anchor href=#12-%e5%88%86%e7%a6%bb%e4%bc%9a%e8%af%9d></a></h3><p>在 Tmux 窗口中，按下<code>Ctrl+b d</code>或者输入<code>tmux detach</code>命令，就会将当前会话与窗口分离。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux detach
-</span></span></code></pre></div><p>上面命令执行后，就会退出当前 Tmux 窗口，但是会话和里面的进程仍然在后台运行。</p><p>tmux ls命令可以查看当前所有的 Tmux 会话。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux ls
-</span></span><span style=display:flex><span><span style=color:#75715e># or</span>
+<a class=header-anchor href=#12-%e5%88%86%e7%a6%bb%e4%bc%9a%e8%af%9d></a></h3><p>在 Tmux 窗口中，按下<code>Ctrl+b d</code>或者输入<code>tmux detach</code>命令，就会将当前会话与窗口分离。</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux detach
+</span></span></code></pre></div><p>上面命令执行后，就会退出当前 Tmux 窗口，但是会话和里面的进程仍然在后台运行。</p><p>tmux ls命令可以查看当前所有的 Tmux 会话。</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux ls
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># or</span>
 </span></span><span style=display:flex><span>tmux list-session
 </span></span></code></pre></div><h3 id=13-接入会话>1.3 接入会话
-<a class=header-anchor href=#13-%e6%8e%a5%e5%85%a5%e4%bc%9a%e8%af%9d></a></h3><p>tmux attach命令用于重新接入某个已存在的会话</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 使用会话编号</span>
-</span></span><span style=display:flex><span>tmux attach -t <span style=color:#ae81ff>0</span>
+<a class=header-anchor href=#13-%e6%8e%a5%e5%85%a5%e4%bc%9a%e8%af%9d></a></h3><p>tmux attach命令用于重新接入某个已存在的会话</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用会话编号</span>
+</span></span><span style=display:flex><span>tmux attach -t <span style=color:#a5d6ff>0</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 使用会话名称</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用会话名称</span>
 </span></span><span style=display:flex><span>tmux attach -t &lt;session-name&gt;
 </span></span></code></pre></div><h3 id=14-杀死会话>1.4 杀死会话
-<a class=header-anchor href=#14-%e6%9d%80%e6%ad%bb%e4%bc%9a%e8%af%9d></a></h3><p>tmux kill-session命令用于杀死某个会话</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 使用会话编号</span>
-</span></span><span style=display:flex><span>tmux kill-session -t <span style=color:#ae81ff>0</span>
+<a class=header-anchor href=#14-%e6%9d%80%e6%ad%bb%e4%bc%9a%e8%af%9d></a></h3><p>tmux kill-session命令用于杀死某个会话</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用会话编号</span>
+</span></span><span style=display:flex><span>tmux kill-session -t <span style=color:#a5d6ff>0</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 使用会话名称</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用会话名称</span>
 </span></span><span style=display:flex><span>tmux kill-session -t &lt;session-name&gt;
 </span></span></code></pre></div><h3 id=15-切换会话>1.5 切换会话
-<a class=header-anchor href=#15-%e5%88%87%e6%8d%a2%e4%bc%9a%e8%af%9d></a></h3><p>tmux switch命令用于切换会话</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 使用会话编号</span>
-</span></span><span style=display:flex><span>tmux switch -t <span style=color:#ae81ff>0</span>
+<a class=header-anchor href=#15-%e5%88%87%e6%8d%a2%e4%bc%9a%e8%af%9d></a></h3><p>tmux switch命令用于切换会话</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用会话编号</span>
+</span></span><span style=display:flex><span>tmux switch -t <span style=color:#a5d6ff>0</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 使用会话名称</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用会话名称</span>
 </span></span><span style=display:flex><span>tmux switch -t &lt;session-name&gt;
 </span></span></code></pre></div><h3 id=16-重命名会话>1.6 重命名会话
-<a class=header-anchor href=#16-%e9%87%8d%e5%91%bd%e5%90%8d%e4%bc%9a%e8%af%9d></a></h3><p>tmux rename-session命令用于重命名会话。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux rename-session -t <span style=color:#ae81ff>0</span> &lt;new-name&gt;
+<a class=header-anchor href=#16-%e9%87%8d%e5%91%bd%e5%90%8d%e4%bc%9a%e8%af%9d></a></h3><p>tmux rename-session命令用于重命名会话。</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux rename-session -t <span style=color:#a5d6ff>0</span> &lt;new-name&gt;
 </span></span></code></pre></div><h3 id=17-会话快捷键>1.7 会话快捷键
-<a class=header-anchor href=#17-%e4%bc%9a%e8%af%9d%e5%bf%ab%e6%8d%b7%e9%94%ae></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>$ Ctrl+b d：分离当前会话。
+<a class=header-anchor href=#17-%e4%bc%9a%e8%af%9d%e5%bf%ab%e6%8d%b7%e9%94%ae></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>$ Ctrl+b d：分离当前会话。
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$ Ctrl+b s：列出所有会话。
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$ Ctrl+b $：重命名当前会话。
 </span></span></code></pre></div><h2 id=2-窗口管理>2. 窗口管理
 <a class=header-anchor href=#2-%e7%aa%97%e5%8f%a3%e7%ae%a1%e7%90%86></a></h2><h3 id=21-新建窗口>2.1 新建窗口
-<a class=header-anchor href=#21-%e6%96%b0%e5%bb%ba%e7%aa%97%e5%8f%a3></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux new-window
+<a class=header-anchor href=#21-%e6%96%b0%e5%bb%ba%e7%aa%97%e5%8f%a3></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux new-window
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 新建一个指定名称的窗口</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 新建一个指定名称的窗口</span>
 </span></span><span style=display:flex><span>tmux new-window -n &lt;window-name&gt;
 </span></span></code></pre></div><h3 id=22-切换窗口>2.2 切换窗口
-<a class=header-anchor href=#22-%e5%88%87%e6%8d%a2%e7%aa%97%e5%8f%a3></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 切换到指定编号的窗口</span>
-</span></span><span style=display:flex><span>tmux <span style=color:#66d9ef>select</span>-window -t &lt;window-number&gt;
+<a class=header-anchor href=#22-%e5%88%87%e6%8d%a2%e7%aa%97%e5%8f%a3></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 切换到指定编号的窗口</span>
+</span></span><span style=display:flex><span>tmux <span style=color:#ff7b72>select</span>-window -t &lt;window-number&gt;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 切换到指定名称的窗口</span>
-</span></span><span style=display:flex><span>tmux <span style=color:#66d9ef>select</span>-window -t &lt;window-name&gt;
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 切换到指定名称的窗口</span>
+</span></span><span style=display:flex><span>tmux <span style=color:#ff7b72>select</span>-window -t &lt;window-name&gt;
 </span></span></code></pre></div><h3 id=23-重命名窗口>2.3 重命名窗口
-<a class=header-anchor href=#23-%e9%87%8d%e5%91%bd%e5%90%8d%e7%aa%97%e5%8f%a3></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux rename-window &lt;new-name&gt;
+<a class=header-anchor href=#23-%e9%87%8d%e5%91%bd%e5%90%8d%e7%aa%97%e5%8f%a3></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tmux rename-window &lt;new-name&gt;
 </span></span></code></pre></div><h3 id=24-窗口快捷键>2.4 窗口快捷键
-<a class=header-anchor href=#24-%e7%aa%97%e5%8f%a3%e5%bf%ab%e6%8d%b7%e9%94%ae></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>Ctrl+b c：创建一个新窗口，状态栏会显示多个窗口的信息。 
+<a class=header-anchor href=#24-%e7%aa%97%e5%8f%a3%e5%bf%ab%e6%8d%b7%e9%94%ae></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>Ctrl+b c：创建一个新窗口，状态栏会显示多个窗口的信息。 
 </span></span><span style=display:flex><span>Ctrl+b p：切换到上一个窗口（按照状态栏上的顺序）。 
 </span></span><span style=display:flex><span>Ctrl+b n：切换到下一个窗口。 
 </span></span><span style=display:flex><span>Ctrl+b ：切换到指定编号的窗口，其中的是状态栏上的窗口编号。 
 </span></span><span style=display:flex><span>Ctrl+b w：从列表中选择窗口。 
 </span></span><span style=display:flex><span>Ctrl+b ,：窗口重命名。
 </span></span><span style=display:flex><span>Ctrl+b %：划分左右两个窗格。
-</span></span><span style=display:flex><span>Ctrl+b <span style=color:#e6db74>&#34;：划分上下两个窗格。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b ：光标切换到其他窗格。是指向要切换到的窗格的方向键，比如切换到下方窗格，就按方向键↓。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b ;：光标切换到上一个窗格。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b o：光标切换到下一个窗格。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b {：当前窗格左移。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b }：当前窗格右移。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b Ctrl+o：当前窗格上移。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b Alt+o：当前窗格下移。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b x：关闭当前窗格。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b !：将当前窗格拆分为一个独立窗口。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b z：当前窗格全屏显示，再使用一次会变回原来大小。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b Ctrl+：按箭头方向调整窗格大小。
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>Ctrl+b q：显示窗格编号。
+</span></span><span style=display:flex><span>Ctrl+b <span style=color:#a5d6ff>&#34;：划分上下两个窗格。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b ：光标切换到其他窗格。是指向要切换到的窗格的方向键，比如切换到下方窗格，就按方向键↓。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b ;：光标切换到上一个窗格。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b o：光标切换到下一个窗格。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b {：当前窗格左移。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b }：当前窗格右移。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b Ctrl+o：当前窗格上移。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b Alt+o：当前窗格下移。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b x：关闭当前窗格。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b !：将当前窗格拆分为一个独立窗口。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b z：当前窗格全屏显示，再使用一次会变回原来大小。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b Ctrl+：按箭头方向调整窗格大小。
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>Ctrl+b q：显示窗格编号。
 </span></span></span></code></pre></div><h2 id=更改prefix前缀快捷键>更改prefix前缀快捷键
-<a class=header-anchor href=#%e6%9b%b4%e6%94%b9prefix%e5%89%8d%e7%bc%80%e5%bf%ab%e6%8d%b7%e9%94%ae></a></h2><p>修改系统级的/etc/tmux.conf或用户级的~/.tmux.conf，没有的话新建</p><p>向文件写入一下内容</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>set -g prefix C-x  
+<a class=header-anchor href=#%e6%9b%b4%e6%94%b9prefix%e5%89%8d%e7%bc%80%e5%bf%ab%e6%8d%b7%e9%94%ae></a></h2><p>修改系统级的/etc/tmux.conf或用户级的~/.tmux.conf，没有的话新建</p><p>向文件写入一下内容</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>set -g prefix C-x  
 </span></span><span style=display:flex><span>unbind C-b
 </span></span><span style=display:flex><span>bind C-x send-prefix
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/linux>Linux</a>

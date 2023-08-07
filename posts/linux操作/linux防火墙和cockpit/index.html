@@ -24,41 +24,41 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=1-firewall-redhat系列>1. firewall (RedHat系列)
-<a class=header-anchor href=#1-firewall-redhat%e7%b3%bb%e5%88%97></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 查看状态</span>
+<a class=header-anchor href=#1-firewall-redhat%e7%b3%bb%e5%88%97></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看状态</span>
 </span></span><span style=display:flex><span>firewall-cmd --state
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 开启防火墙</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 开启防火墙</span>
 </span></span><span style=display:flex><span>systemctl start firewalld.service
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 关闭并禁用防火墙</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 关闭并禁用防火墙</span>
 </span></span><span style=display:flex><span>systemctl stop firewalld.service
 </span></span><span style=display:flex><span>systemctl disable firewalld.service
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 关闭SElinux 该为disable</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 关闭SElinux 该为disable</span>
 </span></span><span style=display:flex><span>vim /etc/selinux/config
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 开放端口</span>
-</span></span><span style=display:flex><span>firewall-cmd --zone<span style=color:#f92672>=</span>public --add-port<span style=color:#f92672>=</span>8080/tcp --permanent
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 开放端口</span>
+</span></span><span style=display:flex><span>firewall-cmd --zone<span style=color:#ff7b72;font-weight:700>=</span>public --add-port<span style=color:#ff7b72;font-weight:700>=</span>8080/tcp --permanent
 </span></span><span style=display:flex><span>firewall-cmd --reload
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 关闭端口</span>
-</span></span><span style=display:flex><span>firewall-cmd --zone<span style=color:#f92672>=</span>public --remove-port<span style=color:#f92672>=</span>8080/tcp --permanent
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 关闭端口</span>
+</span></span><span style=display:flex><span>firewall-cmd --zone<span style=color:#ff7b72;font-weight:700>=</span>public --remove-port<span style=color:#ff7b72;font-weight:700>=</span>8080/tcp --permanent
 </span></span><span style=display:flex><span>firewall-cmd --reload
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看以开放的端口</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看以开放的端口</span>
 </span></span><span style=display:flex><span>firewall-cmd --list-ports
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 更新防火墙规则</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 更新防火墙规则</span>
 </span></span><span style=display:flex><span>firewall-cmd --reload
 </span></span></code></pre></div><h2 id=2-ufw-ubuntu>2. ufw (Ubuntu)
-<a class=header-anchor href=#2-ufw-ubuntu></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 查看状态</span>
+<a class=header-anchor href=#2-ufw-ubuntu></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看状态</span>
 </span></span><span style=display:flex><span>ufw status
 </span></span></code></pre></div><h2 id=3-cockpit安装>3. Cockpit安装
-<a class=header-anchor href=#3-cockpit%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>dnf install cockpit cockpit-dashboard /
+<a class=header-anchor href=#3-cockpit%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>dnf install cockpit cockpit-dashboard /
 </span></span><span style=display:flex><span>cockpit-storaged cockpit-packagekit -y
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 也可以安装其它的扩展包</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 也可以安装其它的扩展包</span>
 </span></span><span style=display:flex><span>dnf list cockpit*
 </span></span><span style=display:flex><span>--------------------------
 </span></span><span style=display:flex><span>cockpit-bridge.x86_64
@@ -75,13 +75,13 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 </span></span><span style=display:flex><span>--------------------------
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 启动cockpit并设为开启自启动</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 启动cockpit并设为开启自启动</span>
 </span></span><span style=display:flex><span>systemctl enable --now cockpit.socket /
-</span></span><span style=display:flex><span><span style=color:#f92672>&amp;&amp;</span> systemctl list-unit-files | grep cockpit /
-</span></span><span style=display:flex><span><span style=color:#f92672>&amp;&amp;</span> systemctl start cockpit
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> systemctl list-unit-files | grep cockpit /
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> systemctl start cockpit
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 有防火墙的话，记得开放</span>
-</span></span><span style=display:flex><span>firewall-cmd --permanent --zone<span style=color:#f92672>=</span>public --add-service<span style=color:#f92672>=</span>cockpit
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 有防火墙的话，记得开放</span>
+</span></span><span style=display:flex><span>firewall-cmd --permanent --zone<span style=color:#ff7b72;font-weight:700>=</span>public --add-service<span style=color:#ff7b72;font-weight:700>=</span>cockpit
 </span></span><span style=display:flex><span>firewall-cmd --reload
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>之后访问本机9090端口

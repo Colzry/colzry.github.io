@@ -23,58 +23,58 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span>236</span></span>
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
-<span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#================================================================</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#   Copyright (C) 2022 IEucd Inc. All rights reserved.</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#   </span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#   FileName：rand.sh</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#   Author：Colzry, colzry@163.com</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#   CreateDate：2022-10-28</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#   Description：</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#================================================================</span>
+<span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic></span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#================================================================</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#   Copyright (C) 2022 IEucd Inc. All rights reserved.</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#   </span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#   FileName：rand.sh</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#   Author：Colzry, colzry@163.com</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#   CreateDate：2022-10-28</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#   Description：</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#================================================================</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>read -p <span style=color:#e6db74>&#34;请输入要穿透的端口: &#34;</span> target_port
+</span></span><span style=display:flex><span>read -p <span style=color:#a5d6ff>&#34;请输入要穿透的端口: &#34;</span> target_port
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> mimvp_app_port<span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
-</span></span><span style=display:flex><span>    min<span style=color:#f92672>=</span>$1
-</span></span><span style=display:flex><span>    max<span style=color:#f92672>=</span>$2
-</span></span><span style=display:flex><span>    mid<span style=color:#f92672>=</span><span style=color:#66d9ef>$((</span>$max<span style=color:#f92672>-</span>$min<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#66d9ef>))</span>
-</span></span><span style=display:flex><span>    num<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>head -n <span style=color:#ae81ff>20</span> /dev/urandom | cksum | cut -f1 -d <span style=color:#e6db74>&#39; &#39;</span><span style=color:#66d9ef>)</span>
-</span></span><span style=display:flex><span>    randnum<span style=color:#f92672>=</span><span style=color:#66d9ef>$((</span>$num<span style=color:#f92672>%</span>$mid<span style=color:#f92672>+</span>$min<span style=color:#66d9ef>))</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>function</span> mimvp_app_port<span style=color:#ff7b72;font-weight:700>()</span> <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>min</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#79c0ff>$1</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>max</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#79c0ff>$2</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>mid</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#ff7b72>$((</span><span style=color:#79c0ff>$max</span><span style=color:#ff7b72;font-weight:700>-</span><span style=color:#79c0ff>$min</span><span style=color:#ff7b72;font-weight:700>+</span><span style=color:#a5d6ff>1</span><span style=color:#ff7b72>))</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>num</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#ff7b72>$(</span>head -n <span style=color:#a5d6ff>20</span> /dev/urandom | cksum | cut -f1 -d <span style=color:#a5d6ff>&#39; &#39;</span><span style=color:#ff7b72>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>randnum</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#ff7b72>$((</span><span style=color:#79c0ff>$num</span><span style=color:#ff7b72;font-weight:700>%</span><span style=color:#79c0ff>$mid</span><span style=color:#ff7b72;font-weight:700>+</span><span style=color:#79c0ff>$min</span><span style=color:#ff7b72>))</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 排除的端口号 20000,30000,40000,50000, 可以任意添加</span>
-</span></span><span style=display:flex><span>    port_exclude<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;10001,20000,30000,40000,50000&#39;</span>
-</span></span><span style=display:flex><span>    flag<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo <span style=color:#e6db74>${</span>port_exclude<span style=color:#e6db74>}</span> | grep <span style=color:#e6db74>${</span>randnum<span style=color:#e6db74>}</span> | wc -l<span style=color:#e6db74>`</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;</span>$flag<span style=color:#e6db74>&#34;</span> -eq <span style=color:#e6db74>&#34;1&#34;</span> <span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>do</span>
-</span></span><span style=display:flex><span>        num<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>head -n <span style=color:#ae81ff>20</span> /dev/urandom | cksum | cut -f1 -d <span style=color:#e6db74>&#39; &#39;</span><span style=color:#66d9ef>)</span>
-</span></span><span style=display:flex><span>        randnum<span style=color:#f92672>=</span><span style=color:#66d9ef>$((</span>$num<span style=color:#f92672>%</span>$mid<span style=color:#f92672>+</span>$min<span style=color:#66d9ef>))</span>
-</span></span><span style=display:flex><span>        flag<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo <span style=color:#e6db74>${</span>port_exclude<span style=color:#e6db74>}</span> | grep <span style=color:#e6db74>${</span>randnum<span style=color:#e6db74>}</span> | wc -l<span style=color:#e6db74>`</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>done</span>
-</span></span><span style=display:flex><span>    echo $randnum
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 生成随机端口</span>
-</span></span><span style=display:flex><span>rand_port<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>mimvp_app_port <span style=color:#ae81ff>10001</span> 50000<span style=color:#66d9ef>)</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 生成随机隧道名</span>
-</span></span><span style=display:flex><span>rand_name<span style=color:#f92672>=</span><span style=color:#e6db74>`</span>echo $RANDOM | md5sum | cut -c11-20<span style=color:#e6db74>`</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 排除的端口号 20000,30000,40000,50000, 可以任意添加</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>port_exclude</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;10001,20000,30000,40000,50000&#39;</span>
+</span></span><span style=display:flex><span>    <span style=color:#79c0ff>flag</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>`</span>echo <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>port_exclude</span><span style=color:#a5d6ff>}</span> | grep <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>randnum</span><span style=color:#a5d6ff>}</span> | wc -l<span style=color:#a5d6ff>`</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>while</span> <span style=color:#ff7b72;font-weight:700>[</span> <span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>$flag</span><span style=color:#a5d6ff>&#34;</span> -eq <span style=color:#a5d6ff>&#34;1&#34;</span> <span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>do</span>
+</span></span><span style=display:flex><span>        <span style=color:#79c0ff>num</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#ff7b72>$(</span>head -n <span style=color:#a5d6ff>20</span> /dev/urandom | cksum | cut -f1 -d <span style=color:#a5d6ff>&#39; &#39;</span><span style=color:#ff7b72>)</span>
+</span></span><span style=display:flex><span>        <span style=color:#79c0ff>randnum</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#ff7b72>$((</span><span style=color:#79c0ff>$num</span><span style=color:#ff7b72;font-weight:700>%</span><span style=color:#79c0ff>$mid</span><span style=color:#ff7b72;font-weight:700>+</span><span style=color:#79c0ff>$min</span><span style=color:#ff7b72>))</span>
+</span></span><span style=display:flex><span>        <span style=color:#79c0ff>flag</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>`</span>echo <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>port_exclude</span><span style=color:#a5d6ff>}</span> | grep <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>randnum</span><span style=color:#a5d6ff>}</span> | wc -l<span style=color:#a5d6ff>`</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>done</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#79c0ff>$randnum</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 生成随机端口</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>rand_port</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#ff7b72>$(</span>mimvp_app_port <span style=color:#a5d6ff>10001</span> 50000<span style=color:#ff7b72>)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 生成随机隧道名</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>rand_name</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>`</span>echo <span style=color:#79c0ff>$RANDOM</span> | md5sum | cut -c11-20<span style=color:#a5d6ff>`</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>cat <span style=color:#e6db74>&lt;&lt; EOF
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>[common]
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>server_addr = frp.104300.xyz
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>server_port = 7000
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>tcp_mux = true
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>protocol = tcp
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>token = www.126126.xyz
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>dns_server = 223.5.5.5
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>[$rand_name]
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>type = tcp
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>local_ip = 127.0.0.1
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>local_port = $target_port
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>remote_port = $rand_port
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span>cat <span style=color:#a5d6ff>&lt;&lt; EOF
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>[common]
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>server_addr = frp.104300.xyz
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>server_port = 7000
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>tcp_mux = true
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>protocol = tcp
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>token = www.126126.xyz
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>dns_server = 223.5.5.5
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>[$rand_name]
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>type = tcp
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>local_ip = 127.0.0.1
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>local_port = $target_port
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>remote_port = $rand_port
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>EOF</span>
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/frp>FRP</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">
 <span>支付宝</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 微信">

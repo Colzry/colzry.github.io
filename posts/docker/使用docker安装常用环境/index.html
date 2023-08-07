@@ -24,147 +24,147 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>2分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=安装docker>安装Docker
-<a class=header-anchor href=#%e5%ae%89%e8%a3%85docker></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>$ curl -fsSL get.docker.com -o get-docker.sh
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85docker></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>$ curl -fsSL get.docker.com -o get-docker.sh
 </span></span><span style=display:flex><span>$ sudo sh get-docker.sh --mirror Aliyun
-</span></span></code></pre></div><p>卸载</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>dnf remove -y -q docker-ce docker-ce-cli containerd.io docker-scan-plugin docker-compose-plugin docker-ce-rootless-extras
+</span></span></code></pre></div><p>卸载</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>dnf remove -y -q docker-ce docker-ce-cli containerd.io docker-scan-plugin docker-compose-plugin docker-ce-rootless-extras
 </span></span><span style=display:flex><span>rm -rf 
 </span></span></code></pre></div><h3 id=启动-docker>启动 Docker
-<a class=header-anchor href=#%e5%90%af%e5%8a%a8-docker></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>$ sudo systemctl enable docker
+<a class=header-anchor href=#%e5%90%af%e5%8a%a8-docker></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>$ sudo systemctl enable docker
 </span></span><span style=display:flex><span>$ sudo systemctl start docker
 </span></span></code></pre></div><h3 id=建立-docker-用户组>建立 docker 用户组
 <a class=header-anchor href=#%e5%bb%ba%e7%ab%8b-docker-%e7%94%a8%e6%88%b7%e7%bb%84></a></h3><p>默认情况下，<code>docker</code> 命令会使用
 <a href=https://en.wikipedia.org/wiki/Unix_domain_socket title="Unix socket" rel="noopener external nofollow noreferrer" target=_blank class=exturl>Unix socket
-<i class="fa fa-external-link-alt"></i></a> 与 Docker 引擎通讯。而只有 <code>root</code> 用户和 <code>docker</code> 组的用户才可以访问 Docker 引擎的 Unix socket。出于安全考虑，一般 Linux 系统上不会直接使用 <code>root</code> 用户。因此，更好地做法是将需要使用 <code>docker</code> 的用户加入 <code>docker</code> 用户组。</p><p>建立 <code>docker</code> 组：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>$ sudo groupadd docker
-</span></span></code></pre></div><p>将当前用户加入 <code>docker</code> 组：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>$ sudo usermod -aG docker $USER
+<i class="fa fa-external-link-alt"></i></a> 与 Docker 引擎通讯。而只有 <code>root</code> 用户和 <code>docker</code> 组的用户才可以访问 Docker 引擎的 Unix socket。出于安全考虑，一般 Linux 系统上不会直接使用 <code>root</code> 用户。因此，更好地做法是将需要使用 <code>docker</code> 的用户加入 <code>docker</code> 用户组。</p><p>建立 <code>docker</code> 组：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>$ sudo groupadd docker
+</span></span></code></pre></div><p>将当前用户加入 <code>docker</code> 组：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>$ sudo usermod -aG docker <span style=color:#79c0ff>$USER</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>注销用户或者重启系统
 </span></span></code></pre></div><h3 id=更换镜像源>更换镜像源
-<a class=header-anchor href=#%e6%9b%b4%e6%8d%a2%e9%95%9c%e5%83%8f%e6%ba%90></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /etc/docker/daemon.json
+<a class=header-anchor href=#%e6%9b%b4%e6%8d%a2%e9%95%9c%e5%83%8f%e6%ba%90></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /etc/docker/daemon.json
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>{</span><span style=color:#e6db74>&#34;registry-mirrors&#34;</span>: <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;http://hub-mirror.c.163.com&#34;</span><span style=color:#f92672>]}</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>{</span><span style=color:#a5d6ff>&#34;registry-mirrors&#34;</span>: <span style=color:#ff7b72;font-weight:700>[</span><span style=color:#a5d6ff>&#34;http://hub-mirror.c.163.com&#34;</span><span style=color:#ff7b72;font-weight:700>]}</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>systemctl restart docker
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>2<span style=color:#f92672>)</span> 腾讯云 docker hub mirror
+</span></span><span style=display:flex><span>2<span style=color:#ff7b72;font-weight:700>)</span> 腾讯云 docker hub mirror
 </span></span><span style=display:flex><span>https://mirror.ccs.tencentyun.com
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>3<span style=color:#f92672>)</span> 华为云
+</span></span><span style=display:flex><span>3<span style=color:#ff7b72;font-weight:700>)</span> 华为云
 </span></span><span style=display:flex><span>https://05f073ad3c0010ea0f4bc00b7105ec20.mirror.swr.myhuaweicloud.com
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>4<span style=color:#f92672>)</span> docker中国
+</span></span><span style=display:flex><span>4<span style=color:#ff7b72;font-weight:700>)</span> docker中国
 </span></span><span style=display:flex><span>https://registry.docker-cn.com
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>5<span style=color:#f92672>)</span> 网易
+</span></span><span style=display:flex><span>5<span style=color:#ff7b72;font-weight:700>)</span> 网易
 </span></span><span style=display:flex><span>http://hub-mirror.c.163.com
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>6<span style=color:#f92672>)</span> daocloud
+</span></span><span style=display:flex><span>6<span style=color:#ff7b72;font-weight:700>)</span> daocloud
 </span></span><span style=display:flex><span>http://f1361db2.m.daocloud.io
 </span></span></code></pre></div><h2 id=安装docker图形化界面>安装Docker图形化界面
-<a class=header-anchor href=#%e5%ae%89%e8%a3%85docker%e5%9b%be%e5%bd%a2%e5%8c%96%e7%95%8c%e9%9d%a2></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e>#下载 Docker 图形化界面 portainer</span>
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85docker%e5%9b%be%e5%bd%a2%e5%8c%96%e7%95%8c%e9%9d%a2></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#下载 Docker 图形化界面 portainer</span>
 </span></span><span style=display:flex><span>sudo docker pull portainer/portainer
-</span></span><span style=display:flex><span><span style=color:#75715e>#创建 portainer 容器</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#创建 portainer 容器</span>
 </span></span><span style=display:flex><span>sudo docker volume create portainer_data
-</span></span><span style=display:flex><span><span style=color:#75715e>#运行 portainer</span>
-</span></span><span style=display:flex><span>sudo docker run -d <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -p 9000:9000 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --name portainer <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --restart always <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -v /var/run/docker.sock:/var/run/docker.sock <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -v portainer_data:/data <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  portainer/portainer
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#运行 portainer</span>
+</span></span><span style=display:flex><span>sudo docker run -d <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  -p 9000:9000 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  --name portainer <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  --restart always <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  -v /var/run/docker.sock:/var/run/docker.sock <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  -v portainer_data:/data <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  portainer/portainer
 </span></span></code></pre></div><h2 id=安装mysql>安装MySql
-<a class=header-anchor href=#%e5%ae%89%e8%a3%85mysql></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>//拉取MySQL镜像
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85mysql></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>//拉取MySQL镜像
 </span></span><span style=display:flex><span>docker pull mysql
 </span></span><span style=display:flex><span>//启动MySQL，注意更改密码，用户名为root，密码czyadmin
-</span></span><span style=display:flex><span>docker run -d <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --name mysql <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --restart<span style=color:#f92672>=</span>always <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -p 3306:3306 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -e MYSQL_ROOT_PASSWORD<span style=color:#f92672>=</span>czyadmin <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  mysql
+</span></span><span style=display:flex><span>docker run -d <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  --name mysql <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  --restart<span style=color:#ff7b72;font-weight:700>=</span>always <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  -p 3306:3306 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  -e <span style=color:#79c0ff>MYSQL_ROOT_PASSWORD</span><span style=color:#ff7b72;font-weight:700>=</span>czyadmin <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  mysql
 </span></span></code></pre></div><h2 id=安装redis>安装Redis
-<a class=header-anchor href=#%e5%ae%89%e8%a3%85redis></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>//拉取Redis镜像
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85redis></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>//拉取Redis镜像
 </span></span><span style=display:flex><span>docker pull redis
 </span></span><span style=display:flex><span>//启动Redis，注意更改密码，用户名为root，密码czyadmin
-</span></span><span style=display:flex><span>docker run -d <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --name redis <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --restart<span style=color:#f92672>=</span>always <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -p 6379:6379 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  redis <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --requirepass <span style=color:#e6db74>&#34;czyadmin&#34;</span>
+</span></span><span style=display:flex><span>docker run -d <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  --name redis <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  --restart<span style=color:#ff7b72;font-weight:700>=</span>always <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  -p 6379:6379 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  redis <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  --requirepass <span style=color:#a5d6ff>&#34;czyadmin&#34;</span>
 </span></span></code></pre></div><h2 id=安装nginx>安装Nginx
-<a class=header-anchor href=#%e5%ae%89%e8%a3%85nginx></a></h2><p>拉取镜像</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>docker pull nginx
-</span></span></code></pre></div><p>创建本地配置文件</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>mkdir -p /etc/nginx/conf.d <span style=color:#f92672>&amp;&amp;</span> vim /etc/nginx/nginx.conf
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-nginx data-lang=nginx><span style=display:flex><span><span style=color:#66d9ef>user</span>  <span style=color:#e6db74>nginx</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>worker_processes</span>  <span style=color:#e6db74>auto</span>;
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85nginx></a></h2><p>拉取镜像</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>docker pull nginx
+</span></span></code></pre></div><p>创建本地配置文件</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>mkdir -p /etc/nginx/conf.d <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> vim /etc/nginx/nginx.conf
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-nginx data-lang=nginx><span style=display:flex><span><span style=color:#ff7b72>user</span>  <span style=color:#a5d6ff>nginx</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>worker_processes</span>  <span style=color:#a5d6ff>auto</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>error_log</span>  <span style=color:#e6db74>/var/log/nginx/error.log</span> <span style=color:#e6db74>notice</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>pid</span>        <span style=color:#e6db74>/var/run/nginx.pid</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>error_log</span>  <span style=color:#a5d6ff>/var/log/nginx/error.log</span> <span style=color:#a5d6ff>notice</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>pid</span>        <span style=color:#a5d6ff>/var/run/nginx.pid</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>events</span> {
-</span></span><span style=display:flex><span>    <span style=color:#f92672>worker_connections</span>  <span style=color:#ae81ff>1024</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>events</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>worker_connections</span>  <span style=color:#a5d6ff>1024</span>;
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>http</span> {
-</span></span><span style=display:flex><span>    <span style=color:#f92672>include</span>       <span style=color:#e6db74>/etc/nginx/mime.types</span>;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>default_type</span>  <span style=color:#e6db74>application/octet-stream</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>http</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>include</span>       <span style=color:#a5d6ff>/etc/nginx/mime.types</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>default_type</span>  <span style=color:#a5d6ff>application/octet-stream</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>log_format</span>  <span style=color:#e6db74>main</span>  <span style=color:#e6db74>&#39;</span>$remote_addr <span style=color:#e6db74>-</span> $remote_user <span style=color:#e6db74>[</span>$time_local] <span style=color:#e6db74>&#34;</span>$request&#34; <span style=color:#e6db74>&#39;</span>
-</span></span><span style=display:flex><span>                      <span style=color:#e6db74>&#39;</span>$status $body_bytes_sent <span style=color:#e6db74>&#34;</span>$http_referer&#34; <span style=color:#e6db74>&#39;</span>
-</span></span><span style=display:flex><span>                      <span style=color:#e6db74>&#39;&#34;</span>$http_user_agent&#34; <span style=color:#e6db74>&#34;</span>$http_x_forwarded_for&#34;&#39;;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>log_format</span>  <span style=color:#a5d6ff>main</span>  <span style=color:#a5d6ff>&#39;</span><span style=color:#79c0ff>$remote_addr</span> <span style=color:#a5d6ff>-</span> <span style=color:#79c0ff>$remote_user</span> <span style=color:#a5d6ff>[</span><span style=color:#79c0ff>$time_local]</span> <span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>$request&#34;</span> <span style=color:#a5d6ff>&#39;</span>
+</span></span><span style=display:flex><span>                      <span style=color:#a5d6ff>&#39;</span><span style=color:#79c0ff>$status</span> <span style=color:#79c0ff>$body_bytes_sent</span> <span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>$http_referer&#34;</span> <span style=color:#a5d6ff>&#39;</span>
+</span></span><span style=display:flex><span>                      <span style=color:#a5d6ff>&#39;&#34;</span><span style=color:#79c0ff>$http_user_agent&#34;</span> <span style=color:#a5d6ff>&#34;</span><span style=color:#79c0ff>$http_x_forwarded_for&#34;&#39;</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>access_log</span>  <span style=color:#e6db74>/var/log/nginx/access.log</span>  <span style=color:#e6db74>main</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>access_log</span>  <span style=color:#a5d6ff>/var/log/nginx/access.log</span>  <span style=color:#a5d6ff>main</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>sendfile</span>        <span style=color:#66d9ef>on</span>;
-</span></span><span style=display:flex><span>    <span style=color:#75715e>#tcp_nopush     on;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>keepalive_timeout</span>  <span style=color:#ae81ff>65</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>sendfile</span>        <span style=color:#79c0ff;font-weight:700>on</span>;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>#tcp_nopush     on;
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>keepalive_timeout</span>  <span style=color:#a5d6ff>65</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>#gzip  on;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>include</span> <span style=color:#e6db74>/etc/nginx/conf.d/*.conf</span>;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>#gzip  on;
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>include</span> <span style=color:#a5d6ff>/etc/nginx/conf.d/*.conf</span>;
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>启动服务</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>//启动nginx，映射本地配置文件
-</span></span><span style=display:flex><span>docker run -d <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --name nginx <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --restart<span style=color:#f92672>=</span>always <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -p 80:80 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -v /etc/nginx/nginx.conf:/etc/nginx/nginx.conf <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -v /etc/nginx/conf.d:/etc/nginx/conf.d <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  nginx
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /etc/nginx/conf.d/demo.conf
+</span></span></code></pre></div><p>启动服务</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>//启动nginx，映射本地配置文件
+</span></span><span style=display:flex><span>docker run -d <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  --name nginx <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  --restart<span style=color:#ff7b72;font-weight:700>=</span>always <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  -p 80:80 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  -v /etc/nginx/nginx.conf:/etc/nginx/nginx.conf <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  -v /etc/nginx/conf.d:/etc/nginx/conf.d <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  nginx
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /etc/nginx/conf.d/demo.conf
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>server <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>server <span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>    listen       80;
-</span></span><span style=display:flex><span>    listen  <span style=color:#f92672>[</span>::<span style=color:#f92672>]</span>:80;
+</span></span><span style=display:flex><span>    listen  <span style=color:#ff7b72;font-weight:700>[</span>::<span style=color:#ff7b72;font-weight:700>]</span>:80;
 </span></span><span style=display:flex><span>    server_name  localhost;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    location / <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    location / <span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>        root   /usr/share/nginx/html;
 </span></span><span style=display:flex><span>        index  index.html index.htm;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>docker exec nginx bash -c <span style=color:#e6db74>&#39;nginx -s reload&#39;</span>
+</span></span><span style=display:flex><span>docker exec nginx bash -c <span style=color:#a5d6ff>&#39;nginx -s reload&#39;</span>
 </span></span></code></pre></div><h2 id=安装rabbitmq>安装RabbitMQ
-<a class=header-anchor href=#%e5%ae%89%e8%a3%85rabbitmq></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull rabbitmq:management 
-</span></span></code></pre></div><blockquote><p><strong>默认用户名和密码：guest/guest</strong></p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker run -dit <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>--name rabbitmq <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>--restart<span style=color:#f92672>=</span>always <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>-p 5672:5672 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>-p 15672:15672 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>rabbitmq:management
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85rabbitmq></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull rabbitmq:management 
+</span></span></code></pre></div><blockquote><p><strong>默认用户名和密码：guest/guest</strong></p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker run -dit <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>--name rabbitmq <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>--restart<span style=color:#ff7b72;font-weight:700>=</span>always <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>-p 5672:5672 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>-p 15672:15672 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>rabbitmq:management
 </span></span></code></pre></div><table><thead><tr><th>端口</th><th>作用</th></tr></thead><tbody><tr><td>15672</td><td>管理界面UI的使用端口</td></tr><tr><td>15671</td><td>管理监听端口</td></tr><tr><td>5672,5671</td><td>AMQP 0-9-1 without and with TLSclient端通信口</td></tr><tr><td>4369</td><td>(epmd)epmd代表Erlang端口映射守护进程，erlang发现口</td></tr><tr><td>25672</td><td>( Erlang distribution) server间内部通信口</td></tr></tbody></table><h2 id=安装postgresql>安装Postgresql
-<a class=header-anchor href=#%e5%ae%89%e8%a3%85postgresql></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull postgres
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker run -d <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --name postgres <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --restart<span style=color:#f92672>=</span>always <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -p 5432:5432 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -e POSTGRES_PASSWORD<span style=color:#f92672>=</span>czyadmin <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  postgres
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85postgresql></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull postgres
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker run -d <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  --name postgres <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  --restart<span style=color:#ff7b72;font-weight:700>=</span>always <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  -p 5432:5432 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  -e <span style=color:#79c0ff>POSTGRES_PASSWORD</span><span style=color:#ff7b72;font-weight:700>=</span>czyadmin <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>  postgres
 </span></span></code></pre></div><blockquote><p>用户名：postgres 密码：czyadmin</p></blockquote></div><footer class=post-footer><div class=post-tags><a href=/tags/docker>Docker</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">
 <span>支付宝</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 微信">

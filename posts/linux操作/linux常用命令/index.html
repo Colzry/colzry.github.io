@@ -24,424 +24,424 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>14分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/img/20210524093751.webp#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=jQi1J&amp;originHeight=650&amp;originWidth=1024&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><h2 id=系统信息>系统信息
-<a class=header-anchor href=#%e7%b3%bb%e7%bb%9f%e4%bf%a1%e6%81%af></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>arch      <span style=color:#75715e>#显示机器的处理器架构(1)</span>
-</span></span><span style=display:flex><span>uname -m  <span style=color:#75715e>#显示机器的处理器架构(2)</span>
-</span></span><span style=display:flex><span>uname -r  <span style=color:#75715e>#显示正在使用的内核版本</span>
-</span></span><span style=display:flex><span>dmidecode -q          <span style=color:#75715e>#显示硬件系统部件 - (SMBIOS / DMI)</span>
-</span></span><span style=display:flex><span>hdparm -i /dev/hda    <span style=color:#75715e>#罗列一个磁盘的架构特性</span>
-</span></span><span style=display:flex><span>hdparm -tT /dev/sda   <span style=color:#75715e>#在磁盘上执行测试性读取操作</span>
-</span></span><span style=display:flex><span>cat /proc/cpuinfo     <span style=color:#75715e>#显示CPU info的信息</span>
-</span></span><span style=display:flex><span>cat /proc/interrupts  <span style=color:#75715e>#显示中断</span>
-</span></span><span style=display:flex><span>cat /proc/meminfo     <span style=color:#75715e>#校验内存使用</span>
-</span></span><span style=display:flex><span>cat /proc/swaps       <span style=color:#75715e>#显示哪些swap被使用</span>
-</span></span><span style=display:flex><span>cat /proc/version     <span style=color:#75715e>#显示内核的版本</span>
-</span></span><span style=display:flex><span>cat /proc/net/dev     <span style=color:#75715e>#显示网络适配器及统计</span>
-</span></span><span style=display:flex><span>cat /proc/mounts      <span style=color:#75715e>#显示已加载的文件系统</span>
-</span></span><span style=display:flex><span>lspci -tv   <span style=color:#75715e>#罗列PCI设备</span>
-</span></span><span style=display:flex><span>lsusb -tv   <span style=color:#75715e>#显示USB设备</span>
+<a class=header-anchor href=#%e7%b3%bb%e7%bb%9f%e4%bf%a1%e6%81%af></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>arch      <span style=color:#8b949e;font-style:italic>#显示机器的处理器架构(1)</span>
+</span></span><span style=display:flex><span>uname -m  <span style=color:#8b949e;font-style:italic>#显示机器的处理器架构(2)</span>
+</span></span><span style=display:flex><span>uname -r  <span style=color:#8b949e;font-style:italic>#显示正在使用的内核版本</span>
+</span></span><span style=display:flex><span>dmidecode -q          <span style=color:#8b949e;font-style:italic>#显示硬件系统部件 - (SMBIOS / DMI)</span>
+</span></span><span style=display:flex><span>hdparm -i /dev/hda    <span style=color:#8b949e;font-style:italic>#罗列一个磁盘的架构特性</span>
+</span></span><span style=display:flex><span>hdparm -tT /dev/sda   <span style=color:#8b949e;font-style:italic>#在磁盘上执行测试性读取操作</span>
+</span></span><span style=display:flex><span>cat /proc/cpuinfo     <span style=color:#8b949e;font-style:italic>#显示CPU info的信息</span>
+</span></span><span style=display:flex><span>cat /proc/interrupts  <span style=color:#8b949e;font-style:italic>#显示中断</span>
+</span></span><span style=display:flex><span>cat /proc/meminfo     <span style=color:#8b949e;font-style:italic>#校验内存使用</span>
+</span></span><span style=display:flex><span>cat /proc/swaps       <span style=color:#8b949e;font-style:italic>#显示哪些swap被使用</span>
+</span></span><span style=display:flex><span>cat /proc/version     <span style=color:#8b949e;font-style:italic>#显示内核的版本</span>
+</span></span><span style=display:flex><span>cat /proc/net/dev     <span style=color:#8b949e;font-style:italic>#显示网络适配器及统计</span>
+</span></span><span style=display:flex><span>cat /proc/mounts      <span style=color:#8b949e;font-style:italic>#显示已加载的文件系统</span>
+</span></span><span style=display:flex><span>lspci -tv   <span style=color:#8b949e;font-style:italic>#罗列PCI设备</span>
+</span></span><span style=display:flex><span>lsusb -tv   <span style=color:#8b949e;font-style:italic>#显示USB设备</span>
 </span></span></code></pre></div><h2 id=date-显示系统日期>date 显示系统日期
-<a class=header-anchor href=#date-%e6%98%be%e7%a4%ba%e7%b3%bb%e7%bb%9f%e6%97%a5%e6%9c%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>cal <span style=color:#ae81ff>2007</span>              <span style=color:#75715e>#显示2007年的日历表</span>
-</span></span><span style=display:flex><span>date 041217002007.00   <span style=color:#75715e>#设置日期和时间 - 月日时分年.秒</span>
-</span></span><span style=display:flex><span>clock -w              <span style=color:#75715e>#将时间修改保存到 BIOS</span>
+<a class=header-anchor href=#date-%e6%98%be%e7%a4%ba%e7%b3%bb%e7%bb%9f%e6%97%a5%e6%9c%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>cal <span style=color:#a5d6ff>2007</span>              <span style=color:#8b949e;font-style:italic>#显示2007年的日历表</span>
+</span></span><span style=display:flex><span>date 041217002007.00   <span style=color:#8b949e;font-style:italic>#设置日期和时间 - 月日时分年.秒</span>
+</span></span><span style=display:flex><span>clock -w              <span style=color:#8b949e;font-style:italic>#将时间修改保存到 BIOS</span>
 </span></span></code></pre></div><h2 id=关机-系统的关机重启以及登出->关机 (系统的关机、重启以及登出 )
-<a class=header-anchor href=#%e5%85%b3%e6%9c%ba-%e7%b3%bb%e7%bb%9f%e7%9a%84%e5%85%b3%e6%9c%ba%e9%87%8d%e5%90%af%e4%bb%a5%e5%8f%8a%e7%99%bb%e5%87%ba-></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>shutdown -h now    <span style=color:#75715e>#关闭系统(1)</span>
-</span></span><span style=display:flex><span>init <span style=color:#ae81ff>0</span>            <span style=color:#75715e>#关闭系统(2)</span>
-</span></span><span style=display:flex><span>telinit <span style=color:#ae81ff>0</span>         <span style=color:#75715e>#关闭系统(3)</span>
-</span></span><span style=display:flex><span>shutdown -h hours:minutes &amp;   <span style=color:#75715e>#按预定时间关闭系统</span>
-</span></span><span style=display:flex><span>shutdown -c       <span style=color:#75715e>#取消按预定时间关闭系统</span>
-</span></span><span style=display:flex><span>shutdown -r now   <span style=color:#75715e>#重启(1)</span>
-</span></span><span style=display:flex><span>reboot   <span style=color:#75715e>#重启(2)</span>
-</span></span><span style=display:flex><span>logout   <span style=color:#75715e>#注销</span>
+<a class=header-anchor href=#%e5%85%b3%e6%9c%ba-%e7%b3%bb%e7%bb%9f%e7%9a%84%e5%85%b3%e6%9c%ba%e9%87%8d%e5%90%af%e4%bb%a5%e5%8f%8a%e7%99%bb%e5%87%ba-></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>shutdown -h now    <span style=color:#8b949e;font-style:italic>#关闭系统(1)</span>
+</span></span><span style=display:flex><span>init <span style=color:#a5d6ff>0</span>            <span style=color:#8b949e;font-style:italic>#关闭系统(2)</span>
+</span></span><span style=display:flex><span>telinit <span style=color:#a5d6ff>0</span>         <span style=color:#8b949e;font-style:italic>#关闭系统(3)</span>
+</span></span><span style=display:flex><span>shutdown -h hours:minutes &amp;   <span style=color:#8b949e;font-style:italic>#按预定时间关闭系统</span>
+</span></span><span style=display:flex><span>shutdown -c       <span style=color:#8b949e;font-style:italic>#取消按预定时间关闭系统</span>
+</span></span><span style=display:flex><span>shutdown -r now   <span style=color:#8b949e;font-style:italic>#重启(1)</span>
+</span></span><span style=display:flex><span>reboot   <span style=color:#8b949e;font-style:italic>#重启(2)</span>
+</span></span><span style=display:flex><span>logout   <span style=color:#8b949e;font-style:italic>#注销</span>
 </span></span></code></pre></div><h2 id=文件和目录>文件和目录
-<a class=header-anchor href=#%e6%96%87%e4%bb%b6%e5%92%8c%e7%9b%ae%e5%bd%95></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>cd /home    <span style=color:#75715e>#进入 &#39;/ home&#39; 目录&#39;</span>
-</span></span><span style=display:flex><span>cd ..       <span style=color:#75715e>#返回上一级目录</span>
-</span></span><span style=display:flex><span>cd ../..    <span style=color:#75715e>#返回上两级目录</span>
-</span></span><span style=display:flex><span>cd          <span style=color:#75715e>#进入个人的主目录</span>
-</span></span><span style=display:flex><span>cd ~user1   <span style=color:#75715e>#进入个人的主目录</span>
-</span></span><span style=display:flex><span>cd -       <span style=color:#75715e>#返回上次所在的目录</span>
-</span></span><span style=display:flex><span>pwd        <span style=color:#75715e>#显示工作路径</span>
+<a class=header-anchor href=#%e6%96%87%e4%bb%b6%e5%92%8c%e7%9b%ae%e5%bd%95></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>cd /home    <span style=color:#8b949e;font-style:italic>#进入 &#39;/ home&#39; 目录&#39;</span>
+</span></span><span style=display:flex><span>cd ..       <span style=color:#8b949e;font-style:italic>#返回上一级目录</span>
+</span></span><span style=display:flex><span>cd ../..    <span style=color:#8b949e;font-style:italic>#返回上两级目录</span>
+</span></span><span style=display:flex><span>cd          <span style=color:#8b949e;font-style:italic>#进入个人的主目录</span>
+</span></span><span style=display:flex><span>cd ~user1   <span style=color:#8b949e;font-style:italic>#进入个人的主目录</span>
+</span></span><span style=display:flex><span>cd -       <span style=color:#8b949e;font-style:italic>#返回上次所在的目录</span>
+</span></span><span style=display:flex><span>pwd        <span style=color:#8b949e;font-style:italic>#显示工作路径</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>ls      <span style=color:#75715e>#查看目录中的文件</span>
-</span></span><span style=display:flex><span>ls -F   <span style=color:#75715e>#查看目录中的文件</span>
-</span></span><span style=display:flex><span>ls -l   <span style=color:#75715e>#显示文件和目录的详细资料</span>
-</span></span><span style=display:flex><span>ls -a   <span style=color:#75715e>#显示隐藏文件</span>
-</span></span><span style=display:flex><span>ls *<span style=color:#f92672>[</span>0-9<span style=color:#f92672>]</span>*   <span style=color:#75715e>#显示包含数字的文件名和目录名</span>
-</span></span><span style=display:flex><span>tree         <span style=color:#75715e>#显示文件和目录由根目录开始的树形结构(1)</span>
-</span></span><span style=display:flex><span>lstree       <span style=color:#75715e>#显示文件和目录由根目录开始的树形结构(2)</span>
+</span></span><span style=display:flex><span>ls      <span style=color:#8b949e;font-style:italic>#查看目录中的文件</span>
+</span></span><span style=display:flex><span>ls -F   <span style=color:#8b949e;font-style:italic>#查看目录中的文件</span>
+</span></span><span style=display:flex><span>ls -l   <span style=color:#8b949e;font-style:italic>#显示文件和目录的详细资料</span>
+</span></span><span style=display:flex><span>ls -a   <span style=color:#8b949e;font-style:italic>#显示隐藏文件</span>
+</span></span><span style=display:flex><span>ls *<span style=color:#ff7b72;font-weight:700>[</span>0-9<span style=color:#ff7b72;font-weight:700>]</span>*   <span style=color:#8b949e;font-style:italic>#显示包含数字的文件名和目录名</span>
+</span></span><span style=display:flex><span>tree         <span style=color:#8b949e;font-style:italic>#显示文件和目录由根目录开始的树形结构(1)</span>
+</span></span><span style=display:flex><span>lstree       <span style=color:#8b949e;font-style:italic>#显示文件和目录由根目录开始的树形结构(2)</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>mkdir dir1         <span style=color:#75715e>#创建一个叫做 &#39;dir1&#39; 的目录&#39;</span>
-</span></span><span style=display:flex><span>mkdir dir1 dir2    <span style=color:#75715e>#同时创建两个目录</span>
-</span></span><span style=display:flex><span>mkdir -p /tmp/dir1/dir2   <span style=color:#75715e>#创建一个目录树</span>
-</span></span><span style=display:flex><span>rm -f file1    <span style=color:#75715e>#删除一个叫做 &#39;file1&#39; 的文件&#39;</span>
-</span></span><span style=display:flex><span>rmdir dir1     <span style=color:#75715e>#删除一个叫做 &#39;dir1&#39; 的目录&#39;</span>
-</span></span><span style=display:flex><span>rm -rf dir1    <span style=color:#75715e>#删除一个叫做 &#39;dir1&#39; 的目录并同时删除其内容</span>
-</span></span><span style=display:flex><span>rm -rf dir1 dir2    <span style=color:#75715e>#同时删除两个目录及它们的内容</span>
-</span></span><span style=display:flex><span>mv dir1 new_dir     <span style=color:#75715e>#重命名/移动 一个目录</span>
+</span></span><span style=display:flex><span>mkdir dir1         <span style=color:#8b949e;font-style:italic>#创建一个叫做 &#39;dir1&#39; 的目录&#39;</span>
+</span></span><span style=display:flex><span>mkdir dir1 dir2    <span style=color:#8b949e;font-style:italic>#同时创建两个目录</span>
+</span></span><span style=display:flex><span>mkdir -p /tmp/dir1/dir2   <span style=color:#8b949e;font-style:italic>#创建一个目录树</span>
+</span></span><span style=display:flex><span>rm -f file1    <span style=color:#8b949e;font-style:italic>#删除一个叫做 &#39;file1&#39; 的文件&#39;</span>
+</span></span><span style=display:flex><span>rmdir dir1     <span style=color:#8b949e;font-style:italic>#删除一个叫做 &#39;dir1&#39; 的目录&#39;</span>
+</span></span><span style=display:flex><span>rm -rf dir1    <span style=color:#8b949e;font-style:italic>#删除一个叫做 &#39;dir1&#39; 的目录并同时删除其内容</span>
+</span></span><span style=display:flex><span>rm -rf dir1 dir2    <span style=color:#8b949e;font-style:italic>#同时删除两个目录及它们的内容</span>
+</span></span><span style=display:flex><span>mv dir1 new_dir     <span style=color:#8b949e;font-style:italic>#重命名/移动 一个目录</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>cp file1 file2     <span style=color:#75715e>#复制一个文件</span>
-</span></span><span style=display:flex><span>cp dir/* .         <span style=color:#75715e>#复制一个目录下的所有文件到当前工作目录</span>
-</span></span><span style=display:flex><span>cp -a /tmp/dir1 .   <span style=color:#75715e>#复制一个目录到当前工作目录</span>
-</span></span><span style=display:flex><span>cp -a dir1 dir2     <span style=color:#75715e>#复制一个目录</span>
+</span></span><span style=display:flex><span>cp file1 file2     <span style=color:#8b949e;font-style:italic>#复制一个文件</span>
+</span></span><span style=display:flex><span>cp dir/* .         <span style=color:#8b949e;font-style:italic>#复制一个目录下的所有文件到当前工作目录</span>
+</span></span><span style=display:flex><span>cp -a /tmp/dir1 .   <span style=color:#8b949e;font-style:italic>#复制一个目录到当前工作目录</span>
+</span></span><span style=display:flex><span>cp -a dir1 dir2     <span style=color:#8b949e;font-style:italic>#复制一个目录</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>ln -s file1 lnk1  <span style=color:#75715e>#创建一个指向文件或目录的软链接</span>
-</span></span><span style=display:flex><span>ln file1 lnk1     <span style=color:#75715e>#创建一个指向文件或目录的物理链接</span>
+</span></span><span style=display:flex><span>ln -s file1 lnk1  <span style=color:#8b949e;font-style:italic>#创建一个指向文件或目录的软链接</span>
+</span></span><span style=display:flex><span>ln file1 lnk1     <span style=color:#8b949e;font-style:italic>#创建一个指向文件或目录的物理链接</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>touch -t <span style=color:#ae81ff>0712250000</span> file1   <span style=color:#75715e>#修改一个文件或目录的时间戳 - (YYMMDDhhmm)</span>
+</span></span><span style=display:flex><span>touch -t <span style=color:#a5d6ff>0712250000</span> file1   <span style=color:#8b949e;font-style:italic>#修改一个文件或目录的时间戳 - (YYMMDDhhmm)</span>
 </span></span><span style=display:flex><span>file file1 outputs the mime type of the file as text
-</span></span><span style=display:flex><span>iconv -l   <span style=color:#75715e>#列出已知的编码</span>
+</span></span><span style=display:flex><span>iconv -l   <span style=color:#8b949e;font-style:italic>#列出已知的编码</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>iconv -f fromEncoding -t toEncoding inputFile &gt; outputFile creates a new from the given input file by assuming it is encoded in fromEncoding and converting it to toEncoding.
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>find . -maxdepth <span style=color:#ae81ff>1</span> -name *.jpg -print -exec convert <span style=color:#e6db74>&#34;{}&#34;</span> -resize 80x60 <span style=color:#e6db74>&#34;thumbs/{}&#34;</span> <span style=color:#ae81ff>\;</span> batch resize files in the current directory and send them to a thumbnails directory <span style=color:#f92672>(</span>requires convert from Imagemagick<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>find . -maxdepth <span style=color:#a5d6ff>1</span> -name *.jpg -print -exec convert <span style=color:#a5d6ff>&#34;{}&#34;</span> -resize 80x60 <span style=color:#a5d6ff>&#34;thumbs/{}&#34;</span> <span style=color:#79c0ff>\;</span> batch resize files in the current directory and send them to a thumbnails directory <span style=color:#ff7b72;font-weight:700>(</span>requires convert from Imagemagick<span style=color:#ff7b72;font-weight:700>)</span>
 </span></span></code></pre></div><h2 id=文件搜索>文件搜索
-<a class=header-anchor href=#%e6%96%87%e4%bb%b6%e6%90%9c%e7%b4%a2></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>find / -name file1     <span style=color:#75715e>#从 &#39;/&#39; 开始进入根文件系统搜索文件和目录</span>
-</span></span><span style=display:flex><span>find / -user user1     <span style=color:#75715e>#搜索属于用户 &#39;user1&#39; 的文件和目录</span>
-</span></span><span style=display:flex><span>find /home/user1 -name <span style=color:#ae81ff>\*</span>.bin        <span style=color:#75715e>#在目录 &#39;/ home/user1&#39; 中搜索带有&#39;.bin&#39; 结尾的文件</span>
-</span></span><span style=display:flex><span>find /usr/bin -type f -atime +100    <span style=color:#75715e>#搜索在过去100天内未被使用过的执行文件</span>
-</span></span><span style=display:flex><span>find /usr/bin -type f -mtime -10     <span style=color:#75715e>#搜索在10天内被创建或者修改过的文件</span>
-</span></span><span style=display:flex><span>find / -name <span style=color:#ae81ff>\*</span>.rpm -exec chmod <span style=color:#ae81ff>755</span> <span style=color:#e6db74>&#39;{}&#39;</span> <span style=color:#ae81ff>\;</span>      <span style=color:#75715e>#搜索以 &#39;.rpm&#39; 结尾的文件并定义其权限</span>
-</span></span><span style=display:flex><span>find / -xdev -name <span style=color:#ae81ff>\*</span>.rpm        <span style=color:#75715e>#搜索以 &#39;.rpm&#39; 结尾的文件，忽略光驱、捷盘等可移动设备</span>
-</span></span><span style=display:flex><span>locate <span style=color:#ae81ff>\*</span>.ps       <span style=color:#75715e>#寻找以 &#39;.ps&#39; 结尾的文件 - 先运行 &#39;updatedb&#39; 命令</span>
-</span></span><span style=display:flex><span>whereis halt       <span style=color:#75715e>#显示一个二进制文件、源码或man的位置</span>
-</span></span><span style=display:flex><span>which halt         <span style=color:#75715e>#显示一个二进制文件或可执行文件的完整路径</span>
+<a class=header-anchor href=#%e6%96%87%e4%bb%b6%e6%90%9c%e7%b4%a2></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>find / -name file1     <span style=color:#8b949e;font-style:italic>#从 &#39;/&#39; 开始进入根文件系统搜索文件和目录</span>
+</span></span><span style=display:flex><span>find / -user user1     <span style=color:#8b949e;font-style:italic>#搜索属于用户 &#39;user1&#39; 的文件和目录</span>
+</span></span><span style=display:flex><span>find /home/user1 -name <span style=color:#79c0ff>\*</span>.bin        <span style=color:#8b949e;font-style:italic>#在目录 &#39;/ home/user1&#39; 中搜索带有&#39;.bin&#39; 结尾的文件</span>
+</span></span><span style=display:flex><span>find /usr/bin -type f -atime +100    <span style=color:#8b949e;font-style:italic>#搜索在过去100天内未被使用过的执行文件</span>
+</span></span><span style=display:flex><span>find /usr/bin -type f -mtime -10     <span style=color:#8b949e;font-style:italic>#搜索在10天内被创建或者修改过的文件</span>
+</span></span><span style=display:flex><span>find / -name <span style=color:#79c0ff>\*</span>.rpm -exec chmod <span style=color:#a5d6ff>755</span> <span style=color:#a5d6ff>&#39;{}&#39;</span> <span style=color:#79c0ff>\;</span>      <span style=color:#8b949e;font-style:italic>#搜索以 &#39;.rpm&#39; 结尾的文件并定义其权限</span>
+</span></span><span style=display:flex><span>find / -xdev -name <span style=color:#79c0ff>\*</span>.rpm        <span style=color:#8b949e;font-style:italic>#搜索以 &#39;.rpm&#39; 结尾的文件，忽略光驱、捷盘等可移动设备</span>
+</span></span><span style=display:flex><span>locate <span style=color:#79c0ff>\*</span>.ps       <span style=color:#8b949e;font-style:italic>#寻找以 &#39;.ps&#39; 结尾的文件 - 先运行 &#39;updatedb&#39; 命令</span>
+</span></span><span style=display:flex><span>whereis halt       <span style=color:#8b949e;font-style:italic>#显示一个二进制文件、源码或man的位置</span>
+</span></span><span style=display:flex><span>which halt         <span style=color:#8b949e;font-style:italic>#显示一个二进制文件或可执行文件的完整路径</span>
 </span></span></code></pre></div><h2 id=挂载一个文件系统>挂载一个文件系统
-<a class=header-anchor href=#%e6%8c%82%e8%bd%bd%e4%b8%80%e4%b8%aa%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>mount /dev/hda2 /mnt/hda2    <span style=color:#75715e>#挂载一个叫做hda2的盘 - 确定目录 &#39;/ mnt/hda2&#39; 已经存在</span>
-</span></span><span style=display:flex><span>umount /dev/hda2            <span style=color:#75715e>#卸载一个叫做hda2的盘 - 先从挂载点 &#39;/ mnt/hda2&#39; 退出</span>
-</span></span><span style=display:flex><span>fuser -km /mnt/hda2         <span style=color:#75715e>#当设备繁忙时强制卸载</span>
-</span></span><span style=display:flex><span>umount -n /mnt/hda2         <span style=color:#75715e>#运行卸载操作而不写入 /etc/mtab 文件- 当文件为只读或当磁盘写满时非常有用</span>
-</span></span><span style=display:flex><span>mount /dev/fd0 /mnt/floppy        <span style=color:#75715e>#挂载一个软盘</span>
-</span></span><span style=display:flex><span>mount /dev/cdrom /mnt/cdrom       <span style=color:#75715e>#挂载一个cdrom或dvdrom</span>
-</span></span><span style=display:flex><span>mount /dev/hdc /mnt/cdrecorder    <span style=color:#75715e>#挂载一个cdrw或dvdrom</span>
-</span></span><span style=display:flex><span>mount /dev/hdb /mnt/cdrecorder    <span style=color:#75715e>#挂载一个cdrw或dvdrom</span>
-</span></span><span style=display:flex><span>mount -o loop file.iso /mnt/cdrom    <span style=color:#75715e>#挂载一个文件或ISO镜像文件</span>
-</span></span><span style=display:flex><span>mount -t vfat /dev/hda5 /mnt/hda5    <span style=color:#75715e>#挂载一个Windows FAT32文件系统</span>
-</span></span><span style=display:flex><span>mount /dev/sda1 /mnt/usbdisk         <span style=color:#75715e>#挂载一个usb 捷盘或闪存设备</span>
-</span></span><span style=display:flex><span>mount -t smbfs -o username<span style=color:#f92672>=</span>user,password<span style=color:#f92672>=</span>pass //WinClient/share /mnt/share      <span style=color:#75715e>#挂载一个windows网络共享</span>
+<a class=header-anchor href=#%e6%8c%82%e8%bd%bd%e4%b8%80%e4%b8%aa%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>mount /dev/hda2 /mnt/hda2    <span style=color:#8b949e;font-style:italic>#挂载一个叫做hda2的盘 - 确定目录 &#39;/ mnt/hda2&#39; 已经存在</span>
+</span></span><span style=display:flex><span>umount /dev/hda2            <span style=color:#8b949e;font-style:italic>#卸载一个叫做hda2的盘 - 先从挂载点 &#39;/ mnt/hda2&#39; 退出</span>
+</span></span><span style=display:flex><span>fuser -km /mnt/hda2         <span style=color:#8b949e;font-style:italic>#当设备繁忙时强制卸载</span>
+</span></span><span style=display:flex><span>umount -n /mnt/hda2         <span style=color:#8b949e;font-style:italic>#运行卸载操作而不写入 /etc/mtab 文件- 当文件为只读或当磁盘写满时非常有用</span>
+</span></span><span style=display:flex><span>mount /dev/fd0 /mnt/floppy        <span style=color:#8b949e;font-style:italic>#挂载一个软盘</span>
+</span></span><span style=display:flex><span>mount /dev/cdrom /mnt/cdrom       <span style=color:#8b949e;font-style:italic>#挂载一个cdrom或dvdrom</span>
+</span></span><span style=display:flex><span>mount /dev/hdc /mnt/cdrecorder    <span style=color:#8b949e;font-style:italic>#挂载一个cdrw或dvdrom</span>
+</span></span><span style=display:flex><span>mount /dev/hdb /mnt/cdrecorder    <span style=color:#8b949e;font-style:italic>#挂载一个cdrw或dvdrom</span>
+</span></span><span style=display:flex><span>mount -o loop file.iso /mnt/cdrom    <span style=color:#8b949e;font-style:italic>#挂载一个文件或ISO镜像文件</span>
+</span></span><span style=display:flex><span>mount -t vfat /dev/hda5 /mnt/hda5    <span style=color:#8b949e;font-style:italic>#挂载一个Windows FAT32文件系统</span>
+</span></span><span style=display:flex><span>mount /dev/sda1 /mnt/usbdisk         <span style=color:#8b949e;font-style:italic>#挂载一个usb 捷盘或闪存设备</span>
+</span></span><span style=display:flex><span>mount -t smbfs -o <span style=color:#79c0ff>username</span><span style=color:#ff7b72;font-weight:700>=</span>user,password<span style=color:#ff7b72;font-weight:700>=</span>pass //WinClient/share /mnt/share      <span style=color:#8b949e;font-style:italic>#挂载一个windows网络共享</span>
 </span></span></code></pre></div><h2 id=磁盘空间>磁盘空间
-<a class=header-anchor href=#%e7%a3%81%e7%9b%98%e7%a9%ba%e9%97%b4></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>df -h           <span style=color:#75715e>#显示已经挂载的分区列表</span>
-</span></span><span style=display:flex><span>ls -lSr |more    <span style=color:#75715e>#以尺寸大小排列文件和目录</span>
-</span></span><span style=display:flex><span>du -sh dir1      <span style=color:#75715e>#估算目录 &#39;dir1&#39; 已经使用的磁盘空间&#39;</span>
-</span></span><span style=display:flex><span>du -sk * | sort -rn     <span style=color:#75715e>#以容量大小为依据依次显示文件和目录的大小</span>
-</span></span><span style=display:flex><span>rpm -q -a --qf <span style=color:#e6db74>&#39;%10{SIZE}t%{NAME}n&#39;</span> | sort -k1,1n 
-</span></span><span style=display:flex><span><span style=color:#75715e>#以大小为依据依次显示已安装的rpm包所使用的空间 (fedora, redhat类系统)</span>
-</span></span><span style=display:flex><span>dpkg-query -W -f<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;${Installed-Size;10}t${Package}n&#39;</span> | sort -k1,1n 
-</span></span><span style=display:flex><span><span style=color:#75715e>#以大小为依据显示已安装的deb包所使用的空间 (ubuntu, debian类系统)</span>
+<a class=header-anchor href=#%e7%a3%81%e7%9b%98%e7%a9%ba%e9%97%b4></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>df -h           <span style=color:#8b949e;font-style:italic>#显示已经挂载的分区列表</span>
+</span></span><span style=display:flex><span>ls -lSr |more    <span style=color:#8b949e;font-style:italic>#以尺寸大小排列文件和目录</span>
+</span></span><span style=display:flex><span>du -sh dir1      <span style=color:#8b949e;font-style:italic>#估算目录 &#39;dir1&#39; 已经使用的磁盘空间&#39;</span>
+</span></span><span style=display:flex><span>du -sk * | sort -rn     <span style=color:#8b949e;font-style:italic>#以容量大小为依据依次显示文件和目录的大小</span>
+</span></span><span style=display:flex><span>rpm -q -a --qf <span style=color:#a5d6ff>&#39;%10{SIZE}t%{NAME}n&#39;</span> | sort -k1,1n 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#以大小为依据依次显示已安装的rpm包所使用的空间 (fedora, redhat类系统)</span>
+</span></span><span style=display:flex><span>dpkg-query -W -f<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;${Installed-Size;10}t${Package}n&#39;</span> | sort -k1,1n 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#以大小为依据显示已安装的deb包所使用的空间 (ubuntu, debian类系统)</span>
 </span></span></code></pre></div><h2 id=用户和群组>用户和群组
-<a class=header-anchor href=#%e7%94%a8%e6%88%b7%e5%92%8c%e7%be%a4%e7%bb%84></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>groupadd group_name   <span style=color:#75715e>#创建一个新用户组</span>
-</span></span><span style=display:flex><span>groupdel group_name   <span style=color:#75715e>#删除一个用户组</span>
-</span></span><span style=display:flex><span>groupmod -n new_group_name old_group_name   <span style=color:#75715e>#重命名一个用户组</span>
-</span></span><span style=display:flex><span>useradd -c <span style=color:#e6db74>&#34;Name Surname &#34;</span> -g admin -d /home/user1 -s /bin/bash user1     <span style=color:#75715e>#创建一个属于 &#34;admin&#34; 用户组的用户</span>
-</span></span><span style=display:flex><span>useradd user1      <span style=color:#75715e>#创建一个新用户</span>
-</span></span><span style=display:flex><span>userdel -r user1   <span style=color:#75715e>#删除一个用户 ( &#39;-r&#39; 排除主目录)</span>
-</span></span><span style=display:flex><span>usermod -c <span style=color:#e6db74>&#34;User FTP&#34;</span> -g system -d /ftp/user1 -s /bin/nologin user1   <span style=color:#75715e>#修改用户属性</span>
+<a class=header-anchor href=#%e7%94%a8%e6%88%b7%e5%92%8c%e7%be%a4%e7%bb%84></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>groupadd group_name   <span style=color:#8b949e;font-style:italic>#创建一个新用户组</span>
+</span></span><span style=display:flex><span>groupdel group_name   <span style=color:#8b949e;font-style:italic>#删除一个用户组</span>
+</span></span><span style=display:flex><span>groupmod -n new_group_name old_group_name   <span style=color:#8b949e;font-style:italic>#重命名一个用户组</span>
+</span></span><span style=display:flex><span>useradd -c <span style=color:#a5d6ff>&#34;Name Surname &#34;</span> -g admin -d /home/user1 -s /bin/bash user1     <span style=color:#8b949e;font-style:italic>#创建一个属于 &#34;admin&#34; 用户组的用户</span>
+</span></span><span style=display:flex><span>useradd user1      <span style=color:#8b949e;font-style:italic>#创建一个新用户</span>
+</span></span><span style=display:flex><span>userdel -r user1   <span style=color:#8b949e;font-style:italic>#删除一个用户 ( &#39;-r&#39; 排除主目录)</span>
+</span></span><span style=display:flex><span>usermod -c <span style=color:#a5d6ff>&#34;User FTP&#34;</span> -g system -d /ftp/user1 -s /bin/nologin user1   <span style=color:#8b949e;font-style:italic>#修改用户属性</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>passwd         <span style=color:#75715e>#修改口令</span>
-</span></span><span style=display:flex><span>passwd user1   <span style=color:#75715e>#修改一个用户的口令 (只允许root执行)</span>
-</span></span><span style=display:flex><span>chage -E 2005-12-31 user1    <span style=color:#75715e>#设置用户口令的失效期限</span>
-</span></span><span style=display:flex><span>pwck     <span style=color:#75715e>#检查 &#39;/etc/passwd&#39; 的文件格式和语法修正以及存在的用户</span>
-</span></span><span style=display:flex><span>grpck    <span style=color:#75715e>#检查 &#39;/etc/passwd&#39; 的文件格式和语法修正以及存在的群组</span>
-</span></span><span style=display:flex><span>newgrp group_name     <span style=color:#75715e>#登陆进一个新的群组以改变新创建文件的预设群组</span>
+</span></span><span style=display:flex><span>passwd         <span style=color:#8b949e;font-style:italic>#修改口令</span>
+</span></span><span style=display:flex><span>passwd user1   <span style=color:#8b949e;font-style:italic>#修改一个用户的口令 (只允许root执行)</span>
+</span></span><span style=display:flex><span>chage -E 2005-12-31 user1    <span style=color:#8b949e;font-style:italic>#设置用户口令的失效期限</span>
+</span></span><span style=display:flex><span>pwck     <span style=color:#8b949e;font-style:italic>#检查 &#39;/etc/passwd&#39; 的文件格式和语法修正以及存在的用户</span>
+</span></span><span style=display:flex><span>grpck    <span style=color:#8b949e;font-style:italic>#检查 &#39;/etc/passwd&#39; 的文件格式和语法修正以及存在的群组</span>
+</span></span><span style=display:flex><span>newgrp group_name     <span style=color:#8b949e;font-style:italic>#登陆进一个新的群组以改变新创建文件的预设群组</span>
 </span></span></code></pre></div><h2 id=文件的权限>文件的权限
-<a class=header-anchor href=#%e6%96%87%e4%bb%b6%e7%9a%84%e6%9d%83%e9%99%90></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>使用 <span style=color:#e6db74>&#34;+&#34;</span> 设置权限，使用 <span style=color:#e6db74>&#34;-&#34;</span> 用于取消
+<a class=header-anchor href=#%e6%96%87%e4%bb%b6%e7%9a%84%e6%9d%83%e9%99%90></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>使用 <span style=color:#a5d6ff>&#34;+&#34;</span> 设置权限，使用 <span style=color:#a5d6ff>&#34;-&#34;</span> 用于取消
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>ls -lh    <span style=color:#75715e>#显示权限</span>
-</span></span><span style=display:flex><span>ls /tmp | pr -T5 -W$COLUMNS   <span style=color:#75715e>#将终端划分成5栏显示</span>
-</span></span><span style=display:flex><span>chmod ugo+rwx directory1      <span style=color:#75715e>#设置目录的所有人(u)、群组(g)以及其他人(o)以读（r ）、写(w)和执行(x)的权限</span>
-</span></span><span style=display:flex><span>chmod go-rwx directory1      <span style=color:#75715e>#删除群组(g)与其他人(o)对目录的读写执行权限</span>
-</span></span><span style=display:flex><span>chown user1 file1            <span style=color:#75715e>#改变一个文件的所有人属性</span>
-</span></span><span style=display:flex><span>chown -R user1 directory1    <span style=color:#75715e>#改变一个目录的所有人属性并同时改变改目录下所有文件的属性</span>
-</span></span><span style=display:flex><span>chgrp group1 file1          <span style=color:#75715e>#改变文件的群组</span>
-</span></span><span style=display:flex><span>chown user1:group1 file1     <span style=color:#75715e>#改变一个文件的所有人和群组属性</span>
-</span></span><span style=display:flex><span>find / -perm -u+s           <span style=color:#75715e>#罗列一个系统中所有使用了SUID控制的文件</span>
-</span></span><span style=display:flex><span>chmod u+s /bin/file1        <span style=color:#75715e>#设置一个二进制文件的 SUID 位 - 运行该文件的用户也被赋予和所有者同样的权限</span>
-</span></span><span style=display:flex><span>chmod u-s /bin/file1        <span style=color:#75715e>#禁用一个二进制文件的 SUID位</span>
-</span></span><span style=display:flex><span>chmod g+s /home/public      <span style=color:#75715e>#设置一个目录的SGID 位 - 类似SUID ，不过这是针对目录的</span>
-</span></span><span style=display:flex><span>chmod g-s /home/public      <span style=color:#75715e>#禁用一个目录的 SGID 位</span>
-</span></span><span style=display:flex><span>chmod o+t /home/public      <span style=color:#75715e>#设置一个文件的 STIKY 位 - 只允许合法所有人删除文件</span>
-</span></span><span style=display:flex><span>chmod o-t /home/public      <span style=color:#75715e>#禁用一个目录的 STIKY 位</span>
+</span></span><span style=display:flex><span>ls -lh    <span style=color:#8b949e;font-style:italic>#显示权限</span>
+</span></span><span style=display:flex><span>ls /tmp | pr -T5 -W<span style=color:#79c0ff>$COLUMNS</span>   <span style=color:#8b949e;font-style:italic>#将终端划分成5栏显示</span>
+</span></span><span style=display:flex><span>chmod ugo+rwx directory1      <span style=color:#8b949e;font-style:italic>#设置目录的所有人(u)、群组(g)以及其他人(o)以读（r ）、写(w)和执行(x)的权限</span>
+</span></span><span style=display:flex><span>chmod go-rwx directory1      <span style=color:#8b949e;font-style:italic>#删除群组(g)与其他人(o)对目录的读写执行权限</span>
+</span></span><span style=display:flex><span>chown user1 file1            <span style=color:#8b949e;font-style:italic>#改变一个文件的所有人属性</span>
+</span></span><span style=display:flex><span>chown -R user1 directory1    <span style=color:#8b949e;font-style:italic>#改变一个目录的所有人属性并同时改变改目录下所有文件的属性</span>
+</span></span><span style=display:flex><span>chgrp group1 file1          <span style=color:#8b949e;font-style:italic>#改变文件的群组</span>
+</span></span><span style=display:flex><span>chown user1:group1 file1     <span style=color:#8b949e;font-style:italic>#改变一个文件的所有人和群组属性</span>
+</span></span><span style=display:flex><span>find / -perm -u+s           <span style=color:#8b949e;font-style:italic>#罗列一个系统中所有使用了SUID控制的文件</span>
+</span></span><span style=display:flex><span>chmod u+s /bin/file1        <span style=color:#8b949e;font-style:italic>#设置一个二进制文件的 SUID 位 - 运行该文件的用户也被赋予和所有者同样的权限</span>
+</span></span><span style=display:flex><span>chmod u-s /bin/file1        <span style=color:#8b949e;font-style:italic>#禁用一个二进制文件的 SUID位</span>
+</span></span><span style=display:flex><span>chmod g+s /home/public      <span style=color:#8b949e;font-style:italic>#设置一个目录的SGID 位 - 类似SUID ，不过这是针对目录的</span>
+</span></span><span style=display:flex><span>chmod g-s /home/public      <span style=color:#8b949e;font-style:italic>#禁用一个目录的 SGID 位</span>
+</span></span><span style=display:flex><span>chmod o+t /home/public      <span style=color:#8b949e;font-style:italic>#设置一个文件的 STIKY 位 - 只允许合法所有人删除文件</span>
+</span></span><span style=display:flex><span>chmod o-t /home/public      <span style=color:#8b949e;font-style:italic>#禁用一个目录的 STIKY 位</span>
 </span></span></code></pre></div><h2 id=文件的特殊属性>文件的特殊属性
-<a class=header-anchor href=#%e6%96%87%e4%bb%b6%e7%9a%84%e7%89%b9%e6%ae%8a%e5%b1%9e%e6%80%a7></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>- 使用 <span style=color:#e6db74>&#34;+&#34;</span> 设置权限，使用 <span style=color:#e6db74>&#34;-&#34;</span> 用于取消
+<a class=header-anchor href=#%e6%96%87%e4%bb%b6%e7%9a%84%e7%89%b9%e6%ae%8a%e5%b1%9e%e6%80%a7></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>- 使用 <span style=color:#a5d6ff>&#34;+&#34;</span> 设置权限，使用 <span style=color:#a5d6ff>&#34;-&#34;</span> 用于取消
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>chattr +a file1   <span style=color:#75715e>#只允许以追加方式读写文件</span>
-</span></span><span style=display:flex><span>chattr +c file1   <span style=color:#75715e>#允许这个文件能被内核自动压缩/解压</span>
-</span></span><span style=display:flex><span>chattr +d file1   <span style=color:#75715e>#在进行文件系统备份时，dump程序将忽略这个文件</span>
-</span></span><span style=display:flex><span>chattr +i file1   <span style=color:#75715e>#设置成不可变的文件，不能被删除、修改、重命名或者链接</span>
-</span></span><span style=display:flex><span>chattr +s file1   <span style=color:#75715e>#允许一个文件被安全地删除</span>
-</span></span><span style=display:flex><span>chattr +S file1   <span style=color:#75715e>#一旦应用程序对这个文件执行了写操作，使系统立刻把修改的结果写到磁盘</span>
-</span></span><span style=display:flex><span>chattr +u file1   <span style=color:#75715e>#若文件被删除，系统会允许你在以后恢复这个被删除的文件</span>
-</span></span><span style=display:flex><span>lsattr           <span style=color:#75715e>#显示特殊的属性</span>
+</span></span><span style=display:flex><span>chattr +a file1   <span style=color:#8b949e;font-style:italic>#只允许以追加方式读写文件</span>
+</span></span><span style=display:flex><span>chattr +c file1   <span style=color:#8b949e;font-style:italic>#允许这个文件能被内核自动压缩/解压</span>
+</span></span><span style=display:flex><span>chattr +d file1   <span style=color:#8b949e;font-style:italic>#在进行文件系统备份时，dump程序将忽略这个文件</span>
+</span></span><span style=display:flex><span>chattr +i file1   <span style=color:#8b949e;font-style:italic>#设置成不可变的文件，不能被删除、修改、重命名或者链接</span>
+</span></span><span style=display:flex><span>chattr +s file1   <span style=color:#8b949e;font-style:italic>#允许一个文件被安全地删除</span>
+</span></span><span style=display:flex><span>chattr +S file1   <span style=color:#8b949e;font-style:italic>#一旦应用程序对这个文件执行了写操作，使系统立刻把修改的结果写到磁盘</span>
+</span></span><span style=display:flex><span>chattr +u file1   <span style=color:#8b949e;font-style:italic>#若文件被删除，系统会允许你在以后恢复这个被删除的文件</span>
+</span></span><span style=display:flex><span>lsattr           <span style=color:#8b949e;font-style:italic>#显示特殊的属性</span>
 </span></span></code></pre></div><h2 id=打包和压缩文件>打包和压缩文件
-<a class=header-anchor href=#%e6%89%93%e5%8c%85%e5%92%8c%e5%8e%8b%e7%bc%a9%e6%96%87%e4%bb%b6></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>bunzip2 file1.bz2   <span style=color:#75715e>#解压一个叫做 &#39;file1.bz2&#39;的文件</span>
-</span></span><span style=display:flex><span>bzip2 file1         <span style=color:#75715e>#压缩一个叫做 &#39;file1&#39; 的文件</span>
-</span></span><span style=display:flex><span>gunzip file1.gz     <span style=color:#75715e>#解压一个叫做 &#39;file1.gz&#39;的文件</span>
-</span></span><span style=display:flex><span>gzip file1          <span style=color:#75715e>#压缩一个叫做 &#39;file1&#39;的文件</span>
-</span></span><span style=display:flex><span>gzip -9 file1       <span style=color:#75715e>#最大程度压缩</span>
+<a class=header-anchor href=#%e6%89%93%e5%8c%85%e5%92%8c%e5%8e%8b%e7%bc%a9%e6%96%87%e4%bb%b6></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>bunzip2 file1.bz2   <span style=color:#8b949e;font-style:italic>#解压一个叫做 &#39;file1.bz2&#39;的文件</span>
+</span></span><span style=display:flex><span>bzip2 file1         <span style=color:#8b949e;font-style:italic>#压缩一个叫做 &#39;file1&#39; 的文件</span>
+</span></span><span style=display:flex><span>gunzip file1.gz     <span style=color:#8b949e;font-style:italic>#解压一个叫做 &#39;file1.gz&#39;的文件</span>
+</span></span><span style=display:flex><span>gzip file1          <span style=color:#8b949e;font-style:italic>#压缩一个叫做 &#39;file1&#39;的文件</span>
+</span></span><span style=display:flex><span>gzip -9 file1       <span style=color:#8b949e;font-style:italic>#最大程度压缩</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>rar a file1.rar test_file          <span style=color:#75715e>#创建一个叫做 &#39;file1.rar&#39; 的包</span>
-</span></span><span style=display:flex><span>rar a file1.rar file1 file2 dir1   <span style=color:#75715e>#同时压缩 &#39;file1&#39;, &#39;file2&#39; 以及目录 &#39;dir1&#39;</span>
-</span></span><span style=display:flex><span>rar x file1.rar     <span style=color:#75715e>#解压rar包</span>
-</span></span><span style=display:flex><span>unrar x file1.rar   <span style=color:#75715e>#解压rar包</span>
+</span></span><span style=display:flex><span>rar a file1.rar test_file          <span style=color:#8b949e;font-style:italic>#创建一个叫做 &#39;file1.rar&#39; 的包</span>
+</span></span><span style=display:flex><span>rar a file1.rar file1 file2 dir1   <span style=color:#8b949e;font-style:italic>#同时压缩 &#39;file1&#39;, &#39;file2&#39; 以及目录 &#39;dir1&#39;</span>
+</span></span><span style=display:flex><span>rar x file1.rar     <span style=color:#8b949e;font-style:italic>#解压rar包</span>
+</span></span><span style=display:flex><span>unrar x file1.rar   <span style=color:#8b949e;font-style:italic>#解压rar包</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>tar -cvf archive.tar file1   <span style=color:#75715e>#创建一个非压缩的 tarball</span>
-</span></span><span style=display:flex><span>tar -cvf archive.tar file1 file2 dir1  <span style=color:#75715e>#创建一个包含了 &#39;file1&#39;, &#39;file2&#39; 以及 &#39;dir1&#39;的档案文件</span>
-</span></span><span style=display:flex><span>tar -tf archive.tar    <span style=color:#75715e>#显示一个包中的内容</span>
-</span></span><span style=display:flex><span>tar -xvf archive.tar   <span style=color:#75715e>#释放一个包</span>
-</span></span><span style=display:flex><span>tar -xvf archive.tar -C /tmp     <span style=color:#75715e>#将压缩包释放到 /tmp目录下</span>
-</span></span><span style=display:flex><span>tar -cvfj archive.tar.bz2 dir1   <span style=color:#75715e>#创建一个bzip2格式的压缩包</span>
-</span></span><span style=display:flex><span>tar -jxvf archive.tar.bz2        <span style=color:#75715e>#解压一个bzip2格式的压缩包</span>
-</span></span><span style=display:flex><span>tar -cvfz archive.tar.gz dir1    <span style=color:#75715e>#创建一个gzip格式的压缩包</span>
-</span></span><span style=display:flex><span>tar -zxvf archive.tar.gz         <span style=color:#75715e>#解压一个gzip格式的压缩包</span>
+</span></span><span style=display:flex><span>tar -cvf archive.tar file1   <span style=color:#8b949e;font-style:italic>#创建一个非压缩的 tarball</span>
+</span></span><span style=display:flex><span>tar -cvf archive.tar file1 file2 dir1  <span style=color:#8b949e;font-style:italic>#创建一个包含了 &#39;file1&#39;, &#39;file2&#39; 以及 &#39;dir1&#39;的档案文件</span>
+</span></span><span style=display:flex><span>tar -tf archive.tar    <span style=color:#8b949e;font-style:italic>#显示一个包中的内容</span>
+</span></span><span style=display:flex><span>tar -xvf archive.tar   <span style=color:#8b949e;font-style:italic>#释放一个包</span>
+</span></span><span style=display:flex><span>tar -xvf archive.tar -C /tmp     <span style=color:#8b949e;font-style:italic>#将压缩包释放到 /tmp目录下</span>
+</span></span><span style=display:flex><span>tar -cvfj archive.tar.bz2 dir1   <span style=color:#8b949e;font-style:italic>#创建一个bzip2格式的压缩包</span>
+</span></span><span style=display:flex><span>tar -jxvf archive.tar.bz2        <span style=color:#8b949e;font-style:italic>#解压一个bzip2格式的压缩包</span>
+</span></span><span style=display:flex><span>tar -cvfz archive.tar.gz dir1    <span style=color:#8b949e;font-style:italic>#创建一个gzip格式的压缩包</span>
+</span></span><span style=display:flex><span>tar -zxvf archive.tar.gz         <span style=color:#8b949e;font-style:italic>#解压一个gzip格式的压缩包</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>zip file1.zip file1    <span style=color:#75715e>#创建一个zip格式的压缩包</span>
-</span></span><span style=display:flex><span>zip -r file1.zip file1 file2 dir1    <span style=color:#75715e>#将几个文件和目录同时压缩成一个zip格式的压缩包</span>
-</span></span><span style=display:flex><span>unzip file1.zip    <span style=color:#75715e>#解压一个zip格式压缩包</span>
+</span></span><span style=display:flex><span>zip file1.zip file1    <span style=color:#8b949e;font-style:italic>#创建一个zip格式的压缩包</span>
+</span></span><span style=display:flex><span>zip -r file1.zip file1 file2 dir1    <span style=color:#8b949e;font-style:italic>#将几个文件和目录同时压缩成一个zip格式的压缩包</span>
+</span></span><span style=display:flex><span>unzip file1.zip    <span style=color:#8b949e;font-style:italic>#解压一个zip格式压缩包</span>
 </span></span></code></pre></div><h2 id=rpm-包---fedora-redhat及类似系统>RPM 包 - （Fedora, Redhat及类似系统）
-<a class=header-anchor href=#rpm-%e5%8c%85---fedora-redhat%e5%8f%8a%e7%b1%bb%e4%bc%bc%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>rpm -ivh package.rpm    <span style=color:#75715e>#安装一个rpm包</span>
-</span></span><span style=display:flex><span>rpm -ivh --nodeeps package.rpm   <span style=color:#75715e>#安装一个rpm包而忽略依赖关系警告</span>
-</span></span><span style=display:flex><span>rpm -U package.rpm        <span style=color:#75715e>#更新一个rpm包但不改变其配置文件</span>
-</span></span><span style=display:flex><span>rpm -F package.rpm        <span style=color:#75715e>#更新一个确定已经安装的rpm包</span>
-</span></span><span style=display:flex><span>rpm -e package_name.rpm   <span style=color:#75715e>#删除一个rpm包</span>
-</span></span><span style=display:flex><span>rpm -qa      <span style=color:#75715e>#显示系统中所有已经安装的rpm包</span>
-</span></span><span style=display:flex><span>rpm -qa | grep httpd    <span style=color:#75715e>#显示所有名称中包含 &#34;httpd&#34; 字样的rpm包</span>
-</span></span><span style=display:flex><span>rpm -qi package_name    <span style=color:#75715e>#获取一个已安装包的特殊信息</span>
-</span></span><span style=display:flex><span>rpm -qg <span style=color:#e6db74>&#34;System Environment/Daemons&#34;</span>     <span style=color:#75715e>#显示一个组件的rpm包</span>
-</span></span><span style=display:flex><span>rpm -ql package_name       <span style=color:#75715e>#显示一个已经安装的rpm包提供的文件列表</span>
-</span></span><span style=display:flex><span>rpm -qc package_name       <span style=color:#75715e>#显示一个已经安装的rpm包提供的配置文件列表</span>
-</span></span><span style=display:flex><span>rpm -q package_name --whatrequires     <span style=color:#75715e>#显示与一个rpm包存在依赖关系的列表</span>
-</span></span><span style=display:flex><span>rpm -q package_name --whatprovides    <span style=color:#75715e>#显示一个rpm包所占的体积</span>
-</span></span><span style=display:flex><span>rpm -q package_name --scripts         <span style=color:#75715e>#显示在安装/删除期间所执行的脚本l</span>
-</span></span><span style=display:flex><span>rpm -q package_name --changelog       <span style=color:#75715e>#显示一个rpm包的修改历史</span>
-</span></span><span style=display:flex><span>rpm -qf /etc/httpd/conf/httpd.conf    <span style=color:#75715e>#确认所给的文件由哪个rpm包所提供</span>
-</span></span><span style=display:flex><span>rpm -qp package.rpm -l    <span style=color:#75715e>#显示由一个尚未安装的rpm包提供的文件列表</span>
-</span></span><span style=display:flex><span>rpm --import /media/cdrom/RPM-GPG-KEY    <span style=color:#75715e>#导入公钥数字证书</span>
-</span></span><span style=display:flex><span>rpm --checksig package.rpm      <span style=color:#75715e>#确认一个rpm包的完整性</span>
-</span></span><span style=display:flex><span>rpm -qa gpg-pubkey      <span style=color:#75715e>#确认已安装的所有rpm包的完整性</span>
-</span></span><span style=display:flex><span>rpm -V package_name     <span style=color:#75715e>#检查文件尺寸、 许可、类型、所有者、群组、MD5检查以及最后修改时间</span>
-</span></span><span style=display:flex><span>rpm -Va                 <span style=color:#75715e>#检查系统中所有已安装的rpm包- 小心使用</span>
-</span></span><span style=display:flex><span>rpm -Vp package.rpm     <span style=color:#75715e>#确认一个rpm包还未安装</span>
-</span></span><span style=display:flex><span>rpm2cpio package.rpm | cpio --extract --make-directories *bin*   <span style=color:#75715e>#从一个rpm包运行可执行文件</span>
-</span></span><span style=display:flex><span>rpm -ivh /usr/src/redhat/RPMS/<span style=color:#e6db74>`</span>arch<span style=color:#e6db74>`</span>/package.rpm    <span style=color:#75715e>#从一个rpm源码安装一个构建好的包</span>
-</span></span><span style=display:flex><span>rpmbuild --rebuild package_name.src.rpm       <span style=color:#75715e>#从一个rpm源码构建一个 rpm 包</span>
+<a class=header-anchor href=#rpm-%e5%8c%85---fedora-redhat%e5%8f%8a%e7%b1%bb%e4%bc%bc%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>rpm -ivh package.rpm    <span style=color:#8b949e;font-style:italic>#安装一个rpm包</span>
+</span></span><span style=display:flex><span>rpm -ivh --nodeeps package.rpm   <span style=color:#8b949e;font-style:italic>#安装一个rpm包而忽略依赖关系警告</span>
+</span></span><span style=display:flex><span>rpm -U package.rpm        <span style=color:#8b949e;font-style:italic>#更新一个rpm包但不改变其配置文件</span>
+</span></span><span style=display:flex><span>rpm -F package.rpm        <span style=color:#8b949e;font-style:italic>#更新一个确定已经安装的rpm包</span>
+</span></span><span style=display:flex><span>rpm -e package_name.rpm   <span style=color:#8b949e;font-style:italic>#删除一个rpm包</span>
+</span></span><span style=display:flex><span>rpm -qa      <span style=color:#8b949e;font-style:italic>#显示系统中所有已经安装的rpm包</span>
+</span></span><span style=display:flex><span>rpm -qa | grep httpd    <span style=color:#8b949e;font-style:italic>#显示所有名称中包含 &#34;httpd&#34; 字样的rpm包</span>
+</span></span><span style=display:flex><span>rpm -qi package_name    <span style=color:#8b949e;font-style:italic>#获取一个已安装包的特殊信息</span>
+</span></span><span style=display:flex><span>rpm -qg <span style=color:#a5d6ff>&#34;System Environment/Daemons&#34;</span>     <span style=color:#8b949e;font-style:italic>#显示一个组件的rpm包</span>
+</span></span><span style=display:flex><span>rpm -ql package_name       <span style=color:#8b949e;font-style:italic>#显示一个已经安装的rpm包提供的文件列表</span>
+</span></span><span style=display:flex><span>rpm -qc package_name       <span style=color:#8b949e;font-style:italic>#显示一个已经安装的rpm包提供的配置文件列表</span>
+</span></span><span style=display:flex><span>rpm -q package_name --whatrequires     <span style=color:#8b949e;font-style:italic>#显示与一个rpm包存在依赖关系的列表</span>
+</span></span><span style=display:flex><span>rpm -q package_name --whatprovides    <span style=color:#8b949e;font-style:italic>#显示一个rpm包所占的体积</span>
+</span></span><span style=display:flex><span>rpm -q package_name --scripts         <span style=color:#8b949e;font-style:italic>#显示在安装/删除期间所执行的脚本l</span>
+</span></span><span style=display:flex><span>rpm -q package_name --changelog       <span style=color:#8b949e;font-style:italic>#显示一个rpm包的修改历史</span>
+</span></span><span style=display:flex><span>rpm -qf /etc/httpd/conf/httpd.conf    <span style=color:#8b949e;font-style:italic>#确认所给的文件由哪个rpm包所提供</span>
+</span></span><span style=display:flex><span>rpm -qp package.rpm -l    <span style=color:#8b949e;font-style:italic>#显示由一个尚未安装的rpm包提供的文件列表</span>
+</span></span><span style=display:flex><span>rpm --import /media/cdrom/RPM-GPG-KEY    <span style=color:#8b949e;font-style:italic>#导入公钥数字证书</span>
+</span></span><span style=display:flex><span>rpm --checksig package.rpm      <span style=color:#8b949e;font-style:italic>#确认一个rpm包的完整性</span>
+</span></span><span style=display:flex><span>rpm -qa gpg-pubkey      <span style=color:#8b949e;font-style:italic>#确认已安装的所有rpm包的完整性</span>
+</span></span><span style=display:flex><span>rpm -V package_name     <span style=color:#8b949e;font-style:italic>#检查文件尺寸、 许可、类型、所有者、群组、MD5检查以及最后修改时间</span>
+</span></span><span style=display:flex><span>rpm -Va                 <span style=color:#8b949e;font-style:italic>#检查系统中所有已安装的rpm包- 小心使用</span>
+</span></span><span style=display:flex><span>rpm -Vp package.rpm     <span style=color:#8b949e;font-style:italic>#确认一个rpm包还未安装</span>
+</span></span><span style=display:flex><span>rpm2cpio package.rpm | cpio --extract --make-directories *bin*   <span style=color:#8b949e;font-style:italic>#从一个rpm包运行可执行文件</span>
+</span></span><span style=display:flex><span>rpm -ivh /usr/src/redhat/RPMS/<span style=color:#a5d6ff>`</span>arch<span style=color:#a5d6ff>`</span>/package.rpm    <span style=color:#8b949e;font-style:italic>#从一个rpm源码安装一个构建好的包</span>
+</span></span><span style=display:flex><span>rpmbuild --rebuild package_name.src.rpm       <span style=color:#8b949e;font-style:italic>#从一个rpm源码构建一个 rpm 包</span>
 </span></span></code></pre></div><h2 id=yum-软件包升级器---fedora-redhat及类似系统>YUM 软件包升级器 - （Fedora, RedHat及类似系统）
-<a class=header-anchor href=#yum-%e8%bd%af%e4%bb%b6%e5%8c%85%e5%8d%87%e7%ba%a7%e5%99%a8---fedora-redhat%e5%8f%8a%e7%b1%bb%e4%bc%bc%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>yum install package_name             <span style=color:#75715e>#下载并安装一个rpm包</span>
-</span></span><span style=display:flex><span>yum localinstall package_name.rpm    <span style=color:#75715e>#将安装一个rpm包，使用你自己的软件仓库为你解决所有依赖关系</span>
-</span></span><span style=display:flex><span>yum update package_name.rpm    <span style=color:#75715e>#更新当前系统中所有安装的rpm包</span>
-</span></span><span style=display:flex><span>yum update package_name        <span style=color:#75715e>#更新一个rpm包</span>
-</span></span><span style=display:flex><span>yum remove package_name        <span style=color:#75715e>#删除一个rpm包</span>
-</span></span><span style=display:flex><span>yum list                   <span style=color:#75715e>#列出当前系统中安装的所有包</span>
-</span></span><span style=display:flex><span>yum search package_name     <span style=color:#75715e>#在rpm仓库中搜寻软件包</span>
-</span></span><span style=display:flex><span>yum clean packages          <span style=color:#75715e>#清理rpm缓存删除下载的包</span>
-</span></span><span style=display:flex><span>yum clean headers           <span style=color:#75715e>#删除所有头文件</span>
-</span></span><span style=display:flex><span>yum clean all                <span style=color:#75715e>#删除所有缓存的包和头文件</span>
+<a class=header-anchor href=#yum-%e8%bd%af%e4%bb%b6%e5%8c%85%e5%8d%87%e7%ba%a7%e5%99%a8---fedora-redhat%e5%8f%8a%e7%b1%bb%e4%bc%bc%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>yum install package_name             <span style=color:#8b949e;font-style:italic>#下载并安装一个rpm包</span>
+</span></span><span style=display:flex><span>yum localinstall package_name.rpm    <span style=color:#8b949e;font-style:italic>#将安装一个rpm包，使用你自己的软件仓库为你解决所有依赖关系</span>
+</span></span><span style=display:flex><span>yum update package_name.rpm    <span style=color:#8b949e;font-style:italic>#更新当前系统中所有安装的rpm包</span>
+</span></span><span style=display:flex><span>yum update package_name        <span style=color:#8b949e;font-style:italic>#更新一个rpm包</span>
+</span></span><span style=display:flex><span>yum remove package_name        <span style=color:#8b949e;font-style:italic>#删除一个rpm包</span>
+</span></span><span style=display:flex><span>yum list                   <span style=color:#8b949e;font-style:italic>#列出当前系统中安装的所有包</span>
+</span></span><span style=display:flex><span>yum search package_name     <span style=color:#8b949e;font-style:italic>#在rpm仓库中搜寻软件包</span>
+</span></span><span style=display:flex><span>yum clean packages          <span style=color:#8b949e;font-style:italic>#清理rpm缓存删除下载的包</span>
+</span></span><span style=display:flex><span>yum clean headers           <span style=color:#8b949e;font-style:italic>#删除所有头文件</span>
+</span></span><span style=display:flex><span>yum clean all                <span style=color:#8b949e;font-style:italic>#删除所有缓存的包和头文件</span>
 </span></span></code></pre></div><h2 id=deb-包-debian-ubuntu-以及类似系统>DEB 包 (Debian, Ubuntu 以及类似系统)
-<a class=header-anchor href=#deb-%e5%8c%85-debian-ubuntu-%e4%bb%a5%e5%8f%8a%e7%b1%bb%e4%bc%bc%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>dpkg -i package.deb     <span style=color:#75715e>#安装/更新一个 deb 包</span>
-</span></span><span style=display:flex><span>dpkg -r package_name    <span style=color:#75715e>#从系统删除一个 deb 包</span>
-</span></span><span style=display:flex><span>dpkg -l                 <span style=color:#75715e>#显示系统中所有已经安装的 deb 包</span>
-</span></span><span style=display:flex><span>dpkg -l | grep httpd    <span style=color:#75715e>#显示所有名称中包含 &#34;httpd&#34; 字样的deb包</span>
-</span></span><span style=display:flex><span>dpkg -s package_name    <span style=color:#75715e>#获得已经安装在系统中一个特殊包的信息</span>
-</span></span><span style=display:flex><span>dpkg -L package_name    <span style=color:#75715e>#显示系统中已经安装的一个deb包所提供的文件列表</span>
-</span></span><span style=display:flex><span>dpkg --contents package.deb    <span style=color:#75715e>#显示尚未安装的一个包所提供的文件列表</span>
-</span></span><span style=display:flex><span>dpkg -S /bin/ping              <span style=color:#75715e>#确认所给的文件由哪个deb包提供</span>
+<a class=header-anchor href=#deb-%e5%8c%85-debian-ubuntu-%e4%bb%a5%e5%8f%8a%e7%b1%bb%e4%bc%bc%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>dpkg -i package.deb     <span style=color:#8b949e;font-style:italic>#安装/更新一个 deb 包</span>
+</span></span><span style=display:flex><span>dpkg -r package_name    <span style=color:#8b949e;font-style:italic>#从系统删除一个 deb 包</span>
+</span></span><span style=display:flex><span>dpkg -l                 <span style=color:#8b949e;font-style:italic>#显示系统中所有已经安装的 deb 包</span>
+</span></span><span style=display:flex><span>dpkg -l | grep httpd    <span style=color:#8b949e;font-style:italic>#显示所有名称中包含 &#34;httpd&#34; 字样的deb包</span>
+</span></span><span style=display:flex><span>dpkg -s package_name    <span style=color:#8b949e;font-style:italic>#获得已经安装在系统中一个特殊包的信息</span>
+</span></span><span style=display:flex><span>dpkg -L package_name    <span style=color:#8b949e;font-style:italic>#显示系统中已经安装的一个deb包所提供的文件列表</span>
+</span></span><span style=display:flex><span>dpkg --contents package.deb    <span style=color:#8b949e;font-style:italic>#显示尚未安装的一个包所提供的文件列表</span>
+</span></span><span style=display:flex><span>dpkg -S /bin/ping              <span style=color:#8b949e;font-style:italic>#确认所给的文件由哪个deb包提供</span>
 </span></span></code></pre></div><h2 id=apt-软件工具-debian-ubuntu-以及类似系统>APT 软件工具 (Debian, Ubuntu 以及类似系统)
-<a class=header-anchor href=#apt-%e8%bd%af%e4%bb%b6%e5%b7%a5%e5%85%b7-debian-ubuntu-%e4%bb%a5%e5%8f%8a%e7%b1%bb%e4%bc%bc%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>apt-get install package_name      <span style=color:#75715e>#安装/更新一个 deb 包</span>
-</span></span><span style=display:flex><span>apt-cdrom install package_name    <span style=color:#75715e>#从光盘安装/更新一个 deb 包</span>
-</span></span><span style=display:flex><span>apt-get update      <span style=color:#75715e>#升级列表中的软件包</span>
-</span></span><span style=display:flex><span>apt-get upgrade     <span style=color:#75715e>#升级所有已安装的软件</span>
-</span></span><span style=display:flex><span>apt-get remove package_name     <span style=color:#75715e>#从系统删除一个deb包</span>
-</span></span><span style=display:flex><span>apt-get check     <span style=color:#75715e>#确认依赖的软件仓库正确</span>
-</span></span><span style=display:flex><span>apt-get clean     <span style=color:#75715e>#从下载的软件包中清理缓存</span>
-</span></span><span style=display:flex><span>apt-cache search searched-package    <span style=color:#75715e>#返回包含所要搜索字符串的软件包名称</span>
+<a class=header-anchor href=#apt-%e8%bd%af%e4%bb%b6%e5%b7%a5%e5%85%b7-debian-ubuntu-%e4%bb%a5%e5%8f%8a%e7%b1%bb%e4%bc%bc%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>apt-get install package_name      <span style=color:#8b949e;font-style:italic>#安装/更新一个 deb 包</span>
+</span></span><span style=display:flex><span>apt-cdrom install package_name    <span style=color:#8b949e;font-style:italic>#从光盘安装/更新一个 deb 包</span>
+</span></span><span style=display:flex><span>apt-get update      <span style=color:#8b949e;font-style:italic>#升级列表中的软件包</span>
+</span></span><span style=display:flex><span>apt-get upgrade     <span style=color:#8b949e;font-style:italic>#升级所有已安装的软件</span>
+</span></span><span style=display:flex><span>apt-get remove package_name     <span style=color:#8b949e;font-style:italic>#从系统删除一个deb包</span>
+</span></span><span style=display:flex><span>apt-get check     <span style=color:#8b949e;font-style:italic>#确认依赖的软件仓库正确</span>
+</span></span><span style=display:flex><span>apt-get clean     <span style=color:#8b949e;font-style:italic>#从下载的软件包中清理缓存</span>
+</span></span><span style=display:flex><span>apt-cache search searched-package    <span style=color:#8b949e;font-style:italic>#返回包含所要搜索字符串的软件包名称</span>
 </span></span></code></pre></div><h2 id=查看文件内容>查看文件内容
-<a class=header-anchor href=#%e6%9f%a5%e7%9c%8b%e6%96%87%e4%bb%b6%e5%86%85%e5%ae%b9></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>cat file1      <span style=color:#75715e>#从第一个字节开始正向查看文件的内容</span>
-</span></span><span style=display:flex><span>tac file1      <span style=color:#75715e>#从最后一行开始反向查看一个文件的内容</span>
-</span></span><span style=display:flex><span>more file1     <span style=color:#75715e>#查看一个长文件的内容</span>
-</span></span><span style=display:flex><span>less file1     <span style=color:#75715e>#类似于 &#39;more&#39; 命令，但是它允许在文件中和正向操作一样的反向操作</span>
-</span></span><span style=display:flex><span>head -2 file1    <span style=color:#75715e>#查看一个文件的前两行</span>
-</span></span><span style=display:flex><span>tail -2 file1    <span style=color:#75715e>#查看一个文件的最后两行</span>
-</span></span><span style=display:flex><span>tail -f /var/log/messages     <span style=color:#75715e>#实时查看被添加到一个文件中的内容</span>
+<a class=header-anchor href=#%e6%9f%a5%e7%9c%8b%e6%96%87%e4%bb%b6%e5%86%85%e5%ae%b9></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>cat file1      <span style=color:#8b949e;font-style:italic>#从第一个字节开始正向查看文件的内容</span>
+</span></span><span style=display:flex><span>tac file1      <span style=color:#8b949e;font-style:italic>#从最后一行开始反向查看一个文件的内容</span>
+</span></span><span style=display:flex><span>more file1     <span style=color:#8b949e;font-style:italic>#查看一个长文件的内容</span>
+</span></span><span style=display:flex><span>less file1     <span style=color:#8b949e;font-style:italic>#类似于 &#39;more&#39; 命令，但是它允许在文件中和正向操作一样的反向操作</span>
+</span></span><span style=display:flex><span>head -2 file1    <span style=color:#8b949e;font-style:italic>#查看一个文件的前两行</span>
+</span></span><span style=display:flex><span>tail -2 file1    <span style=color:#8b949e;font-style:italic>#查看一个文件的最后两行</span>
+</span></span><span style=display:flex><span>tail -f /var/log/messages     <span style=color:#8b949e;font-style:italic>#实时查看被添加到一个文件中的内容</span>
 </span></span></code></pre></div><h2 id=文本处理>文本处理
-<a class=header-anchor href=#%e6%96%87%e6%9c%ac%e5%a4%84%e7%90%86></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>cat file1 file2 ... | command &lt;&gt; file1_in.txt_or_file1_out.txt general syntax <span style=color:#66d9ef>for</span> text manipulation using PIPE, STDIN and STDOUT
+<a class=header-anchor href=#%e6%96%87%e6%9c%ac%e5%a4%84%e7%90%86></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>cat file1 file2 ... | command &lt;&gt; file1_in.txt_or_file1_out.txt general syntax <span style=color:#ff7b72>for</span> text manipulation using PIPE, STDIN and STDOUT
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>cat file1 | command<span style=color:#f92672>(</span> sed, grep, awk, grep, etc...<span style=color:#f92672>)</span> &gt; result.txt 
-</span></span><span style=display:flex><span><span style=color:#75715e>#合并一个文件的详细说明文本，并将简介写入一个新文件中</span>
-</span></span><span style=display:flex><span>cat file1 | command<span style=color:#f92672>(</span> sed, grep, awk, grep, etc...<span style=color:#f92672>)</span> &gt;&gt; result.txt 
-</span></span><span style=display:flex><span><span style=color:#75715e>#合并一个文件的详细说明文本，并将简介写入一个已有的文件中</span>
+</span></span><span style=display:flex><span>cat file1 | command<span style=color:#ff7b72;font-weight:700>(</span> sed, grep, awk, grep, etc...<span style=color:#ff7b72;font-weight:700>)</span> &gt; result.txt 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#合并一个文件的详细说明文本，并将简介写入一个新文件中</span>
+</span></span><span style=display:flex><span>cat file1 | command<span style=color:#ff7b72;font-weight:700>(</span> sed, grep, awk, grep, etc...<span style=color:#ff7b72;font-weight:700>)</span> &gt;&gt; result.txt 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#合并一个文件的详细说明文本，并将简介写入一个已有的文件中</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>grep Aug /var/log/messages     <span style=color:#75715e>#在文件 &#39;/var/log/messages&#39;中查找关键词&#34;Aug&#34;</span>
-</span></span><span style=display:flex><span>grep ^Aug /var/log/messages    <span style=color:#75715e>#在文件 &#39;/var/log/messages&#39;中查找以&#34;Aug&#34;开始的词汇</span>
-</span></span><span style=display:flex><span>grep <span style=color:#f92672>[</span>0-9<span style=color:#f92672>]</span> /var/log/messages   <span style=color:#75715e>#选择 &#39;/var/log/messages&#39; 文件中所有包含数字的行</span>
-</span></span><span style=display:flex><span>grep Aug -R /var/log/*         <span style=color:#75715e>#在目录 &#39;/var/log&#39; 及随后的目录中搜索字符串&#34;Aug&#34;</span>
+</span></span><span style=display:flex><span>grep Aug /var/log/messages     <span style=color:#8b949e;font-style:italic>#在文件 &#39;/var/log/messages&#39;中查找关键词&#34;Aug&#34;</span>
+</span></span><span style=display:flex><span>grep ^Aug /var/log/messages    <span style=color:#8b949e;font-style:italic>#在文件 &#39;/var/log/messages&#39;中查找以&#34;Aug&#34;开始的词汇</span>
+</span></span><span style=display:flex><span>grep <span style=color:#ff7b72;font-weight:700>[</span>0-9<span style=color:#ff7b72;font-weight:700>]</span> /var/log/messages   <span style=color:#8b949e;font-style:italic>#选择 &#39;/var/log/messages&#39; 文件中所有包含数字的行</span>
+</span></span><span style=display:flex><span>grep Aug -R /var/log/*         <span style=color:#8b949e;font-style:italic>#在目录 &#39;/var/log&#39; 及随后的目录中搜索字符串&#34;Aug&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>sed <span style=color:#e6db74>&#39;s/stringa1/stringa2/g&#39;</span> example.txt 
-</span></span><span style=display:flex><span><span style=color:#75715e>#将example.txt文件中的 &#34;string1&#34; 替换成 &#34;string2&#34;</span>
-</span></span><span style=display:flex><span>sed <span style=color:#e6db74>&#39;/^$/d&#39;</span> example.txt           <span style=color:#75715e>#从example.txt文件中删除所有空白行</span>
-</span></span><span style=display:flex><span>sed <span style=color:#e6db74>&#39;/ *#/d; /^$/d&#39;</span> example.txt   <span style=color:#75715e>#从example.txt文件中删除所有注释和空白行</span>
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#39;esempio&#39;</span> | tr <span style=color:#e6db74>&#39;[:lower:]&#39;</span> <span style=color:#e6db74>&#39;[:upper:]&#39;</span>    <span style=color:#75715e>#合并上下单元格内容</span>
-</span></span><span style=display:flex><span>sed -e <span style=color:#e6db74>&#39;1d&#39;</span> result.txt          <span style=color:#75715e>#从文件example.txt 中排除第一行</span>
-</span></span><span style=display:flex><span>sed -n <span style=color:#e6db74>&#39;/stringa1/p&#39;</span>            <span style=color:#75715e>#查看只包含词汇 &#34;string1&#34;的行</span>
-</span></span><span style=display:flex><span>sed -e <span style=color:#e6db74>&#39;s/ *$//&#39;</span> example.txt    <span style=color:#75715e>#删除每一行最后的空白字符</span>
-</span></span><span style=display:flex><span>sed -e <span style=color:#e6db74>&#39;s/stringa1//g&#39;</span> example.txt  
-</span></span><span style=display:flex><span><span style=color:#75715e>#从文档中只删除词汇 &#34;string1&#34; 并保留剩余全部</span>
-</span></span><span style=display:flex><span>sed -n <span style=color:#e6db74>&#39;1,5p;5q&#39;</span> example.txt     <span style=color:#75715e>#查看从第一行到第5行内容</span>
-</span></span><span style=display:flex><span>sed -n <span style=color:#e6db74>&#39;5p;5q&#39;</span> example.txt       <span style=color:#75715e>#查看第5行</span>
-</span></span><span style=display:flex><span>sed -e <span style=color:#e6db74>&#39;s/00*/0/g&#39;</span> example.txt   <span style=color:#75715e>#用单个零替换多个零</span>
+</span></span><span style=display:flex><span>sed <span style=color:#a5d6ff>&#39;s/stringa1/stringa2/g&#39;</span> example.txt 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#将example.txt文件中的 &#34;string1&#34; 替换成 &#34;string2&#34;</span>
+</span></span><span style=display:flex><span>sed <span style=color:#a5d6ff>&#39;/^$/d&#39;</span> example.txt           <span style=color:#8b949e;font-style:italic>#从example.txt文件中删除所有空白行</span>
+</span></span><span style=display:flex><span>sed <span style=color:#a5d6ff>&#39;/ *#/d; /^$/d&#39;</span> example.txt   <span style=color:#8b949e;font-style:italic>#从example.txt文件中删除所有注释和空白行</span>
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>&#39;esempio&#39;</span> | tr <span style=color:#a5d6ff>&#39;[:lower:]&#39;</span> <span style=color:#a5d6ff>&#39;[:upper:]&#39;</span>    <span style=color:#8b949e;font-style:italic>#合并上下单元格内容</span>
+</span></span><span style=display:flex><span>sed -e <span style=color:#a5d6ff>&#39;1d&#39;</span> result.txt          <span style=color:#8b949e;font-style:italic>#从文件example.txt 中排除第一行</span>
+</span></span><span style=display:flex><span>sed -n <span style=color:#a5d6ff>&#39;/stringa1/p&#39;</span>            <span style=color:#8b949e;font-style:italic>#查看只包含词汇 &#34;string1&#34;的行</span>
+</span></span><span style=display:flex><span>sed -e <span style=color:#a5d6ff>&#39;s/ *$//&#39;</span> example.txt    <span style=color:#8b949e;font-style:italic>#删除每一行最后的空白字符</span>
+</span></span><span style=display:flex><span>sed -e <span style=color:#a5d6ff>&#39;s/stringa1//g&#39;</span> example.txt  
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#从文档中只删除词汇 &#34;string1&#34; 并保留剩余全部</span>
+</span></span><span style=display:flex><span>sed -n <span style=color:#a5d6ff>&#39;1,5p;5q&#39;</span> example.txt     <span style=color:#8b949e;font-style:italic>#查看从第一行到第5行内容</span>
+</span></span><span style=display:flex><span>sed -n <span style=color:#a5d6ff>&#39;5p;5q&#39;</span> example.txt       <span style=color:#8b949e;font-style:italic>#查看第5行</span>
+</span></span><span style=display:flex><span>sed -e <span style=color:#a5d6ff>&#39;s/00*/0/g&#39;</span> example.txt   <span style=color:#8b949e;font-style:italic>#用单个零替换多个零</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>cat -n file1       <span style=color:#75715e>#标示文件的行数</span>
-</span></span><span style=display:flex><span>cat example.txt | awk <span style=color:#e6db74>&#39;NR%2==1&#39;</span>      <span style=color:#75715e>#删除example.txt文件中的所有偶数行</span>
-</span></span><span style=display:flex><span>echo a b c | awk <span style=color:#e6db74>&#39;{print $1}&#39;</span>        <span style=color:#75715e>#查看一行第一栏</span>
-</span></span><span style=display:flex><span>echo a b c | awk <span style=color:#e6db74>&#39;{print $1,$3}&#39;</span>     <span style=color:#75715e>#查看一行的第一和第三栏</span>
-</span></span><span style=display:flex><span>paste file1 file2           <span style=color:#75715e>#合并两个文件或两栏的内容</span>
-</span></span><span style=display:flex><span>paste -d <span style=color:#e6db74>&#39;+&#39;</span> file1 file2    <span style=color:#75715e>#合并两个文件或两栏的内容，中间用&#34;+&#34;区分</span>
+</span></span><span style=display:flex><span>cat -n file1       <span style=color:#8b949e;font-style:italic>#标示文件的行数</span>
+</span></span><span style=display:flex><span>cat example.txt | awk <span style=color:#a5d6ff>&#39;NR%2==1&#39;</span>      <span style=color:#8b949e;font-style:italic>#删除example.txt文件中的所有偶数行</span>
+</span></span><span style=display:flex><span>echo a b c | awk <span style=color:#a5d6ff>&#39;{print $1}&#39;</span>        <span style=color:#8b949e;font-style:italic>#查看一行第一栏</span>
+</span></span><span style=display:flex><span>echo a b c | awk <span style=color:#a5d6ff>&#39;{print $1,$3}&#39;</span>     <span style=color:#8b949e;font-style:italic>#查看一行的第一和第三栏</span>
+</span></span><span style=display:flex><span>paste file1 file2           <span style=color:#8b949e;font-style:italic>#合并两个文件或两栏的内容</span>
+</span></span><span style=display:flex><span>paste -d <span style=color:#a5d6ff>&#39;+&#39;</span> file1 file2    <span style=color:#8b949e;font-style:italic>#合并两个文件或两栏的内容，中间用&#34;+&#34;区分</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>sort file1 file2              <span style=color:#75715e>#排序两个文件的内容</span>
-</span></span><span style=display:flex><span>sort file1 file2 | uniq       <span style=color:#75715e>#取出两个文件的并集(重复的行只保留一份)</span>
-</span></span><span style=display:flex><span>sort file1 file2 | uniq -u    <span style=color:#75715e>#删除交集，留下其他的行</span>
-</span></span><span style=display:flex><span>sort file1 file2 | uniq -d    <span style=color:#75715e>#取出两个文件的交集(只留下同时存在于两个文件中的文件)</span>
+</span></span><span style=display:flex><span>sort file1 file2              <span style=color:#8b949e;font-style:italic>#排序两个文件的内容</span>
+</span></span><span style=display:flex><span>sort file1 file2 | uniq       <span style=color:#8b949e;font-style:italic>#取出两个文件的并集(重复的行只保留一份)</span>
+</span></span><span style=display:flex><span>sort file1 file2 | uniq -u    <span style=color:#8b949e;font-style:italic>#删除交集，留下其他的行</span>
+</span></span><span style=display:flex><span>sort file1 file2 | uniq -d    <span style=color:#8b949e;font-style:italic>#取出两个文件的交集(只留下同时存在于两个文件中的文件)</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>comm -1 file1 file2    <span style=color:#75715e>#比较两个文件的内容只删除 &#39;file1&#39; 所包含的内容</span>
-</span></span><span style=display:flex><span>comm -2 file1 file2    <span style=color:#75715e>#比较两个文件的内容只删除 &#39;file2&#39; 所包含的内容</span>
-</span></span><span style=display:flex><span>comm -3 file1 file2    <span style=color:#75715e>#比较两个文件的内容只删除两个文件共有的部分</span>
+</span></span><span style=display:flex><span>comm -1 file1 file2    <span style=color:#8b949e;font-style:italic>#比较两个文件的内容只删除 &#39;file1&#39; 所包含的内容</span>
+</span></span><span style=display:flex><span>comm -2 file1 file2    <span style=color:#8b949e;font-style:italic>#比较两个文件的内容只删除 &#39;file2&#39; 所包含的内容</span>
+</span></span><span style=display:flex><span>comm -3 file1 file2    <span style=color:#8b949e;font-style:italic>#比较两个文件的内容只删除两个文件共有的部分</span>
 </span></span></code></pre></div><h2 id=字符设置和文件格式转换>字符设置和文件格式转换
-<a class=header-anchor href=#%e5%ad%97%e7%ac%a6%e8%ae%be%e7%bd%ae%e5%92%8c%e6%96%87%e4%bb%b6%e6%a0%bc%e5%bc%8f%e8%bd%ac%e6%8d%a2></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>dos2unix filedos.txt fileunix.txt      <span style=color:#75715e>#将一个文本文件的格式从MSDOS转换成UNIX</span>
-</span></span><span style=display:flex><span>unix2dos fileunix.txt filedos.txt      <span style=color:#75715e>#将一个文本文件的格式从UNIX转换成MSDOS</span>
-</span></span><span style=display:flex><span>recode ..HTML &lt; page.txt &gt; page.html   <span style=color:#75715e>#将一个文本文件转换成html</span>
-</span></span><span style=display:flex><span>recode -l | more                       <span style=color:#75715e>#显示所有允许的转换格式</span>
+<a class=header-anchor href=#%e5%ad%97%e7%ac%a6%e8%ae%be%e7%bd%ae%e5%92%8c%e6%96%87%e4%bb%b6%e6%a0%bc%e5%bc%8f%e8%bd%ac%e6%8d%a2></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>dos2unix filedos.txt fileunix.txt      <span style=color:#8b949e;font-style:italic>#将一个文本文件的格式从MSDOS转换成UNIX</span>
+</span></span><span style=display:flex><span>unix2dos fileunix.txt filedos.txt      <span style=color:#8b949e;font-style:italic>#将一个文本文件的格式从UNIX转换成MSDOS</span>
+</span></span><span style=display:flex><span>recode ..HTML &lt; page.txt &gt; page.html   <span style=color:#8b949e;font-style:italic>#将一个文本文件转换成html</span>
+</span></span><span style=display:flex><span>recode -l | more                       <span style=color:#8b949e;font-style:italic>#显示所有允许的转换格式</span>
 </span></span></code></pre></div><h2 id=文件系统分析>文件系统分析
-<a class=header-anchor href=#%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e5%88%86%e6%9e%90></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>badblocks -v /dev/hda1    <span style=color:#75715e>#检查磁盘hda1上的坏磁块</span>
-</span></span><span style=display:flex><span>fsck /dev/hda1            <span style=color:#75715e>#修复/检查hda1磁盘上linux文件系统的完整性</span>
-</span></span><span style=display:flex><span>fsck.ext2 /dev/hda1       <span style=color:#75715e>#修复/检查hda1磁盘上ext2文件系统的完整性</span>
-</span></span><span style=display:flex><span>e2fsck /dev/hda1          <span style=color:#75715e>#修复/检查hda1磁盘上ext2文件系统的完整性</span>
-</span></span><span style=display:flex><span>e2fsck -j /dev/hda1       <span style=color:#75715e>#修复/检查hda1磁盘上ext3文件系统的完整性</span>
-</span></span><span style=display:flex><span>fsck.ext3 /dev/hda1       <span style=color:#75715e>#修复/检查hda1磁盘上ext3文件系统的完整性</span>
-</span></span><span style=display:flex><span>fsck.vfat /dev/hda1       <span style=color:#75715e>#修复/检查hda1磁盘上fat文件系统的完整性</span>
-</span></span><span style=display:flex><span>fsck.msdos /dev/hda1      <span style=color:#75715e>#修复/检查hda1磁盘上dos文件系统的完整性</span>
-</span></span><span style=display:flex><span>dosfsck /dev/hda1         <span style=color:#75715e>#修复/检查hda1磁盘上dos文件系统的完整性</span>
+<a class=header-anchor href=#%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e5%88%86%e6%9e%90></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>badblocks -v /dev/hda1    <span style=color:#8b949e;font-style:italic>#检查磁盘hda1上的坏磁块</span>
+</span></span><span style=display:flex><span>fsck /dev/hda1            <span style=color:#8b949e;font-style:italic>#修复/检查hda1磁盘上linux文件系统的完整性</span>
+</span></span><span style=display:flex><span>fsck.ext2 /dev/hda1       <span style=color:#8b949e;font-style:italic>#修复/检查hda1磁盘上ext2文件系统的完整性</span>
+</span></span><span style=display:flex><span>e2fsck /dev/hda1          <span style=color:#8b949e;font-style:italic>#修复/检查hda1磁盘上ext2文件系统的完整性</span>
+</span></span><span style=display:flex><span>e2fsck -j /dev/hda1       <span style=color:#8b949e;font-style:italic>#修复/检查hda1磁盘上ext3文件系统的完整性</span>
+</span></span><span style=display:flex><span>fsck.ext3 /dev/hda1       <span style=color:#8b949e;font-style:italic>#修复/检查hda1磁盘上ext3文件系统的完整性</span>
+</span></span><span style=display:flex><span>fsck.vfat /dev/hda1       <span style=color:#8b949e;font-style:italic>#修复/检查hda1磁盘上fat文件系统的完整性</span>
+</span></span><span style=display:flex><span>fsck.msdos /dev/hda1      <span style=color:#8b949e;font-style:italic>#修复/检查hda1磁盘上dos文件系统的完整性</span>
+</span></span><span style=display:flex><span>dosfsck /dev/hda1         <span style=color:#8b949e;font-style:italic>#修复/检查hda1磁盘上dos文件系统的完整性</span>
 </span></span></code></pre></div><h2 id=初始化一个文件系统>初始化一个文件系统
-<a class=header-anchor href=#%e5%88%9d%e5%a7%8b%e5%8c%96%e4%b8%80%e4%b8%aa%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>mkfs /dev/hda1        <span style=color:#75715e>#在hda1分区创建一个文件系统</span>
-</span></span><span style=display:flex><span>mke2fs /dev/hda1      <span style=color:#75715e>#在hda1分区创建一个linux ext2的文件系统</span>
-</span></span><span style=display:flex><span>mke2fs -j /dev/hda1   <span style=color:#75715e>#在hda1分区创建一个linux ext3(日志型)的文件系统</span>
-</span></span><span style=display:flex><span>mkfs -t vfat <span style=color:#ae81ff>32</span> -F /dev/hda1   <span style=color:#75715e>#创建一个 FAT32 文件系统</span>
-</span></span><span style=display:flex><span>fdformat -n /dev/fd0           <span style=color:#75715e>#格式化一个软盘</span>
-</span></span><span style=display:flex><span>mkswap /dev/hda3               <span style=color:#75715e>#创建一个swap文件系统</span>
+<a class=header-anchor href=#%e5%88%9d%e5%a7%8b%e5%8c%96%e4%b8%80%e4%b8%aa%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>mkfs /dev/hda1        <span style=color:#8b949e;font-style:italic>#在hda1分区创建一个文件系统</span>
+</span></span><span style=display:flex><span>mke2fs /dev/hda1      <span style=color:#8b949e;font-style:italic>#在hda1分区创建一个linux ext2的文件系统</span>
+</span></span><span style=display:flex><span>mke2fs -j /dev/hda1   <span style=color:#8b949e;font-style:italic>#在hda1分区创建一个linux ext3(日志型)的文件系统</span>
+</span></span><span style=display:flex><span>mkfs -t vfat <span style=color:#a5d6ff>32</span> -F /dev/hda1   <span style=color:#8b949e;font-style:italic>#创建一个 FAT32 文件系统</span>
+</span></span><span style=display:flex><span>fdformat -n /dev/fd0           <span style=color:#8b949e;font-style:italic>#格式化一个软盘</span>
+</span></span><span style=display:flex><span>mkswap /dev/hda3               <span style=color:#8b949e;font-style:italic>#创建一个swap文件系统</span>
 </span></span></code></pre></div><h2 id=swap文件系统>SWAP文件系统
-<a class=header-anchor href=#swap%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>mkswap /dev/hda3             <span style=color:#75715e>#创建一个swap文件系统</span>
-</span></span><span style=display:flex><span>swapon /dev/hda3             <span style=color:#75715e>#启用一个新的swap文件系统</span>
-</span></span><span style=display:flex><span>swapon /dev/hda2 /dev/hdb3   <span style=color:#75715e>#启用两个swap分区</span>
+<a class=header-anchor href=#swap%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>mkswap /dev/hda3             <span style=color:#8b949e;font-style:italic>#创建一个swap文件系统</span>
+</span></span><span style=display:flex><span>swapon /dev/hda3             <span style=color:#8b949e;font-style:italic>#启用一个新的swap文件系统</span>
+</span></span><span style=display:flex><span>swapon /dev/hda2 /dev/hdb3   <span style=color:#8b949e;font-style:italic>#启用两个swap分区</span>
 </span></span></code></pre></div><h2 id=备份>备份
-<a class=header-anchor href=#%e5%a4%87%e4%bb%bd></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>dump -0aj -f /tmp/home0.bak /home    <span style=color:#75715e>#制作一个 &#39;/home&#39; 目录的完整备份</span>
-</span></span><span style=display:flex><span>dump -1aj -f /tmp/home0.bak /home    <span style=color:#75715e>#制作一个 &#39;/home&#39; 目录的交互式备份</span>
-</span></span><span style=display:flex><span>restore -if /tmp/home0.bak          <span style=color:#75715e>#还原一个交互式备份</span>
+<a class=header-anchor href=#%e5%a4%87%e4%bb%bd></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>dump -0aj -f /tmp/home0.bak /home    <span style=color:#8b949e;font-style:italic>#制作一个 &#39;/home&#39; 目录的完整备份</span>
+</span></span><span style=display:flex><span>dump -1aj -f /tmp/home0.bak /home    <span style=color:#8b949e;font-style:italic>#制作一个 &#39;/home&#39; 目录的交互式备份</span>
+</span></span><span style=display:flex><span>restore -if /tmp/home0.bak          <span style=color:#8b949e;font-style:italic>#还原一个交互式备份</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>rsync -rogpav --delete /home /tmp    <span style=color:#75715e>#同步两边的目录</span>
-</span></span><span style=display:flex><span>rsync -rogpav -e ssh --delete /home ip_address:/tmp           <span style=color:#75715e>#通过SSH通道rsync</span>
-</span></span><span style=display:flex><span>rsync -az -e ssh --delete ip_addr:/home/public /home/local    <span style=color:#75715e>#通过ssh和压缩将一个远程目录同步到本地目录</span>
-</span></span><span style=display:flex><span>rsync -az -e ssh --delete /home/local ip_addr:/home/public    <span style=color:#75715e>#通过ssh和压缩将本地目录同步到远程目录</span>
+</span></span><span style=display:flex><span>rsync -rogpav --delete /home /tmp    <span style=color:#8b949e;font-style:italic>#同步两边的目录</span>
+</span></span><span style=display:flex><span>rsync -rogpav -e ssh --delete /home ip_address:/tmp           <span style=color:#8b949e;font-style:italic>#通过SSH通道rsync</span>
+</span></span><span style=display:flex><span>rsync -az -e ssh --delete ip_addr:/home/public /home/local    <span style=color:#8b949e;font-style:italic>#通过ssh和压缩将一个远程目录同步到本地目录</span>
+</span></span><span style=display:flex><span>rsync -az -e ssh --delete /home/local ip_addr:/home/public    <span style=color:#8b949e;font-style:italic>#通过ssh和压缩将本地目录同步到远程目录</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>dd bs<span style=color:#f92672>=</span>1M <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>/dev/hda | gzip | ssh user@ip_addr <span style=color:#e6db74>&#39;dd of=hda.gz&#39;</span>  
-</span></span><span style=display:flex><span><span style=color:#75715e>#通过ssh在远程主机上执行一次备份本地磁盘的操作</span>
-</span></span><span style=display:flex><span>dd <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>/dev/sda of<span style=color:#f92672>=</span>/tmp/file1 
-</span></span><span style=display:flex><span><span style=color:#75715e>#备份磁盘内容到一个文件</span>
-</span></span><span style=display:flex><span>tar -Puf backup.tar /home/user 执行一次对 <span style=color:#e6db74>&#39;/home/user&#39;</span> 
-</span></span><span style=display:flex><span><span style=color:#75715e>#目录的交互式备份操作</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>(</span> cd /tmp/local/ <span style=color:#f92672>&amp;&amp;</span> tar c . <span style=color:#f92672>)</span> | ssh -C user@ip_addr <span style=color:#e6db74>&#39;cd /home/share/ &amp;&amp; tar x -p&#39;</span> 
-</span></span><span style=display:flex><span><span style=color:#75715e>#通过ssh在远程目录中复制一个目录内容</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>(</span> tar c /home <span style=color:#f92672>)</span> | ssh -C user@ip_addr <span style=color:#e6db74>&#39;cd /home/backup-home &amp;&amp; tar x -p&#39;</span> 
-</span></span><span style=display:flex><span><span style=color:#75715e>#通过ssh在远程目录中复制一个本地目录</span>
-</span></span><span style=display:flex><span>tar cf - . | <span style=color:#f92672>(</span>cd /tmp/backup ; tar xf - <span style=color:#f92672>)</span> 
-</span></span><span style=display:flex><span><span style=color:#75715e>#本地将一个目录复制到另一个地方，保留原有权限及链接</span>
+</span></span><span style=display:flex><span>dd <span style=color:#79c0ff>bs</span><span style=color:#ff7b72;font-weight:700>=</span>1M <span style=color:#ff7b72>if</span><span style=color:#ff7b72;font-weight:700>=</span>/dev/hda | gzip | ssh user@ip_addr <span style=color:#a5d6ff>&#39;dd of=hda.gz&#39;</span>  
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#通过ssh在远程主机上执行一次备份本地磁盘的操作</span>
+</span></span><span style=display:flex><span>dd <span style=color:#ff7b72>if</span><span style=color:#ff7b72;font-weight:700>=</span>/dev/sda <span style=color:#79c0ff>of</span><span style=color:#ff7b72;font-weight:700>=</span>/tmp/file1 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#备份磁盘内容到一个文件</span>
+</span></span><span style=display:flex><span>tar -Puf backup.tar /home/user 执行一次对 <span style=color:#a5d6ff>&#39;/home/user&#39;</span> 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#目录的交互式备份操作</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span> cd /tmp/local/ <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> tar c . <span style=color:#ff7b72;font-weight:700>)</span> | ssh -C user@ip_addr <span style=color:#a5d6ff>&#39;cd /home/share/ &amp;&amp; tar x -p&#39;</span> 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#通过ssh在远程目录中复制一个目录内容</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span> tar c /home <span style=color:#ff7b72;font-weight:700>)</span> | ssh -C user@ip_addr <span style=color:#a5d6ff>&#39;cd /home/backup-home &amp;&amp; tar x -p&#39;</span> 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#通过ssh在远程目录中复制一个本地目录</span>
+</span></span><span style=display:flex><span>tar cf - . | <span style=color:#ff7b72;font-weight:700>(</span>cd /tmp/backup ; tar xf - <span style=color:#ff7b72;font-weight:700>)</span> 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#本地将一个目录复制到另一个地方，保留原有权限及链接</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>find /home/user1 -name <span style=color:#e6db74>&#39;*.txt&#39;</span> | xargs cp -av --target-directory<span style=color:#f92672>=</span>/home/backup/ --parents 
-</span></span><span style=display:flex><span><span style=color:#75715e>#从一个目录查找并复制所有以 &#39;.txt&#39; 结尾的文件到另一个目录</span>
-</span></span><span style=display:flex><span>find /var/log -name <span style=color:#e6db74>&#39;*.log&#39;</span> | tar cv --files-from<span style=color:#f92672>=</span>- | bzip2 &gt; log.tar.bz2 
-</span></span><span style=display:flex><span><span style=color:#75715e>#查找所有以 &#39;.log&#39; 结尾的文件并做成一个bzip包</span>
+</span></span><span style=display:flex><span>find /home/user1 -name <span style=color:#a5d6ff>&#39;*.txt&#39;</span> | xargs cp -av --target-directory<span style=color:#ff7b72;font-weight:700>=</span>/home/backup/ --parents 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#从一个目录查找并复制所有以 &#39;.txt&#39; 结尾的文件到另一个目录</span>
+</span></span><span style=display:flex><span>find /var/log -name <span style=color:#a5d6ff>&#39;*.log&#39;</span> | tar cv --files-from<span style=color:#ff7b72;font-weight:700>=</span>- | bzip2 &gt; log.tar.bz2 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#查找所有以 &#39;.log&#39; 结尾的文件并做成一个bzip包</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>dd <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>/dev/hda of<span style=color:#f92672>=</span>/dev/fd0 bs<span style=color:#f92672>=</span><span style=color:#ae81ff>512</span> count<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span> 
-</span></span><span style=display:flex><span><span style=color:#75715e>#做一个将 MBR (Master Boot Record)内容复制到软盘的动作</span>
-</span></span><span style=display:flex><span>dd <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>/dev/fd0 of<span style=color:#f92672>=</span>/dev/hda bs<span style=color:#f92672>=</span><span style=color:#ae81ff>512</span> count<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span> 
-</span></span><span style=display:flex><span><span style=color:#75715e>#从已经保存到软盘的备份中恢复MBR内容</span>
+</span></span><span style=display:flex><span>dd <span style=color:#ff7b72>if</span><span style=color:#ff7b72;font-weight:700>=</span>/dev/hda <span style=color:#79c0ff>of</span><span style=color:#ff7b72;font-weight:700>=</span>/dev/fd0 <span style=color:#79c0ff>bs</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>512</span> <span style=color:#79c0ff>count</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>1</span> 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#做一个将 MBR (Master Boot Record)内容复制到软盘的动作</span>
+</span></span><span style=display:flex><span>dd <span style=color:#ff7b72>if</span><span style=color:#ff7b72;font-weight:700>=</span>/dev/fd0 <span style=color:#79c0ff>of</span><span style=color:#ff7b72;font-weight:700>=</span>/dev/hda <span style=color:#79c0ff>bs</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>512</span> <span style=color:#79c0ff>count</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>1</span> 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#从已经保存到软盘的备份中恢复MBR内容</span>
 </span></span></code></pre></div><h2 id=光盘>光盘
-<a class=header-anchor href=#%e5%85%89%e7%9b%98></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>cdrecord -v gracetime<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span> dev<span style=color:#f92672>=</span>/dev/cdrom -eject blank<span style=color:#f92672>=</span>fast -force 
-</span></span><span style=display:flex><span><span style=color:#75715e>#清空一个可复写的光盘内容</span>
+<a class=header-anchor href=#%e5%85%89%e7%9b%98></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>cdrecord -v <span style=color:#79c0ff>gracetime</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>2</span> <span style=color:#79c0ff>dev</span><span style=color:#ff7b72;font-weight:700>=</span>/dev/cdrom -eject <span style=color:#79c0ff>blank</span><span style=color:#ff7b72;font-weight:700>=</span>fast -force 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#清空一个可复写的光盘内容</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>mkisofs /dev/cdrom &gt; cd.iso             <span style=color:#75715e>#在磁盘上创建一个光盘的iso镜像文件</span>
-</span></span><span style=display:flex><span>mkisofs /dev/cdrom | gzip &gt; cd_iso.gz    <span style=color:#75715e>#在磁盘上创建一个压缩了的光盘iso镜像文件</span>
-</span></span><span style=display:flex><span>mkisofs -J -allow-leading-dots -R -V <span style=color:#e6db74>&#34;Label CD&#34;</span> -iso-level <span style=color:#ae81ff>4</span> -o ./cd.iso data_cd 
-</span></span><span style=display:flex><span><span style=color:#75715e>#创建一个目录的iso镜像文件</span>
-</span></span><span style=display:flex><span>cdrecord -v dev<span style=color:#f92672>=</span>/dev/cdrom cd.iso               <span style=color:#75715e>#刻录一个ISO镜像文件</span>
-</span></span><span style=display:flex><span>gzip -dc cd_iso.gz | cdrecord dev<span style=color:#f92672>=</span>/dev/cdrom -  <span style=color:#75715e>#刻录一个压缩了的ISO镜像文件</span>
-</span></span><span style=display:flex><span>mount -o loop cd.iso /mnt/iso                  <span style=color:#75715e>#挂载一个ISO镜像文件</span>
+</span></span><span style=display:flex><span>mkisofs /dev/cdrom &gt; cd.iso             <span style=color:#8b949e;font-style:italic>#在磁盘上创建一个光盘的iso镜像文件</span>
+</span></span><span style=display:flex><span>mkisofs /dev/cdrom | gzip &gt; cd_iso.gz    <span style=color:#8b949e;font-style:italic>#在磁盘上创建一个压缩了的光盘iso镜像文件</span>
+</span></span><span style=display:flex><span>mkisofs -J -allow-leading-dots -R -V <span style=color:#a5d6ff>&#34;Label CD&#34;</span> -iso-level <span style=color:#a5d6ff>4</span> -o ./cd.iso data_cd 
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#创建一个目录的iso镜像文件</span>
+</span></span><span style=display:flex><span>cdrecord -v <span style=color:#79c0ff>dev</span><span style=color:#ff7b72;font-weight:700>=</span>/dev/cdrom cd.iso               <span style=color:#8b949e;font-style:italic>#刻录一个ISO镜像文件</span>
+</span></span><span style=display:flex><span>gzip -dc cd_iso.gz | cdrecord <span style=color:#79c0ff>dev</span><span style=color:#ff7b72;font-weight:700>=</span>/dev/cdrom -  <span style=color:#8b949e;font-style:italic>#刻录一个压缩了的ISO镜像文件</span>
+</span></span><span style=display:flex><span>mount -o loop cd.iso /mnt/iso                  <span style=color:#8b949e;font-style:italic>#挂载一个ISO镜像文件</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>cd-paranoia -B             <span style=color:#75715e>#从一个CD光盘转录音轨到 wav 文件中</span>
-</span></span><span style=display:flex><span>cd-paranoia -- <span style=color:#e6db74>&#34;-3&#34;</span>        <span style=color:#75715e>#从一个CD光盘转录音轨到 wav 文件中（参数-3）</span>
-</span></span><span style=display:flex><span>cdrecord --scanbus         <span style=color:#75715e>#扫描总线以识别scsi通道</span>
-</span></span><span style=display:flex><span>dd <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>/dev/hdc | md5sum    <span style=color:#75715e>#校验一个设备的md5sum编码，例如一张 CD</span>
+</span></span><span style=display:flex><span>cd-paranoia -B             <span style=color:#8b949e;font-style:italic>#从一个CD光盘转录音轨到 wav 文件中</span>
+</span></span><span style=display:flex><span>cd-paranoia -- <span style=color:#a5d6ff>&#34;-3&#34;</span>        <span style=color:#8b949e;font-style:italic>#从一个CD光盘转录音轨到 wav 文件中（参数-3）</span>
+</span></span><span style=display:flex><span>cdrecord --scanbus         <span style=color:#8b949e;font-style:italic>#扫描总线以识别scsi通道</span>
+</span></span><span style=display:flex><span>dd <span style=color:#ff7b72>if</span><span style=color:#ff7b72;font-weight:700>=</span>/dev/hdc | md5sum    <span style=color:#8b949e;font-style:italic>#校验一个设备的md5sum编码，例如一张 CD</span>
 </span></span></code></pre></div><h2 id=网络---以太网和wifi无线>网络 - （以太网和WIFI无线）
-<a class=header-anchor href=#%e7%bd%91%e7%bb%9c---%e4%bb%a5%e5%a4%aa%e7%bd%91%e5%92%8cwifi%e6%97%a0%e7%ba%bf></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>ifconfig eth0    <span style=color:#75715e>#显示一个以太网卡的配置</span>
-</span></span><span style=display:flex><span>ifup eth0        <span style=color:#75715e>#启用一个 &#39;eth0&#39; 网络设备</span>
-</span></span><span style=display:flex><span>ifdown eth0      <span style=color:#75715e>#禁用一个 &#39;eth0&#39; 网络设备</span>
-</span></span><span style=display:flex><span>ifconfig eth0 192.168.1.1 netmask 255.255.255.0     <span style=color:#75715e>#控制IP地址</span>
-</span></span><span style=display:flex><span>ifconfig eth0 promisc     <span style=color:#75715e>#设置 &#39;eth0&#39; 成混杂模式以嗅探数据包 (sniffing)</span>
-</span></span><span style=display:flex><span>dhclient eth0            <span style=color:#75715e>#以dhcp模式启用 &#39;eth0&#39;</span>
+<a class=header-anchor href=#%e7%bd%91%e7%bb%9c---%e4%bb%a5%e5%a4%aa%e7%bd%91%e5%92%8cwifi%e6%97%a0%e7%ba%bf></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>ifconfig eth0    <span style=color:#8b949e;font-style:italic>#显示一个以太网卡的配置</span>
+</span></span><span style=display:flex><span>ifup eth0        <span style=color:#8b949e;font-style:italic>#启用一个 &#39;eth0&#39; 网络设备</span>
+</span></span><span style=display:flex><span>ifdown eth0      <span style=color:#8b949e;font-style:italic>#禁用一个 &#39;eth0&#39; 网络设备</span>
+</span></span><span style=display:flex><span>ifconfig eth0 192.168.1.1 netmask 255.255.255.0     <span style=color:#8b949e;font-style:italic>#控制IP地址</span>
+</span></span><span style=display:flex><span>ifconfig eth0 promisc     <span style=color:#8b949e;font-style:italic>#设置 &#39;eth0&#39; 成混杂模式以嗅探数据包 (sniffing)</span>
+</span></span><span style=display:flex><span>dhclient eth0            <span style=color:#8b949e;font-style:italic>#以dhcp模式启用 &#39;eth0&#39;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>route -n    <span style=color:#75715e>#查看路由表</span>
-</span></span><span style=display:flex><span>route add -net 0/0 gw IP_Gateway    <span style=color:#75715e>#配置默认网关</span>
+</span></span><span style=display:flex><span>route -n    <span style=color:#8b949e;font-style:italic>#查看路由表</span>
+</span></span><span style=display:flex><span>route add -net 0/0 gw IP_Gateway    <span style=color:#8b949e;font-style:italic>#配置默认网关</span>
 </span></span><span style=display:flex><span>route add -net 192.168.0.0 netmask 255.255.0.0 gw 192.168.1.1 
-</span></span><span style=display:flex><span><span style=color:#75715e>#配置静态路由到达网络&#39;192.168.0.0/16&#39;</span>
-</span></span><span style=display:flex><span>route del 0/0 gw IP_gateway        <span style=color:#75715e>#删除静态路由</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#配置静态路由到达网络&#39;192.168.0.0/16&#39;</span>
+</span></span><span style=display:flex><span>route del 0/0 gw IP_gateway        <span style=color:#8b949e;font-style:italic>#删除静态路由</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>hostname <span style=color:#75715e>#查看机器名</span>
-</span></span><span style=display:flex><span>host www.example.com       <span style=color:#75715e>#把一个主机名解析到一个网际地址或把一个网际地址解析到一个主机名。</span>
-</span></span><span style=display:flex><span>nslookup www.example.com   <span style=color:#75715e>#用于查询DNS的记录，查看域名解析是否正常，在网络故障的时候用来诊断网络问题。</span>
-</span></span><span style=display:flex><span>ip link show            <span style=color:#75715e>#查看网卡信息</span>
-</span></span><span style=display:flex><span>mii-tool                <span style=color:#75715e>#用于查看、管理介质的网络接口的状态</span>
-</span></span><span style=display:flex><span>ethtool                 <span style=color:#75715e>#用于查询和设置网卡配置</span>
-</span></span><span style=display:flex><span>netstat -tupl           <span style=color:#75715e>#用于显示TCP/UDP的状态信息</span>
-</span></span><span style=display:flex><span>tcpdump tcp port <span style=color:#ae81ff>80</span>     <span style=color:#75715e>#显示所有http协议的流量</span>
+</span></span><span style=display:flex><span>hostname <span style=color:#8b949e;font-style:italic>#查看机器名</span>
+</span></span><span style=display:flex><span>host www.example.com       <span style=color:#8b949e;font-style:italic>#把一个主机名解析到一个网际地址或把一个网际地址解析到一个主机名。</span>
+</span></span><span style=display:flex><span>nslookup www.example.com   <span style=color:#8b949e;font-style:italic>#用于查询DNS的记录，查看域名解析是否正常，在网络故障的时候用来诊断网络问题。</span>
+</span></span><span style=display:flex><span>ip link show            <span style=color:#8b949e;font-style:italic>#查看网卡信息</span>
+</span></span><span style=display:flex><span>mii-tool                <span style=color:#8b949e;font-style:italic>#用于查看、管理介质的网络接口的状态</span>
+</span></span><span style=display:flex><span>ethtool                 <span style=color:#8b949e;font-style:italic>#用于查询和设置网卡配置</span>
+</span></span><span style=display:flex><span>netstat -tupl           <span style=color:#8b949e;font-style:italic>#用于显示TCP/UDP的状态信息</span>
+</span></span><span style=display:flex><span>tcpdump tcp port <span style=color:#a5d6ff>80</span>     <span style=color:#8b949e;font-style:italic>#显示所有http协议的流量</span>
 </span></span></code></pre></div><h2 id=jps工具>JPS工具
-<a class=header-anchor href=#jps%e5%b7%a5%e5%85%b7></a></h2><p>jps(Java Virtual Machine Process Status Tool)是JDK 1.5提供的一个显示当前所有java进程pid的命令，简单实用，非常适合在linux/unix平台上简单察看当前java进程的一些简单情况。</p><p>我想很多人都是用过unix系统里的ps命令，这个命令主要是用来显示当前系统的进程情况，有哪些进程，及其 id。jps 也是一样，它的作用是显示当前系统的java进程情况，及其id号。我们可以通过它来查看我们到底启动了几个java进程（因为每一个java程序都会独占一个java虚拟机实例），和他们的进程号（为下面几个程序做准备），并可通过opt来查看这些进程的详细启动参数。</p><p>**使用方法：**在当前命令行下打 jps(需要JAVA_HOME，没有的话，到改程序的目录下打) 。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>jps存放在JAVA_HOME/bin/jps，使用时为了方便请将JAVA_HOME/bin/加入到Path.
+<a class=header-anchor href=#jps%e5%b7%a5%e5%85%b7></a></h2><p>jps(Java Virtual Machine Process Status Tool)是JDK 1.5提供的一个显示当前所有java进程pid的命令，简单实用，非常适合在linux/unix平台上简单察看当前java进程的一些简单情况。</p><p>我想很多人都是用过unix系统里的ps命令，这个命令主要是用来显示当前系统的进程情况，有哪些进程，及其 id。jps 也是一样，它的作用是显示当前系统的java进程情况，及其id号。我们可以通过它来查看我们到底启动了几个java进程（因为每一个java程序都会独占一个java虚拟机实例），和他们的进程号（为下面几个程序做准备），并可通过opt来查看这些进程的详细启动参数。</p><p>**使用方法：**在当前命令行下打 jps(需要JAVA_HOME，没有的话，到改程序的目录下打) 。</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>jps存放在JAVA_HOME/bin/jps，使用时为了方便请将JAVA_HOME/bin/加入到Path.
 </span></span><span style=display:flex><span>$&gt; jps
-</span></span><span style=display:flex><span><span style=color:#ae81ff>23991</span> Jps
-</span></span><span style=display:flex><span><span style=color:#ae81ff>23789</span> BossMain
-</span></span><span style=display:flex><span><span style=color:#ae81ff>23651</span> Resin
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>23991</span> Jps
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>23789</span> BossMain
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>23651</span> Resin
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>比较常用的参数：
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#-q 只显示pid，不显示class名称,jar文件名和传递给main 方法的参数</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#-q 只显示pid，不显示class名称,jar文件名和传递给main 方法的参数</span>
 </span></span><span style=display:flex><span>$&gt; jps -q
-</span></span><span style=display:flex><span><span style=color:#ae81ff>28680</span>
-</span></span><span style=display:flex><span><span style=color:#ae81ff>23789</span>
-</span></span><span style=display:flex><span><span style=color:#ae81ff>23651</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>28680</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>23789</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>23651</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#-m 输出传递给main 方法的参数，在嵌入式jvm上可能是null</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#-m 输出传递给main 方法的参数，在嵌入式jvm上可能是null</span>
 </span></span><span style=display:flex><span>$&gt; jps -m
-</span></span><span style=display:flex><span><span style=color:#ae81ff>28715</span> Jps -m
-</span></span><span style=display:flex><span><span style=color:#ae81ff>23789</span> BossMain
-</span></span><span style=display:flex><span><span style=color:#ae81ff>23651</span> Resin -socketwait <span style=color:#ae81ff>32768</span> -stdout /data/aoxj/resin/log/stdout.log -stderr /data/aoxj/resin/log/stderr.log
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>28715</span> Jps -m
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>23789</span> BossMain
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>23651</span> Resin -socketwait <span style=color:#a5d6ff>32768</span> -stdout /data/aoxj/resin/log/stdout.log -stderr /data/aoxj/resin/log/stderr.log
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#-l 输出应用程序main class的完整package名 或者 应用程序的jar文件完整路径名</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#-l 输出应用程序main class的完整package名 或者 应用程序的jar文件完整路径名</span>
 </span></span><span style=display:flex><span>$&gt; jps -l
-</span></span><span style=display:flex><span><span style=color:#ae81ff>28729</span> sun.tools.jps.Jps
-</span></span><span style=display:flex><span><span style=color:#ae81ff>23789</span> com.asiainfo.aimc.bossbi.BossMain
-</span></span><span style=display:flex><span><span style=color:#ae81ff>23651</span> com.caucho.server.resin.Resin
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>28729</span> sun.tools.jps.Jps
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>23789</span> com.asiainfo.aimc.bossbi.BossMain
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>23651</span> com.caucho.server.resin.Resin
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#-v 输出传递给JVM的参数</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#-v 输出传递给JVM的参数</span>
 </span></span><span style=display:flex><span>$&gt; jps -v
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#ae81ff>23789</span> BossMain
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>23789</span> BossMain
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#ae81ff>28802</span> Jps -Denv.class.path<span style=color:#f92672>=</span>/data/aoxj/bossbi/twsecurity/java/trustwork140.jar:/data/aoxj/bossbi/twsecurity/java/:/data/aoxj/bossbi/twsecurity/java/twcmcc.jar:/data/aoxj/jdk15/lib/rt.jar:/data/aoxj/jd
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>28802</span> Jps -Denv.class.path<span style=color:#ff7b72;font-weight:700>=</span>/data/aoxj/bossbi/twsecurity/java/trustwork140.jar:/data/aoxj/bossbi/twsecurity/java/:/data/aoxj/bossbi/twsecurity/java/twcmcc.jar:/data/aoxj/jdk15/lib/rt.jar:/data/aoxj/jd
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>k15/lib/tools.jar -Dapplication.home<span style=color:#f92672>=</span>/data/aoxj/jdk15 -Xms8m
+</span></span><span style=display:flex><span>k15/lib/tools.jar -Dapplication.home<span style=color:#ff7b72;font-weight:700>=</span>/data/aoxj/jdk15 -Xms8m
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#ae81ff>23651</span> Resin -Xss1m -Dresin.home<span style=color:#f92672>=</span>/data/aoxj/resin -Dserver.root<span style=color:#f92672>=</span>/data/aoxj/resin -Djava.util.logging.manager<span style=color:#f92672>=</span>com.caucho.log.LogManagerImpl -
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>23651</span> Resin -Xss1m -Dresin.home<span style=color:#ff7b72;font-weight:700>=</span>/data/aoxj/resin -Dserver.root<span style=color:#ff7b72;font-weight:700>=</span>/data/aoxj/resin -Djava.util.logging.manager<span style=color:#ff7b72;font-weight:700>=</span>com.caucho.log.LogManagerImpl -
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Djavax.management.builder.initial<span style=color:#f92672>=</span>com.caucho.jmx.MBeanServerBuilderImpl
+</span></span><span style=display:flex><span>Djavax.management.builder.initial<span style=color:#ff7b72;font-weight:700>=</span>com.caucho.jmx.MBeanServerBuilderImpl
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>jps 192.168.0.77
-</span></span><span style=display:flex><span><span style=color:#75715e>#列出远程服务器192.168.0.77机器所有的jvm实例，采用rmi协议，默认连接端口为1099（前提是远程服务器提供jstatd服务）</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#列出远程服务器192.168.0.77机器所有的jvm实例，采用rmi协议，默认连接端口为1099（前提是远程服务器提供jstatd服务）</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#注：jps命令有个地方很不好，似乎只能显示当前用户的java进程，要显示其他用户的还是只能用unix/linux的ps命令</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#注：jps命令有个地方很不好，似乎只能显示当前用户的java进程，要显示其他用户的还是只能用unix/linux的ps命令</span>
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/linux>Linux</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">
 <span>支付宝</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 微信">

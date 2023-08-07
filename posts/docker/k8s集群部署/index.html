@@ -27,231 +27,231 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <a class=header-anchor href=#1-%e6%90%ad%e5%bb%ba%e5%8d%95master%e9%9b%86%e7%be%a4></a></h2><ol><li>创建一个 Master 节点 <code>kubeadm init</code></li><li>将 Node节点加入到当前集群中 <code>kubeadm join &lt;Master节点的IP和端口></code>
 环境准备</li></ol><table><thead><tr><th style=text-align:center>工作节点</th><th style=text-align:center>主机名</th><th style=text-align:center>IP地址</th><th style=text-align:center>系统版本</th></tr></thead><tbody><tr><td style=text-align:center>master</td><td style=text-align:center>k8s-master</td><td style=text-align:center>192.168.211.201</td><td style=text-align:center>almalinux8.6</td></tr><tr><td style=text-align:center>node1</td><td style=text-align:center>k8s-node1</td><td style=text-align:center>192.168.211.202</td><td style=text-align:center>almalinux8.6</td></tr><tr><td style=text-align:center>node2</td><td style=text-align:center>k8s-node2</td><td style=text-align:center>192.168.211.203</td><td style=text-align:center>almalinux8.6</td></tr></tbody></table><blockquote><p><strong>注意：</strong> 从 <code>2 - 5</code> 的内容在在<code>master</code>和<code>node</code>节点主机在都要执行</p></blockquote><h2 id=2-安装前准备>2. 安装前准备
 <a class=header-anchor href=#2-%e5%ae%89%e8%a3%85%e5%89%8d%e5%87%86%e5%a4%87></a></h2><h3 id=21-修改和添加主机名>2.1 修改和添加主机名
-<a class=header-anchor href=#21-%e4%bf%ae%e6%94%b9%e5%92%8c%e6%b7%bb%e5%8a%a0%e4%b8%bb%e6%9c%ba%e5%90%8d></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 修改主机名 </span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 在master节点执行</span>
+<a class=header-anchor href=#21-%e4%bf%ae%e6%94%b9%e5%92%8c%e6%b7%bb%e5%8a%a0%e4%b8%bb%e6%9c%ba%e5%90%8d></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 修改主机名 </span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 在master节点执行</span>
 </span></span><span style=display:flex><span>hostnamectl set-hostname k8s-master
-</span></span><span style=display:flex><span><span style=color:#75715e># 在node节点执行</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 在node节点执行</span>
 </span></span><span style=display:flex><span>hostnamectl set-hostname k8s-node1
 </span></span><span style=display:flex><span>hostnamectl set-hostname k8s-node2
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 添加主机名 </span>
-</span></span><span style=display:flex><span>cat &gt;&gt; /etc/hosts <span style=color:#e6db74>&lt;&lt; EOF 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>192.168.211.201 k8s-master 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>192.168.211.202 k8s-node1 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>192.168.211.203 k8s-node2 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 添加主机名 </span>
+</span></span><span style=display:flex><span>cat &gt;&gt; /etc/hosts <span style=color:#a5d6ff>&lt;&lt; EOF 
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>192.168.211.201 k8s-master 
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>192.168.211.202 k8s-node1 
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>192.168.211.203 k8s-node2 
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>EOF</span>
 </span></span></code></pre></div><h3 id=22-关闭防火墙>2.2 关闭防火墙
-<a class=header-anchor href=#22-%e5%85%b3%e9%97%ad%e9%98%b2%e7%81%ab%e5%a2%99></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl stop firewalld 
+<a class=header-anchor href=#22-%e5%85%b3%e9%97%ad%e9%98%b2%e7%81%ab%e5%a2%99></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl stop firewalld 
 </span></span><span style=display:flex><span>systemctl disable firewalld
 </span></span></code></pre></div><h3 id=23-关闭-selinux>2.3 关闭 selinux
-<a class=header-anchor href=#23-%e5%85%b3%e9%97%ad-selinux></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sed -i <span style=color:#e6db74>&#39;s/SELINUX=enforcing/SELINUX=disabled/g&#39;</span> /etc/sysconfig/selinux
-</span></span><span style=display:flex><span>setenforce <span style=color:#ae81ff>0</span>
+<a class=header-anchor href=#23-%e5%85%b3%e9%97%ad-selinux></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sed -i <span style=color:#a5d6ff>&#39;s/SELINUX=enforcing/SELINUX=disabled/g&#39;</span> /etc/sysconfig/selinux
+</span></span><span style=display:flex><span>setenforce <span style=color:#a5d6ff>0</span>
 </span></span></code></pre></div><h3 id=24-关闭swap分区>2.4 关闭swap分区
-<a class=header-anchor href=#24-%e5%85%b3%e9%97%adswap%e5%88%86%e5%8c%ba></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>先临时关闭，再永久关闭，这样就不用重启
+<a class=header-anchor href=#24-%e5%85%b3%e9%97%adswap%e5%88%86%e5%8c%ba></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>先临时关闭，再永久关闭，这样就不用重启
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 临时关闭</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 临时关闭</span>
 </span></span><span style=display:flex><span>swapoff -a
-</span></span><span style=display:flex><span><span style=color:#75715e># 永久关闭</span>
-</span></span><span style=display:flex><span>sed -ri <span style=color:#e6db74>&#39;s/.*swap.*/#&amp;/&#39;</span> /etc/fstab <span style=color:#75715e># 重启生效</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 永久关闭</span>
+</span></span><span style=display:flex><span>sed -ri <span style=color:#a5d6ff>&#39;s/.*swap.*/#&amp;/&#39;</span> /etc/fstab <span style=color:#8b949e;font-style:italic># 重启生效</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看效果</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看效果</span>
 </span></span><span style=display:flex><span>free -m
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 重新启动swap分区</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 重新启动swap分区</span>
 </span></span><span style=display:flex><span>swapon -a
 </span></span></code></pre></div><h3 id=25-网桥过滤>2.5 网桥过滤
-<a class=header-anchor href=#25-%e7%bd%91%e6%a1%a5%e8%bf%87%e6%bb%a4></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>cat &gt; /etc/sysctl.d/k8s.conf <span style=color:#e6db74>&lt;&lt; EOF 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>net.bridge.bridge-nf-call-ip6tables = 1
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>net.bridge.bridge-nf-call-iptables = 1
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>net.bridge.bridge-nf-call-arptables = 1 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>net.ipv4.ip_forward=1 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>net.ipv4.ip_forward_use_pmtu = 0 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+<a class=header-anchor href=#25-%e7%bd%91%e6%a1%a5%e8%bf%87%e6%bb%a4></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>cat &gt; /etc/sysctl.d/k8s.conf <span style=color:#a5d6ff>&lt;&lt; EOF 
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>net.bridge.bridge-nf-call-ip6tables = 1
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>net.bridge.bridge-nf-call-iptables = 1
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>net.bridge.bridge-nf-call-arptables = 1 
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>net.ipv4.ip_forward=1 
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>net.ipv4.ip_forward_use_pmtu = 0 
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>EOF</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 生效命令 </span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 生效命令 </span>
 </span></span><span style=display:flex><span>sysctl --system
 </span></span></code></pre></div><h3 id=26-时间同步>2.6 时间同步
-<a class=header-anchor href=#26-%e6%97%b6%e9%97%b4%e5%90%8c%e6%ad%a5></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装软件</span>
+<a class=header-anchor href=#26-%e6%97%b6%e9%97%b4%e5%90%8c%e6%ad%a5></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安装软件</span>
 </span></span><span style=display:flex><span>yum -y install ntpdate
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 向阿里云服务器同步时间</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 向阿里云服务器同步时间</span>
 </span></span><span style=display:flex><span>ntpdate time1.aliyun.com
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 删除本地时间并设置时区为上海</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 删除本地时间并设置时区为上海</span>
 </span></span><span style=display:flex><span>rm -rf /etc/localtime 
 </span></span><span style=display:flex><span>ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看时间 </span>
-</span></span><span style=display:flex><span>date -R <span style=color:#f92672>||</span> date
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看时间 </span>
+</span></span><span style=display:flex><span>date -R <span style=color:#ff7b72;font-weight:700>||</span> date
 </span></span></code></pre></div><h2 id=3-所有节点安装docker>3. 所有节点安装Docker
-<a class=header-anchor href=#3-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9%e5%ae%89%e8%a3%85docker></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>1.卸载旧版本
-</span></span><span style=display:flex><span>yum remove docker <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>docker-client <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>docker-client-latest <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>docker-common <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>docker-latest <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>docker-latest-logrotate <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>docker-logrotate <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>docker-engine
+<a class=header-anchor href=#3-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9%e5%ae%89%e8%a3%85docker></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>1.卸载旧版本
+</span></span><span style=display:flex><span>yum remove docker <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>docker-client <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>docker-client-latest <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>docker-common <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>docker-latest <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>docker-latest-logrotate <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>docker-logrotate <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>docker-engine
 </span></span><span style=display:flex><span>		
 </span></span><span style=display:flex><span>2.安装需要的依赖包		
 </span></span><span style=display:flex><span>yum install -y yum-utils
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>3.设置阿里云docker镜像
-</span></span><span style=display:flex><span>yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo <span style=color:#f92672>&amp;&amp;</span> yum makecache
+</span></span><span style=display:flex><span>yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> yum makecache
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>4.安装docker
 </span></span><span style=display:flex><span>yum -y install docker-ce docker-ce-cli containerd.io
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>5.启动Docker 
-</span></span><span style=display:flex><span>systemctl start docker <span style=color:#f92672>&amp;&amp;</span> systemctl enable docker <span style=color:#f92672>&amp;&amp;</span> systemctl status docker
+</span></span><span style=display:flex><span>systemctl start docker <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> systemctl enable docker <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> systemctl status docker
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>6.查看docker版本信息 
 </span></span><span style=display:flex><span>docker info
 </span></span></code></pre></div><h2 id=4-所有节点配置阿里云dockerkubernetes镜像>4. 所有节点配置阿里云Docker、kubernetes镜像
-<a class=header-anchor href=#4-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9%e9%85%8d%e7%bd%ae%e9%98%bf%e9%87%8c%e4%ba%91dockerkubernetes%e9%95%9c%e5%83%8f></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>1. 配置阿里云docker镜像加速
+<a class=header-anchor href=#4-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9%e9%85%8d%e7%bd%ae%e9%98%bf%e9%87%8c%e4%ba%91dockerkubernetes%e9%95%9c%e5%83%8f></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>1. 配置阿里云docker镜像加速
 </span></span><span style=display:flex><span>mkdir -p /etc/docker
-</span></span><span style=display:flex><span>cat &gt; /etc/docker/daemon.json <span style=color:#e6db74>&lt;&lt; EOF 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>{ 
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;registry-mirrors&#34;: [&#34;https://l6p4ic76.mirror.aliyuncs.com&#34;],
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;log-driver&#34;:&#34;json-file&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;exec-opts&#34;: [&#34;native.cgroupdriver=systemd&#34;],
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;log-opts&#34;: {&#34;max-size&#34;:&#34;500m&#34;, &#34;max-file&#34;:&#34;3&#34;}
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span>cat &gt; /etc/docker/daemon.json <span style=color:#a5d6ff>&lt;&lt; EOF 
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>{ 
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>  &#34;registry-mirrors&#34;: [&#34;https://l6p4ic76.mirror.aliyuncs.com&#34;],
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>  &#34;log-driver&#34;:&#34;json-file&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>  &#34;exec-opts&#34;: [&#34;native.cgroupdriver=systemd&#34;],
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>  &#34;log-opts&#34;: {&#34;max-size&#34;:&#34;500m&#34;, &#34;max-file&#34;:&#34;3&#34;}
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>}
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>EOF</span>
 </span></span><span style=display:flex><span>systemctl restart docker
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>2. 配置阿里云Kubernetes 镜像
-</span></span><span style=display:flex><span>cat &gt;&gt; /etc/yum.repos.d/kubernetes.repo <span style=color:#e6db74>&lt;&lt; EOF
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>[kubernetes]
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>name=Kubernetes
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>enabled=1
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>gpgcheck=1
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>repo_gpgcheck=1
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span>cat &gt;&gt; /etc/yum.repos.d/kubernetes.repo <span style=color:#a5d6ff>&lt;&lt; EOF
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>[kubernetes]
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>name=Kubernetes
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>enabled=1
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>gpgcheck=1
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>repo_gpgcheck=1
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>EOF</span>
 </span></span></code></pre></div><h2 id=5-所有节点安装kubelet-kubeadm-kubectl>5. 所有节点安装kubelet kubeadm kubectl
-<a class=header-anchor href=#5-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9%e5%ae%89%e8%a3%85kubelet-kubeadm-kubectl></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum install -y --nogpgcheck kubelet-1.22.15 kubeadm-1.22.15 kubectl-1.22.15
+<a class=header-anchor href=#5-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9%e5%ae%89%e8%a3%85kubelet-kubeadm-kubectl></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum install -y --nogpgcheck kubelet-1.22.15 kubeadm-1.22.15 kubectl-1.22.15
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 指定K8S版本安装，不指定版本默认安装最新版。 </span>
-</span></span><span style=display:flex><span><span style=color:#75715e># yum install -y --nogpgcheck kubelet kubeadm kubectl</span>
-</span></span><span style=display:flex><span>systemctl enable kubelet <span style=color:#f92672>&amp;&amp;</span> systemctl start kubelet
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 指定K8S版本安装，不指定版本默认安装最新版。 </span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># yum install -y --nogpgcheck kubelet kubeadm kubectl</span>
+</span></span><span style=display:flex><span>systemctl enable kubelet <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> systemctl start kubelet
 </span></span></code></pre></div><h2 id=6-部署kubernetes-master节点>6. 部署Kubernetes Master节点
-<a class=header-anchor href=#6-%e9%83%a8%e7%bd%b2kubernetes-master%e8%8a%82%e7%82%b9></a></h2><p><strong><code>这里指定阿里云镜像仓库地址，默认的镜像地址无法加载访问。</code></strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>kubeadm init <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>--apiserver-advertise-address<span style=color:#f92672>=</span>192.168.211.201 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>--image-repository registry.aliyuncs.com/google_containers <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>--kubernetes-version v1.22.15 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>--service-cidr<span style=color:#f92672>=</span>10.96.0.0/12 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>--pod-network-cidr<span style=color:#f92672>=</span>10.244.0.0/16
-</span></span></code></pre></div><blockquote><p>若出现错误</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>root@almalinux ~<span style=color:#f92672>]</span><span style=color:#75715e># kubeadm init \</span>
-</span></span><span style=display:flex><span>&gt;   --apiserver-advertise-address<span style=color:#f92672>=</span>192.168.211.201 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>&gt;   --image-repository registry.aliyuncs.com/google_containers <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>&gt;   --kubernetes-version v1.25.3 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>&gt;   --service-cidr<span style=color:#f92672>=</span>10.96.0.0/12 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>&gt;   --pod-network-cidr<span style=color:#f92672>=</span>10.244.0.0/16
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>init<span style=color:#f92672>]</span> Using Kubernetes version: v1.25.3
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>preflight<span style=color:#f92672>]</span> Running pre-flight checks
-</span></span><span style=display:flex><span>        <span style=color:#f92672>[</span>WARNING FileExisting-tc<span style=color:#f92672>]</span>: tc not found in system path
-</span></span><span style=display:flex><span>error execution phase preflight: <span style=color:#f92672>[</span>preflight<span style=color:#f92672>]</span> Some fatal errors occurred:
-</span></span><span style=display:flex><span>        <span style=color:#f92672>[</span>ERROR CRI<span style=color:#f92672>]</span>: container runtime is not running: output: E1029 14:48:00.390255   <span style=color:#ae81ff>29768</span> remote_runtime.go:948<span style=color:#f92672>]</span> <span style=color:#e6db74>&#34;Status from runtime service failed&#34;</span> err<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.RuntimeService&#34;</span>
-</span></span><span style=display:flex><span>time<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;2022-10-29T14:48:00+08:00&#34;</span> level<span style=color:#f92672>=</span>fatal msg<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;getting status of runtime: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.RuntimeService&#34;</span>
-</span></span><span style=display:flex><span>, error: exit status <span style=color:#ae81ff>1</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>preflight<span style=color:#f92672>]</span> If you know what you are doing, you can make a check non-fatal with <span style=color:#e6db74>`</span>--ignore-preflight-errors<span style=color:#f92672>=</span>...<span style=color:#e6db74>`</span>
-</span></span><span style=display:flex><span>To see the stack trace of this error execute with --v<span style=color:#f92672>=</span><span style=color:#ae81ff>5</span> or higher
-</span></span></code></pre></div><blockquote><p>解决办法</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>rm -rf /etc/containerd/config.toml
+<a class=header-anchor href=#6-%e9%83%a8%e7%bd%b2kubernetes-master%e8%8a%82%e7%82%b9></a></h2><p><strong><code>这里指定阿里云镜像仓库地址，默认的镜像地址无法加载访问。</code></strong></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>kubeadm init <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>--apiserver-advertise-address<span style=color:#ff7b72;font-weight:700>=</span>192.168.211.201 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>--image-repository registry.aliyuncs.com/google_containers <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>--kubernetes-version v1.22.15 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>--service-cidr<span style=color:#ff7b72;font-weight:700>=</span>10.96.0.0/12 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>--pod-network-cidr<span style=color:#ff7b72;font-weight:700>=</span>10.244.0.0/16
+</span></span></code></pre></div><blockquote><p>若出现错误</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>root@almalinux ~<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#8b949e;font-style:italic># kubeadm init \</span>
+</span></span><span style=display:flex><span>&gt;   --apiserver-advertise-address<span style=color:#ff7b72;font-weight:700>=</span>192.168.211.201 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>&gt;   --image-repository registry.aliyuncs.com/google_containers <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>&gt;   --kubernetes-version v1.25.3 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>&gt;   --service-cidr<span style=color:#ff7b72;font-weight:700>=</span>10.96.0.0/12 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>&gt;   --pod-network-cidr<span style=color:#ff7b72;font-weight:700>=</span>10.244.0.0/16
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>init<span style=color:#ff7b72;font-weight:700>]</span> Using Kubernetes version: v1.25.3
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>preflight<span style=color:#ff7b72;font-weight:700>]</span> Running pre-flight checks
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72;font-weight:700>[</span>WARNING FileExisting-tc<span style=color:#ff7b72;font-weight:700>]</span>: tc not found in system path
+</span></span><span style=display:flex><span>error execution phase preflight: <span style=color:#ff7b72;font-weight:700>[</span>preflight<span style=color:#ff7b72;font-weight:700>]</span> Some fatal errors occurred:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72;font-weight:700>[</span>ERROR CRI<span style=color:#ff7b72;font-weight:700>]</span>: container runtime is not running: output: E1029 14:48:00.390255   <span style=color:#a5d6ff>29768</span> remote_runtime.go:948<span style=color:#ff7b72;font-weight:700>]</span> <span style=color:#a5d6ff>&#34;Status from runtime service failed&#34;</span> <span style=color:#79c0ff>err</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.RuntimeService&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>time</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;2022-10-29T14:48:00+08:00&#34;</span> <span style=color:#79c0ff>level</span><span style=color:#ff7b72;font-weight:700>=</span>fatal <span style=color:#79c0ff>msg</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;getting status of runtime: rpc error: code = Unimplemented desc = unknown service runtime.v1alpha2.RuntimeService&#34;</span>
+</span></span><span style=display:flex><span>, error: exit status <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>preflight<span style=color:#ff7b72;font-weight:700>]</span> If you know what you are doing, you can make a check non-fatal with <span style=color:#a5d6ff>`</span>--ignore-preflight-errors<span style=color:#ff7b72;font-weight:700>=</span>...<span style=color:#a5d6ff>`</span>
+</span></span><span style=display:flex><span>To see the stack trace of this error execute with --v<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>5</span> or higher
+</span></span></code></pre></div><blockquote><p>解决办法</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>rm -rf /etc/containerd/config.toml
 </span></span><span style=display:flex><span>systemctl restart containerd
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 最后使用</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 最后使用</span>
 </span></span><span style=display:flex><span>kubeadm reset
-</span></span></code></pre></div><blockquote><p>若出现错误</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>root@k8s-master ~<span style=color:#f92672>]</span><span style=color:#75715e># kubeadm init \</span>
-</span></span><span style=display:flex><span>&gt; --apiserver-advertise-address<span style=color:#f92672>=</span>192.168.211.201 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>&gt; --image-repository registry.aliyuncs.com/google_containers <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>&gt; --kubernetes-version v1.25.3 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>&gt; --service-cidr<span style=color:#f92672>=</span>10.96.0.0/12 <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>&gt; --pod-network-cidr<span style=color:#f92672>=</span>10.244.0.0/16
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>init<span style=color:#f92672>]</span> Using Kubernetes version: v1.25.3
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>preflight<span style=color:#f92672>]</span> Running pre-flight checks
-</span></span><span style=display:flex><span>        <span style=color:#f92672>[</span>WARNING FileExisting-tc<span style=color:#f92672>]</span>: tc not found in system path
-</span></span><span style=display:flex><span>        <span style=color:#f92672>[</span>WARNING Hostname<span style=color:#f92672>]</span>: hostname <span style=color:#e6db74>&#34;k8s-master&#34;</span> could not be reached
-</span></span><span style=display:flex><span>        <span style=color:#f92672>[</span>WARNING Hostname<span style=color:#f92672>]</span>: hostname <span style=color:#e6db74>&#34;k8s-master&#34;</span>: lookup k8s-master on 223.5.5.5:53: no such host
-</span></span><span style=display:flex><span>error execution phase preflight: <span style=color:#f92672>[</span>preflight<span style=color:#f92672>]</span> Some fatal errors occurred:
-</span></span><span style=display:flex><span>        <span style=color:#f92672>[</span>ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables<span style=color:#f92672>]</span>: /proc/sys/net/bridge/bridge-nf-call-iptables does not exist
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>preflight<span style=color:#f92672>]</span> If you know what you are doing, you can make a check non-fatal with <span style=color:#e6db74>`</span>--ignore-preflight-errors<span style=color:#f92672>=</span>...<span style=color:#e6db74>`</span>
-</span></span><span style=display:flex><span>To see the stack trace of this error execute with --v<span style=color:#f92672>=</span><span style=color:#ae81ff>5</span> or higher
-</span></span></code></pre></div><blockquote><p>解决方法</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>modprobe br_netfilter
-</span></span><span style=display:flex><span>echo <span style=color:#ae81ff>1</span> &gt; /proc/sys/net/bridge/bridge-nf-call-iptables
-</span></span></code></pre></div><blockquote><p><strong>注意：</strong> 如果要使用 <code>kubectl get nodes</code> 命令需要做以下配置</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span> - master节点，root用户，执行以下命令
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;export KUBECONFIG=/etc/kubernetes/admin.conf&#34;</span> &gt;&gt; ~/.bash_profile
+</span></span></code></pre></div><blockquote><p>若出现错误</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>root@k8s-master ~<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#8b949e;font-style:italic># kubeadm init \</span>
+</span></span><span style=display:flex><span>&gt; --apiserver-advertise-address<span style=color:#ff7b72;font-weight:700>=</span>192.168.211.201 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>&gt; --image-repository registry.aliyuncs.com/google_containers <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>&gt; --kubernetes-version v1.25.3 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>&gt; --service-cidr<span style=color:#ff7b72;font-weight:700>=</span>10.96.0.0/12 <span style=color:#79c0ff>\
+</span></span></span><span style=display:flex><span><span style=color:#79c0ff></span>&gt; --pod-network-cidr<span style=color:#ff7b72;font-weight:700>=</span>10.244.0.0/16
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>init<span style=color:#ff7b72;font-weight:700>]</span> Using Kubernetes version: v1.25.3
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>preflight<span style=color:#ff7b72;font-weight:700>]</span> Running pre-flight checks
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72;font-weight:700>[</span>WARNING FileExisting-tc<span style=color:#ff7b72;font-weight:700>]</span>: tc not found in system path
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72;font-weight:700>[</span>WARNING Hostname<span style=color:#ff7b72;font-weight:700>]</span>: hostname <span style=color:#a5d6ff>&#34;k8s-master&#34;</span> could not be reached
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72;font-weight:700>[</span>WARNING Hostname<span style=color:#ff7b72;font-weight:700>]</span>: hostname <span style=color:#a5d6ff>&#34;k8s-master&#34;</span>: lookup k8s-master on 223.5.5.5:53: no such host
+</span></span><span style=display:flex><span>error execution phase preflight: <span style=color:#ff7b72;font-weight:700>[</span>preflight<span style=color:#ff7b72;font-weight:700>]</span> Some fatal errors occurred:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72;font-weight:700>[</span>ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables<span style=color:#ff7b72;font-weight:700>]</span>: /proc/sys/net/bridge/bridge-nf-call-iptables does not exist
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>preflight<span style=color:#ff7b72;font-weight:700>]</span> If you know what you are doing, you can make a check non-fatal with <span style=color:#a5d6ff>`</span>--ignore-preflight-errors<span style=color:#ff7b72;font-weight:700>=</span>...<span style=color:#a5d6ff>`</span>
+</span></span><span style=display:flex><span>To see the stack trace of this error execute with --v<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>5</span> or higher
+</span></span></code></pre></div><blockquote><p>解决方法</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>modprobe br_netfilter
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>1</span> &gt; /proc/sys/net/bridge/bridge-nf-call-iptables
+</span></span></code></pre></div><blockquote><p><strong>注意：</strong> 如果要使用 <code>kubectl get nodes</code> 命令需要做以下配置</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span> - master节点，root用户，执行以下命令
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>&#34;export KUBECONFIG=/etc/kubernetes/admin.conf&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style=display:flex><span>source ~/.bash_profile
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span> - master节点，非root用户，执行以下命令
-</span></span><span style=display:flex><span>mkdir -p $HOME/.kube
-</span></span><span style=display:flex><span>sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-</span></span><span style=display:flex><span>sudo chown <span style=color:#66d9ef>$(</span>id -u<span style=color:#66d9ef>)</span>:<span style=color:#66d9ef>$(</span>id -g<span style=color:#66d9ef>)</span> $HOME/.kube/config
+</span></span><span style=display:flex><span>mkdir -p <span style=color:#79c0ff>$HOME</span>/.kube
+</span></span><span style=display:flex><span>sudo cp -i /etc/kubernetes/admin.conf <span style=color:#79c0ff>$HOME</span>/.kube/config
+</span></span><span style=display:flex><span>sudo chown <span style=color:#ff7b72>$(</span>id -u<span style=color:#ff7b72>)</span>:<span style=color:#ff7b72>$(</span>id -g<span style=color:#ff7b72>)</span> <span style=color:#79c0ff>$HOME</span>/.kube/config
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>- node节点需要从 master 节点拷贝 admin.con 文件到 node 节点上
 </span></span><span style=display:flex><span>scp root@master:/etc/kubernetes/admin.conf /etc/kubernetes/
 </span></span><span style=display:flex><span>- root 和 非root 用户的命令同master
 </span></span></code></pre></div><h2 id=7-部署网络插件>7. 部署网络插件
-<a class=header-anchor href=#7-%e9%83%a8%e7%bd%b2%e7%bd%91%e7%bb%9c%e6%8f%92%e4%bb%b6></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 以下网络插件任选一个</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># CNI网络插件</span>
+<a class=header-anchor href=#7-%e9%83%a8%e7%bd%b2%e7%bd%91%e7%bb%9c%e6%8f%92%e4%bb%b6></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 以下网络插件任选一个</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># CNI网络插件</span>
 </span></span><span style=display:flex><span>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Flannel网络插件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Flannel网络插件</span>
 </span></span><span style=display:flex><span>kubectl apply -f https://kuboard.cn/install-script/flannel/flannel-v0.14.0.yaml
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看</span>
 </span></span><span style=display:flex><span>kubectl get pods -n kube-system
-</span></span></code></pre></div><blockquote><p>若发现有<code>Pending</code>的删除即可，会自动重新部署</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>root@k8s-master ~<span style=color:#f92672>]</span><span style=color:#75715e># kubectl get pods -n kube-system</span>
+</span></span></code></pre></div><blockquote><p>若发现有<code>Pending</code>的删除即可，会自动重新部署</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>root@k8s-master ~<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#8b949e;font-style:italic># kubectl get pods -n kube-system</span>
 </span></span><span style=display:flex><span>NAME                                 READY   STATUS    RESTARTS   AGE
-</span></span><span style=display:flex><span>coredns-7f6cbbb7b8-6gxf6             0/1     Pending   <span style=color:#ae81ff>0</span>          23m
-</span></span><span style=display:flex><span>coredns-7f6cbbb7b8-nnjsk             0/1     Pending   <span style=color:#ae81ff>0</span>          23m
-</span></span><span style=display:flex><span>etcd-k8s-master                      1/1     Running   <span style=color:#ae81ff>1</span>          23m
-</span></span><span style=display:flex><span>kube-apiserver-k8s-master            1/1     Running   <span style=color:#ae81ff>1</span>          23m
-</span></span><span style=display:flex><span>kube-controller-manager-k8s-master   1/1     Running   <span style=color:#ae81ff>1</span>          23m
-</span></span><span style=display:flex><span>kube-proxy-6d4d6                     1/1     Running   <span style=color:#ae81ff>0</span>          18m
-</span></span><span style=display:flex><span>kube-proxy-m4vx9                     1/1     Running   <span style=color:#ae81ff>0</span>          23m
-</span></span><span style=display:flex><span>kube-scheduler-k8s-master            1/1     Running   <span style=color:#ae81ff>1</span>          23m
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@k8s-master ~<span style=color:#f92672>]</span><span style=color:#75715e># kubectl delete pods coredns-7f6cbbb7b8-6gxf6 coredns-7f6cbbb7b8-nnjsk  -n kube-system</span>
-</span></span><span style=display:flex><span>pod <span style=color:#e6db74>&#34;coredns-7f6cbbb7b8-6gxf6&#34;</span> deleted
-</span></span><span style=display:flex><span>pod <span style=color:#e6db74>&#34;coredns-7f6cbbb7b8-nnjsk&#34;</span> deleted
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@k8s-master ~<span style=color:#f92672>]</span><span style=color:#75715e># kubectl get pods -n kube-system</span>
+</span></span><span style=display:flex><span>coredns-7f6cbbb7b8-6gxf6             0/1     Pending   <span style=color:#a5d6ff>0</span>          23m
+</span></span><span style=display:flex><span>coredns-7f6cbbb7b8-nnjsk             0/1     Pending   <span style=color:#a5d6ff>0</span>          23m
+</span></span><span style=display:flex><span>etcd-k8s-master                      1/1     Running   <span style=color:#a5d6ff>1</span>          23m
+</span></span><span style=display:flex><span>kube-apiserver-k8s-master            1/1     Running   <span style=color:#a5d6ff>1</span>          23m
+</span></span><span style=display:flex><span>kube-controller-manager-k8s-master   1/1     Running   <span style=color:#a5d6ff>1</span>          23m
+</span></span><span style=display:flex><span>kube-proxy-6d4d6                     1/1     Running   <span style=color:#a5d6ff>0</span>          18m
+</span></span><span style=display:flex><span>kube-proxy-m4vx9                     1/1     Running   <span style=color:#a5d6ff>0</span>          23m
+</span></span><span style=display:flex><span>kube-scheduler-k8s-master            1/1     Running   <span style=color:#a5d6ff>1</span>          23m
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>root@k8s-master ~<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#8b949e;font-style:italic># kubectl delete pods coredns-7f6cbbb7b8-6gxf6 coredns-7f6cbbb7b8-nnjsk  -n kube-system</span>
+</span></span><span style=display:flex><span>pod <span style=color:#a5d6ff>&#34;coredns-7f6cbbb7b8-6gxf6&#34;</span> deleted
+</span></span><span style=display:flex><span>pod <span style=color:#a5d6ff>&#34;coredns-7f6cbbb7b8-nnjsk&#34;</span> deleted
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>root@k8s-master ~<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#8b949e;font-style:italic># kubectl get pods -n kube-system</span>
 </span></span><span style=display:flex><span>NAME                                 READY   STATUS    RESTARTS   AGE
-</span></span><span style=display:flex><span>coredns-7f6cbbb7b8-4df47             1/1     Running   <span style=color:#ae81ff>0</span>          11s
-</span></span><span style=display:flex><span>coredns-7f6cbbb7b8-wxzcl             1/1     Running   <span style=color:#ae81ff>0</span>          11s
-</span></span><span style=display:flex><span>etcd-k8s-master                      1/1     Running   <span style=color:#ae81ff>1</span>          24m
-</span></span><span style=display:flex><span>kube-apiserver-k8s-master            1/1     Running   <span style=color:#ae81ff>1</span>          24m
-</span></span><span style=display:flex><span>kube-controller-manager-k8s-master   1/1     Running   <span style=color:#ae81ff>1</span>          24m
-</span></span><span style=display:flex><span>kube-proxy-6d4d6                     1/1     Running   <span style=color:#ae81ff>0</span>          19m
-</span></span><span style=display:flex><span>kube-proxy-m4vx9                     1/1     Running   <span style=color:#ae81ff>0</span>          24m
+</span></span><span style=display:flex><span>coredns-7f6cbbb7b8-4df47             1/1     Running   <span style=color:#a5d6ff>0</span>          11s
+</span></span><span style=display:flex><span>coredns-7f6cbbb7b8-wxzcl             1/1     Running   <span style=color:#a5d6ff>0</span>          11s
+</span></span><span style=display:flex><span>etcd-k8s-master                      1/1     Running   <span style=color:#a5d6ff>1</span>          24m
+</span></span><span style=display:flex><span>kube-apiserver-k8s-master            1/1     Running   <span style=color:#a5d6ff>1</span>          24m
+</span></span><span style=display:flex><span>kube-controller-manager-k8s-master   1/1     Running   <span style=color:#a5d6ff>1</span>          24m
+</span></span><span style=display:flex><span>kube-proxy-6d4d6                     1/1     Running   <span style=color:#a5d6ff>0</span>          19m
+</span></span><span style=display:flex><span>kube-proxy-m4vx9                     1/1     Running   <span style=color:#a5d6ff>0</span>          24m
 </span></span><span style=display:flex><span>kube-scheduler-k8s-master 
 </span></span></code></pre></div><h2 id=8-部署node节点>8. 部署node节点
-<a class=header-anchor href=#8-%e9%83%a8%e7%bd%b2node%e8%8a%82%e7%82%b9></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 只在 master 节点执行</span>
+<a class=header-anchor href=#8-%e9%83%a8%e7%bd%b2node%e8%8a%82%e7%82%b9></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 只在 master 节点执行</span>
 </span></span><span style=display:flex><span>kubeadm token create --print-join-command
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 在node节点中执行打印出的结果</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 在node节点中执行打印出的结果</span>
 </span></span><span style=display:flex><span>kubeadm join 192.168.211.201:6443 --token hfyeoe.ie453hoen4eku70w --discovery-token-ca-cert-hash sha256:3716cd7f3c8a52b78b1ab495e7fbd3c6f7dabd899a0237c203c05bce11ac9be6
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 在 master 节点中查看</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>root@k8s-master ~<span style=color:#f92672>]</span><span style=color:#75715e># kubectl get nodes</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 在 master 节点中查看</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>root@k8s-master ~<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#8b949e;font-style:italic># kubectl get nodes</span>
 </span></span><span style=display:flex><span>NAME         STATUS   ROLES                  AGE     VERSION
 </span></span><span style=display:flex><span>k8s-master   Ready    control-plane,master   59m     v1.22.3
 </span></span><span style=display:flex><span>k8s-node1    Ready    &lt;none&gt;                 54m     v1.22.3
 </span></span><span style=display:flex><span>k8s-node2    Ready    &lt;none&gt;                 3m53s   v1.22.3
 </span></span></code></pre></div><blockquote><p><strong>注意：</strong> 若新加入的node节点出现<code>NotReady</code>等待一会即可</p></blockquote><h2 id=9-添加图形化管理选做>9. 添加图形化管理（选做）
-<a class=header-anchor href=#9-%e6%b7%bb%e5%8a%a0%e5%9b%be%e5%bd%a2%e5%8c%96%e7%ae%a1%e7%90%86%e9%80%89%e5%81%9a></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 在 master 节点执行</span>
+<a class=header-anchor href=#9-%e6%b7%bb%e5%8a%a0%e5%9b%be%e5%bd%a2%e5%8c%96%e7%ae%a1%e7%90%86%e9%80%89%e5%81%9a></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 在 master 节点执行</span>
 </span></span><span style=display:flex><span>kubectl apply -f https://addons.kuboard.cn/kuboard/kuboard-v3-swr.yaml
-</span></span></code></pre></div><p>执行指令 <code>watch kubectl get pods -n kuboard</code>，等待 kuboard 名称空间中所有的 Pod 就绪</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>root@k8s-master ~<span style=color:#f92672>]</span><span style=color:#75715e># kubectl get pods -n kuboard</span>
+</span></span></code></pre></div><p>执行指令 <code>watch kubectl get pods -n kuboard</code>，等待 kuboard 名称空间中所有的 Pod 就绪</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>root@k8s-master ~<span style=color:#ff7b72;font-weight:700>]</span><span style=color:#8b949e;font-style:italic># kubectl get pods -n kuboard</span>
 </span></span><span style=display:flex><span>NAME                               READY   STATUS    RESTARTS   AGE
-</span></span><span style=display:flex><span>kuboard-agent-2-85d76b44dd-jvpm2   1/1     Running   <span style=color:#ae81ff>0</span>          9s
-</span></span><span style=display:flex><span>kuboard-agent-67864c5f66-4w9z2     1/1     Running   <span style=color:#ae81ff>0</span>          9s
-</span></span><span style=display:flex><span>kuboard-etcd-htppb                 1/1     Running   <span style=color:#ae81ff>0</span>          36s
-</span></span><span style=display:flex><span>kuboard-v3-765f7bcbfd-lpwct        0/1     Running   <span style=color:#ae81ff>0</span>          36s
+</span></span><span style=display:flex><span>kuboard-agent-2-85d76b44dd-jvpm2   1/1     Running   <span style=color:#a5d6ff>0</span>          9s
+</span></span><span style=display:flex><span>kuboard-agent-67864c5f66-4w9z2     1/1     Running   <span style=color:#a5d6ff>0</span>          9s
+</span></span><span style=display:flex><span>kuboard-etcd-htppb                 1/1     Running   <span style=color:#a5d6ff>0</span>          36s
+</span></span><span style=display:flex><span>kuboard-v3-765f7bcbfd-lpwct        0/1     Running   <span style=color:#a5d6ff>0</span>          36s
 </span></span></code></pre></div><h3 id=访问-kuboard>访问 Kuboard
 <a class=header-anchor href=#%e8%ae%bf%e9%97%ae-kuboard></a></h3><ul><li><p>在浏览器中打开链接 <code>http://your-node-ip-address:30080</code></p></li><li><p>输入初始用户名和密码，并登录</p><ul><li>用户名： <code>admin</code></li><li>密码： <code>Kuboard123</code></li></ul></li></ul><h3 id=卸载>卸载
-<a class=header-anchor href=#%e5%8d%b8%e8%bd%bd></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>kubectl delete -f https://addons.kuboard.cn/kuboard/kuboard-v3-swr.yaml
+<a class=header-anchor href=#%e5%8d%b8%e8%bd%bd></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>kubectl delete -f https://addons.kuboard.cn/kuboard/kuboard-v3-swr.yaml
 </span></span><span style=display:flex><span>rm -rf /usr/share/kuboard
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/docker>Docker</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">

@@ -26,55 +26,55 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span>2分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=一插入u盘或者移动硬盘>一、插入U盘或者移动硬盘
 <a class=header-anchor href=#%e4%b8%80%e6%8f%92%e5%85%a5u%e7%9b%98%e6%88%96%e8%80%85%e7%a7%bb%e5%8a%a8%e7%a1%ac%e7%9b%98></a></h2><h3 id=1若是一块新的移动硬盘则需要对它进行分区和格式化>1、若是一块新的移动硬盘，则需要对它进行分区和格式化
 <a class=header-anchor href=#1%e8%8b%a5%e6%98%af%e4%b8%80%e5%9d%97%e6%96%b0%e7%9a%84%e7%a7%bb%e5%8a%a8%e7%a1%ac%e7%9b%98%e5%88%99%e9%9c%80%e8%a6%81%e5%af%b9%e5%ae%83%e8%bf%9b%e8%a1%8c%e5%88%86%e5%8c%ba%e5%92%8c%e6%a0%bc%e5%bc%8f%e5%8c%96></a></h3><p>使用<code>df -h</code>可以查看当前系统中详细的存储设备挂载情况。</p><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/homeWinDir/20210805205100.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=JI51K&amp;originHeight=215&amp;originWidth=709&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><p>使用<code>sudo fdisk -l</code>可以查看磁盘分区情况</p><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/homeWinDir/20210805205421.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=bEiYc&amp;originHeight=455&amp;originWidth=712&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><h4 id=11进入fdisk操作模式对磁盘进行分区>1.1进入fdisk操作模式，对磁盘进行分区
-<a class=header-anchor href=#11%e8%bf%9b%e5%85%a5fdisk%e6%93%8d%e4%bd%9c%e6%a8%a1%e5%bc%8f%e5%af%b9%e7%a3%81%e7%9b%98%e8%bf%9b%e8%a1%8c%e5%88%86%e5%8c%ba></a></h4><p>通过指令<code>sudo fdisk /dev/sd*</code>我们可以进入对应磁盘的fdisk操作模式，我们可以输入<code>m</code>来获取如下的帮助列表，并选择对应的功能进行后续操作。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>Help:
+<a class=header-anchor href=#11%e8%bf%9b%e5%85%a5fdisk%e6%93%8d%e4%bd%9c%e6%a8%a1%e5%bc%8f%e5%af%b9%e7%a3%81%e7%9b%98%e8%bf%9b%e8%a1%8c%e5%88%86%e5%8c%ba></a></h4><p>通过指令<code>sudo fdisk /dev/sd*</code>我们可以进入对应磁盘的fdisk操作模式，我们可以输入<code>m</code>来获取如下的帮助列表，并选择对应的功能进行后续操作。</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>Help:
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  DOS <span style=color:#f92672>(</span>MBR<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>   a   toggle a bootable flag <span style=color:#75715e># 切换可引导的标识</span>
-</span></span><span style=display:flex><span>   b   edit nested BSD disklabel <span style=color:#75715e># 编辑bsd磁盘标识</span>
-</span></span><span style=display:flex><span>   c   toggle the dos compatibility flag <span style=color:#75715e># 切换dos兼容性标识</span>
+</span></span><span style=display:flex><span>  DOS <span style=color:#ff7b72;font-weight:700>(</span>MBR<span style=color:#ff7b72;font-weight:700>)</span>
+</span></span><span style=display:flex><span>   a   toggle a bootable flag <span style=color:#8b949e;font-style:italic># 切换可引导的标识</span>
+</span></span><span style=display:flex><span>   b   edit nested BSD disklabel <span style=color:#8b949e;font-style:italic># 编辑bsd磁盘标识</span>
+</span></span><span style=display:flex><span>   c   toggle the dos compatibility flag <span style=color:#8b949e;font-style:italic># 切换dos兼容性标识</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  Generic
-</span></span><span style=display:flex><span>   d   delete a partition <span style=color:#75715e># 删除磁盘分区</span>
-</span></span><span style=display:flex><span>   F   list free unpartitioned space <span style=color:#75715e># 列出可用未分区空间</span>
-</span></span><span style=display:flex><span>   l   list known partition types <span style=color:#75715e># 列出已知分区类型</span>
-</span></span><span style=display:flex><span>   n   add a new partition <span style=color:#75715e># 添加一个新的分区</span>
-</span></span><span style=display:flex><span>   p   print the partition table <span style=color:#75715e># 打印分区表</span>
-</span></span><span style=display:flex><span>   t   change a partition type <span style=color:#75715e># 更改分区类型</span>
-</span></span><span style=display:flex><span>   v   verify the partition table <span style=color:#75715e># 校验分区表</span>
-</span></span><span style=display:flex><span>   i   print information about a partition <span style=color:#75715e># 打印有关分区的信息</span>
+</span></span><span style=display:flex><span>   d   delete a partition <span style=color:#8b949e;font-style:italic># 删除磁盘分区</span>
+</span></span><span style=display:flex><span>   F   list free unpartitioned space <span style=color:#8b949e;font-style:italic># 列出可用未分区空间</span>
+</span></span><span style=display:flex><span>   l   list known partition types <span style=color:#8b949e;font-style:italic># 列出已知分区类型</span>
+</span></span><span style=display:flex><span>   n   add a new partition <span style=color:#8b949e;font-style:italic># 添加一个新的分区</span>
+</span></span><span style=display:flex><span>   p   print the partition table <span style=color:#8b949e;font-style:italic># 打印分区表</span>
+</span></span><span style=display:flex><span>   t   change a partition type <span style=color:#8b949e;font-style:italic># 更改分区类型</span>
+</span></span><span style=display:flex><span>   v   verify the partition table <span style=color:#8b949e;font-style:italic># 校验分区表</span>
+</span></span><span style=display:flex><span>   i   print information about a partition <span style=color:#8b949e;font-style:italic># 打印有关分区的信息</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  Misc
-</span></span><span style=display:flex><span>   m   print this menu <span style=color:#75715e># 打印help</span>
-</span></span><span style=display:flex><span>   u   change display/entry units <span style=color:#75715e># 改变 显示/接入 单元</span>
-</span></span><span style=display:flex><span>   x   extra functionality <span style=color:#f92672>(</span>experts only<span style=color:#f92672>)</span> <span style=color:#75715e># 额外功能(仅限专家)</span>
+</span></span><span style=display:flex><span>   m   print this menu <span style=color:#8b949e;font-style:italic># 打印help</span>
+</span></span><span style=display:flex><span>   u   change display/entry units <span style=color:#8b949e;font-style:italic># 改变 显示/接入 单元</span>
+</span></span><span style=display:flex><span>   x   extra functionality <span style=color:#ff7b72;font-weight:700>(</span>experts only<span style=color:#ff7b72;font-weight:700>)</span> <span style=color:#8b949e;font-style:italic># 额外功能(仅限专家)</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  Script
-</span></span><span style=display:flex><span>   I   load disk layout from sfdisk script file <span style=color:#75715e># 从sfdisk脚本文件加载磁盘布局</span>
-</span></span><span style=display:flex><span>   O   dump disk layout to sfdisk script file <span style=color:#75715e># 将磁盘布局转储到sfdisk脚本文件</span>
+</span></span><span style=display:flex><span>   I   load disk layout from sfdisk script file <span style=color:#8b949e;font-style:italic># 从sfdisk脚本文件加载磁盘布局</span>
+</span></span><span style=display:flex><span>   O   dump disk layout to sfdisk script file <span style=color:#8b949e;font-style:italic># 将磁盘布局转储到sfdisk脚本文件</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  Save &amp; Exit
-</span></span><span style=display:flex><span>   w   write table to disk and exit <span style=color:#75715e># 保存并退出</span>
-</span></span><span style=display:flex><span>   q   quit without saving changes <span style=color:#75715e># 退出不保存</span>
+</span></span><span style=display:flex><span>   w   write table to disk and exit <span style=color:#8b949e;font-style:italic># 保存并退出</span>
+</span></span><span style=display:flex><span>   q   quit without saving changes <span style=color:#8b949e;font-style:italic># 退出不保存</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  Create a new label
-</span></span><span style=display:flex><span>   g   create a new empty GPT partition table <span style=color:#75715e># 创建一个新的gpt分区</span>
-</span></span><span style=display:flex><span>   G   create a new empty SGI <span style=color:#f92672>(</span>IRIX<span style=color:#f92672>)</span> partition table 
+</span></span><span style=display:flex><span>   g   create a new empty GPT partition table <span style=color:#8b949e;font-style:italic># 创建一个新的gpt分区</span>
+</span></span><span style=display:flex><span>   G   create a new empty SGI <span style=color:#ff7b72;font-weight:700>(</span>IRIX<span style=color:#ff7b72;font-weight:700>)</span> partition table 
 </span></span><span style=display:flex><span>   o   create a new empty DOS partition table
 </span></span><span style=display:flex><span>   s   create a new empty Sun partition table
 </span></span></code></pre></div><p>常用的就 <code>n</code> <code>p</code> <code>w</code></p><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/homeWinDir/20210805213558.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=qG78c&amp;originHeight=407&amp;originWidth=704&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/homeWinDir/20210805213730.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=xGxO6&amp;originHeight=149&amp;originWidth=701&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><h4 id=12-对新分区进行格式化操作>1.2 对新分区进行格式化操作
-<a class=header-anchor href=#12-%e5%af%b9%e6%96%b0%e5%88%86%e5%8c%ba%e8%bf%9b%e8%a1%8c%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%93%8d%e4%bd%9c></a></h4><p>有两种格式化方法：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo mkfs -t ext4 /dev/sda1
-</span></span><span style=display:flex><span><span style=color:#75715e># 或者</span>
+<a class=header-anchor href=#12-%e5%af%b9%e6%96%b0%e5%88%86%e5%8c%ba%e8%bf%9b%e8%a1%8c%e6%a0%bc%e5%bc%8f%e5%8c%96%e6%93%8d%e4%bd%9c></a></h4><p>有两种格式化方法：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo mkfs -t ext4 /dev/sda1
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 或者</span>
 </span></span><span style=display:flex><span>sudo mkfs.ext4 /dev/sda1
-</span></span><span style=display:flex><span><span style=color:#75715e># xfs文件系统</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># xfs文件系统</span>
 </span></span><span style=display:flex><span>sudo mkfs -t xfs /dev/sdb1
 </span></span><span style=display:flex><span>sudo mkfs.xfs /dev/sdb1
 </span></span></code></pre></div><h4 id=13-磁盘挂载>1.3 磁盘挂载
-<a class=header-anchor href=#13-%e7%a3%81%e7%9b%98%e6%8c%82%e8%bd%bd></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo mount /dev/sda1 /data
-</span></span><span style=display:flex><span><span style=color:#75715e># 卸载命令</span>
+<a class=header-anchor href=#13-%e7%a3%81%e7%9b%98%e6%8c%82%e8%bd%bd></a></h4><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo mount /dev/sda1 /data
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 卸载命令</span>
 </span></span><span style=display:flex><span>sudo umount /dev/sda1
 </span></span></code></pre></div><p>最后通过<code>df -h</code>查看挂载情况</p><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/homeWinDir/20210805211938.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=KCwA0&amp;originHeight=235&amp;originWidth=703&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><p>可以看到<code>/dev/sda1</code>已经挂载成功</p><h4 id=14-设置磁盘的开机自动挂载>1.4 设置磁盘的开机自动挂载
-<a class=header-anchor href=#14-%e8%ae%be%e7%bd%ae%e7%a3%81%e7%9b%98%e7%9a%84%e5%bc%80%e6%9c%ba%e8%87%aa%e5%8a%a8%e6%8c%82%e8%bd%bd></a></h4><p>首先我们需要获取新的磁盘的UUID：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo blkid /dev/sda1
-</span></span></code></pre></div><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/homeWinDir/20210805212111.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=Y6yq0&amp;originHeight=69&amp;originWidth=702&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><p>然后把UUID和相关信息按照格式写到/etc/fstab里面，<strong>主要增加UUID，挂载位置，FS格式这三点</strong>，之后保存即可。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo vim /etc/fstab
+<a class=header-anchor href=#14-%e8%ae%be%e7%bd%ae%e7%a3%81%e7%9b%98%e7%9a%84%e5%bc%80%e6%9c%ba%e8%87%aa%e5%8a%a8%e6%8c%82%e8%bd%bd></a></h4><p>首先我们需要获取新的磁盘的UUID：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo blkid /dev/sda1
+</span></span></code></pre></div><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/homeWinDir/20210805212111.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=Y6yq0&amp;originHeight=69&amp;originWidth=702&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p><p>然后把UUID和相关信息按照格式写到/etc/fstab里面，<strong>主要增加UUID，挂载位置，FS格式这三点</strong>，之后保存即可。</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>sudo vim /etc/fstab
 </span></span></code></pre></div><p><img src=/imgs/img-lazy-loading.gif data-src="https://picture-czy.oss-cn-beijing.aliyuncs.com/homeWinDir/20210805212409.png#crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;id=vtEZS&amp;originHeight=160&amp;originWidth=723&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;status=done&amp;style=none&amp;title=" alt></p></div><footer class=post-footer><div class=post-tags><a href=/tags/linux>Linux</a>
 <a href=/tags/%e5%b7%a5%e5%85%b7%e4%bd%bf%e7%94%a8>工具使用</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">

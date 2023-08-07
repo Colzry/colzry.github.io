@@ -24,38 +24,38 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>3分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=安装>安装
-<a class=header-anchor href=#%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e># 安装服务端/客户端(Ubuntu)</span>
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安装服务端/客户端(Ubuntu)</span>
 </span></span><span style=display:flex><span>$ sudo apt install openssh-server/openssh-client
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看ssh服务是否开启</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看ssh服务是否开启</span>
 </span></span><span style=display:flex><span>$ netstat -tlp | grep ssh
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 启动/停止/重启 ssh服务</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 启动/停止/重启 ssh服务</span>
 </span></span><span style=display:flex><span>$ sudo /etc/init.d/ssh start/stop/restart
 </span></span></code></pre></div><ul><li>ssh服务端配置文件默认为<code>/etc/ssh/sshd_config</code>。可以按需修改默认22端口等配置。</li></ul><h2 id=普通登录方式>普通登录方式
-<a class=header-anchor href=#%e6%99%ae%e9%80%9a%e7%99%bb%e5%bd%95%e6%96%b9%e5%bc%8f></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e># 命令格式</span>
-</span></span><span style=display:flex><span>$ ssh <span style=color:#f92672>[</span>-options<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>user@hostname<span style=color:#f92672>]</span>
+<a class=header-anchor href=#%e6%99%ae%e9%80%9a%e7%99%bb%e5%bd%95%e6%96%b9%e5%bc%8f></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 命令格式</span>
+</span></span><span style=display:flex><span>$ ssh <span style=color:#ff7b72;font-weight:700>[</span>-options<span style=color:#ff7b72;font-weight:700>]</span> <span style=color:#ff7b72;font-weight:700>[</span>user@hostname<span style=color:#ff7b72;font-weight:700>]</span>
 </span></span></code></pre></div><table><thead><tr><th>options</th><th>含义</th></tr></thead><tbody><tr><td><code>-p</code></td><td>指定ssh端口号,默认端口为<code>22</code></td></tr><tr><td><code>-i</code></td><td>使用指定私钥文件连接服务器(
 <a href=https://ccstudio.com.cn/linux/part1/remote.html#2-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95 title=免密登录 rel="noopener external nofollow noreferrer" target=_blank class=exturl>免密登录
-<i class="fa fa-external-link-alt"></i></a></td></tr><tr><td>)</td><td></td></tr></tbody></table><ul><li><code>user</code>远程服务器登录的用户名，默认为当前用户</li><li><code>hostname</code>远程服务器地址。可以是IP/域名/别名</li><li><code>exit</code>或<code>logout</code>命令均可退出当前登录</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e># 以hadoop用户登录192.168.1.196的到ssh服务器</span>
+<i class="fa fa-external-link-alt"></i></a></td></tr><tr><td>)</td><td></td></tr></tbody></table><ul><li><code>user</code>远程服务器登录的用户名，默认为当前用户</li><li><code>hostname</code>远程服务器地址。可以是IP/域名/别名</li><li><code>exit</code>或<code>logout</code>命令均可退出当前登录</li></ul><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 以hadoop用户登录192.168.1.196的到ssh服务器</span>
 </span></span><span style=display:flex><span>$ ssh  hadoop@192.168.1.196
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 以hadoop户登录到192.168.1.198的ssh服务器，使用8022端口</span>
-</span></span><span style=display:flex><span>$ ssh hadoop@192.168.1.198 -p <span style=color:#ae81ff>8022</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 以hadoop户登录到192.168.1.198的ssh服务器，使用8022端口</span>
+</span></span><span style=display:flex><span>$ ssh hadoop@192.168.1.198 -p <span style=color:#a5d6ff>8022</span>
 </span></span></code></pre></div><h2 id=ssh高级配置>ssh高级配置
 <a class=header-anchor href=#ssh%e9%ab%98%e7%ba%a7%e9%85%8d%e7%bd%ae></a></h2><p>ssh配置信息都保存在<code>~/.ssh</code> 中</p><table><thead><tr><th>配置文件</th><th>作用</th></tr></thead><tbody><tr><td>known_hosts</td><td>作为客户端。记录曾连接服务器授权。ssh第一次连接一台服务器会有一个授权提示，确认授权后会记录在此文件中，下次连接记录中的服务器时则不再需要进行授权确认提示</td></tr><tr><td>authorized_keys</td><td>作为服务端。客户端的免密连接公钥文件</td></tr><tr><td>config</td><td>作为客户端。记录连接服务器配置的别名</td></tr></tbody></table><h3 id=服务器别名>服务器别名
-<a class=header-anchor href=#%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%88%ab%e5%90%8d></a></h3><p>远程管理命令(如ssh,scp等)连接一台服务器时一般都需要提供 服务器地址、端口、用户名 ，每次输入比较繁琐，我们可以把经常使用的服务器连接参数打包记录到配置文件中并为其设置一个简单易记的别名。这样我们就可以通过别名方便的访问服务器，而不需要提供地址、端口、用户名等信息了。</p><p>配置方法如下：</p><ul><li>创建或打开 <code>~/.ssh/config</code>，在文件追加服务器配置信息</li><li>一台服务器配置格式如下</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>Host</span> <span style=color:#960050;background-color:#1e0010>【别名】</span>
-</span></span><span style=display:flex><span>  <span style=color:#960050;background-color:#1e0010>HostName</span> <span style=color:#ae81ff>192.168</span><span style=color:#960050;background-color:#1e0010>.</span><span style=color:#ae81ff>1.196</span>
-</span></span><span style=display:flex><span>  <span style=color:#960050;background-color:#1e0010>User</span> <span style=color:#960050;background-color:#1e0010>hadoop</span>
-</span></span><span style=display:flex><span>  <span style=color:#960050;background-color:#1e0010>Port</span> <span style=color:#ae81ff>22</span>
+<a class=header-anchor href=#%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%88%ab%e5%90%8d></a></h3><p>远程管理命令(如ssh,scp等)连接一台服务器时一般都需要提供 服务器地址、端口、用户名 ，每次输入比较繁琐，我们可以把经常使用的服务器连接参数打包记录到配置文件中并为其设置一个简单易记的别名。这样我们就可以通过别名方便的访问服务器，而不需要提供地址、端口、用户名等信息了。</p><p>配置方法如下：</p><ul><li>创建或打开 <code>~/.ssh/config</code>，在文件追加服务器配置信息</li><li>一台服务器配置格式如下</li></ul><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span><span style=color:#f85149>Host</span> <span style=color:#f85149>【别名】</span>
+</span></span><span style=display:flex><span>  <span style=color:#f85149>HostName</span> <span style=color:#a5d6ff>192.168</span><span style=color:#f85149>.</span><span style=color:#a5d6ff>1.196</span>
+</span></span><span style=display:flex><span>  <span style=color:#f85149>User</span> <span style=color:#f85149>hadoop</span>
+</span></span><span style=display:flex><span>  <span style=color:#f85149>Port</span> <span style=color:#a5d6ff>22</span>
 </span></span></code></pre></div><h2 id=免密登录>免密登录
-<a class=header-anchor href=#%e5%85%8d%e5%af%86%e7%99%bb%e5%bd%95></a></h2><ul><li>远程管理命令(如ssh,scp等)每次都需要提供用户密码保证安全。除此之外，我们也可配置使指定加密算法验证密钥文件的方式，避免每次输入密码</li><li>配置免密登录后，ssh连接和scp等远程管理命令都不需要再输密码</li><li>生成密钥时若指定了文件名，连接服务器时需要通过<code>-i</code>指定要验证的密钥文件,形如：<code>ssh -i file user@host</code>。默认文件名则可省略</li><li>默认配置只需以下两步：</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e># 客户端生成密钥对</span>
+<a class=header-anchor href=#%e5%85%8d%e5%af%86%e7%99%bb%e5%bd%95></a></h2><ul><li>远程管理命令(如ssh,scp等)每次都需要提供用户密码保证安全。除此之外，我们也可配置使指定加密算法验证密钥文件的方式，避免每次输入密码</li><li>配置免密登录后，ssh连接和scp等远程管理命令都不需要再输密码</li><li>生成密钥时若指定了文件名，连接服务器时需要通过<code>-i</code>指定要验证的密钥文件,形如：<code>ssh -i file user@host</code>。默认文件名则可省略</li><li>默认配置只需以下两步：</li></ul><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 客户端生成密钥对</span>
 </span></span><span style=display:flex><span>$ ssh-keygen
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 上传公钥到服务器</span>
-</span></span><span style=display:flex><span>$ ssh-copy-id user@host  <span style=color:#75715e># 文件会自动上传为服务器特定文件 ～/.ssh/authorized_keys</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 上传公钥到服务器</span>
+</span></span><span style=display:flex><span>$ ssh-copy-id user@host  <span style=color:#8b949e;font-style:italic># 文件会自动上传为服务器特定文件 ～/.ssh/authorized_keys</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#  客户端登录</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#  客户端登录</span>
 </span></span><span style=display:flex><span>$ ssh -i ~/.ssh/id_rsa user@host
 </span></span></code></pre></div><p><code>如果配置好config文件，可使用别名登录</code><br>使用IdentityFile方式进行登录，每次ssh登录都要通过<code>-i</code>选项指定私钥路径比较繁琐，我们可以将密钥文件添加到ssh客户端config中以简化连接命令。</p><h3 id=简化登录>简化登录
 <a class=header-anchor href=#%e7%ae%80%e5%8c%96%e7%99%bb%e5%bd%95></a></h3></div><footer class=post-footer><div class=post-tags><a href=/tags/ssh>SSH</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>

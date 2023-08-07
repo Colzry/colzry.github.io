@@ -29,30 +29,30 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <a href=https://github.com/hacdias/webdav title=https://github.com/hacdias/webdav rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://github.com/hacdias/webdav
 <i class="fa fa-external-link-alt"></i></a>
 GitHub 下载对应的架构 WebDAV，解压后获得 webdav二进制文件</p><h2 id=1-解压>1. 解压
-<a class=header-anchor href=#1-%e8%a7%a3%e5%8e%8b></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tar -zxvf linux-amd64-webdav.tar.gz
+<a class=header-anchor href=#1-%e8%a7%a3%e5%8e%8b></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tar -zxvf linux-amd64-webdav.tar.gz
 </span></span><span style=display:flex><span>mv webdav /usr/bin/
 </span></span></code></pre></div><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1657879613565-e2a8f725-e486-4ceb-8225-54b8b5db9bbc.png#clientId=ub16f6b8f-9c2e-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=126&amp;id=uce74f936&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=126&amp;originWidth=561&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=27768&amp;status=done&amp;style=none&amp;taskId=ud7edb94e-7d33-4ebd-8798-8f09760a3a1&amp;title=&amp;width=561" alt=image.png></p><h2 id=2-编写配置文件>2. 编写配置文件
-<a class=header-anchor href=#2-%e7%bc%96%e5%86%99%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /opt/webdav_config.yaml
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Server related settings</span>
+<a class=header-anchor href=#2-%e7%bc%96%e5%86%99%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /opt/webdav_config.yaml
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Server related settings</span>
 </span></span><span style=display:flex><span>address: 0.0.0.0
-</span></span><span style=display:flex><span>port: <span style=color:#ae81ff>10105</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 如果无需验证填 false</span>
+</span></span><span style=display:flex><span>port: <span style=color:#a5d6ff>10105</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 如果无需验证填 false</span>
 </span></span><span style=display:flex><span>auth: true
-</span></span><span style=display:flex><span><span style=color:#75715e># 如果不需要 https 则填 false</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 如果不需要 https 则填 false</span>
 </span></span><span style=display:flex><span>tls: false
-</span></span><span style=display:flex><span><span style=color:#75715e># https证书和密钥，如果 tls 为 false，cert 和 key 不需要</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># cert: /data/www/cert/szhome.xf1024.com_nginx/cert.pem</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># key: /data/www/cert/szhome.xf1024.com_nginx/cert.key</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 访问前缀，建议默认</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># https证书和密钥，如果 tls 为 false，cert 和 key 不需要</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># cert: /data/www/cert/szhome.xf1024.com_nginx/cert.pem</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># key: /data/www/cert/szhome.xf1024.com_nginx/cert.key</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 访问前缀，建议默认</span>
 </span></span><span style=display:flex><span>prefix: /
 </span></span><span style=display:flex><span>debug: false
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 如果 auth 为 false 生效，文件共享的路径</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 如果 auth 为 false 生效，文件共享的路径</span>
 </span></span><span style=display:flex><span>scope: .
 </span></span><span style=display:flex><span>modify: true
-</span></span><span style=display:flex><span>rules: <span style=color:#f92672>[]</span>
+</span></span><span style=display:flex><span>rules: <span style=color:#ff7b72;font-weight:700>[]</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 跨域设置</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 跨域设置</span>
 </span></span><span style=display:flex><span>cors:
 </span></span><span style=display:flex><span>  enabled: true
 </span></span><span style=display:flex><span>  credentials: true
@@ -66,59 +66,59 @@ GitHub 下载对应的架构 WebDAV，解压后获得 webdav二进制文件</p><
 </span></span><span style=display:flex><span>    - Content-Length
 </span></span><span style=display:flex><span>    - Content-Range
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 用户信息，如果 auth 为 true 生效</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 用户信息，如果 auth 为 true 生效</span>
 </span></span><span style=display:flex><span>users:
 </span></span><span style=display:flex><span>  - username: Colzry
 </span></span><span style=display:flex><span>    password: webdav_colzry
 </span></span><span style=display:flex><span>    scope: /mnt/hhd01/back/Video/
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 是否允许修改</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 是否允许修改</span>
 </span></span><span style=display:flex><span>    modify: true
 </span></span><span style=display:flex><span>  - username: other_user
 </span></span><span style=display:flex><span>    password: xxxxx
 </span></span><span style=display:flex><span>    scope: /data/1/Video
 </span></span><span style=display:flex><span>    modify: true
-</span></span></code></pre></div><p>使用命令</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>/usr/bin/webdav -c /opt/webdav_config.yaml
+</span></span></code></pre></div><p>使用命令</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>/usr/bin/webdav -c /opt/webdav_config.yaml
 </span></span></code></pre></div><h2 id=3-添加守护进程>3. 添加守护进程
-<a class=header-anchor href=#3-%e6%b7%bb%e5%8a%a0%e5%ae%88%e6%8a%a4%e8%bf%9b%e7%a8%8b></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /usr/lib/systemd/system/webdav.service
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>Unit<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Description<span style=color:#f92672>=</span>WebDAV server
-</span></span><span style=display:flex><span>After<span style=color:#f92672>=</span>network.target
+<a class=header-anchor href=#3-%e6%b7%bb%e5%8a%a0%e5%ae%88%e6%8a%a4%e8%bf%9b%e7%a8%8b></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /usr/lib/systemd/system/webdav.service
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Unit<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Description</span><span style=color:#ff7b72;font-weight:700>=</span>WebDAV server
+</span></span><span style=display:flex><span><span style=color:#79c0ff>After</span><span style=color:#ff7b72;font-weight:700>=</span>network.target
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Service<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>simple
-</span></span><span style=display:flex><span>User<span style=color:#f92672>=</span>root
-</span></span><span style=display:flex><span>ExecStart<span style=color:#f92672>=</span>/usr/bin/webdav -c /opt/webdav_config.yaml
-</span></span><span style=display:flex><span>Restart<span style=color:#f92672>=</span>on-failure
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Service<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Type</span><span style=color:#ff7b72;font-weight:700>=</span>simple
+</span></span><span style=display:flex><span><span style=color:#79c0ff>User</span><span style=color:#ff7b72;font-weight:700>=</span>root
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecStart</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/bin/webdav -c /opt/webdav_config.yaml
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Restart</span><span style=color:#ff7b72;font-weight:700>=</span>on-failure
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Install<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>WantedBy<span style=color:#f92672>=</span>multi-user.target
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl daemon-reload
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Install<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>WantedBy</span><span style=color:#ff7b72;font-weight:700>=</span>multi-user.target
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl daemon-reload
 </span></span><span style=display:flex><span>systemctl start webdav.service
 </span></span><span style=display:flex><span>systemctl status webdav.service
 </span></span><span style=display:flex><span>systemctl enable webdav.service
 </span></span></code></pre></div><h2 id=4-linux-挂载>4. Linux 挂载
-<a class=header-anchor href=#4-linux-%e6%8c%82%e8%bd%bd></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt install davfs2
+<a class=header-anchor href=#4-linux-%e6%8c%82%e8%bd%bd></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt install davfs2
 </span></span><span style=display:flex><span>sudo mount -t davfs http://192.168.5.254:10105/ /webdav
 </span></span></code></pre></div><h2 id=5-nginx-开启-webdav>5. Nginx 开启 WebDAV
-<a class=header-anchor href=#5-nginx-%e5%bc%80%e5%90%af-webdav></a></h2><p>在Nginx中实现WebDAV需要安装 libnginx-mod-http-dav-ext 模块，以下是Nginx的配置：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>server <span style=color:#f92672>{</span>
+<a class=header-anchor href=#5-nginx-%e5%bc%80%e5%90%af-webdav></a></h2><p>在Nginx中实现WebDAV需要安装 libnginx-mod-http-dav-ext 模块，以下是Nginx的配置：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>server <span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>        listen 80;
-</span></span><span style=display:flex><span>        listen <span style=color:#f92672>[</span>::<span style=color:#f92672>]</span>:80;
+</span></span><span style=display:flex><span>        listen <span style=color:#ff7b72;font-weight:700>[</span>::<span style=color:#ff7b72;font-weight:700>]</span>:80;
 </span></span><span style=display:flex><span> 
 </span></span><span style=display:flex><span>        server_name dav.engr-z.com;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>        location / <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        location / <span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>                root /data/webdav;
 </span></span><span style=display:flex><span>                client_body_temp_path /var/temp;
 </span></span><span style=display:flex><span>                dav_methods PUT DELETE MKCOL COPY MOVE;
 </span></span><span style=display:flex><span>                dav_ext_methods PROPFIND OPTIONS;
 </span></span><span style=display:flex><span>                create_full_put_path on;
 </span></span><span style=display:flex><span>                client_max_body_size 10G;
-</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
 </span></span><span style=display:flex><span> 
-</span></span><span style=display:flex><span>server <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>server <span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>        listen 443;
-</span></span><span style=display:flex><span>        listen <span style=color:#f92672>[</span>::<span style=color:#f92672>]</span>:443;
+</span></span><span style=display:flex><span>        listen <span style=color:#ff7b72;font-weight:700>[</span>::<span style=color:#ff7b72;font-weight:700>]</span>:443;
 </span></span><span style=display:flex><span>        server_name dav.engr-z.com;
 </span></span><span style=display:flex><span> 
 </span></span><span style=display:flex><span>        ssl on;
@@ -129,16 +129,16 @@ GitHub 下载对应的架构 WebDAV，解压后获得 webdav二进制文件</p><
 </span></span><span style=display:flex><span>        ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
 </span></span><span style=display:flex><span>        ssl_prefer_server_ciphers on;
 </span></span><span style=display:flex><span> 
-</span></span><span style=display:flex><span>        location / <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        location / <span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>                root /data/webdav;
 </span></span><span style=display:flex><span>                client_body_temp_path /var/temp;
 </span></span><span style=display:flex><span>                dav_methods PUT DELETE MKCOL COPY MOVE;
 </span></span><span style=display:flex><span>                dav_ext_methods PROPFIND OPTIONS;
 </span></span><span style=display:flex><span>                create_full_put_path on;
 </span></span><span style=display:flex><span>                client_max_body_size 10G;
-</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72;font-weight:700>}</span>
 </span></span><span style=display:flex><span> 
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/linux>Linux</a>
 <a href=/tags/%e6%9c%8d%e5%8a%a1%e6%90%ad%e5%bb%ba>服务搭建</a>
 <a href=/tags/webdav>WebDav</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>

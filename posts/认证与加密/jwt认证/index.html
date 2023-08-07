@@ -29,30 +29,30 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <a class=header-anchor href=#2-jwt%e7%9a%84%e4%bc%98%e7%bc%ba%e7%82%b9></a></h2><blockquote><p>优点</p></blockquote><ol><li>快速</li><li>无状态</li><li>多个服务端认证</li></ol><blockquote><p>缺点</p></blockquote><ol><li>密钥泄漏风险高</li><li>令牌容易被窃取</li></ol><h2 id=3-jwt的结构>3. JWT的结构
 <a class=header-anchor href=#3-jwt%e7%9a%84%e7%bb%93%e6%9e%84></a></h2><p>官网链接：
 <a href=https://jwt.io/ title=jwt.io rel="noopener external nofollow noreferrer" target=_blank class=exturl>jwt.io
-<i class="fa fa-external-link-alt"></i></a></p><p>JWT令牌由Header、Payload、Signature三部分组成，每部分中间使用点（.）分隔，例如</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.cThIIoDvwdueQB468K5xDc5633seEFoqwxjF_xSJyQQ
+<i class="fa fa-external-link-alt"></i></a></p><p>JWT令牌由Header、Payload、Signature三部分组成，每部分中间使用点（.）分隔，例如</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.cThIIoDvwdueQB468K5xDc5633seEFoqwxjF_xSJyQQ
 </span></span></code></pre></div><h3 id=31-header>3.1 Header
 <a class=header-anchor href=#31-header></a></h3><p>头部包括令牌的类型（即JWT）及使用的加密算法（如HS256或RS256）。
-例如：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;alg&#34;</span>: <span style=color:#e6db74>&#34;HS256&#34;</span>,
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;typ&#34;</span>: <span style=color:#e6db74>&#34;JWT&#34;</span>
+例如：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&#34;alg&#34;</span>: <span style=color:#a5d6ff>&#34;HS256&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&#34;typ&#34;</span>: <span style=color:#a5d6ff>&#34;JWT&#34;</span>
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>HS256就是HMAC-SHA256，加密算法使用HMAC，摘要算法使用SHA256。
 将上边的内容使用Base64Url编码，得到一个字符串就是JWT令牌的第一部分。</p><h3 id=32-payload>3.2 Payload
 <a class=header-anchor href=#32-payload></a></h3><p>第二部分是负载，内容也是一个json对象，它是存放有效信息的地方，它可以存放jwt提供的现成字段，比 如：iss（签发者）,exp（过期时间戳）, sub（面向的用户）等，也可自定义字段。 此部分不建议存放敏感信息，因为此部分可以解码还原原始内容。
-例如：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;sub&#34;</span>: <span style=color:#e6db74>&#34;1234567890&#34;</span>,
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;name&#34;</span>: <span style=color:#e6db74>&#34;John Doe&#34;</span>,
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;iat&#34;</span>: <span style=color:#ae81ff>1516239022</span>
+例如：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&#34;sub&#34;</span>: <span style=color:#a5d6ff>&#34;1234567890&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&#34;name&#34;</span>: <span style=color:#a5d6ff>&#34;John Doe&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&#34;iat&#34;</span>: <span style=color:#a5d6ff>1516239022</span>
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>将第二部分负载使用Base64Url编码，得到一个字符串就是JWT令牌的第二部分。</p><blockquote><p>其中官方将第二部分为三个内容</p></blockquote><ul><li>Registered claims:
 官方预定义的、非强制性的但是推荐使用的、有助于交互的声明(注意使用这些声明只能是三个字符)。
 <img src=/imgs/img-lazy-loading.gif data-src=https://picture-czy.oss-cn-beijing.aliyuncs.com/img/380ac6ddd91d64de42b72d07ce88582f.png alt=img></li><li>Public claims：
 保留给 JWT 的使用者自定义。但是需要注意避免使用IANA JSON Web Token Registry中定义的关键字。</li><li>Private claims:
 保留给 JWT 的使用者自定义，用来传送传输双方约定好的消息。</li></ul><h3 id=33-signature>3.3 Signature
-<a class=header-anchor href=#33-signature></a></h3><p>第三部分是签名，此部分用于防止jwt内容被篡改。 这个部分使用base64url将前两部分进行编码，编码后使用点（.）连接组成字符串，最后使用header中声明 签名算法进行签名。 一个例子：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span> HMACSHA256<span style=color:#f92672>(</span>
-</span></span><span style=display:flex><span> base64UrlEncode<span style=color:#f92672>(</span>header<span style=color:#f92672>)</span> + <span style=color:#e6db74>&#34;.&#34;</span> +
-</span></span><span style=display:flex><span> base64UrlEncode<span style=color:#f92672>(</span>payload<span style=color:#f92672>)</span>,
-</span></span><span style=display:flex><span> secret<span style=color:#f92672>)</span>
+<a class=header-anchor href=#33-signature></a></h3><p>第三部分是签名，此部分用于防止jwt内容被篡改。 这个部分使用base64url将前两部分进行编码，编码后使用点（.）连接组成字符串，最后使用header中声明 签名算法进行签名。 一个例子：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span> HMACSHA256<span style=color:#ff7b72;font-weight:700>(</span>
+</span></span><span style=display:flex><span> base64UrlEncode<span style=color:#ff7b72;font-weight:700>(</span>header<span style=color:#ff7b72;font-weight:700>)</span> + <span style=color:#a5d6ff>&#34;.&#34;</span> +
+</span></span><span style=display:flex><span> base64UrlEncode<span style=color:#ff7b72;font-weight:700>(</span>payload<span style=color:#ff7b72;font-weight:700>)</span>,
+</span></span><span style=display:flex><span> secret<span style=color:#ff7b72;font-weight:700>)</span>
 </span></span></code></pre></div><p>其中 <code>secret</code> 可以为自定义的加密盐</p><p>base64UrlEncode(header)：jwt令牌的第一部分。 base64UrlEncode(payload)：jwt令牌的第二部分。 secret：签名所使用的密钥。</p><blockquote><p><strong>注意： 第三部分只是为了防止JWT的内容被篡改，并不能存入有效的信息</strong></p></blockquote></div><footer class=post-footer><div class=post-tags><a href=/tags/jwt>JWT</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">
 <span>支付宝</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 微信">

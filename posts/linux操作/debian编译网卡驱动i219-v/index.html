@@ -24,20 +24,20 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=换源>换源
-<a class=header-anchor href=#%e6%8d%a2%e6%ba%90></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>bash &lt;<span style=color:#f92672>(</span>curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/ChangeMirrors.sh<span style=color:#f92672>)</span>
+<a class=header-anchor href=#%e6%8d%a2%e6%ba%90></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>bash &lt;<span style=color:#ff7b72;font-weight:700>(</span>curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/ChangeMirrors.sh<span style=color:#ff7b72;font-weight:700>)</span>
 </span></span></code></pre></div><h2 id=1-下载网卡驱动>1. 下载网卡驱动
 <a class=header-anchor href=#1-%e4%b8%8b%e8%bd%bd%e7%bd%91%e5%8d%a1%e9%a9%b1%e5%8a%a8></a></h2><p>下载e1000e网卡驱动，下载地址
 <a href="https://downloadcenter.intel.com/zh-cn/download/15817?_ga=1.159975677.114505945.1484457019" title="https://downloadcenter.intel.com/zh-cn/download/15817?_ga=1.159975677.114505945.1484457019" rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://downloadcenter.intel.com/zh-cn/download/15817?_ga=1.159975677.114505945.1484457019
 <i class="fa fa-external-link-alt"></i></a></p><h2 id=2-配置编译环境>2. 配置编译环境
-<a class=header-anchor href=#2-%e9%85%8d%e7%bd%ae%e7%bc%96%e8%af%91%e7%8e%af%e5%a2%83></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 查看内核版本</span>
+<a class=header-anchor href=#2-%e9%85%8d%e7%bd%ae%e7%bc%96%e8%af%91%e7%8e%af%e5%a2%83></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看内核版本</span>
 </span></span><span style=display:flex><span>uname -r
-</span></span><span style=display:flex><span><span style=color:#75715e># 去华农镜像下载对应的linux-headers</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 去华农镜像下载对应的linux-headers</span>
 </span></span><span style=display:flex><span>curl -O https://mirrors.scau.edu.cn/proxmox/debian/dists/bullseye/pve-no-subscription/binary-amd64/pve-headers-5.15.30-2-pve_5.15.30-3_amd64.deb
-</span></span><span style=display:flex><span><span style=color:#75715e># 安装linux-headers</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安装linux-headers</span>
 </span></span><span style=display:flex><span>dpkg -i pve-headers-5.15.30-2-pve_5.15.30-3_amd64.deb
-</span></span><span style=display:flex><span><span style=color:#75715e># 安装编译工具链</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安装编译工具链</span>
 </span></span><span style=display:flex><span>sudo apt install build-essential
-</span></span></code></pre></div><blockquote><p>build-essential 包含了以下编译环境</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>$ apt-cache depends build-essential
+</span></span></code></pre></div><blockquote><p>build-essential 包含了以下编译环境</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>$ apt-cache depends build-essential
 </span></span><span style=display:flex><span>build-essential
 </span></span><span style=display:flex><span> |Depends: libc6-dev
 </span></span><span style=display:flex><span>  Depends: &lt;libc-dev&gt;
@@ -51,14 +51,14 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 </span></span><span style=display:flex><span>RedHat 安装
 </span></span><span style=display:flex><span>yum install make automake gcc gcc-c++ kernel-devel
 </span></span></code></pre></div><h2 id=3-开始编译>3. 开始编译
-<a class=header-anchor href=#3-%e5%bc%80%e5%a7%8b%e7%bc%96%e8%af%91></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>cd e1000e-3.8.5/src
+<a class=header-anchor href=#3-%e5%bc%80%e5%a7%8b%e7%bc%96%e8%af%91></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>cd e1000e-3.8.5/src
 </span></span><span style=display:flex><span>make install
-</span></span></code></pre></div><blockquote><p>若编译报错</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>common.mk:82: *** Kernel header files not in any of the expected locations.
+</span></span></code></pre></div><blockquote><p>若编译报错</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>common.mk:82: *** Kernel header files not in any of the expected locations.
 </span></span><span style=display:flex><span>common.mk:83: *** Install the appropriate kernel development package, e.g.
-</span></span><span style=display:flex><span>common.mk:84: *** kernel-devel, <span style=color:#66d9ef>for</span> building kernel modules and try again.  Stop.
-</span></span></code></pre></div><p>安装内核源码</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt-get install linux-headers-<span style=color:#66d9ef>$(</span>uname -r<span style=color:#66d9ef>)</span>
-</span></span></code></pre></div><blockquote><p>若上面的安装失败，安装通用内核替代</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt-get install linux-headers-generic
-</span></span></code></pre></div><p>创建软连接</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>ln -s /usr/src/linux-headers-5.4.0-65-generic /usr/src/linux
+</span></span><span style=display:flex><span>common.mk:84: *** kernel-devel, <span style=color:#ff7b72>for</span> building kernel modules and try again.  Stop.
+</span></span></code></pre></div><p>安装内核源码</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt-get install linux-headers-<span style=color:#ff7b72>$(</span>uname -r<span style=color:#ff7b72>)</span>
+</span></span></code></pre></div><blockquote><p>若上面的安装失败，安装通用内核替代</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo apt-get install linux-headers-generic
+</span></span></code></pre></div><p>创建软连接</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>ln -s /usr/src/linux-headers-5.4.0-65-generic /usr/src/linux
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/linux>Linux</a>
 <a href=/tags/%e7%96%91%e9%9a%be%e6%9d%82%e7%97%87>疑难杂症</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">

@@ -25,87 +25,87 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=1-安装准备>1. 安装准备
 <a class=header-anchor href=#1-%e5%ae%89%e8%a3%85%e5%87%86%e5%a4%87></a></h2><h3 id=11-安装docker>1.1 安装Docker
-<a class=header-anchor href=#11-%e5%ae%89%e8%a3%85docker></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>$ curl -fsSL get.docker.com -o get-docker.sh
+<a class=header-anchor href=#11-%e5%ae%89%e8%a3%85docker></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-shell data-lang=shell><span style=display:flex><span>$ curl -fsSL get.docker.com -o get-docker.sh
 </span></span><span style=display:flex><span>$ sudo sh get-docker.sh --mirror Aliyun
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>$ sudo systemctl start docker
 </span></span><span style=display:flex><span>$ sudo systemctl enable docker
 </span></span></code></pre></div><h3 id=12-安装docker-compose>1.2 安装docker-compose
-<a class=header-anchor href=#12-%e5%ae%89%e8%a3%85docker-compose></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>$ dnf install docker-compose -y
+<a class=header-anchor href=#12-%e5%ae%89%e8%a3%85docker-compose></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>$ dnf install docker-compose -y
 </span></span></code></pre></div><h3 id=13-安装gitlab>1.3 安装gitlab
-<a class=header-anchor href=#13-%e5%ae%89%e8%a3%85gitlab></a></h3><p>拉取gitlab镜像</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull gitlab/gitlab-ce
-</span></span></code></pre></div><p>建立compose文件目录</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir -p /usr/local/docker/gitlab_docker
-</span></span></code></pre></div><p>创建compose文件</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>cd /usr/local/docker/gitlab_docker
+<a class=header-anchor href=#13-%e5%ae%89%e8%a3%85gitlab></a></h3><p>拉取gitlab镜像</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull gitlab/gitlab-ce
+</span></span></code></pre></div><p>建立compose文件目录</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir -p /usr/local/docker/gitlab_docker
+</span></span></code></pre></div><p>创建compose文件</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>cd /usr/local/docker/gitlab_docker
 </span></span><span style=display:flex><span>vim docker-compose.yml
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>version: <span style=color:#e6db74>&#39;3.0&#39;</span>
+</span></span><span style=display:flex><span>version: <span style=color:#a5d6ff>&#39;3.0&#39;</span>
 </span></span><span style=display:flex><span>services:
 </span></span><span style=display:flex><span>  gitlab:
-</span></span><span style=display:flex><span>    image: <span style=color:#e6db74>&#39;gitlab/gitlab-ce&#39;</span>
+</span></span><span style=display:flex><span>    image: <span style=color:#a5d6ff>&#39;gitlab/gitlab-ce&#39;</span>
 </span></span><span style=display:flex><span>    container_name: gitlab
 </span></span><span style=display:flex><span>    restart: always
 </span></span><span style=display:flex><span>    environment:
-</span></span><span style=display:flex><span>      TZ: <span style=color:#e6db74>&#39;Asia/Shanghai&#39;</span>
+</span></span><span style=display:flex><span>      TZ: <span style=color:#a5d6ff>&#39;Asia/Shanghai&#39;</span>
 </span></span><span style=display:flex><span>      GITLAB OMNIBUS CONFIG:
-</span></span><span style=display:flex><span>        external_url <span style=color:#e6db74>&#39;http://192.168.211.100:8929&#39;</span>
-</span></span><span style=display:flex><span>        gitlab_rails<span style=color:#f92672>[</span><span style=color:#e6db74>&#39;gitlab_shell_ssh_port&#39;</span><span style=color:#f92672>]</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>2224</span>
+</span></span><span style=display:flex><span>        external_url <span style=color:#a5d6ff>&#39;http://192.168.211.100:8929&#39;</span>
+</span></span><span style=display:flex><span>        gitlab_rails<span style=color:#ff7b72;font-weight:700>[</span><span style=color:#a5d6ff>&#39;gitlab_shell_ssh_port&#39;</span><span style=color:#ff7b72;font-weight:700>]</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>2224</span>
 </span></span><span style=display:flex><span>    ports:
-</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#39;8929:8929&#39;</span>
-</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#39;2224:2224&#39;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#a5d6ff>&#39;8929:8929&#39;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#a5d6ff>&#39;2224:2224&#39;</span>
 </span></span><span style=display:flex><span>    volumes:
-</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#39;./config:/etc/gitlab&#39;</span>
-</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#39;./logs:/var/log/gitlab&#39;</span>
-</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#39;./data:/var/opt/gitlab&#39;</span>
-</span></span></code></pre></div><p>启动</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker-compose up -d
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看日志</span>
+</span></span><span style=display:flex><span>      - <span style=color:#a5d6ff>&#39;./config:/etc/gitlab&#39;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#a5d6ff>&#39;./logs:/var/log/gitlab&#39;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#a5d6ff>&#39;./data:/var/opt/gitlab&#39;</span>
+</span></span></code></pre></div><p>启动</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker-compose up -d
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看日志</span>
 </span></span><span style=display:flex><span>docker-compose logs -f
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看root账户密码</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看root账户密码</span>
 </span></span><span style=display:flex><span>docker exec -it gitlab bash
 </span></span></code></pre></div><h3 id=14-安装jdk8>1.4 安装JDK8
-<a class=header-anchor href=#14-%e5%ae%89%e8%a3%85jdk8></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>bash &lt;<span style=color:#f92672>(</span>curl -Ssl https://picture-czy.oss-cn-beijing.aliyuncs.com/shareFile/jdk-install.sh<span style=color:#f92672>)</span>
+<a class=header-anchor href=#14-%e5%ae%89%e8%a3%85jdk8></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>bash &lt;<span style=color:#ff7b72;font-weight:700>(</span>curl -Ssl https://picture-czy.oss-cn-beijing.aliyuncs.com/shareFile/jdk-install.sh<span style=color:#ff7b72;font-weight:700>)</span>
 </span></span></code></pre></div><h3 id=15-安装maven>1.5 安装Maven
-<a class=header-anchor href=#15-%e5%ae%89%e8%a3%85maven></a></h3><p>下载地址：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>wget https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
+<a class=header-anchor href=#15-%e5%ae%89%e8%a3%85maven></a></h3><p>下载地址：</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>wget https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>tar zxvf apache-maven-3.8.6-bin.tar.gz -C /usr/local
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;export MAVEN_HOME=/usr/local/apache-maven-3.8.6&#34;</span> &gt;&gt; ~/.bashrc
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;export PATH=</span>$MAVEN_HOME<span style=color:#e6db74>/bin:</span>$PATH<span style=color:#e6db74>&#34;</span> &gt;&gt; ~/.bashrc
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>&#34;export MAVEN_HOME=/usr/local/apache-maven-3.8.6&#34;</span> &gt;&gt; ~/.bashrc
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>&#34;export PATH=</span><span style=color:#79c0ff>$MAVEN_HOME</span><span style=color:#a5d6ff>/bin:</span><span style=color:#79c0ff>$PATH</span><span style=color:#a5d6ff>&#34;</span> &gt;&gt; ~/.bashrc
 </span></span><span style=display:flex><span>source ~/.bashrc
 </span></span><span style=display:flex><span>mvn -version
-</span></span></code></pre></div><p>修改配置文件</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /usr/local/apache-maven-3.8.6/conf/settings.xml
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-xml data-lang=xml><span style=display:flex><span><span style=color:#f92672>&lt;mirror&gt;</span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;id&gt;</span>alimaven<span style=color:#f92672>&lt;/id&gt;</span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;name&gt;</span>aliyun maven<span style=color:#f92672>&lt;/name&gt;</span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span style=color:#f92672>&lt;/url&gt;</span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;mirrorOf&gt;</span>central<span style=color:#f92672>&lt;/mirrorOf&gt;</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/mirror&gt;</span>
+</span></span></code></pre></div><p>修改配置文件</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /usr/local/apache-maven-3.8.6/conf/settings.xml
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-xml data-lang=xml><span style=display:flex><span><span style=color:#7ee787>&lt;mirror&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&lt;id&gt;</span>alimaven<span style=color:#7ee787>&lt;/id&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&lt;name&gt;</span>aliyun maven<span style=color:#7ee787>&lt;/name&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span style=color:#7ee787>&lt;/url&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&lt;mirrorOf&gt;</span>central<span style=color:#7ee787>&lt;/mirrorOf&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#7ee787>&lt;/mirror&gt;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>&lt;profile&gt;</span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;id&gt;</span>jdk8<span style=color:#f92672>&lt;/id&gt;</span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;activation&gt;</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;activeByDefault&gt;</span>true<span style=color:#f92672>&lt;/activeByDefault&gt;</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;jdk&gt;</span>1.8<span style=color:#f92672>&lt;/jdk&gt;</span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;/activation&gt;</span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;properties&gt;</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;maven.compiler.source&gt;</span>1.8<span style=color:#f92672>&lt;/maven.compiler.source&gt;</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;maven.compiler.target&gt;</span>1.8<span style=color:#f92672>&lt;/maven.compiler.target&gt;</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;maven.compiler.compilerVersion&gt;</span>1.8<span style=color:#f92672>&lt;/maven.compiler.compilerVersion&gt;</span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;/properties&gt;</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>&lt;/profile&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#7ee787>&lt;profile&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&lt;id&gt;</span>jdk8<span style=color:#7ee787>&lt;/id&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&lt;activation&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#7ee787>&lt;activeByDefault&gt;</span>true<span style=color:#7ee787>&lt;/activeByDefault&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#7ee787>&lt;jdk&gt;</span>1.8<span style=color:#7ee787>&lt;/jdk&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&lt;/activation&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&lt;properties&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#7ee787>&lt;maven.compiler.source&gt;</span>1.8<span style=color:#7ee787>&lt;/maven.compiler.source&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#7ee787>&lt;maven.compiler.target&gt;</span>1.8<span style=color:#7ee787>&lt;/maven.compiler.target&gt;</span>
+</span></span><span style=display:flex><span>    <span style=color:#7ee787>&lt;maven.compiler.compilerVersion&gt;</span>1.8<span style=color:#7ee787>&lt;/maven.compiler.compilerVersion&gt;</span>
+</span></span><span style=display:flex><span>  <span style=color:#7ee787>&lt;/properties&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#7ee787>&lt;/profile&gt;</span>
 </span></span></code></pre></div><h3 id=16-安装jenkins>1.6 安装Jenkins
 <a class=header-anchor href=#16-%e5%ae%89%e8%a3%85jenkins></a></h3><h4 id=161-通过docker安装jenkins>1.6.1 通过docker安装jenkins
 <a class=header-anchor href=#161-%e9%80%9a%e8%bf%87docker%e5%ae%89%e8%a3%85jenkins></a></h4><p>docker安装地址：
 <a href="https://hub.docker.com/r/jenkins/jenkins/tags?page=1&amp;name=lts" title="https://hub.docker.com/r/jenkins/jenkins/tags?page=1&amp;amp;name=lts" rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://hub.docker.com/r/jenkins/jenkins/tags?page=1&amp;name=lts
-<i class="fa fa-external-link-alt"></i></a></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull jenkins/jenkins:2.361.1-lts
+<i class="fa fa-external-link-alt"></i></a></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>docker pull jenkins/jenkins:2.361.1-lts
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>cd /usr/local/
 </span></span><span style=display:flex><span>mkdir -p docker/jenkins_docker
 </span></span><span style=display:flex><span>cd docker/jenkins_docker
 </span></span><span style=display:flex><span>vim docker-compose.yml
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>################################################</span>
-</span></span><span style=display:flex><span>version: <span style=color:#e6db74>&#34;3.1&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>################################################</span>
+</span></span><span style=display:flex><span>version: <span style=color:#a5d6ff>&#34;3.1&#34;</span>
 </span></span><span style=display:flex><span>services:
 </span></span><span style=display:flex><span>  jenkins:
 </span></span><span style=display:flex><span>    image: jenkins/jenkins:2.361.1-lts
@@ -115,19 +115,19 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 </span></span><span style=display:flex><span>      - 50000:50000
 </span></span><span style=display:flex><span>    volumes:
 </span></span><span style=display:flex><span>      - ./data/:/var/jenkins_home/
-</span></span><span style=display:flex><span><span style=color:#75715e>################################################</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>################################################</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>mkdir data
-</span></span><span style=display:flex><span>chmod -R <span style=color:#ae81ff>777</span> data/
+</span></span><span style=display:flex><span>chmod -R <span style=color:#a5d6ff>777</span> data/
 </span></span><span style=display:flex><span>docker-compose up -d
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 通过日志查看密码</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 通过日志查看密码</span>
 </span></span><span style=display:flex><span>docker logs -f jenkins
 </span></span></code></pre></div><p>进入8080端口进行登录，密码可以在日志中查看
 进入后选择右边的默认安装，之后都是下一步</p><h4 id=162-安装jenkins插件>1.6.2 安装Jenkins插件
 <a class=header-anchor href=#162-%e5%ae%89%e8%a3%85jenkins%e6%8f%92%e4%bb%b6></a></h4><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663068844930-22110b8f-e836-4381-b522-6fb8d947aab8.png#clientId=u58e717ac-615a-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=603&amp;id=u9a3a76b2&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=904&amp;originWidth=2232&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=187185&amp;status=done&amp;style=none&amp;taskId=u417590b5-d75a-4876-affd-dde75e94cef&amp;title=&amp;width=1488" alt=image.png>
 <img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663069054805-a2abb28f-70a6-4de7-b9c7-8ce8e86993cf.png#clientId=u58e717ac-615a-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=628&amp;id=u4ab9a670&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=942&amp;originWidth=2240&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=103293&amp;status=done&amp;style=none&amp;taskId=ua7972d39-a489-402a-ad20-09e195920d5&amp;title=&amp;width=1493.3333333333333" alt=image.png></p><h4 id=163-cp-jdk和maven>1.6.3 CP JDK和Maven
-<a class=header-anchor href=#163-cp-jdk%e5%92%8cmaven></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>cd /usr/local/docker/jenkins_docker/data/
+<a class=header-anchor href=#163-cp-jdk%e5%92%8cmaven></a></h4><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>cd /usr/local/docker/jenkins_docker/data/
 </span></span><span style=display:flex><span>cp -r /usr/local/jdk1.8.0_202/ ./
 </span></span><span style=display:flex><span>cp -r /usr/local/apache-maven-3.8.6/ ./
 </span></span></code></pre></div><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663069865794-0ceaf929-517c-4569-bca0-d67657390bb5.png#clientId=u58e717ac-615a-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=621&amp;id=u7c4498d8&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=932&amp;originWidth=2196&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=66261&amp;status=done&amp;style=none&amp;taskId=u14880aee-7bc5-46e6-96a8-7d7c7b216ed&amp;title=&amp;width=1464" alt=image.png><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663069888991-ce318309-b721-46cd-ab31-60a5c2036471.png#clientId=u58e717ac-615a-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=385&amp;id=uc534b282&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=578&amp;originWidth=1526&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=25718&amp;status=done&amp;style=none&amp;taskId=ubc0d0256-69c7-47d4-b9aa-d08be41445b&amp;title=&amp;width=1017.3333333333334" alt=image.png><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663069993728-ec808aca-3292-40d7-96ae-6f5507042c36.png#clientId=u58e717ac-615a-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=528&amp;id=u866aaa55&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=792&amp;originWidth=1530&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=41569&amp;status=done&amp;style=none&amp;taskId=u6bcbe76f-6051-4b47-b062-12078b8558a&amp;title=&amp;width=1020" alt=image.png><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663070618977-21370313-d0df-4a14-9a35-f7bf14019a63.png#clientId=u58e717ac-615a-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=766&amp;id=uc7b8815d&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=1149&amp;originWidth=2169&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=71271&amp;status=done&amp;style=none&amp;taskId=u84626d82-6c36-4627-8501-aead0730214&amp;title=&amp;width=1446" alt=image.png></p></div><footer class=post-footer><div class=post-tags><a href=/tags/jenkins>Jenkins</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>

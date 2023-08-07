@@ -24,156 +24,156 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
 <span>2分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=1-下载frp>1. 下载Frp
-<a class=header-anchor href=#1-%e4%b8%8b%e8%bd%bdfrp></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>wget https://gitpy.colzry.tk/github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
+<a class=header-anchor href=#1-%e4%b8%8b%e8%bd%bdfrp></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>wget https://gitpy.colzry.tk/github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>wget https://github.com/fatedier/frp/releases/download/v0.48.0/frp_0.48.0_linux_amd64.tar.gz
 </span></span></code></pre></div><h2 id=2-服务端安装>2. 服务端安装
 <a class=header-anchor href=#2-%e6%9c%8d%e5%8a%a1%e7%ab%af%e5%ae%89%e8%a3%85></a></h2><h3 id=21-解压文件>2.1 解压文件
-<a class=header-anchor href=#21-%e8%a7%a3%e5%8e%8b%e6%96%87%e4%bb%b6></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tar -zxvf frp_0.48.0_linux_amd64.tar.gz
+<a class=header-anchor href=#21-%e8%a7%a3%e5%8e%8b%e6%96%87%e4%bb%b6></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tar -zxvf frp_0.48.0_linux_amd64.tar.gz
 </span></span><span style=display:flex><span>cd frp_0.48.0_linux_amd64/
 </span></span><span style=display:flex><span>cp frps /usr/local/bin/
 </span></span></code></pre></div><h3 id=22-编写配置文件>2.2 编写配置文件
-<a class=header-anchor href=#22-%e7%bc%96%e5%86%99%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir /etc/frps
+<a class=header-anchor href=#22-%e7%bc%96%e5%86%99%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir /etc/frps
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>vim /etc/frps/frps.ini
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>common<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>bind_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>7000</span>
-</span></span><span style=display:flex><span>token <span style=color:#f92672>=</span> czyadmin
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>common<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>bind_port</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>7000</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>token</span> <span style=color:#ff7b72;font-weight:700>=</span> czyadmin
 </span></span></code></pre></div><h3 id=23-启动>2.3 启动
-<a class=header-anchor href=#23-%e5%90%af%e5%8a%a8></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo vim /lib/systemd/system/frps.service
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>Unit<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Description<span style=color:#f92672>=</span>Frp Server Service
-</span></span><span style=display:flex><span>After<span style=color:#f92672>=</span>network.target
+<a class=header-anchor href=#23-%e5%90%af%e5%8a%a8></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo vim /lib/systemd/system/frps.service
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Unit<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Description</span><span style=color:#ff7b72;font-weight:700>=</span>Frp Server Service
+</span></span><span style=display:flex><span><span style=color:#79c0ff>After</span><span style=color:#ff7b72;font-weight:700>=</span>network.target
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Service<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>simple
-</span></span><span style=display:flex><span>User<span style=color:#f92672>=</span>nobody
-</span></span><span style=display:flex><span>Restart<span style=color:#f92672>=</span>on-failure
-</span></span><span style=display:flex><span>RestartSec<span style=color:#f92672>=</span>5s
-</span></span><span style=display:flex><span>ExecStart<span style=color:#f92672>=</span>/usr/local/bin/frps -c /etc/frps/frps.ini
-</span></span><span style=display:flex><span>ExecReload<span style=color:#f92672>=</span>/usr/local/bin/frps reload -c /etc/frps/frps.ini
-</span></span><span style=display:flex><span>LimitNOFILE<span style=color:#f92672>=</span><span style=color:#ae81ff>1048576</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Service<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Type</span><span style=color:#ff7b72;font-weight:700>=</span>simple
+</span></span><span style=display:flex><span><span style=color:#79c0ff>User</span><span style=color:#ff7b72;font-weight:700>=</span>nobody
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Restart</span><span style=color:#ff7b72;font-weight:700>=</span>on-failure
+</span></span><span style=display:flex><span><span style=color:#79c0ff>RestartSec</span><span style=color:#ff7b72;font-weight:700>=</span>5s
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecStart</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/local/bin/frps -c /etc/frps/frps.ini
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecReload</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/local/bin/frps reload -c /etc/frps/frps.ini
+</span></span><span style=display:flex><span><span style=color:#79c0ff>LimitNOFILE</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>1048576</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Install<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>WantedBy<span style=color:#f92672>=</span>multi-user.target
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo systemctl daemon-reload
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Install<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>WantedBy</span><span style=color:#ff7b72;font-weight:700>=</span>multi-user.target
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo systemctl daemon-reload
 </span></span><span style=display:flex><span>sudo systemctl start frps.service
 </span></span><span style=display:flex><span>sudo systemctl enable --now frps.service
 </span></span></code></pre></div><h2 id=3-客户端安装>3. 客户端安装
 <a class=header-anchor href=#3-%e5%ae%a2%e6%88%b7%e7%ab%af%e5%ae%89%e8%a3%85></a></h2><h3 id=31-解压文件>3.1 解压文件
-<a class=header-anchor href=#31-%e8%a7%a3%e5%8e%8b%e6%96%87%e4%bb%b6></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tar -zxvf frp_0.44.0_linux_amd64.tar.gz
+<a class=header-anchor href=#31-%e8%a7%a3%e5%8e%8b%e6%96%87%e4%bb%b6></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>tar -zxvf frp_0.44.0_linux_amd64.tar.gz
 </span></span><span style=display:flex><span>cd frp_0.44.0_linux_amd64/
 </span></span><span style=display:flex><span>cp frpc /usr/local/bin/
-</span></span></code></pre></div><blockquote><p>frpc.ini 配置文件详解</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>common<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#远程frp服务器地址，可ip可域名</span>
-</span></span><span style=display:flex><span>server_addr <span style=color:#f92672>=</span> frp02.wefinger.club
-</span></span><span style=display:flex><span><span style=color:#75715e>#远程frp服务器通信端口</span>
-</span></span><span style=display:flex><span>server_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>7000</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#特权密钥</span>
-</span></span><span style=display:flex><span>token <span style=color:#f92672>=</span> <span style=color:#ae81ff>12345678</span>
+</span></span></code></pre></div><blockquote><p>frpc.ini 配置文件详解</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>common<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#远程frp服务器地址，可ip可域名</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>server_addr</span> <span style=color:#ff7b72;font-weight:700>=</span> frp02.wefinger.club
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#远程frp服务器通信端口</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>server_port</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>7000</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#特权密钥</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>token</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>12345678</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#http穿透</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>demo-http<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#穿透类型</span>
-</span></span><span style=display:flex><span>type <span style=color:#f92672>=</span> http
-</span></span><span style=display:flex><span><span style=color:#75715e>#本地监听ip</span>
-</span></span><span style=display:flex><span>local_ip <span style=color:#f92672>=</span> 127.0.0.1
-</span></span><span style=display:flex><span><span style=color:#75715e>#本地监听端口，欲穿透转发端口。</span>
-</span></span><span style=display:flex><span>local_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>8080</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#自定义穿透域名，该域名需要解析至frp服务器。</span>
-</span></span><span style=display:flex><span>custom_domains <span style=color:#f92672>=</span> testhttp.frp02.wefinger.club
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#http穿透</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>demo-http<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#穿透类型</span>
+</span></span><span style=display:flex><span>type <span style=color:#ff7b72;font-weight:700>=</span> http
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#本地监听ip</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>local_ip</span> <span style=color:#ff7b72;font-weight:700>=</span> 127.0.0.1
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#本地监听端口，欲穿透转发端口。</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>local_port</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>8080</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#自定义穿透域名，该域名需要解析至frp服务器。</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>custom_domains</span> <span style=color:#ff7b72;font-weight:700>=</span> testhttp.frp02.wefinger.club
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#https穿透</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>demo-https<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>type <span style=color:#f92672>=</span> https
-</span></span><span style=display:flex><span>local_ip <span style=color:#f92672>=</span> 127.0.0.1
-</span></span><span style=display:flex><span>local_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>8088</span>
-</span></span><span style=display:flex><span>custom_domains <span style=color:#f92672>=</span> testhttps.frp02.wefinger.club
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#https穿透</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>demo-https<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span>type <span style=color:#ff7b72;font-weight:700>=</span> https
+</span></span><span style=display:flex><span><span style=color:#79c0ff>local_ip</span> <span style=color:#ff7b72;font-weight:700>=</span> 127.0.0.1
+</span></span><span style=display:flex><span><span style=color:#79c0ff>local_port</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>8088</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>custom_domains</span> <span style=color:#ff7b72;font-weight:700>=</span> testhttps.frp02.wefinger.club
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#tcp穿透，例如ssh、ftp服务</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>demo-tcp<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>type <span style=color:#f92672>=</span> tcp
-</span></span><span style=display:flex><span> <span style=color:#75715e>#欲穿透地址，本地必须可访问。</span>
-</span></span><span style=display:flex><span>local_ip <span style=color:#f92672>=</span> 127.0.0.1
-</span></span><span style=display:flex><span><span style=color:#75715e>#可批量绑定，使用`,`分隔，或者使用`-`定义端口段。</span>
-</span></span><span style=display:flex><span>local_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>22</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#绑定远程端口，可批量绑定，使用`,`分隔，或者使用`-`定义端口段。</span>
-</span></span><span style=display:flex><span>remote_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>20022</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#tcp穿透，例如ssh、ftp服务</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>demo-tcp<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span>type <span style=color:#ff7b72;font-weight:700>=</span> tcp
+</span></span><span style=display:flex><span> <span style=color:#8b949e;font-style:italic>#欲穿透地址，本地必须可访问。</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>local_ip</span> <span style=color:#ff7b72;font-weight:700>=</span> 127.0.0.1
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#可批量绑定，使用`,`分隔，或者使用`-`定义端口段。</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>local_port</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>22</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#绑定远程端口，可批量绑定，使用`,`分隔，或者使用`-`定义端口段。</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>remote_port</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>20022</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#udp穿透,例如转发dns服务</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>demo-udp<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>type <span style=color:#f92672>=</span> udp
-</span></span><span style=display:flex><span>local_ip <span style=color:#f92672>=</span> 8.8.8.8
-</span></span><span style=display:flex><span>local_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>53</span>
-</span></span><span style=display:flex><span>remote_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>20053</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#udp穿透,例如转发dns服务</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>demo-udp<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span>type <span style=color:#ff7b72;font-weight:700>=</span> udp
+</span></span><span style=display:flex><span><span style=color:#79c0ff>local_ip</span> <span style=color:#ff7b72;font-weight:700>=</span> 8.8.8.8
+</span></span><span style=display:flex><span><span style=color:#79c0ff>local_port</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>53</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>remote_port</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>20053</span>
 </span></span></code></pre></div><h3 id=32-启动>3.2 启动
 <a class=header-anchor href=#32-%e5%90%af%e5%8a%a8></a></h3><blockquote><p>配置文件根据各网站的粘贴过来就行</p></blockquote><h4 id=321-直接启动>3.2.1 直接启动
-<a class=header-anchor href=#321-%e7%9b%b4%e6%8e%a5%e5%90%af%e5%8a%a8></a></h4><p><strong>启动</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>./frpc -c ./frpc.ini &amp;
+<a class=header-anchor href=#321-%e7%9b%b4%e6%8e%a5%e5%90%af%e5%8a%a8></a></h4><p><strong>启动</strong></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>./frpc -c ./frpc.ini &amp;
 </span></span></code></pre></div><h4 id=322-后台启动>3.2.2 后台启动
-<a class=header-anchor href=#322-%e5%90%8e%e5%8f%b0%e5%90%af%e5%8a%a8></a></h4><p><strong>配置后台自动启动</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo vim /lib/systemd/system/frpc.service
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>Unit<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Description<span style=color:#f92672>=</span>Frp Client Service
-</span></span><span style=display:flex><span>After<span style=color:#f92672>=</span>network.target
+<a class=header-anchor href=#322-%e5%90%8e%e5%8f%b0%e5%90%af%e5%8a%a8></a></h4><p><strong>配置后台自动启动</strong></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo vim /lib/systemd/system/frpc.service
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Unit<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Description</span><span style=color:#ff7b72;font-weight:700>=</span>Frp Client Service
+</span></span><span style=display:flex><span><span style=color:#79c0ff>After</span><span style=color:#ff7b72;font-weight:700>=</span>network.target
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Service<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>simple
-</span></span><span style=display:flex><span>User<span style=color:#f92672>=</span>nobody
-</span></span><span style=display:flex><span>Restart<span style=color:#f92672>=</span>on-failure
-</span></span><span style=display:flex><span>RestartSec<span style=color:#f92672>=</span>5s
-</span></span><span style=display:flex><span>ExecStart<span style=color:#f92672>=</span>/usr/local/bin/frpc -c /etc/frpc/frpc.ini
-</span></span><span style=display:flex><span>ExecReload<span style=color:#f92672>=</span>/usr/local/bin/frpc reload -c /etc/frpc/frpc.ini
-</span></span><span style=display:flex><span>LimitNOFILE<span style=color:#f92672>=</span><span style=color:#ae81ff>1048576</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Service<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Type</span><span style=color:#ff7b72;font-weight:700>=</span>simple
+</span></span><span style=display:flex><span><span style=color:#79c0ff>User</span><span style=color:#ff7b72;font-weight:700>=</span>nobody
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Restart</span><span style=color:#ff7b72;font-weight:700>=</span>on-failure
+</span></span><span style=display:flex><span><span style=color:#79c0ff>RestartSec</span><span style=color:#ff7b72;font-weight:700>=</span>5s
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecStart</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/local/bin/frpc -c /etc/frpc/frpc.ini
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecReload</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/local/bin/frpc reload -c /etc/frpc/frpc.ini
+</span></span><span style=display:flex><span><span style=color:#79c0ff>LimitNOFILE</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>1048576</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Install<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>WantedBy<span style=color:#f92672>=</span>multi-user.target
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo systemctl daemon-reload
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Install<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>WantedBy</span><span style=color:#ff7b72;font-weight:700>=</span>multi-user.target
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>sudo systemctl daemon-reload
 </span></span><span style=display:flex><span>sudo systemctl start frpc.service
 </span></span><span style=display:flex><span>sudo systemctl enable frpc.service
 </span></span></code></pre></div><h3 id=33-配置多个隧道>3.3 配置多个隧道
-<a class=header-anchor href=#33-%e9%85%8d%e7%bd%ae%e5%a4%9a%e4%b8%aa%e9%9a%a7%e9%81%93></a></h3><p>创建配置文件目录</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir -p /etc/frpc
-</span></span></code></pre></div><p>打开配置文件的目录，编写对应的配置文件</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>cd /etc/frpc
+<a class=header-anchor href=#33-%e9%85%8d%e7%bd%ae%e5%a4%9a%e4%b8%aa%e9%9a%a7%e9%81%93></a></h3><p>创建配置文件目录</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir -p /etc/frpc
+</span></span></code></pre></div><p>打开配置文件的目录，编写对应的配置文件</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>cd /etc/frpc
 </span></span><span style=display:flex><span>vim 102SSH.ini
-</span></span></code></pre></div><p>配置示例如下</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>common<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>server_addr <span style=color:#f92672>=</span> cn-gydx-bgp-1.openfrp.top
-</span></span><span style=display:flex><span>server_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>8120</span>
-</span></span><span style=display:flex><span>tls_enable <span style=color:#f92672>=</span> true
-</span></span><span style=display:flex><span>tcp_mux <span style=color:#f92672>=</span> true
-</span></span><span style=display:flex><span>protocol <span style=color:#f92672>=</span> tcp
-</span></span><span style=display:flex><span>user <span style=color:#f92672>=</span> 8022c3fe7ba2d9d8c953f899b86da17a
-</span></span><span style=display:flex><span>tls_enable <span style=color:#f92672>=</span> true
-</span></span><span style=display:flex><span>token <span style=color:#f92672>=</span> mnE3A8hIWapwShje
-</span></span><span style=display:flex><span>dns_server <span style=color:#f92672>=</span> 114.114.114.114
+</span></span></code></pre></div><p>配置示例如下</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>common<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>server_addr</span> <span style=color:#ff7b72;font-weight:700>=</span> cn-gydx-bgp-1.openfrp.top
+</span></span><span style=display:flex><span><span style=color:#79c0ff>server_port</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>8120</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>tls_enable</span> <span style=color:#ff7b72;font-weight:700>=</span> true
+</span></span><span style=display:flex><span><span style=color:#79c0ff>tcp_mux</span> <span style=color:#ff7b72;font-weight:700>=</span> true
+</span></span><span style=display:flex><span><span style=color:#79c0ff>protocol</span> <span style=color:#ff7b72;font-weight:700>=</span> tcp
+</span></span><span style=display:flex><span><span style=color:#79c0ff>user</span> <span style=color:#ff7b72;font-weight:700>=</span> 8022c3fe7ba2d9d8c953f899b86da17a
+</span></span><span style=display:flex><span><span style=color:#79c0ff>tls_enable</span> <span style=color:#ff7b72;font-weight:700>=</span> true
+</span></span><span style=display:flex><span><span style=color:#79c0ff>token</span> <span style=color:#ff7b72;font-weight:700>=</span> mnE3A8hIWapwShje
+</span></span><span style=display:flex><span><span style=color:#79c0ff>dns_server</span> <span style=color:#ff7b72;font-weight:700>=</span> 114.114.114.114
 </span></span><span style=display:flex><span> 
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>102UH<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>privilege_mode <span style=color:#f92672>=</span> true
-</span></span><span style=display:flex><span>type <span style=color:#f92672>=</span> tcp
-</span></span><span style=display:flex><span>local_ip <span style=color:#f92672>=</span> 192.168.5.102
-</span></span><span style=display:flex><span>local_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>1022</span>
-</span></span><span style=display:flex><span>remote_port <span style=color:#f92672>=</span> <span style=color:#ae81ff>60856</span>
-</span></span><span style=display:flex><span>use_encryption <span style=color:#f92672>=</span> false
-</span></span><span style=display:flex><span>use_compression <span style=color:#f92672>=</span> false
-</span></span></code></pre></div><p>配置System服务</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /lib/systemd/system/frpc@.service
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>Unit<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Description<span style=color:#f92672>=</span>Frp Client Service
-</span></span><span style=display:flex><span>After<span style=color:#f92672>=</span>network.target
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>102UH<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>privilege_mode</span> <span style=color:#ff7b72;font-weight:700>=</span> true
+</span></span><span style=display:flex><span>type <span style=color:#ff7b72;font-weight:700>=</span> tcp
+</span></span><span style=display:flex><span><span style=color:#79c0ff>local_ip</span> <span style=color:#ff7b72;font-weight:700>=</span> 192.168.5.102
+</span></span><span style=display:flex><span><span style=color:#79c0ff>local_port</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1022</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>remote_port</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>60856</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>use_encryption</span> <span style=color:#ff7b72;font-weight:700>=</span> false
+</span></span><span style=display:flex><span><span style=color:#79c0ff>use_compression</span> <span style=color:#ff7b72;font-weight:700>=</span> false
+</span></span></code></pre></div><p>配置System服务</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>vim /lib/systemd/system/frpc@.service
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Unit<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Description</span><span style=color:#ff7b72;font-weight:700>=</span>Frp Client Service
+</span></span><span style=display:flex><span><span style=color:#79c0ff>After</span><span style=color:#ff7b72;font-weight:700>=</span>network.target
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Service<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>simple
-</span></span><span style=display:flex><span>User<span style=color:#f92672>=</span>nobody
-</span></span><span style=display:flex><span>Restart<span style=color:#f92672>=</span>on-failure
-</span></span><span style=display:flex><span>RestartSec<span style=color:#f92672>=</span>5s
-</span></span><span style=display:flex><span>ExecStart<span style=color:#f92672>=</span>/usr/local/bin/frpc -c /etc/frpc/%i.ini
-</span></span><span style=display:flex><span>ExecReload<span style=color:#f92672>=</span>/usr/local/bin/frpc reload -c /etc/frpc/%i.ini
-</span></span><span style=display:flex><span>LimitNOFILE<span style=color:#f92672>=</span><span style=color:#ae81ff>1048576</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Service<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Type</span><span style=color:#ff7b72;font-weight:700>=</span>simple
+</span></span><span style=display:flex><span><span style=color:#79c0ff>User</span><span style=color:#ff7b72;font-weight:700>=</span>nobody
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Restart</span><span style=color:#ff7b72;font-weight:700>=</span>on-failure
+</span></span><span style=display:flex><span><span style=color:#79c0ff>RestartSec</span><span style=color:#ff7b72;font-weight:700>=</span>5s
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecStart</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/local/bin/frpc -c /etc/frpc/%i.ini
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecReload</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/local/bin/frpc reload -c /etc/frpc/%i.ini
+</span></span><span style=display:flex><span><span style=color:#79c0ff>LimitNOFILE</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>1048576</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Install<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>WantedBy<span style=color:#f92672>=</span>multi-user.target
-</span></span></code></pre></div><p><strong>根据配置文件名称来启动服务</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl daemon-reload
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Install<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>WantedBy</span><span style=color:#ff7b72;font-weight:700>=</span>multi-user.target
+</span></span></code></pre></div><p><strong>根据配置文件名称来启动服务</strong></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl daemon-reload
 </span></span><span style=display:flex><span>systemctl start frpc@102SSH
 </span></span><span style=display:flex><span>systemctl status frpc@102SSH
 </span></span><span style=display:flex><span>systemctl enable frpc@102SSH
-</span></span></code></pre></div><p>如果您忘记了之前开启过哪些隧道，使用下面的命令可以列出当前运行中的隧道</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl list-units frpc@*
-</span></span></code></pre></div><p>如果您忘记了之前设置过的自启隧道，可以使用下面的命令列出</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl list-units --all frpc@*
+</span></span></code></pre></div><p>如果您忘记了之前开启过哪些隧道，使用下面的命令可以列出当前运行中的隧道</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl list-units frpc@*
+</span></span></code></pre></div><p>如果您忘记了之前设置过的自启隧道，可以使用下面的命令列出</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>systemctl list-units --all frpc@*
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/linux>Linux</a>
 <a href=/tags/%e6%9c%8d%e5%8a%a1%e6%90%ad%e5%bb%ba>服务搭建</a>
 <a href=/tags/frp>FRP</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>

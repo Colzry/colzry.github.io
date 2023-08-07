@@ -23,79 +23,79 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <span>457</span></span>
 <span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i></span>
 <span class=post-meta-item-text>阅读：&ap;</span>
-<span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>use</span> <span style=color:#66d9ef>crate</span>::List::<span style=color:#f92672>*</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>List</span> {
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// Cons: 链表中包含有值的节点，节点是元组类型，第一个元素是节点的值，第二个元素是指向下一个节点的指针
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    Cons(<span style=color:#66d9ef>u32</span>, Box<span style=color:#f92672>&lt;</span>List<span style=color:#f92672>&gt;</span>),
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// Nil: 链表中的最后一个节点，用于说明链表的结束
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    Nil,
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// 为枚举实现一些方法
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>impl</span> List {
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 创建空的链表
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>new</span>() -&gt; <span style=color:#a6e22e>List</span> {
-</span></span><span style=display:flex><span>        <span style=color:#75715e>// 因为没有节点，所以直接返回 Nil 节点
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#75715e>// 枚举成员 Nil 的类型是 List
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        Nil
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 在老的链表前面新增一个节点，并返回新的链表
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>prepend</span>(self, elem: <span style=color:#66d9ef>u32</span>) -&gt; <span style=color:#a6e22e>List</span> {
-</span></span><span style=display:flex><span>        <span style=color:#75715e>// `Cons` also has type List
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        Cons(elem, Box::new(self))
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 返回链表的长度
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>len</span>(<span style=color:#f92672>&amp;</span>self) -&gt; <span style=color:#66d9ef>u32</span> {
-</span></span><span style=display:flex><span>        <span style=color:#75715e>// `self` has to be matched, because the behavior of this method
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#75715e>// depends on the variant of `self`
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#75715e>// `self` has type `&amp;List`, and `*self` has type `List`, matching on a
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#75715e>// concrete type `T` is preferred over a match on a reference `&amp;T`
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#75715e>// after Rust 2018 you can use self here and tail (with no ref) below as well,
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#75715e>// rust will infer &amp;s and ref tail. 
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#75715e>// See https://doc.rust-lang.org/edition-guide/rust-2018/ownership-and-lifetimes/default-match-bindings.html
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>match</span> <span style=color:#f92672>*</span>self {
-</span></span><span style=display:flex><span>            <span style=color:#75715e>// Can&#39;t take ownership of the tail, because `self` is borrowed;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            <span style=color:#75715e>// instead take a reference to the tail
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            <span style=color:#75715e>// 这里我们不能拿走 tail 的所有权，因此需要获取它的引用
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            Cons(_, <span style=color:#66d9ef>ref</span> tail) <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> tail.len(),
-</span></span><span style=display:flex><span>            <span style=color:#75715e>// 空链表的长度为 0
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            Nil <span style=color:#f92672>=&gt;</span> <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 返回链表的字符串表现形式，用于打印输出
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>stringify</span>(<span style=color:#f92672>&amp;</span>self) -&gt; String {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>match</span> <span style=color:#f92672>*</span>self {
-</span></span><span style=display:flex><span>            Cons(head, <span style=color:#66d9ef>ref</span> tail) <span style=color:#f92672>=&gt;</span> {
-</span></span><span style=display:flex><span>                <span style=color:#75715e>// `format!` is similar to `print!`, but returns a heap
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                <span style=color:#75715e>// allocated string instead of printing to the console
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                <span style=color:#75715e>// 递归生成字符串
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                format!(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>, </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span>, head, tail.stringify())
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>            Nil <span style=color:#f92672>=&gt;</span> {
-</span></span><span style=display:flex><span>                format!(<span style=color:#e6db74>&#34;Nil&#34;</span>)
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() {
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 创建一个新的链表(也是空的)
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> list <span style=color:#f92672>=</span> List::new();
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 添加一些元素
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    list <span style=color:#f92672>=</span> list.prepend(<span style=color:#ae81ff>1</span>);
-</span></span><span style=display:flex><span>    list <span style=color:#f92672>=</span> list.prepend(<span style=color:#ae81ff>2</span>);
-</span></span><span style=display:flex><span>    list <span style=color:#f92672>=</span> list.prepend(<span style=color:#ae81ff>3</span>);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// 打印列表的当前状态
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    println!(<span style=color:#e6db74>&#34;linked list has length: </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span>, list.len());
-</span></span><span style=display:flex><span>    println!(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span>, list.stringify());
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/rust>Rust</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
+<span>1分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#ff7b72>use</span><span style=color:#6e7681> </span><span style=color:#ff7b72>crate</span>::List::<span style=color:#ff7b72;font-weight:700>*</span>;<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681></span><span style=color:#ff7b72>enum</span> <span style=color:#f0883e;font-weight:700>List</span><span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// Cons: 链表中包含有值的节点，节点是元组类型，第一个元素是节点的值，第二个元素是指向下一个节点的指针
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>    </span>Cons(<span style=color:#ff7b72>u32</span>,<span style=color:#6e7681> </span>Box<span style=color:#ff7b72;font-weight:700>&lt;</span>List<span style=color:#ff7b72;font-weight:700>&gt;</span>),<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// Nil: 链表中的最后一个节点，用于说明链表的结束
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>    </span>Nil,<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681></span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681></span><span style=color:#8b949e;font-style:italic>// 为枚举实现一些方法
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#ff7b72>impl</span><span style=color:#6e7681> </span>List<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// 创建空的链表
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>    </span><span style=color:#ff7b72>fn</span> <span style=color:#d2a8ff;font-weight:700>new</span>()<span style=color:#6e7681> </span>-&gt; <span style=color:#f0883e;font-weight:700>List</span><span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>        </span><span style=color:#8b949e;font-style:italic>// 因为没有节点，所以直接返回 Nil 节点
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>        </span><span style=color:#8b949e;font-style:italic>// 枚举成员 Nil 的类型是 List
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>        </span>Nil<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// 在老的链表前面新增一个节点，并返回新的链表
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>    </span><span style=color:#ff7b72>fn</span> <span style=color:#d2a8ff;font-weight:700>prepend</span>(self,<span style=color:#6e7681> </span>elem: <span style=color:#ff7b72>u32</span>)<span style=color:#6e7681> </span>-&gt; <span style=color:#f0883e;font-weight:700>List</span><span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>        </span><span style=color:#8b949e;font-style:italic>// `Cons` also has type List
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>        </span>Cons(elem,<span style=color:#6e7681> </span>Box::new(self))<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// 返回链表的长度
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>    </span><span style=color:#ff7b72>fn</span> <span style=color:#d2a8ff;font-weight:700>len</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>self)<span style=color:#6e7681> </span>-&gt; <span style=color:#ff7b72>u32</span> {<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>        </span><span style=color:#8b949e;font-style:italic>// `self` has to be matched, because the behavior of this method
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>        </span><span style=color:#8b949e;font-style:italic>// depends on the variant of `self`
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>        </span><span style=color:#8b949e;font-style:italic>// `self` has type `&amp;List`, and `*self` has type `List`, matching on a
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>        </span><span style=color:#8b949e;font-style:italic>// concrete type `T` is preferred over a match on a reference `&amp;T`
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>        </span><span style=color:#8b949e;font-style:italic>// after Rust 2018 you can use self here and tail (with no ref) below as well,
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>        </span><span style=color:#8b949e;font-style:italic>// rust will infer &amp;s and ref tail. 
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>        </span><span style=color:#8b949e;font-style:italic>// See https://doc.rust-lang.org/edition-guide/rust-2018/ownership-and-lifetimes/default-match-bindings.html
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>        </span><span style=color:#ff7b72>match</span><span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>*</span>self<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>            </span><span style=color:#8b949e;font-style:italic>// Can&#39;t take ownership of the tail, because `self` is borrowed;
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>            </span><span style=color:#8b949e;font-style:italic>// instead take a reference to the tail
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>            </span><span style=color:#8b949e;font-style:italic>// 这里我们不能拿走 tail 的所有权，因此需要获取它的引用
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>            </span>Cons(_,<span style=color:#6e7681> </span><span style=color:#ff7b72>ref</span><span style=color:#6e7681> </span>tail)<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=&gt;</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>1</span><span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>+</span><span style=color:#6e7681> </span>tail.len(),<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>            </span><span style=color:#8b949e;font-style:italic>// 空链表的长度为 0
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>            </span>Nil<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=&gt;</span><span style=color:#6e7681> </span><span style=color:#a5d6ff>0</span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>        </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// 返回链表的字符串表现形式，用于打印输出
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>    </span><span style=color:#ff7b72>fn</span> <span style=color:#d2a8ff;font-weight:700>stringify</span>(<span style=color:#ff7b72;font-weight:700>&amp;</span>self)<span style=color:#6e7681> </span>-&gt; String {<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>        </span><span style=color:#ff7b72>match</span><span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>*</span>self<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>            </span>Cons(head,<span style=color:#6e7681> </span><span style=color:#ff7b72>ref</span><span style=color:#6e7681> </span>tail)<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=&gt;</span><span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>                </span><span style=color:#8b949e;font-style:italic>// `format!` is similar to `print!`, but returns a heap
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>                </span><span style=color:#8b949e;font-style:italic>// allocated string instead of printing to the console
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>                </span><span style=color:#8b949e;font-style:italic>// 递归生成字符串
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>                </span>format!(<span style=color:#a5d6ff>&#34;</span><span style=color:#a5d6ff>{}</span><span style=color:#a5d6ff>, </span><span style=color:#a5d6ff>{}</span><span style=color:#a5d6ff>&#34;</span>,<span style=color:#6e7681> </span>head,<span style=color:#6e7681> </span>tail.stringify())<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>            </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>            </span>Nil<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=&gt;</span><span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>                </span>format!(<span style=color:#a5d6ff>&#34;Nil&#34;</span>)<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>            </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>        </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681></span>}<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681></span><span style=color:#ff7b72>fn</span> <span style=color:#d2a8ff;font-weight:700>main</span>()<span style=color:#6e7681> </span>{<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// 创建一个新的链表(也是空的)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>    </span><span style=color:#ff7b72>let</span><span style=color:#6e7681> </span><span style=color:#ff7b72>mut</span><span style=color:#6e7681> </span>list<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>List::new();<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// 添加一些元素
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>    </span>list<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>list.prepend(<span style=color:#a5d6ff>1</span>);<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>list<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>list.prepend(<span style=color:#a5d6ff>2</span>);<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>list<span style=color:#6e7681> </span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#6e7681> </span>list.prepend(<span style=color:#a5d6ff>3</span>);<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span><span style=color:#8b949e;font-style:italic>// 打印列表的当前状态
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#6e7681>    </span>println!(<span style=color:#a5d6ff>&#34;linked list has length: </span><span style=color:#a5d6ff>{}</span><span style=color:#a5d6ff>&#34;</span>,<span style=color:#6e7681> </span>list.len());<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681>    </span>println!(<span style=color:#a5d6ff>&#34;</span><span style=color:#a5d6ff>{}</span><span style=color:#a5d6ff>&#34;</span>,<span style=color:#6e7681> </span>list.stringify());<span style=color:#6e7681>
+</span></span></span><span style=display:flex><span><span style=color:#6e7681></span>}<span style=color:#6e7681>
+</span></span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/rust>Rust</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=reward-container><div><i class="fa-solid fa-mug-hot"></i>请我喝杯咖啡吧 ヾ(^▽^*)))</div><button>
 赞赏</button><div class=post-reward><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 支付宝">
 <span>支付宝</span></div><div class=post-reward-item><img src=/imgs/img-lazy-loading.gif data-src=/imgs/zs.jpg alt="Colzry - 微信">
 <span>微信</span></div></div></div><div class=post-copyright><img src=/imgs/cc/cc.svg width=75 height=75 align=right alt=共享知识><ul><li class=post-copyright-title><strong>文章标题：</strong>

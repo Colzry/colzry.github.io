@@ -30,64 +30,64 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <i class="fa fa-external-link-alt"></i></a></li><li>acme脚本地址：
 <a href=https://github.com/acmesh-official/acme.sh title=https://github.com/acmesh-official/acme.sh rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://github.com/acmesh-official/acme.sh
 <i class="fa fa-external-link-alt"></i></a></li></ul><h4 id=101更新及安装组件>1.0.1更新及安装组件
-<a class=header-anchor href=#101%e6%9b%b4%e6%96%b0%e5%8f%8a%e5%ae%89%e8%a3%85%e7%bb%84%e4%bb%b6></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>apt update -y <span style=color:#75715e># Debian/Ubuntu 命令</span>
-</span></span><span style=display:flex><span>apt install -y curl <span style=color:#75715e>#Debian/Ubuntu 命令</span>
-</span></span><span style=display:flex><span>apt install -y socat <span style=color:#75715e>#Debian/Ubuntu 命令</span>
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum update -y <span style=color:#75715e>#CentOS 命令</span>
-</span></span><span style=display:flex><span>yum install -y curl <span style=color:#75715e>#CentOS 命令</span>
-</span></span><span style=display:flex><span>yum install -y socat <span style=color:#75715e>#CentOS 命令</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 关闭防火墙</span>
+<a class=header-anchor href=#101%e6%9b%b4%e6%96%b0%e5%8f%8a%e5%ae%89%e8%a3%85%e7%bb%84%e4%bb%b6></a></h4><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>apt update -y <span style=color:#8b949e;font-style:italic># Debian/Ubuntu 命令</span>
+</span></span><span style=display:flex><span>apt install -y curl <span style=color:#8b949e;font-style:italic>#Debian/Ubuntu 命令</span>
+</span></span><span style=display:flex><span>apt install -y socat <span style=color:#8b949e;font-style:italic>#Debian/Ubuntu 命令</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>yum update -y <span style=color:#8b949e;font-style:italic>#CentOS 命令</span>
+</span></span><span style=display:flex><span>yum install -y curl <span style=color:#8b949e;font-style:italic>#CentOS 命令</span>
+</span></span><span style=display:flex><span>yum install -y socat <span style=color:#8b949e;font-style:italic>#CentOS 命令</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 关闭防火墙</span>
 </span></span><span style=display:flex><span>systemctl disable firewalld.service
 </span></span><span style=display:flex><span>systemctl stop firewalld.service
 </span></span></code></pre></div><h4 id=102-安装-acme-脚本>1.0.2 安装 Acme 脚本
-<a class=header-anchor href=#102-%e5%ae%89%e8%a3%85-acme-%e8%84%9a%e6%9c%ac></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>curl https://get.acme.sh | sh
+<a class=header-anchor href=#102-%e5%ae%89%e8%a3%85-acme-%e8%84%9a%e6%9c%ac></a></h4><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>curl https://get.acme.sh | sh
 </span></span></code></pre></div><h4 id=103-80-端口空闲的证书申请方式>1.0.3 80 端口空闲的证书申请方式
-<a class=header-anchor href=#103-80-%e7%ab%af%e5%8f%a3%e7%a9%ba%e9%97%b2%e7%9a%84%e8%af%81%e4%b9%a6%e7%94%b3%e8%af%b7%e6%96%b9%e5%bc%8f></a></h4><p>自行更换代码中的域名、邮箱为你解析的域名及邮箱</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>~/.acme.sh/acme.sh --set-default-ca --server letsencrypt  /zerossl
+<a class=header-anchor href=#103-80-%e7%ab%af%e5%8f%a3%e7%a9%ba%e9%97%b2%e7%9a%84%e8%af%81%e4%b9%a6%e7%94%b3%e8%af%b7%e6%96%b9%e5%bc%8f></a></h4><p>自行更换代码中的域名、邮箱为你解析的域名及邮箱</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>~/.acme.sh/acme.sh --set-default-ca --server letsencrypt  /zerossl
 </span></span><span style=display:flex><span>~/.acme.sh/acme.sh --register-account -m xxxx@xxxx.com
 </span></span><span style=display:flex><span>~/.acme.sh/acme.sh --issue -d mydomain.com --standalone
 </span></span></code></pre></div><h4 id=104-安装证书到指定文件夹选做>1.0.4 安装证书到指定文件夹（选做）
-<a class=header-anchor href=#104-%e5%ae%89%e8%a3%85%e8%af%81%e4%b9%a6%e5%88%b0%e6%8c%87%e5%ae%9a%e6%96%87%e4%bb%b6%e5%a4%b9%e9%80%89%e5%81%9a></a></h4><p>自行更换代码中的域名为你解析的域名</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>~/.acme.sh/acme.sh --installcert -d mydomain.com --key-file /root/private.key --fullchain-file /root/cert.crt
+<a class=header-anchor href=#104-%e5%ae%89%e8%a3%85%e8%af%81%e4%b9%a6%e5%88%b0%e6%8c%87%e5%ae%9a%e6%96%87%e4%bb%b6%e5%a4%b9%e9%80%89%e5%81%9a></a></h4><p>自行更换代码中的域名为你解析的域名</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>~/.acme.sh/acme.sh --installcert -d mydomain.com --key-file /root/private.key --fullchain-file /root/cert.crt
 </span></span></code></pre></div><h3 id=105-安装--升级-x-ui-面板>1.0.5 安装 & 升级 X-ui 面板
-<a class=header-anchor href=#105-%e5%ae%89%e8%a3%85--%e5%8d%87%e7%ba%a7-x-ui-%e9%9d%a2%e6%9d%bf></a></h3><p><strong>安装及升级的一键代码</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>bash &lt;<span style=color:#f92672>(</span>curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh<span style=color:#f92672>)</span>
+<a class=header-anchor href=#105-%e5%ae%89%e8%a3%85--%e5%8d%87%e7%ba%a7-x-ui-%e9%9d%a2%e6%9d%bf></a></h3><p><strong>安装及升级的一键代码</strong></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>bash &lt;<span style=color:#ff7b72;font-weight:700>(</span>curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh<span style=color:#ff7b72;font-weight:700>)</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 2023-8 之后安装方法，可切换xray1.8</span>
-</span></span><span style=display:flex><span>bash &lt;<span style=color:#f92672>(</span>curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/956bf85bbac978d56c0e319c5fac2d6db7df9564/install.sh<span style=color:#f92672>)</span> 0.3.4.4
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 2023-8 之后安装方法，可切换xray1.8</span>
+</span></span><span style=display:flex><span>bash &lt;<span style=color:#ff7b72;font-weight:700>(</span>curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/956bf85bbac978d56c0e319c5fac2d6db7df9564/install.sh<span style=color:#ff7b72;font-weight:700>)</span> 0.3.4.4
 </span></span></code></pre></div><h2 id=20-节点配置及功能讲解>2.0 节点配置及功能讲解
 <a class=header-anchor href=#20-%e8%8a%82%e7%82%b9%e9%85%8d%e7%bd%ae%e5%8f%8a%e5%8a%9f%e8%83%bd%e8%ae%b2%e8%a7%a3></a></h2><h3 id=201-更改面板端口根路径用户名和密码>2.0.1 更改面板端口，根路径，用户名和密码
 <a class=header-anchor href=#201-%e6%9b%b4%e6%94%b9%e9%9d%a2%e6%9d%bf%e7%ab%af%e5%8f%a3%e6%a0%b9%e8%b7%af%e5%be%84%e7%94%a8%e6%88%b7%e5%90%8d%e5%92%8c%e5%af%86%e7%a0%81></a></h3><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663739779381-fe3ebc43-308a-42f2-b2b5-1ecd3c63ebce.png#clientId=u9a0ac102-2889-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=493&amp;id=u222de251&amp;name=image_JNIwOjoe4O.png&amp;originHeight=740&amp;originWidth=1917&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=79217&amp;status=done&amp;style=none&amp;taskId=u36da2efd-ef8e-463b-91e0-17a011870a5&amp;title=&amp;width=1278" alt=image_JNIwOjoe4O.png></p><h3 id=202-更改xray版本到最新选做>2.0.2 更改xray版本到最新(选做)
 <a class=header-anchor href=#202-%e6%9b%b4%e6%94%b9xray%e7%89%88%e6%9c%ac%e5%88%b0%e6%9c%80%e6%96%b0%e9%80%89%e5%81%9a></a></h3><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663739800984-872e7a73-7846-4735-a26d-be91257d1e44.png#clientId=u9a0ac102-2889-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=424&amp;id=u2211eca6&amp;name=image_jZo9uGZIX9.png&amp;originHeight=636&amp;originWidth=1920&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=98275&amp;status=done&amp;style=none&amp;taskId=u02579274-b9a9-47cd-a3da-c583eb839fc&amp;title=&amp;width=1280" alt=image_jZo9uGZIX9.png></p><h3 id=203-创建节点>2.0.3 创建节点
 <a class=header-anchor href=#203-%e5%88%9b%e5%bb%ba%e8%8a%82%e7%82%b9></a></h3><blockquote><p><strong>vmess协议</strong></p></blockquote><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663739833930-7bde5de8-f999-433c-9654-8500036d7750.png#clientId=u9a0ac102-2889-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=496&amp;id=u17193d32&amp;name=image_QN9Y-CXOy3.png&amp;originHeight=744&amp;originWidth=650&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=41707&amp;status=done&amp;style=none&amp;taskId=u63d0aecb-150b-45f9-8b86-f7025f3a26e&amp;title=&amp;width=433.3333333333333" alt=image_QN9Y-CXOy3.png></p><blockquote><p><strong>vless 协议</strong></p></blockquote><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663739847184-030b7cac-c18f-417b-9e81-901553fe028d.png#clientId=u9a0ac102-2889-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=489&amp;id=uab3c41b0&amp;name=image_tvu-3nyYPT.png&amp;originHeight=734&amp;originWidth=648&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=36902&amp;status=done&amp;style=none&amp;taskId=ua319a2eb-b374-4288-814a-5fa10aeb116&amp;title=&amp;width=432" alt=image_tvu-3nyYPT.png></p><blockquote><p><strong>Trojan 协议</strong></p></blockquote><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663739854985-8731969d-0c62-44bb-84ba-3d0e90d930d4.png#clientId=u9a0ac102-2889-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=451&amp;id=ud4a17e2d&amp;name=image_nolrcfjnOv.png&amp;originHeight=676&amp;originWidth=521&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=35192&amp;status=done&amp;style=none&amp;taskId=u871cb2a2-1ae0-49fe-8fa6-682792b23e1&amp;title=&amp;width=347.3333333333333" alt=image_nolrcfjnOv.png></p><h3 id=204-nginx配置>2.0.4 nginx配置
-<a class=header-anchor href=#204-nginx%e9%85%8d%e7%bd%ae></a></h3><blockquote><p><strong>配置此项之前先搭建https静态网站(伪装)</strong></p></blockquote><ul><li>filebrowser (目前推荐安装此服务)</li><li>反代别人的网站</li></ul><ol><li>安装nginx</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>dnf install nginx -y
-</span></span></code></pre></div><ol start=2><li>安装filebrowser</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
+<a class=header-anchor href=#204-nginx%e9%85%8d%e7%bd%ae></a></h3><blockquote><p><strong>配置此项之前先搭建https静态网站(伪装)</strong></p></blockquote><ul><li>filebrowser (目前推荐安装此服务)</li><li>反代别人的网站</li></ul><ol><li>安装nginx</li></ol><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>dnf install nginx -y
+</span></span></code></pre></div><ol start=2><li>安装filebrowser</li></ol><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#创建配置数据库</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#创建配置数据库</span>
 </span></span><span style=display:flex><span>filebrowser -d /etc/filebrowser/filebrowser.db config init
-</span></span><span style=display:flex><span><span style=color:#75715e>#设置监听端口</span>
-</span></span><span style=display:flex><span>filebrowser -d /etc/filebrowser/filebrowser.db config set --port <span style=color:#ae81ff>5210</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#设置语言环境</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#设置监听端口</span>
+</span></span><span style=display:flex><span>filebrowser -d /etc/filebrowser/filebrowser.db config set --port <span style=color:#a5d6ff>5210</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#设置语言环境</span>
 </span></span><span style=display:flex><span>filebrowser -d /etc/filebrowser/filebrowser.db config set --locale zh-cn
-</span></span><span style=display:flex><span><span style=color:#75715e>#添加一个用户</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#添加一个用户</span>
 </span></span><span style=display:flex><span>filebrowser -d /etc/filebrowser/filebrowser.db users add admin password --perm.admin
-</span></span><span style=display:flex><span><span style=color:#75715e>#设置网盘根目录</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#设置网盘根目录</span>
 </span></span><span style=display:flex><span>mkdir -p /data/fs
 </span></span><span style=display:flex><span>filebrowser -d /etc/filebrowser/filebrowser.db config set --root /data/fs
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>vim /lib/systemd/system/filebrowser.service
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>-----------------------------filebrowser.service------------
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Unit<span style=color:#f92672>]</span> 
-</span></span><span style=display:flex><span>Description<span style=color:#f92672>=</span>File Browser
-</span></span><span style=display:flex><span>After<span style=color:#f92672>=</span>network.target
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Unit<span style=color:#ff7b72;font-weight:700>]</span> 
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Description</span><span style=color:#ff7b72;font-weight:700>=</span>File Browser
+</span></span><span style=display:flex><span><span style=color:#79c0ff>After</span><span style=color:#ff7b72;font-weight:700>=</span>network.target
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Service<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>simple
-</span></span><span style=display:flex><span>ExecStart<span style=color:#f92672>=</span>/usr/local/bin/filebrowser -d /etc/filebrowser/filebrowser.db
-</span></span><span style=display:flex><span>Restart<span style=color:#f92672>=</span>on-abnormal
-</span></span><span style=display:flex><span>RestartSec<span style=color:#f92672>=</span>5s
-</span></span><span style=display:flex><span>KillMode<span style=color:#f92672>=</span>mixed
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Service<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Type</span><span style=color:#ff7b72;font-weight:700>=</span>simple
+</span></span><span style=display:flex><span><span style=color:#79c0ff>ExecStart</span><span style=color:#ff7b72;font-weight:700>=</span>/usr/local/bin/filebrowser -d /etc/filebrowser/filebrowser.db
+</span></span><span style=display:flex><span><span style=color:#79c0ff>Restart</span><span style=color:#ff7b72;font-weight:700>=</span>on-abnormal
+</span></span><span style=display:flex><span><span style=color:#79c0ff>RestartSec</span><span style=color:#ff7b72;font-weight:700>=</span>5s
+</span></span><span style=display:flex><span><span style=color:#79c0ff>KillMode</span><span style=color:#ff7b72;font-weight:700>=</span>mixed
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Install<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>WantedBy<span style=color:#f92672>=</span>multi-user.target
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>[</span>Install<span style=color:#ff7b72;font-weight:700>]</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>WantedBy</span><span style=color:#ff7b72;font-weight:700>=</span>multi-user.target
 </span></span><span style=display:flex><span>-----------------------------------------------------------
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>systemctl daemon-reload
@@ -97,12 +97,12 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>用户名：admin
 </span></span><span style=display:flex><span>密码：password
-</span></span></code></pre></div><ol start=3><li>修改nginx配置</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 先删除nginx默认的80端口配置</span>
+</span></span></code></pre></div><ol start=3><li>修改nginx配置</li></ol><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 先删除nginx默认的80端口配置</span>
 </span></span><span style=display:flex><span>vim /etc/nginx/nginx.conf 
 </span></span></code></pre></div><p>确保http中有红框中的内容
-<img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1666335278942-d3347da3-56c6-4b5c-a679-dafd454141e9.png#clientId=u853fc3bb-8de9-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=361&amp;id=ua038a8fb&amp;name=image.png&amp;originHeight=541&amp;originWidth=938&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=48787&amp;status=done&amp;style=none&amp;taskId=u57563ebf-93d6-4d9b-b357-3bfeda3cf43&amp;title=&amp;width=625.3333333333334" alt=image.png></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 再添加新的配置</span>
+<img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1666335278942-d3347da3-56c6-4b5c-a679-dafd454141e9.png#clientId=u853fc3bb-8de9-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=361&amp;id=ua038a8fb&amp;name=image.png&amp;originHeight=541&amp;originWidth=938&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=48787&amp;status=done&amp;style=none&amp;taskId=u57563ebf-93d6-4d9b-b357-3bfeda3cf43&amp;title=&amp;width=625.3333333333334" alt=image.png></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 再添加新的配置</span>
 </span></span><span style=display:flex><span>vim /etc/nginx/conf.d/vps.conf
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>server<span style=color:#f92672>{</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>server<span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>  ssl on;
 </span></span><span style=display:flex><span>  listen 443;
 </span></span><span style=display:flex><span>  server_name fs.gossip.tk;
@@ -112,113 +112,113 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 </span></span><span style=display:flex><span>  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 </span></span><span style=display:flex><span>  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
 </span></span><span style=display:flex><span>  ssl_prefer_server_ciphers on;
-</span></span><span style=display:flex><span>  <span style=color:#75715e># 反向代理filebrowser网站</span>
-</span></span><span style=display:flex><span>  location / <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic># 反向代理filebrowser网站</span>
+</span></span><span style=display:flex><span>  location / <span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>    proxy_pass http://127.0.0.1:5210;
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 设置文件上传大小</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 设置文件上传大小</span>
 </span></span><span style=display:flex><span>    client_max_body_size 100M;
-</span></span><span style=display:flex><span>    proxy_set_header Host $host;
-</span></span><span style=display:flex><span>    proxy_set_header X-Real-IP $remote_addr;
-</span></span><span style=display:flex><span>    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-</span></span><span style=display:flex><span>  <span style=color:#f92672>}</span>
-</span></span><span style=display:flex><span>  <span style=color:#75715e># x-ui面板</span>
-</span></span><span style=display:flex><span>  location ^~ /cocoly <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    proxy_set_header Host <span style=color:#79c0ff>$host</span>;
+</span></span><span style=display:flex><span>    proxy_set_header X-Real-IP <span style=color:#79c0ff>$remote_addr</span>;
+</span></span><span style=display:flex><span>    proxy_set_header X-Forwarded-For <span style=color:#79c0ff>$proxy_add_x_forwarded_for</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic># x-ui面板</span>
+</span></span><span style=display:flex><span>  location ^~ /cocoly <span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>    proxy_pass http://127.0.0.1:10105/cocoly;
-</span></span><span style=display:flex><span>    proxy_set_header Host $host;
-</span></span><span style=display:flex><span>    proxy_set_header X-Real-IP $remote_addr;
-</span></span><span style=display:flex><span>    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-</span></span><span style=display:flex><span>  <span style=color:#f92672>}</span>
-</span></span><span style=display:flex><span>  <span style=color:#75715e># ws协议</span>
-</span></span><span style=display:flex><span>  location /gofic <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    proxy_set_header Host <span style=color:#79c0ff>$host</span>;
+</span></span><span style=display:flex><span>    proxy_set_header X-Real-IP <span style=color:#79c0ff>$remote_addr</span>;
+</span></span><span style=display:flex><span>    proxy_set_header X-Forwarded-For <span style=color:#79c0ff>$proxy_add_x_forwarded_for</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic># ws协议</span>
+</span></span><span style=display:flex><span>  location /gofic <span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>    proxy_redirect off;
 </span></span><span style=display:flex><span>    proxy_pass http://127.0.0.1:31694;
 </span></span><span style=display:flex><span>    proxy_http_version 1.1;
-</span></span><span style=display:flex><span>    proxy_set_header Upgrade $http_upgrade;
-</span></span><span style=display:flex><span>    proxy_set_header Connection <span style=color:#e6db74>&#34;upgrade&#34;</span>;
-</span></span><span style=display:flex><span>    proxy_set_header Host $http_host;
+</span></span><span style=display:flex><span>    proxy_set_header Upgrade <span style=color:#79c0ff>$http_upgrade</span>;
+</span></span><span style=display:flex><span>    proxy_set_header Connection <span style=color:#a5d6ff>&#34;upgrade&#34;</span>;
+</span></span><span style=display:flex><span>    proxy_set_header Host <span style=color:#79c0ff>$http_host</span>;
 </span></span><span style=display:flex><span>    proxy_read_timeout 300s;
-</span></span><span style=display:flex><span>    <span style=color:#75715e># Show realip in v2ray access.log</span>
-</span></span><span style=display:flex><span>    proxy_set_header X-Real-IP $remote_addr;
-</span></span><span style=display:flex><span>    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-</span></span><span style=display:flex><span>  <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Show realip in v2ray access.log</span>
+</span></span><span style=display:flex><span>    proxy_set_header X-Real-IP <span style=color:#79c0ff>$remote_addr</span>;
+</span></span><span style=display:flex><span>    proxy_set_header X-Forwarded-For <span style=color:#79c0ff>$proxy_add_x_forwarded_for</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72;font-weight:700>}</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#75715e># 可以把ws协议统一管理</span>
-</span></span><span style=display:flex><span>  <span style=color:#75715e># include /etc/x-ui/location/*.conf;</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
-</span></span></code></pre></div><blockquote><p><strong>可自行更改x-ui的根路径和端口（下面的内容应填在https配置的地方）</strong></p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>location ^~ 面板url根路径 <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic># 可以把ws协议统一管理</span>
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic># include /etc/x-ui/location/*.conf;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
+</span></span></code></pre></div><blockquote><p><strong>可自行更改x-ui的根路径和端口（下面的内容应填在https配置的地方）</strong></p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>location ^~ 面板url根路径 <span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>    proxy_pass http://127.0.0.1:面板监听端口/面板url根路径;
-</span></span><span style=display:flex><span>    proxy_set_header Host $host;
-</span></span><span style=display:flex><span>    proxy_set_header X-Real-IP $remote_addr;
-</span></span><span style=display:flex><span>    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
-</span></span><span style=display:flex><span>location 节点路径 <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    proxy_set_header Host <span style=color:#79c0ff>$host</span>;
+</span></span><span style=display:flex><span>    proxy_set_header X-Real-IP <span style=color:#79c0ff>$remote_addr</span>;
+</span></span><span style=display:flex><span>    proxy_set_header X-Forwarded-For <span style=color:#79c0ff>$proxy_add_x_forwarded_for</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex><span>location 节点路径 <span style=color:#ff7b72;font-weight:700>{</span>
 </span></span><span style=display:flex><span>        proxy_redirect off;
 </span></span><span style=display:flex><span>        proxy_pass http://127.0.0.1:节点端口;
 </span></span><span style=display:flex><span>        proxy_http_version 1.1;
-</span></span><span style=display:flex><span>        proxy_set_header Upgrade $http_upgrade;
-</span></span><span style=display:flex><span>        proxy_set_header Connection <span style=color:#e6db74>&#34;upgrade&#34;</span>;
-</span></span><span style=display:flex><span>        proxy_set_header Host $http_host;
+</span></span><span style=display:flex><span>        proxy_set_header Upgrade <span style=color:#79c0ff>$http_upgrade</span>;
+</span></span><span style=display:flex><span>        proxy_set_header Connection <span style=color:#a5d6ff>&#34;upgrade&#34;</span>;
+</span></span><span style=display:flex><span>        proxy_set_header Host <span style=color:#79c0ff>$http_host</span>;
 </span></span><span style=display:flex><span>        proxy_read_timeout 300s;
-</span></span><span style=display:flex><span>        <span style=color:#75715e># Show realip in v2ray access.log</span>
-</span></span><span style=display:flex><span>        proxy_set_header X-Real-IP $remote_addr;
-</span></span><span style=display:flex><span>        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic># Show realip in v2ray access.log</span>
+</span></span><span style=display:flex><span>        proxy_set_header X-Real-IP <span style=color:#79c0ff>$remote_addr</span>;
+</span></span><span style=display:flex><span>        proxy_set_header X-Forwarded-For <span style=color:#79c0ff>$proxy_add_x_forwarded_for</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>}</span>
 </span></span></code></pre></div><p>ok之后可以到<strong>cloudflare</strong>开启小云朵代理
 <img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1666333123940-01291a6b-50ca-4587-aa18-eda597bc0592.png#clientId=u47599111-46d4-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=185&amp;id=u35becc8d&amp;name=image.png&amp;originHeight=277&amp;originWidth=810&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=20405&amp;status=done&amp;style=none&amp;taskId=ufc5a682d-cc2e-4fe0-b8f2-cecd90d0b5f&amp;title=&amp;width=540" alt=image.png>
 <strong>将SSL的模式改为完全</strong>，不然访问网站时可能会报** **此页面不能正确地重定向 错误
 <img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1666333105225-4e413502-0169-42ec-9a3f-04b3051f6798.png#clientId=u47599111-46d4-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=478&amp;id=u3ae4d906&amp;name=image.png&amp;originHeight=717&amp;originWidth=1599&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=86025&amp;status=done&amp;style=none&amp;taskId=u3de5db57-e9a1-492f-918d-62038bf9173&amp;title=&amp;width=1066" alt=image.png></p><h3 id=我的配置>我的配置
-<a class=header-anchor href=#%e6%88%91%e7%9a%84%e9%85%8d%e7%bd%ae></a></h3><p><code>vim /etc/nginx/conf.d/vps.conf</code></p><blockquote><p>动态伪装网站配置（搭建了filebrowser）</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-nginx data-lang=nginx><span style=display:flex><span><span style=color:#66d9ef>server{</span>
-</span></span><span style=display:flex><span>  <span style=color:#e6db74>ssl</span> <span style=color:#66d9ef>on</span>;
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>listen</span> <span style=color:#ae81ff>443</span>;
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>server_name</span> <span style=color:#e6db74>fs.gossip.tk</span>;
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ssl_certificate</span> <span style=color:#e6db74>/root/.acme.sh/fs.gossip.tk/fs.gossip.tk.cer</span>;
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ssl_certificate_key</span> <span style=color:#e6db74>/root/.acme.sh/fs.gossip.tk/fs.gossip.tk.key</span>;
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ssl_session_timeout</span> <span style=color:#ae81ff>5m</span>;
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ssl_protocols</span> <span style=color:#e6db74>TLSv1</span> <span style=color:#e6db74>TLSv1.1</span> <span style=color:#e6db74>TLSv1.2</span>;
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ssl_ciphers</span> <span style=color:#e6db74>ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE</span>;
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>ssl_prefer_server_ciphers</span> <span style=color:#66d9ef>on</span>;
-</span></span><span style=display:flex><span>  <span style=color:#75715e># 反向代理filebrowser网站
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>location</span> <span style=color:#e6db74>/</span> {
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_pass</span> <span style=color:#e6db74>http://127.0.0.1:5210</span>;
-</span></span><span style=display:flex><span>    <span style=color:#75715e># 设置文件上传大小
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>client_max_body_size</span> <span style=color:#e6db74>100M</span>;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Host</span> $host;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>X-Real-IP</span> $remote_addr;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>X-Forwarded-For</span> $proxy_add_x_forwarded_for;
+<a class=header-anchor href=#%e6%88%91%e7%9a%84%e9%85%8d%e7%bd%ae></a></h3><p><code>vim /etc/nginx/conf.d/vps.conf</code></p><blockquote><p>动态伪装网站配置（搭建了filebrowser）</p></blockquote><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-nginx data-lang=nginx><span style=display:flex><span><span style=color:#ff7b72>server{</span>
+</span></span><span style=display:flex><span>  <span style=color:#a5d6ff>ssl</span> <span style=color:#79c0ff;font-weight:700>on</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>listen</span> <span style=color:#a5d6ff>443</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>server_name</span> <span style=color:#a5d6ff>fs.gossip.tk</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>ssl_certificate</span> <span style=color:#a5d6ff>/root/.acme.sh/fs.gossip.tk/fs.gossip.tk.cer</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>ssl_certificate_key</span> <span style=color:#a5d6ff>/root/.acme.sh/fs.gossip.tk/fs.gossip.tk.key</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>ssl_session_timeout</span> <span style=color:#a5d6ff>5m</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>ssl_protocols</span> <span style=color:#a5d6ff>TLSv1</span> <span style=color:#a5d6ff>TLSv1.1</span> <span style=color:#a5d6ff>TLSv1.2</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>ssl_ciphers</span> <span style=color:#a5d6ff>ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>ssl_prefer_server_ciphers</span> <span style=color:#79c0ff;font-weight:700>on</span>;
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic># 反向代理filebrowser网站
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>  <span style=color:#ff7b72>location</span> <span style=color:#a5d6ff>/</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_pass</span> <span style=color:#a5d6ff>http://127.0.0.1:5210</span>;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># 设置文件上传大小
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#ff7b72>client_max_body_size</span> <span style=color:#a5d6ff>100M</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_set_header</span> <span style=color:#a5d6ff>Host</span> <span style=color:#79c0ff>$host</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_set_header</span> <span style=color:#a5d6ff>X-Real-IP</span> <span style=color:#79c0ff>$remote_addr</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_set_header</span> <span style=color:#a5d6ff>X-Forwarded-For</span> <span style=color:#79c0ff>$proxy_add_x_forwarded_for</span>;
 </span></span><span style=display:flex><span>  }
-</span></span><span style=display:flex><span>  <span style=color:#75715e># x-ui面板
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>location</span> <span style=color:#e6db74>^~</span> <span style=color:#e6db74>/cocoly</span> {
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_pass</span> <span style=color:#e6db74>http://127.0.0.1:10105/cocoly</span>;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Host</span> $host;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>X-Real-IP</span> $remote_addr;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>X-Forwarded-For</span> $proxy_add_x_forwarded_for;
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic># x-ui面板
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>  <span style=color:#ff7b72>location</span> <span style=color:#a5d6ff>^~</span> <span style=color:#a5d6ff>/cocoly</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_pass</span> <span style=color:#a5d6ff>http://127.0.0.1:10105/cocoly</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_set_header</span> <span style=color:#a5d6ff>Host</span> <span style=color:#79c0ff>$host</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_set_header</span> <span style=color:#a5d6ff>X-Real-IP</span> <span style=color:#79c0ff>$remote_addr</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_set_header</span> <span style=color:#a5d6ff>X-Forwarded-For</span> <span style=color:#79c0ff>$proxy_add_x_forwarded_for</span>;
 </span></span><span style=display:flex><span>  }
-</span></span><span style=display:flex><span>  <span style=color:#75715e># ws协议
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>location</span> <span style=color:#e6db74>/gofic</span> {
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_redirect</span> <span style=color:#66d9ef>off</span>;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_pass</span> <span style=color:#e6db74>http://127.0.0.1:31694</span>;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_http_version</span> <span style=color:#ae81ff>1</span><span style=color:#e6db74>.1</span>;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Upgrade</span> $http_upgrade;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Connection</span> <span style=color:#e6db74>&#34;upgrade&#34;</span>;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>Host</span> $http_host;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_read_timeout</span> <span style=color:#e6db74>300s</span>;
-</span></span><span style=display:flex><span>    <span style=color:#75715e># Show realip in v2ray access.log
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>X-Real-IP</span> $remote_addr;
-</span></span><span style=display:flex><span>    <span style=color:#f92672>proxy_set_header</span> <span style=color:#e6db74>X-Forwarded-For</span> $proxy_add_x_forwarded_for;
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic># ws协议
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>  <span style=color:#ff7b72>location</span> <span style=color:#a5d6ff>/gofic</span> {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_redirect</span> <span style=color:#79c0ff;font-weight:700>off</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_pass</span> <span style=color:#a5d6ff>http://127.0.0.1:31694</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_http_version</span> <span style=color:#a5d6ff>1</span><span style=color:#a5d6ff>.1</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_set_header</span> <span style=color:#a5d6ff>Upgrade</span> <span style=color:#79c0ff>$http_upgrade</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_set_header</span> <span style=color:#a5d6ff>Connection</span> <span style=color:#a5d6ff>&#34;upgrade&#34;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_set_header</span> <span style=color:#a5d6ff>Host</span> <span style=color:#79c0ff>$http_host</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_read_timeout</span> <span style=color:#a5d6ff>300s</span>;
+</span></span><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic># Show realip in v2ray access.log
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    <span style=color:#ff7b72>proxy_set_header</span> <span style=color:#a5d6ff>X-Real-IP</span> <span style=color:#79c0ff>$remote_addr</span>;
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>proxy_set_header</span> <span style=color:#a5d6ff>X-Forwarded-For</span> <span style=color:#79c0ff>$proxy_add_x_forwarded_for</span>;
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#75715e># 可以把ws协议统一管理
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e># include /etc/x-ui/location/*.conf;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>}</span>
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic># 可以把ws协议统一管理
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>  <span style=color:#8b949e;font-style:italic># include /etc/x-ui/location/*.conf;
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span><span style=color:#ff7b72>}</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 停止80端口的使用，证书的申请需要占用80端口
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#server {
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#    listen 80;
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#    server_name pan.gossip.tk;
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#    rewrite ^(.*)$ https://$host$1 permanent;
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#}
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 停止80端口的使用，证书的申请需要占用80端口
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#server {
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#    listen 80;
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#    server_name pan.gossip.tk;
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#    rewrite ^(.*)$ https://$host$1 permanent;
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#}
 </span></span></span></code></pre></div><h3 id=配置完成后重启nginx>配置完成后重启nginx
-<a class=header-anchor href=#%e9%85%8d%e7%bd%ae%e5%ae%8c%e6%88%90%e5%90%8e%e9%87%8d%e5%90%afnginx></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 检查nginx 配置的语法错误</span>
+<a class=header-anchor href=#%e9%85%8d%e7%bd%ae%e5%ae%8c%e6%88%90%e5%90%8e%e9%87%8d%e5%90%afnginx></a></h3><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 检查nginx 配置的语法错误</span>
 </span></span><span style=display:flex><span>nginx -t 
 </span></span><span style=display:flex><span>systemctl restart nginx
 </span></span><span style=display:flex><span>
@@ -235,31 +235,31 @@ E-Mail</a></span></div><div class="cc-license animated" itemprop=license><a href
 <i class="fa fa-external-link-alt"></i></a></li><li>蓝奏云：
 <a href=https://pan.lanzouo.com/b0742hkxe title=https://pan.lanzouo.com/b0742hkxe rel="noopener external nofollow noreferrer" target=_blank class=exturl>https://pan.lanzouo.com/b0742hkxe
 <i class="fa fa-external-link-alt"></i></a></li></ul><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663739974855-70203230-6308-4416-8e6c-d2369ccbb513.png#clientId=u9a0ac102-2889-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=426&amp;id=u1b4ac38c&amp;name=image_1R0FL3p1Pb.png&amp;originHeight=639&amp;originWidth=1223&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=76816&amp;status=done&amp;style=none&amp;taskId=ucccd5b77-fb24-4c0b-912b-1ee7d94cd42&amp;title=&amp;width=815.3333333333334" alt=image_1R0FL3p1Pb.png></p><p><strong>将优选出来的IP填入到之前的域名地址中，注意填写伪装域名</strong></p><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663739898039-1f9da24d-1d72-48c5-8961-7a2a7f7d49e3.png#clientId=u9a0ac102-2889-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=521&amp;id=iOvjv&amp;name=image_CgqlJZ5PO7.png&amp;originHeight=781&amp;originWidth=974&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=50909&amp;status=done&amp;style=none&amp;taskId=ue904fbe0-34b7-42f5-b07f-d02fdb9a4c7&amp;title=&amp;width=649.3333333333334" alt=image_CgqlJZ5PO7.png></p><p><strong>成功之后可对节点进行测速，对比之前的0.4M/s快了很多</strong></p><p><img src=/imgs/img-lazy-loading.gif data-src="https://cdn.nlark.com/yuque/0/2022/png/22223333/1663739987055-46e5e4da-ebb4-4b94-b8ee-3442ae6ad3ca.png#clientId=u9a0ac102-2889-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=211&amp;id=u9baae69e&amp;name=image_ACPWbOtWlN.png&amp;originHeight=317&amp;originWidth=1037&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=31762&amp;status=done&amp;style=none&amp;taskId=u8b4a3210-e3d1-4a28-8e6d-a53e76dd27d&amp;title=&amp;width=691.3333333333334" alt=image_ACPWbOtWlN.png></p><h2 id=30-快速生成ws协议反代脚本>3.0 快速生成WS协议反代脚本
-<a class=header-anchor href=#30-%e5%bf%ab%e9%80%9f%e7%94%9f%e6%88%90ws%e5%8d%8f%e8%ae%ae%e5%8f%8d%e4%bb%a3%e8%84%9a%e6%9c%ac></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span>read -p <span style=color:#e6db74>&#34;请输入WS路径（/xxx）: &#34;</span> ws_path
-</span></span><span style=display:flex><span>read -p <span style=color:#e6db74>&#34;请输入要反代的端口: &#34;</span> inverse_port
+<a class=header-anchor href=#30-%e5%bf%ab%e9%80%9f%e7%94%9f%e6%88%90ws%e5%8d%8f%e8%ae%ae%e5%8f%8d%e4%bb%a3%e8%84%9a%e6%9c%ac></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-weight:700;font-style:italic></span>
+</span></span><span style=display:flex><span>read -p <span style=color:#a5d6ff>&#34;请输入WS路径（/xxx）: &#34;</span> ws_path
+</span></span><span style=display:flex><span>read -p <span style=color:#a5d6ff>&#34;请输入要反代的端口: &#34;</span> inverse_port
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>file_path<span style=color:#f92672>=</span>/etc/x-ui/location
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> ! -d <span style=color:#e6db74>${</span>file_path<span style=color:#e6db74>}</span> <span style=color:#f92672>]</span>;<span style=color:#66d9ef>then</span>
-</span></span><span style=display:flex><span>	mkdir -p <span style=color:#e6db74>${</span>file_path<span style=color:#e6db74>}</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>file_path</span><span style=color:#ff7b72;font-weight:700>=</span>/etc/x-ui/location
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>[</span> ! -d <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>file_path</span><span style=color:#a5d6ff>}</span> <span style=color:#ff7b72;font-weight:700>]</span>;<span style=color:#ff7b72>then</span>
+</span></span><span style=display:flex><span>	mkdir -p <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>file_path</span><span style=color:#a5d6ff>}</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>fi</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>cat &gt; <span style=color:#e6db74>${</span>file_path<span style=color:#e6db74>}${</span>ws_path<span style=color:#e6db74>}</span>.conf <span style=color:#e6db74>&lt;&lt; EOF
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>location ${ws_path} {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>	proxy_redirect off;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>	proxy_pass http://127.0.0.1:${inverse_port};
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>	proxy_http_version 1.1;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>	proxy_set_header Upgrade \$http_upgrade;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>	proxy_set_header Connection &#34;upgrade&#34;;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>	proxy_set_header Host \$http_host;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>	proxy_read_timeout 300s;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>	proxy_set_header X-Real-IP \$remote_addr;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>	proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span>cat &gt; <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>file_path</span><span style=color:#a5d6ff>}${</span><span style=color:#79c0ff>ws_path</span><span style=color:#a5d6ff>}</span>.conf <span style=color:#a5d6ff>&lt;&lt; EOF
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>location ${ws_path} {
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>	proxy_redirect off;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>	proxy_pass http://127.0.0.1:${inverse_port};
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>	proxy_http_version 1.1;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>	proxy_set_header Upgrade \$http_upgrade;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>	proxy_set_header Connection &#34;upgrade&#34;;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>	proxy_set_header Host \$http_host;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>	proxy_read_timeout 300s;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>	proxy_set_header X-Real-IP \$remote_addr;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>	proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>}
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>EOF</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 重启Nginx</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 重启Nginx</span>
 </span></span><span style=display:flex><span>nginx -s reload
 </span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/linux>Linux</a>
 <a href=/tags/%e6%9c%8d%e5%8a%a1%e6%90%ad%e5%bb%ba>服务搭建</a>
