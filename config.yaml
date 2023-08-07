@@ -52,10 +52,10 @@ markup:
     lineAnchors: ""
     lineNoStart: 1
     lineNos: false
-    lineNumbersInTable: false
+    lineNumbersInTable: true
     noClasses: true
     noHl: false
-    style: monokai
+    style: github-dark
     tabWidth: 2
   tableOfContents:
     # 开始/结束标题级别：1-6 (建议从2开始)
